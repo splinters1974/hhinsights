@@ -23,6 +23,21 @@ for (const name of assetNames) {
  const svg = fs.readFileSync(file, 'utf8');
  if (!svg.startsWith('<svg') || !svg.includes('base64,') || svg.includes('<script')) errors.push('Invalid staged SVG: ' + name);
 }
+// Verify the native raster files actually used by the live pages and social cards.
+const photoNames = new Set(['estate-town','town-street','contact-photo']);
+for (const name of assetNames) {
+ const rel = name === 'og-image' ? 'images/og-image.png'
+   : photoNames.has(name) ? 'images/photos/'+name+'.jpg'
+   : 'images/guides/'+name+'.jpg';
+ const target = path.join(root, rel);
+ if (!fs.existsSync(target)) {errors.push('Missing native raster: '+rel); continue;}
+ const data = fs.readFileSync(target);
+ const isPng = name === 'og-image';
+ const valid = isPng
+   ? data.subarray(0,8).equals(Buffer.from([137,80,78,71,13,10,26,10]))
+   : data[0] === 0xff && data[1] === 0xd8;
+ if (!valid || data.length < 1000) errors.push('Invalid native image: '+rel);
+}
 for (const name of htmlFiles) {
  const full = path.join(root, name);
  const text = fs.readFileSync(full, 'utf8');
