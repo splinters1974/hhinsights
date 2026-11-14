@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example electricity analysis report | Half Hourly Insights</title>
+<meta name="description" content="Explore a free, fictional half-hourly electricity report for a small office. See the findings, evidence, and what to check next before uploading your own data.">
+<link rel="canonical" href="https://splinters1974.github.io/hhinsights/site/sample-report.html">
+<meta property="og:type" content="article"><meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://splinters1974.github.io/hhinsights/site/sample-report.html">
+<meta property="og:title" content="Explore a sample electricity analysis | Half Hourly Insights">
+<meta property="og:description" content="See what half-hourly electricity data can reveal, with a fictional UK office example.">
+<meta property="og:image" content="https://splinters1974.github.io/hhinsights/site/images/guides/example-office-analysis.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg"><link rel="stylesheet" href="css/site.css">
+<style>
+.sample-inner{max-width:1100px;margin:auto;padding:40px 24px 74px}.sample-notice{background:#e9f6f1;border-left:5px solid #167956;padding:18px 22px;margin:24px 0;color:#163d36}.sample-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:16px;margin:28px 0}.sample-stat,.sample-finding{border:1px solid #d5e1e6;border-radius:12px;padding:22px;background:white}.sample-stat strong{display:block;color:#063c55;font-size:clamp(1.7rem,4vw,2.4rem)}.sample-stat span{display:block}.sample-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:20px;margin:24px 0 40px}.sample-finding h3{font-size:1.2rem;color:#063c55;margin:0 0 12px}.sample-finding p{margin:12px 0}.sample-finding .finding-value{font-size:1.7rem;font-weight:800;color:#0065a4}.sample-cta{display:flex;gap:16px;flex-wrap:wrap;margin:26px 0}.sample-cta a{min-width:220px;text-align:center}.sample-inner h2{margin-top:32px}.sample-caption{font-size:.92rem;color:#4e606b}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav class="site-nav" id="siteNav" aria-label="Main"><div class="nav-inner"><a href="index.html" class="nav-logo" aria-label="Half Hourly Insights home"><span class="nav-logo-name">Half Hourly Insights</span></a><ul class="nav-links" id="navLinks"><li><a href="index.html">Home</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="guides.html">Guides</a></li><li><a href="sectors.html">Sectors</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li><li><a href="analyser/" class="nav-cta">Open the analyser</a></li></ul><button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button></div></nav>
+<main id="main">
+<section class="page-hero"><div class="page-hero-inner"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> / <span aria-current="page">Sample report</span></nav><span class="page-hero-kicker">Example results</span><h1 class="page-hero-title">See what your electricity data could reveal</h1><p class="page-hero-lead">Explore an example report before finding your own half-hourly meter file.</p></div></section>
+<div class="sample-inner">
+<div class="sample-notice"><strong>Demonstration only.</strong> This is a made-up office and fictional meter data, analysed using the site's example method. The figures illustrate the process; they are not a customer result or guaranteed saving.</div>
+<h2>One office, one year of readings</h2><p>This small office is assumed to open on weekdays from 07:00 to 19:00. Illustrative electricity prices are 25p/kWh. The sample contains 363 days of valid readings.</p>
+<div class="sample-stats">
+<div class="sample-stat"><strong>79,191 kWh</strong><span>annual electricity use</span></div>
+<div class="sample-stat"><strong>33%</strong><span>used while the office was shut</span></div>
+<div class="sample-stat"><strong>2.6 kW</strong><span>estimated base load</span></div>
+<div class="sample-stat"><strong>£2,776</strong><span>closed-hours excess energy cost</span></div>
+</div>
+<h2>Three findings worth investigating</h2>
+<div class="sample-grid">
+<article class="sample-finding"><h3>1. Electricity above base load while closed</h3><div class="finding-value">£2,776 a year</div><p><strong>Evidence:</strong> 11,035 kWh above base load during closed hours, priced at the illustrative 25p/kWh.</p><p><strong>What to check:</strong> confirm Saturday use and examine plant and lighting schedules.</p><p class="sample-caption">High impact. Estimated cost of the pattern, not a promised saving.</p></article>
+<article class="sample-finding"><h3>2. Bank holidays look like working days</h3><div class="finding-value">7 days flagged</div><p><strong>Evidence:</strong> seven bank holidays used at least 80% of typical weekday energy, including Christmas Day and Boxing Day.</p><p><strong>What to check:</strong> confirm whether the office was open; check heating, ventilation and holiday schedules.</p><p class="sample-caption">Medium impact. May overlap with other closed-hours findings.</p></article>
+<article class="sample-finding"><h3>3. Early starts and late finishes</h3><div class="finding-value">£629 a year</div><p><strong>Evidence:</strong> demand rose before opening and continued after closing.</p><p><strong>What to check:</strong> review optimum-start and time-clock settings.</p><p class="sample-caption">Low impact. Do not add this to the £2,776: the categories may overlap.</p></article>
+</div>
+<h2>How to interpret the results</h2><p>Whole-building data tells you <em>when</em> electricity is used, not which item of equipment caused it. Opening hours need confirming. Any savings estimate depends on changes actually made, and a before-and-after comparison should account for weather, occupancy and operating hours.</p>
+<div class="sample-cta"><a class="btn btn-gold btn-lg" href="analyser/">Analyse my own data</a><a class="btn btn-outline btn-lg" href="samples/example-office.csv" download>Download the example CSV</a></div>
+<p>For the full calculation and evidence, read the <a href="example-office-analysis.html">worked office example</a> and <a href="how-it-works.html">how the analyser works</a>.</p>
+</div></main>
+<footer class="site-footer"><div class="footer-inner"><p class="footer-desc">Half Hourly Insights is provided by Kinetic Energy Consulting. All figures in this example are illustrative.</p><p><a href="privacy.html">Privacy</a> | <a href="contact.html">Contact</a> | <a href="guides.html">Guides</a></p></div></footer>
+<script>document.getElementById('navToggle').addEventListener('click',function(e){var open=document.getElementById('siteNav').classList.toggle('nav-mobile-open');e.currentTarget.setAttribute('aria-expanded',open?'true':'false');e.currentTarget.setAttribute('aria-label',open?'Close menu':'Open menu');});</script>
+</body></html>
