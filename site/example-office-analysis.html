@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Worked example: a year of half-hourly data for one office</title>
   <meta name="description" content="One office, one year of half-hourly data: use while closed, base load, peaks against supply capacity, and what to do next.">
-  <link rel="canonical" href="https://halfhourlyinsights.netlify.app/example-office-analysis.html">
-  <meta property="og:url" content="https://halfhourlyinsights.netlify.app/example-office-analysis.html">
+  <link rel="canonical" href="https://halfhourlyinsights.netlify.app/example-office-analysis">
+  <meta property="og:url" content="https://halfhourlyinsights.netlify.app/example-office-analysis">
   <meta property="og:type" content="article">
   <meta property="og:locale" content="en_GB">
   <meta property="og:title" content="Worked example: a year of half-hourly data for one office">
@@ -18,7 +18,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="preload" href="fonts/schibsted-grotesk-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/site.css?v=cd6dce2a">
+  <link rel="stylesheet" href="css/site.css?v=77fbdbaf">
   <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -67,15 +67,26 @@
      "@type": "ListItem",
      "position": 2,
      "name": "Guides",
-     "item": "https://halfhourlyinsights.netlify.app/guides.html"
+     "item": "https://halfhourlyinsights.netlify.app/guides"
     },
     {
      "@type": "ListItem",
      "position": 3,
      "name": "Worked example",
-     "item": "https://halfhourlyinsights.netlify.app/example-office-analysis.html"
+     "item": "https://halfhourlyinsights.netlify.app/example-office-analysis"
     }
    ]
+  },
+  {
+   "@type": "Person",
+   "@id": "https://halfhourlyinsights.netlify.app/about#paul-johnston",
+   "name": "Paul Johnston",
+   "jobTitle": "Managing Director",
+   "worksFor": {
+    "@id": "https://www.kinetic-energy.co.uk/#organization"
+   },
+   "url": "https://halfhourlyinsights.netlify.app/about",
+   "image": "https://halfhourlyinsights.netlify.app/images/people/paul-johnston.jpg"
   },
   {
    "@type": "Article",
@@ -86,7 +97,7 @@
    "datePublished": "2026-11-14",
    "dateModified": "2026-11-14",
    "author": {
-    "@id": "https://www.kinetic-energy.co.uk/#organization"
+    "@id": "https://halfhourlyinsights.netlify.app/about#paul-johnston"
    },
    "publisher": {
     "@id": "https://www.kinetic-energy.co.uk/#organization"
@@ -94,7 +105,7 @@
    "isPartOf": {
     "@id": "https://halfhourlyinsights.netlify.app/#website"
    },
-   "mainEntityOfPage": "https://halfhourlyinsights.netlify.app/example-office-analysis.html"
+   "mainEntityOfPage": "https://halfhourlyinsights.netlify.app/example-office-analysis"
   },
   {
    "@type": "FAQPage",
@@ -133,12 +144,12 @@
 <a class="skip" href="#main">Skip to content</a>
 <nav class="site-nav" id="siteNav" aria-label="Main">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo" aria-label="Half Hourly Insights home">
+    <a href="./" class="nav-logo" aria-label="Half Hourly Insights home">
       <svg viewBox="0 0 34 34" aria-hidden="true"><rect x="3" y="15" width="5" height="10" rx="1" fill="#0065A4"/><rect x="10" y="9" width="5" height="16" rx="1" fill="#0065A4"/><rect x="17" y="3" width="5" height="22" rx="1" fill="#F8C05D"/><rect x="24" y="12" width="5" height="13" rx="1" fill="#0065A4"/><rect x="1" y="26" width="32" height="3" rx="1.5" fill="#063C55"/></svg>
       <span class="nav-logo-name">Half Hourly Insights</span>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="guides.html" class="active" aria-current="page">Guides</a></li><li><a href="sectors.html">Sectors</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li>
+      <li><a href="./">Home</a></li><li><a href="how-it-works">How it works</a></li><li><a href="guides" class="active" aria-current="page">Guides</a></li><li><a href="sectors">Sectors</a></li><li><a href="faq">FAQ</a></li><li><a href="contact">Contact</a></li>
       <li><a href="analyser/" class="nav-cta">Open the analyser</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
@@ -149,14 +160,14 @@
 <main id="main">
 <section class="page-hero">
   <div class="page-hero-inner">
-    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> <span aria-hidden="true">/</span> <a href="guides.html">Guides</a> <span aria-hidden="true">/</span> <span aria-current="page">Worked example</span></nav>
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="./">Home</a> <span aria-hidden="true">/</span> <a href="guides">Guides</a> <span aria-hidden="true">/</span> <span aria-current="page">Worked example</span></nav>
     <span class="page-hero-kicker">Guide</span>
     <h1 class="page-hero-title">Worked example: one office, one year</h1>
     <p class="page-hero-lead">We ran a year of half-hourly data from a small office through the analyser. The office and its data are made up, but every figure below is exactly what the analyser reports.</p>
   </div>
 </section><div class="guide">
   <article class="guide-main prose">
-<p class="byline">Last updated <time datetime="2026-11-14">14 November 2026</time></p>
+<p class="byline">By <a href="about">Paul Johnston</a>, Managing Director, Kinetic Energy Consulting <span aria-hidden="true">·</span> Last updated <time datetime="2026-11-14">14 November 2026</time></p>
 <p class="answer">This office used a third of its electricity (33%) while the building was closed. Leaving aside what always has to run, that closed-hours use costs about £2,800 a year at 25p/kWh, and almost half of it happens on Saturdays.</p>
 
 <div class="note"><strong>Made-up data.</strong> We invented this office so we could show the method without using anyone's real data. <a href="samples/example-office.csv" download>Download the file</a> and load it into the <a href="analyser/">analyser</a> to follow along.</div>
@@ -190,14 +201,14 @@
 <p>Demand rises before opening and stays high after closing. That's about 1,250 kWh a year above base load in the two hours before opening, and the same again in the two hours after closing. Timers and heating start-up settings are the usual cause, and they're quick to adjust.</p>
 
 <h2 id="capacity">Supply capacity</h2>
-<p>Assuming an agreed supply capacity of 40 kVA and a power factor of 0.95, the busiest half hour reaches 27 kVA, which is 67% of capacity. Keeping a 10% safety margin, the site could take about 9 kW of extra constant load. That's enough for modest EV charging, such as one 7 kW charger, but nowhere near enough for a heat pump to heat the whole building. See <a href="supply-capacity.html">supply capacity and kVA</a>.</p>
+<p>Assuming an agreed supply capacity of 40 kVA and a power factor of 0.95, the busiest half hour reaches 27 kVA, which is 67% of capacity. Keeping a 10% safety margin, the site could take about 9 kW of extra constant load. That's enough for modest EV charging, such as one 7 kW charger, but nowhere near enough for a heat pump to heat the whole building. See <a href="supply-capacity">supply capacity and kVA</a>.</p>
 
 <h2 id="next-steps">What we'd do next</h2>
-<ol><li><strong>Confirm the opening hours</strong>, including Saturdays. Every closed-hours figure depends on them.</li><li><strong>Check the heating and ventilation schedules</strong> for bank holidays and start times.</li><li><strong>Walk round the building on a Saturday</strong> to see what's switched on and who is using it.</li><li><strong>Look at the base load.</strong> 2.6 kW running all year is about 22,800 kWh, roughly £5,700 at 25p/kWh. See <a href="base-load.html">how to reduce it</a>.</li></ol>
+<ol><li><strong>Confirm the opening hours</strong>, including Saturdays. Every closed-hours figure depends on them.</li><li><strong>Check the heating and ventilation schedules</strong> for bank holidays and start times.</li><li><strong>Walk round the building on a Saturday</strong> to see what's switched on and who is using it.</li><li><strong>Look at the base load.</strong> 2.6 kW running all year is about 22,800 kWh, roughly £5,700 at 25p/kWh. See <a href="base-load">how to reduce it</a>.</li></ol>
 <p>57% of this office's electricity is used during the working day, which is when solar panels generate. Our <a href="https://uksolarcalculator.co.uk/">UK Solar Calculator</a> estimates what a roof system would save.</p>
 <h2 id="questions">Questions people ask</h2>
 <div class="faq"><details><summary>Is this real data?</summary><div class="faq-a"><p>No. We made up the office and its readings so we could show the method without using anyone's real data. Every figure is what the analyser reports for the example file.</p></div></details><details><summary>How long does an analysis like this take?</summary><div class="faq-a"><p>Loading a year of data takes about a minute. Confirming the opening hours and reading the findings takes longer, and matters more.</p></div></details><details><summary>Are these figures savings?</summary><div class="faq-a"><p>No. They're what each pattern costs now at 25p/kWh. Any saving depends on what you change.</p></div></details></div><h2 id="next">Read next</h2>
-<div class="link-grid"><a class="link-card has-thumb" href="out-of-hours-electricity.html"><div class="card-thumb"><img src="images/guides/out-of-hours-electricity.jpg" srcset="images/guides/out-of-hours-electricity-600.jpg 600w, images/guides/out-of-hours-electricity.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Out-of-hours use</h3><p>How to find and reduce use while the building is closed.</p><span class="more">Read the guide</span></a><a class="link-card has-thumb" href="base-load.html"><div class="card-thumb"><img src="images/guides/base-load.jpg" srcset="images/guides/base-load-600.jpg 600w, images/guides/base-load.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Base load</h3><p>What always runs, and why it adds up.</p><span class="more">Read the guide</span></a><a class="link-card has-thumb" href="get-your-data.html"><div class="card-thumb"><img src="images/guides/get-your-data.jpg" srcset="images/guides/get-your-data-600.jpg 600w, images/guides/get-your-data.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Get your own data</h3><p>What to ask your supplier for.</p><span class="more">Read the guide</span></a></div>
+<div class="link-grid"><a class="link-card has-thumb" href="out-of-hours-electricity"><div class="card-thumb"><img src="images/guides/out-of-hours-electricity.jpg" srcset="images/guides/out-of-hours-electricity-600.jpg 600w, images/guides/out-of-hours-electricity.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Out-of-hours use</h3><p>How to find and reduce use while the building is closed.</p><span class="more">Read the guide</span></a><a class="link-card has-thumb" href="base-load"><div class="card-thumb"><img src="images/guides/base-load.jpg" srcset="images/guides/base-load-600.jpg 600w, images/guides/base-load.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Base load</h3><p>What always runs, and why it adds up.</p><span class="more">Read the guide</span></a><a class="link-card has-thumb" href="get-your-data"><div class="card-thumb"><img src="images/guides/get-your-data.jpg" srcset="images/guides/get-your-data-600.jpg 600w, images/guides/get-your-data.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Get your own data</h3><p>What to ask your supplier for.</p><span class="more">Read the guide</span></a></div>
   </article>
   <aside class="guide-side">
     <nav class="toc" aria-label="On this page"><div class="toc-title">On this page</div><ol><li><a href="#headline">The headline figures</a></li><li><a href="#split">Where the electricity goes</a></li><li><a href="#findings">What the analyser found</a></li><li><a href="#capacity">Supply capacity</a></li><li><a href="#next-steps">What we'd do next</a></li><li><a href="#questions">Questions people ask</a></li></ol></nav>
@@ -208,7 +219,7 @@
     <h2 class="cta-strip-title">Try it on your own data</h2>
     <div class="cta-strip-btns">
       <a href="analyser/" class="btn btn-gold btn-lg">Open the analyser</a>
-      <a href="contact.html" class="btn btn-outline-white btn-lg">Talk to an expert</a>
+      <a href="contact" class="btn btn-outline-white btn-lg">Talk to an expert</a>
     </div>
     <p class="cta-strip-lead">It's free, there's no sign-up, and your file stays on your computer.</p>
   </div>
@@ -224,15 +235,15 @@
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Analyser</div>
-        <ul><li><a href="analyser/">Open the analyser</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="example-office-analysis.html">Worked example</a></li><li><a href="sample-report.html">Sample report</a></li><li><a href="samples/example-office.csv" download>Example data file</a></li><li><a href="downloads/half-hourly-insights-user-guide.pdf" download>User guide (PDF)</a></li><li><a href="faq.html">FAQ</a></li></ul>
+        <ul><li><a href="analyser/">Open the analyser</a></li><li><a href="how-it-works">How it works</a></li><li><a href="example-office-analysis">Worked example</a></li><li><a href="sample-report">Sample report</a></li><li><a href="samples/example-office.csv" download>Example data file</a></li><li><a href="downloads/half-hourly-insights-user-guide.pdf" download>User guide (PDF)</a></li><li><a href="faq">FAQ</a></li></ul>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Guides</div>
-        <ul><li><a href="get-your-data.html">Getting your half-hourly data</a></li><li><a href="out-of-hours-electricity.html">Out-of-hours electricity use</a></li><li><a href="base-load.html">Base load</a></li><li><a href="supply-capacity.html">Supply capacity and kVA</a></li><li><a href="reading-a-heatmap.html">Reading a heatmap</a></li><li><a href="glossary.html">Glossary</a></li><li><a href="guides.html">All guides</a></li></ul>
+        <ul><li><a href="get-your-data">Getting your half-hourly data</a></li><li><a href="out-of-hours-electricity">Out-of-hours electricity use</a></li><li><a href="base-load">Base load</a></li><li><a href="supply-capacity">Supply capacity and kVA</a></li><li><a href="reading-a-heatmap">Reading a heatmap</a></li><li><a href="glossary">Glossary</a></li><li><a href="guides">All guides</a></li></ul>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">About</div>
-        <ul><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="https://uksolarcalculator.co.uk/">UK Solar Calculator</a>, our sister site</li></ul>
+        <ul><li><a href="about">About us</a></li><li><a href="contact">Contact</a></li><li><a href="privacy">Privacy</a></li><li><a href="https://uksolarcalculator.co.uk/">UK Solar Calculator</a>, our sister site</li></ul>
       </div>
     </div>
     <div class="footer-bottom">

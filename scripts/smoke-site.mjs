@@ -17,14 +17,15 @@ const { chromium } = require('playwright');
 const PORT = 8765;
 const base = `http://127.0.0.1:${PORT}/`;
 const out = 'site-screenshots';
-const pages = ['index.html', 'guides.html', 'sectors.html', 'sample-report.html', 'contact.html', 'how-it-works.html', 'analyser/'];
+// Clean addresses, as the live host serves them (/guides serves guides.html).
+const pages = ['', 'guides', 'sectors', 'sample-report', 'contact', 'how-it-works', 'about', 'business-electricity-price', 'analyser/'];
 const views = [{ label: 'desktop', width: 1366, height: 900 }, { label: 'mobile', width: 390, height: 844, mobile: true }];
 const errors = [];
 const passed = [];
 const check = (ok, msg) => (ok ? passed.push(msg) : errors.push(msg));
 
 fs.mkdirSync(out, { recursive: true });
-const server = spawn('python3', ['-m', 'http.server', String(PORT), '--bind', '127.0.0.1', '--directory', 'site'], { stdio: 'ignore' });
+const server = spawn('python3', ['scripts/serve.py', String(PORT)], { stdio: 'ignore' });
 
 async function waitForServer() {
   for (let i = 0; i < 50; i++) {
@@ -69,7 +70,7 @@ try {
     page.on('request', (r) => { if (!r.url().startsWith(base) && !r.url().startsWith('data:') && !r.url().startsWith('blob:')) external.push(r.url()); });
 
     for (const route of pages) {
-      const tag = `${view.label} ${route}`;
+      const tag = `${view.label} /${route}`;
       pageErrors.length = 0; external.length = 0;
       const resp = await page.goto(base + route, { waitUntil: 'load', timeout: 60000 });
       check(resp?.status() === 200, `${tag}: loads (HTTP ${resp?.status()})`);
@@ -91,29 +92,29 @@ try {
       check(pageErrors.length === 0, `${tag}: no script errors${pageErrors.length ? ': ' + pageErrors.join(' | ') : ''}`);
       check(external.length === 0, `${tag}: no requests to other sites${external.length ? ': ' + external.join(', ') : ''}`);
 
-      if (route === 'index.html') {
+      if (route === '') {
         check(/business/i.test(await page.locator('h1').innerText()), `${tag}: headline names the business audience`);
         check(await page.locator('.hero-audience').isVisible(), `${tag}: audience label visible`);
-        check(await page.locator('a[href="sample-report.html"]').count() > 0, `${tag}: links to the sample report`);
+        check(await page.locator('a[href="sample-report"]').count() > 0, `${tag}: links to the sample report`);
         if (view.mobile) {
           const toggle = page.locator('#navToggle');
           await toggle.click();
-          check(await toggle.getAttribute('aria-expanded') === 'true' && await page.locator('#navLinks a[href="guides.html"]').isVisible(), `${tag}: mobile menu opens`);
+          check(await toggle.getAttribute('aria-expanded') === 'true' && await page.locator('#navLinks a[href="guides"]').isVisible(), `${tag}: mobile menu opens`);
           await toggle.click();
         }
       }
-      if (route === 'sample-report.html') {
+      if (route === 'sample-report') {
         const text = await page.locator('main').innerText();
         check(/Made-up example/.test(text), `${tag}: labelled as made-up`);
         check(/not a promised saving/.test(text) && /Already included in the £2,776/.test(text), `${tag}: separates cost from saving and avoids double counting`);
       }
-      if (route === 'contact.html') {
+      if (route === 'contact') {
         check(await page.locator('form#enquiry[action^="https://formspree.io/f/"]').count() === 1, `${tag}: enquiry form posts to Formspree`);
         check(await page.locator('form#enquiry a[href^="mailto:"]').count() > 0, `${tag}: email fallback beside the form`);
         for (const id of ['name', 'email', 'message']) check(await page.locator(`label[for="${id}"]`).count() === 1, `${tag}: #${id} has a label`);
       }
 
-      const shot = `${out}/${view.label}-${route === 'analyser/' ? 'analyser' : route.replace('.html', '')}.png`;
+      const shot = `${out}/${view.label}-${route === 'analyser/' ? 'analyser' : route || 'index'}.png`;
       await page.screenshot({ path: shot });
     }
 
@@ -122,7 +123,7 @@ try {
     for (const [status, body, expectSuccess] of [[200, { ok: true }, true], [422, { errors: [{ message: 'Please enter a valid email.' }] }, false], [0, null, false]]) {
       const p = await context.newPage();
       await p.route('https://formspree.io/**', (r) => (status ? r.fulfill({ status, contentType: 'application/json', body: JSON.stringify(body) }) : r.abort()));
-      await p.goto(base + 'contact.html');
+      await p.goto(base + 'contact');
       await p.fill('#name', 'Smoke test'); await p.fill('#email', 'test@example.com'); await p.fill('#message', 'Automated check');
       await p.check('input[name=consent]');
       await p.click('form#enquiry button[type=submit]');

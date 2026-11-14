@@ -154,7 +154,7 @@ PAGES = []
 _src, n = src('qep', 'ro', 'ro_buyout', 'emrs', 'cm', 'bsuos', 'tnuos', 'ccl', 'vat', 'tcr', 'cfd', 'rab', 'fit')
 PAGES.append(guide_page(
   'business-electricity-price.html',
-  "What's in a business electricity price? A guide to the cost components",
+  "What's in a business electricity price?",
   "What's in a business electricity price",
   'A business electricity price is much more than the cost of the energy. Here are the five parts, what each pays for, and a worked example with 2026/27 rates.',
   'The components of a UK business electricity price: wholesale energy, network charges, policy costs, taxes and supplier costs, with a worked 2026/27 example.',
@@ -261,7 +261,7 @@ PAGES.append(guide_page(
 _src, n = src('qep', 'wmi', 'bsuos_nov')
 PAGES.append(guide_page(
   'electricity-prices-ten-years.html',
-  'UK business electricity prices over the last ten years, 2015 to 2026',
+  'UK business electricity prices, 2015 to 2026',
   'Ten years of business electricity prices',
   'How much UK businesses have paid for electricity since 2015, what happened to wholesale prices in the energy crisis, and what drives prices now.',
   'UK business electricity prices from 2015 to 2026 by size of user (government statistics), wholesale price history and what drives it.',
@@ -307,10 +307,10 @@ OUTLOOK = [  # charge, 2026/27, next published figure, status, source keys
 ]
 PAGES.append(guide_page(
   'non-energy-costs-outlook.html',
-  'Where are non-energy electricity costs heading? 2027 and beyond',
+  'Where non-energy electricity costs are heading from 2027',
   'Where non-energy costs are heading',
   'Published forecasts and decisions for each non-energy charge on business electricity bills: what is confirmed, what is draft, and what is still undecided.',
-  'Outlook for UK non-energy electricity costs from 2027: BSUoS draft tariffs, Renewables Obligation level, Climate Change Levy, CfD, Capacity Market, network price controls and manufacturers\' relief.',
+  'Published forecasts for UK non-energy electricity costs from 2027: balancing charges, levies, Climate Change Levy, network price controls and manufacturers\' relief.',
   f'''
 <p class="answer">Published figures point to higher balancing charges from April 2027: NESO's draft tariff is £21.67/MWh for April to September 2027, up from £13.74/MWh, driven by constraint costs and wholesale prices. The Climate Change Levy rises to 0.827p/kWh and is then frozen, while the Renewables Obligation falls to 0.369 certificates per MWh. These are published forecasts and decisions from the bodies that set the charges, not our predictions.{ref(n['bsuos28'], n['ccl'], n['ro2728'])}</p>
 <div class="note"><strong>Checked {CHECKED}.</strong> Draft figures change. Each line says whether it is confirmed, draft or a proposal, and links to the source.</div>

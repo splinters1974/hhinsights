@@ -467,8 +467,11 @@ for file, short, h1, lead, normal, checks, calendar_tip, faqs in SECTOR_DATA:
 <h2 id="calendar">Setting the opening hours</h2>
 <p>{calendar_tip}</p>
 <p>Use these as a starting point. Each site is compared with its own calendar, so getting the hours right matters more than the type of building.</p>
+
+<h2 id="compare">How does your building compare?</h2>
+<p>To see whether a site's total use is high for its type, compare its kWh per square metre with the government survey ranges in our <a href="electricity-benchmarks.html">electricity benchmarks by sector</a>. Then use the half-hourly pattern to find out why. Questions about the analyser itself are answered in the <a href="faq.html">FAQ</a>.</p>
 ''',
-      [('check', 'What to check first'), ('calendar', 'Setting the opening hours')],
+      [('check', 'What to check first'), ('calendar', 'Setting the opening hours'), ('compare', 'How does your building compare?')],
       faqs,
       [('out-of-hours-electricity.html', 'Out-of-hours use', 'How to find and reduce use while closed.'),
        ('base-load.html', 'Base load', 'What always runs.'),
@@ -509,7 +512,7 @@ GUIDE_LIST = [
 ]
 NAV_PARENT['get-your-data.html'] = 'guides.html'
 PAGES.append(Page(
-  'guides.html', 'Guides to half-hourly electricity data | Half Hourly Insights',
+  'guides.html', 'Guides to half-hourly electricity data',
   'Simple guides to half-hourly electricity data: getting it, out-of-hours use, base load, supply capacity and worked examples.',
   page_hero('Guides', 'Guides to half-hourly data', 'Clear answers to the questions people ask when they first look at half-hourly electricity data.',
             crumbs=[HOME, GUIDES], image='guides') +
