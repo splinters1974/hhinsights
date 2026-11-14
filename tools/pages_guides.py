@@ -11,6 +11,8 @@ Figures in the worked examples come from the analyser run on
 site/samples/example-office.csv and example-school.csv (made-up data).
 Re-check them if those files or the engine change.
 """
+import re
+
 from kit import (NAV_PARENT, SOLAR_URL, Page, cta, link_card, faq_section, guide, page_hero, photo, related, sources, strip_tags, toc,
                  updated_line)
 
@@ -363,6 +365,17 @@ PAGES.append(guide_page(
 
 # ── GLOSSARY ────────────────────────────────────────────────────────────
 GLOSSARY = [
+  ('Balancing Services Use of System (BSUoS)', 'A charge that covers the National Energy System Operator\'s cost of balancing the electricity system. A fixed rate per MWh, set in advance for six-month periods. <a href="non-energy-charges.html#bsuos">More</a>.'),
+  ('Capacity Market (CM)', 'A scheme that pays providers to keep enough reliable capacity available. Businesses pay for it according to their electricity use between 4pm and 7pm on working days from November to February. <a href="non-energy-charges.html#cm">More</a>.'),
+  ('Climate Change Levy (CCL)', 'A tax on energy used by businesses, charged per kWh. Holders of a climate change agreement pay a reduced rate. <a href="non-energy-charges.html#ccl">More</a>.'),
+  ('Contracts for Difference (CfD)', 'Contracts that give low-carbon generators a fixed price. Suppliers pay a levy that rises when wholesale prices are low and falls, even to zero, when they are high. <a href="non-energy-charges.html#cfd">More</a>.'),
+  ('Distribution Use of System (DUoS)', 'Charges for using the local distribution network, set by your network operator. They combine unit rates that vary by time band, capacity charges and fixed daily charges. <a href="non-energy-charges.html#duos">More</a>.'),
+  ('Non-energy costs', 'Everything in an electricity price apart from the wholesale energy: network charges, policy costs and taxes. <a href="business-electricity-price.html">More</a>.'),
+  ('Nuclear RAB levy', 'A levy on suppliers that funds the building of new nuclear power stations under the Regulated Asset Base model, starting with Sizewell C. <a href="non-energy-charges.html#rab">More</a>.'),
+  ('Red, amber and green bands', 'The time bands most network operators use for distribution unit rates, with a different price in each. Each operator sets its own times. <a href="non-energy-charges.html#duos">More</a>.'),
+  ('Renewables Obligation (RO)', 'A scheme requiring suppliers to present certificates for each MWh they supply, or pay a buy-out price. The cost is passed on per unit. <a href="non-energy-charges.html#ro">More</a>.'),
+  ('Transmission Network Use of System (TNUoS)', 'Charges for using the national high-voltage transmission network. For business sites, mainly a fixed charge per site per day, banded by agreed capacity or consumption. <a href="non-energy-charges.html#tnuos">More</a>.'),
+  ('Wholesale price', 'The price suppliers pay for electricity on the wholesale market, often called the commodity cost. <a href="electricity-prices-ten-years.html#wholesale">More</a>.'),
   ('Agreed supply capacity', 'The maximum demand, in kVA, an electricity connection is set up for. It appears on larger electricity bills and is also called authorised or available capacity. <a href="supply-capacity.html">More</a>.'),
   ('Annualised figure', 'A yearly figure scaled up from the valid readings available. It is used when the data covers less than a full year or has gaps.'),
   ('Base load', 'The level of demand a building rarely drops below: what never switches off. The analyser measures it as the 5th percentile of half-hourly demand. <a href="base-load.html">More</a>.'),
@@ -384,18 +397,19 @@ GLOSSARY = [
   ('Settlement', "The process that works out how much electricity each supplier's customers used, and when, so suppliers pay the right amount for it."),
   ('Time-of-use tariff', 'A tariff with different unit rates at different times of day, such as day and night rates.'),
 ]
+GLOSSARY.sort(key=lambda t: t[0].lower())
 NAV_PARENT['glossary.html'] = 'guides.html'
 PAGES.append(Page(
   'glossary.html', 'Glossary of half-hourly electricity terms',
-  'Simple definitions of half-hourly electricity terms: base load, kW, kWh, kVA, power factor, MPAN, agreed supply capacity, settlement and more.',
+  'Plain definitions of half-hourly electricity and bill terms: base load, kW, kVA, MPAN, DUoS, TNUoS, BSUoS, Capacity Market, CfD and more.',
   page_hero('Guide', 'Glossary', 'Simple definitions of the terms used in half-hourly electricity data and on this site.',
             crumbs=[HOME, GUIDES, ('Glossary', 'glossary.html')])
   + guide(updated_line() + '<p class="answer">Half-hourly (HH) data is a record of the electricity a meter measures in every half hour: 48 readings a day, usually in kWh. The terms you will meet most often are kWh (energy, what you are billed for), kW (how fast electricity is being used at a given moment), base load (the demand that never switches off) and kVA (the unit your supply capacity is set in).</p>'
           + '<dl class="glossary">' + ''.join(
-      f'<div id="{t.lower().split(" (")[0].replace(" ", "-")}"><dt>{t}</dt><dd>{d}</dd></div>' for t, d in GLOSSARY) + '</dl>')
+      f'<div id="{re.sub(r"[^a-z0-9]+", "-", t.lower().split(" (")[0]).strip("-")}"><dt>{t}</dt><dd>{d}</dd></div>' for t, d in GLOSSARY) + '</dl>')
   + cta('See the terms in your own data', "It's free, there's no sign-up, and nothing is uploaded."),
   crumbs=[HOME, GUIDES, ('Glossary', 'glossary.html')], article=True, section='Guides',
-  summary='Definitions: base load, closed-hours excess, kW, kWh, kVA, power factor, MPAN, agreed supply capacity, settlement, MHHS, heatmap, load factor and more.',
+  summary='Definitions: base load, closed-hours excess, kW, kWh, kVA, power factor, MPAN, profile class, agreed supply capacity, settlement, MHHS, DUoS, TNUoS, BSUoS, Renewables Obligation, CfD, Capacity Market, nuclear RAB, CCL, red/amber/green bands and more.',
   schema=[{'@type': 'DefinedTermSet', 'name': 'Half-hourly electricity glossary', 'hasDefinedTerm': [
       {'@type': 'DefinedTerm', 'name': t, 'description': strip_tags(d).replace(' More.', '')} for t, d in GLOSSARY]}]))
 
