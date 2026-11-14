@@ -31,6 +31,12 @@ Run by Kinetic Energy Consulting, as with the UK Solar Calculator: the footer,
 copyright, contact page ("Sponsored by" logo and Paul Johnston's contact card)
 and privacy notice say so. These are set at the top of `tools/build_pages.py`.
 
+## Publishing on GitHub Pages
+
+`.github/workflows/pages.yml` publishes `site/` on every push to `main`. Turn it on once: Settings, Pages, Build and deployment, Source: **GitHub Actions**. The site is then at the root of the Pages address.
+
+Until then (Source: deploy from a branch), the top-level `index.html` forwards visitors to `site/`.
+
 ## Before going live
 
 - **Enquiry emails:** the form uses Netlify Forms (no third-party script). In Netlify, go to the site's Forms settings, then Form notifications, and add an email notification for the `enquiry` form to the agreed enquiries inbox. Without this, submissions are stored in Netlify but nobody is emailed.
