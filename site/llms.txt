@@ -1,0 +1,43 @@
+# Half Hourly Insights
+
+> A free tool for analysing UK half-hourly (HH) electricity meter data. Load one Excel or CSV file per meter and see out-of-hours use priced at your rates, base load, peaks against agreed supply capacity, unusual days and lasting changes, with savings scenarios, PDF and Excel reports and password-protected customer dashboards.
+
+Operated by Kinetic Energy Consulting. Free to use, no sign-up. The analyser runs entirely in the browser: meter data is never uploaded.
+
+Scope: UK businesses and public sector organisations. Results are indicative estimates from the data loaded: costs are energy cost at the rates entered, not guaranteed savings, and whole-site data shows when energy is used, not which equipment uses it. The method is set out on the How it works page.
+
+Method in brief: base load is the 5th percentile of valid half-hourly demand; out-of-hours (closed-hours) excess is energy used outside the opening hours above that base load; missing readings are left out, never counted as zero; annual figures are scaled from valid hours and withheld under 180 days of data; kVA is kW divided by an assumed power factor.
+
+## Tool
+
+- [Analyser](analyser/): the tool itself, in the browser.
+
+## Core pages
+
+- [Half Hourly Insights: free half-hourly electricity analysis](index.html): What the analyser shows, the three steps, and the privacy model (analysis runs in the browser).
+- [How it works](how-it-works.html): The method in full: reading files, data checks, opening hours, base load (5th percentile), out-of-hours excess, costs, annualisation, findings, capacity, and limits.
+- [Questions and answers](faq.html): Cost, privacy, the data needed and what the results mean.
+- [Contact](contact.html): Enquiries to Kinetic Energy Consulting, which runs the site.
+
+## Guides
+
+- [How to get your half-hourly electricity data](get-your-data.html): Who holds half-hourly data, what to ask your supplier for, and the file layouts the analyser reads.
+- [Worked example: a year of half-hourly data for one office](example-office-analysis.html): A small office run through the analyser: 33% of use while shut, £2,776 a year above base load, almost half on Saturdays; base load 2.6 kW; 67% of a 40 kVA supply.
+- [Out-of-hours electricity use: how to find and cut it](out-of-hours-electricity.html): What out-of-hours electricity use is, how to find it in half-hourly data (opening hours, heatmap, day types, edges of the day), common causes, and fixes.
+- [Base load electricity: what it is and how to cut it](base-load.html): What base load is, how to measure it from half-hourly data (5th percentile, not the minimum), what makes it up, how to reduce it; 1 kW all year is 8,760 kWh.
+- [Supply capacity and kVA: room for heat pumps and EVs](supply-capacity.html): Agreed supply capacity in kVA, kW to kVA via power factor, headroom from half-hourly peaks with a safety margin, and screening heat pumps and EV charging.
+- [Guides to half-hourly electricity data](guides.html): Index of guides.
+
+## Sectors
+
+- [Schools and colleges: what half-hourly data shows](schools-electricity.html): Schools and colleges: what normal half-hourly demand looks like and what to check first.
+- [Offices and council buildings: what half-hourly data shows](offices-council-buildings.html): Offices and council buildings: what normal half-hourly demand looks like and what to check first.
+- [Leisure centres and pools: what half-hourly data shows](leisure-centres.html): Leisure centres and pools: what normal half-hourly demand looks like and what to check first.
+- [Healthcare: what half-hourly data shows](healthcare-electricity.html): Healthcare: what normal half-hourly demand looks like and what to check first.
+- [Industrial and warehouses: what half-hourly data shows](industrial-warehouses.html): Industrial and warehouses: what normal half-hourly demand looks like and what to check first.
+- [Retail and hospitality: what half-hourly data shows](retail-hospitality.html): Retail and hospitality: what normal half-hourly demand looks like and what to check first.
+- [What to look for by sector](sectors.html): Index of sector pages.
+
+## Related
+
+- [UK Solar Calculator](https://uksolarcalculator.co.uk/): sister site from the same team, for commercial solar PV estimates.

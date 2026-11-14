@@ -571,3 +571,8 @@ button, input, select, textarea { font-family: inherit; }
 .contact-details dt { font-size: 14px; color: var(--grey); }
 .contact-details dd { font-size: 17px; font-weight: 600; color: var(--ink); }
 .contact-details a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+/* Cards inside guide text keep card styling, not link underlines */
+.prose .link-grid { margin: 8px 0 24px; }
+.prose a.link-card { text-decoration: none; color: var(--ink); }
+.prose a.link-card h3 { margin: 0; }
+.prose a.link-card p { margin: 0; }
