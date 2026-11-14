@@ -475,8 +475,7 @@ PAGES.append(Page(
   '<section class="section"><div class="section-inner">' +
   photo('estate-town', 'Illustration of a town with offices, civic buildings, a school, a leisure centre, housing and an energy centre', cls='figure figure-wide', lazy=False) +
   '<div class="link-grid">' +
-  ''.join(f'<a class="link-card" href="{f}"><h3>{s}</h3><p>{lead}</p><span class="more">Read more</span></a>'
-          for f, s, _, lead, *_ in SECTOR_DATA) +
+  ''.join(link_card(f, s, lead, 'Read more') for f, s, _, lead, *_ in SECTOR_DATA) +
   '</div></div></section>' + cta('Check your own sites', 'Load several meters at once and the analyser ranks them, so you know where to start.'),
   crumbs=[HOME, SECTORS], section='Sectors', summary='Index of sector pages.'))
 
