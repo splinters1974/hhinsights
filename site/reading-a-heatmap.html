@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to read a half-hourly electricity heatmap</title>
+  <meta name="description" content="How to read a half-hourly electricity heatmap: what the axes and colours mean, what normal looks like, and the patterns that point to waste.">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:title" content="How to read a half-hourly electricity heatmap">
+  <meta property="og:description" content="How to read a half-hourly electricity heatmap: what the axes and colours mean, what normal looks like, and the patterns that point to waste.">
+  <meta property="og:image" content="images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Half Hourly Insights">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preload" href="fonts/schibsted-grotesk-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/site.css">
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://www.kinetic-energy.co.uk/#organization",
+   "name": "Kinetic Energy Consulting",
+   "url": "https://www.kinetic-energy.co.uk",
+   "email": "pjohnston663@gmail.com",
+   "sameAs": [
+    "https://www.linkedin.com/company/kinetic-energy-consulting"
+   ],
+   "areaServed": {
+    "@type": "Country",
+    "name": "United Kingdom"
+   },
+   "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Sales",
+    "email": "pjohnston663@gmail.com",
+    "areaServed": "GB"
+   }
+  },
+  {
+   "@type": "WebSite",
+   "@id": "#website",
+   "name": "Half Hourly Insights",
+   "inLanguage": "en-GB",
+   "description": "Free half-hourly electricity analysis for UK businesses and public bodies",
+   "publisher": {
+    "@id": "https://www.kinetic-energy.co.uk/#organization"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "index.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Guides",
+     "item": "guides.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "How to read a half-hourly heatmap",
+     "item": "reading-a-heatmap.html"
+    }
+   ]
+  },
+  {
+   "@type": "Article",
+   "headline": "How to read a half-hourly electricity heatmap",
+   "description": "How to read a half-hourly electricity heatmap: what the axes and colours mean, what normal looks like, and the patterns that point to waste.",
+   "inLanguage": "en-GB",
+   "datePublished": "2026-11-14",
+   "dateModified": "2026-11-14",
+   "author": {
+    "@id": "https://www.kinetic-energy.co.uk/#organization"
+   },
+   "publisher": {
+    "@id": "https://www.kinetic-energy.co.uk/#organization"
+   },
+   "isPartOf": {
+    "@id": "#website"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What is a carpet plot?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Another name for the same chart: one column per day, one row per half hour, coloured by demand."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why are some days grey?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No valid readings. Missing data is shown as missing, not as zero, so gaps don't look like the building was switched off."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I see one day in detail?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. In the analyser, click any day on the heatmap to see its half hours against a typical day of the same kind."
+     }
+    }
+   ]
+  }
+ ]
+}
+  </script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav class="site-nav" id="siteNav" aria-label="Main">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Half Hourly Insights home">
+      <svg viewBox="0 0 34 34" aria-hidden="true"><rect x="3" y="15" width="5" height="10" rx="1" fill="#0065A4"/><rect x="10" y="9" width="5" height="16" rx="1" fill="#0065A4"/><rect x="17" y="3" width="5" height="22" rx="1" fill="#F8C05D"/><rect x="24" y="12" width="5" height="13" rx="1" fill="#0065A4"/><rect x="1" y="26" width="32" height="3" rx="1.5" fill="#063C55"/></svg>
+      <span class="nav-logo-name">Half Hourly Insights</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="guides.html" class="active" aria-current="page">Guides</a></li><li><a href="sectors.html">Sectors</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li>
+      <li><a href="analyser/" class="nav-cta">Open the analyser</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<main id="main">
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> <span aria-hidden="true">/</span> <a href="guides.html">Guides</a> <span aria-hidden="true">/</span> <span aria-current="page">How to read a half-hourly heatmap</span></nav>
+    <span class="page-hero-kicker">Guide</span>
+    <h1 class="page-hero-title">How to read a half-hourly heatmap</h1>
+    <p class="page-hero-lead">A heatmap shows every half hour of a year in one picture. Once you know what to look for, the problems jump out.</p>
+  </div>
+</section><div class="guide">
+  <article class="guide-main prose">
+<p class="byline">Last updated <time datetime="2026-11-14">14 November 2026</time></p>
+<p class="answer">A half-hourly heatmap has one column per day and one row per half hour, with darker colour for higher demand. Normal use shows as a dark band during opening hours; anything dark outside that band, such as nights, weekends and holidays, is use worth checking.</p>
+
+<h2 id="axes">What you're looking at</h2>
+<ul><li><strong>Across:</strong> days, from the start of the period to the end.</li><li><strong>Down:</strong> time of day, from midnight at the top to midnight at the bottom.</li><li><strong>Colour:</strong> demand in that half hour, from pale (low) to dark (high).</li></ul>
+<p>A year is about 17,500 half hours. A table of that many numbers is unreadable; the heatmap shows all of them at once.</p>
+
+<figure class="figure"><img src="images/heatmap-office.png" width="2464" height="896" alt="Heatmap of an office year: a dark weekday band, pale nights, and weekends that are sometimes busy" loading="lazy"><figcaption>An office (made-up data). The weekday band is clear, and some Saturdays are as busy as weekdays.</figcaption></figure>
+
+<h2 id="normal">What normal looks like</h2>
+<p>For a building used on weekdays: a dark horizontal band during working hours, regular pale gaps for weekends, and pale nights. Winter is often a little darker than summer. The edges of the band show when the building really starts and stops.</p>
+
+<h2 id="patterns">Patterns worth checking</h2>
+<div class="table-wrap"><table><thead><tr><th>What you see</th><th>What it usually means</th></tr></thead><tbody>
+<tr><td>A pale block where it should be blank (a holiday week)</td><td>Plant running to its normal schedule with nobody in</td></tr>
+<tr><td>Thin stripes in the evening on the same weekdays</td><td>Regular evening use, such as lettings, classes or cleaning</td></tr>
+<tr><td>Dark band starting well before opening</td><td>Heating or ventilation start times set too early</td></tr>
+<tr><td>Nights that get darker from a certain date</td><td>New equipment, or something left on: base load has risen</td></tr>
+<tr><td>A single dark column</td><td>One unusual day: an event, a fault, or a reading error</td></tr>
+<tr><td>Grey or striped gaps</td><td>Missing data, not zero use</td></tr></tbody></table></div>
+
+<figure class="figure"><img src="images/heatmap-school.png" width="2464" height="896" alt="Heatmap of a school year showing term blocks, holidays, a pale half-term block and evening stripes" loading="lazy"><figcaption>A primary school (made-up data). The pale block in late October is heating left on through half term; the stripes after 18:00 are evening lettings. See the <a href="example-school-analysis.html">worked example</a>.</figcaption></figure>
+
+<h2 id="next">From picture to figure</h2>
+<p>The heatmap shows where to look; the figures say how much it matters. In the analyser, click any day to see its half hours against a typical day, then use the out-of-hours and unusual-day findings to put a cost on what you've spotted.</p>
+<h2 id="questions">Questions people ask</h2>
+<div class="faq"><details><summary>What is a carpet plot?</summary><div class="faq-a"><p>Another name for the same chart: one column per day, one row per half hour, coloured by demand.</p></div></details><details><summary>Why are some days grey?</summary><div class="faq-a"><p>No valid readings. Missing data is shown as missing, not as zero, so gaps don't look like the building was switched off.</p></div></details><details><summary>Can I see one day in detail?</summary><div class="faq-a"><p>Yes. In the analyser, click any day on the heatmap to see its half hours against a typical day of the same kind.</p></div></details></div><h2 id="next">Read next</h2>
+<div class="link-grid"><a class="link-card" href="example-school-analysis.html"><h3>Worked example: school</h3><p>The school heatmap, explained finding by finding.</p><span class="more">Read the guide</span></a><a class="link-card" href="out-of-hours-electricity.html"><h3>Out-of-hours use</h3><p>Putting a cost on what the heatmap shows.</p><span class="more">Read the guide</span></a><a class="link-card" href="glossary.html"><h3>Glossary</h3><p>The terms used in these guides.</p><span class="more">Read the guide</span></a></div>
+  </article>
+  <aside class="guide-side">
+    <nav class="toc" aria-label="On this page"><div class="toc-title">On this page</div><ol><li><a href="#axes">What you're looking at</a></li><li><a href="#normal">What normal looks like</a></li><li><a href="#patterns">Patterns worth checking</a></li><li><a href="#next">From picture to figure</a></li><li><a href="#questions">Questions people ask</a></li></ol></nav>
+    <div class="side-cta"><strong>Try it on your own data</strong><p>Free, no sign-up, and your file stays on your computer.</p><a href="analyser/" class="btn">Open the analyser</a></div>
+  </aside>
+</div><section class="cta-strip">
+  <div class="cta-strip-inner">
+    <h2 class="cta-strip-title">Try it on your own data</h2>
+    <div class="cta-strip-btns">
+      <a href="analyser/" class="btn btn-gold btn-lg">Open the analyser</a>
+      <a href="contact.html" class="btn btn-outline-white btn-lg">Talk to an expert</a>
+    </div>
+    <p class="cta-strip-lead">Free, no sign-up, and your file stays on your computer.</p>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><svg viewBox="0 0 34 34" aria-hidden="true"><rect x="3" y="15" width="5" height="10" rx="1" fill="#0065A4"/><rect x="10" y="9" width="5" height="16" rx="1" fill="#0065A4"/><rect x="17" y="3" width="5" height="22" rx="1" fill="#F8C05D"/><rect x="24" y="12" width="5" height="13" rx="1" fill="#0065A4"/><rect x="1" y="26" width="32" height="3" rx="1.5" fill="#FFFFFF"/></svg><span class="footer-logo-name">Half Hourly Insights</span></div>
+        <p class="footer-desc">Free half-hourly electricity analysis for UK businesses and public sector organisations, run by Kinetic Energy Consulting. It runs in your browser: your meter data never leaves your computer.</p>
+        <div class="footer-contact-item">Email: <a href="mailto:pjohnston663@gmail.com">pjohnston663@gmail.com</a></div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Analyser</div>
+        <ul><li><a href="analyser/">Open the analyser</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="example-office-analysis.html">Worked example</a></li><li><a href="samples/example-office.csv" download>Example data file</a></li><li><a href="faq.html">FAQ</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Guides</div>
+        <ul><li><a href="get-your-data.html">Getting your half-hourly data</a></li><li><a href="out-of-hours-electricity.html">Out-of-hours electricity use</a></li><li><a href="base-load.html">Base load</a></li><li><a href="supply-capacity.html">Supply capacity and kVA</a></li><li><a href="reading-a-heatmap.html">Reading a heatmap</a></li><li><a href="glossary.html">Glossary</a></li><li><a href="guides.html">All guides</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">About</div>
+        <ul><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="https://uksolarcalculator.co.uk/">UK Solar Calculator</a>, our sister site</li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 Kinetic Energy Consulting</div>
+      <div class="footer-disclaimer">All analyser outputs are indicative estimates from the data you load, not a guarantee of savings. Guides are general information, not financial, tax or legal advice.</div>
+    </div>
+  </div>
+</footer>
+<script>
+  document.getElementById('navToggle').addEventListener('click', function (e) {
+    var open = document.getElementById('siteNav').classList.toggle('nav-mobile-open');
+    e.currentTarget.setAttribute('aria-expanded', open ? 'true' : 'false');
+    e.currentTarget.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+</script>
+</body>
+</html>

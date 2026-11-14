@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supply capacity and kVA: room for heat pumps and EVs</title>
+  <meta name="description" content="Agreed supply capacity explained: kW to kVA, comparing half-hourly peaks with capacity, and headroom for heat pumps and EV charging.">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:title" content="Supply capacity and kVA: room for heat pumps and EVs">
+  <meta property="og:description" content="Agreed supply capacity explained: kW to kVA, comparing half-hourly peaks with capacity, and headroom for heat pumps and EV charging.">
+  <meta property="og:image" content="images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Half Hourly Insights">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preload" href="fonts/schibsted-grotesk-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/site.css">
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://www.kinetic-energy.co.uk/#organization",
+   "name": "Kinetic Energy Consulting",
+   "url": "https://www.kinetic-energy.co.uk",
+   "email": "pjohnston663@gmail.com",
+   "sameAs": [
+    "https://www.linkedin.com/company/kinetic-energy-consulting"
+   ],
+   "areaServed": {
+    "@type": "Country",
+    "name": "United Kingdom"
+   },
+   "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Sales",
+    "email": "pjohnston663@gmail.com",
+    "areaServed": "GB"
+   }
+  },
+  {
+   "@type": "WebSite",
+   "@id": "#website",
+   "name": "Half Hourly Insights",
+   "inLanguage": "en-GB",
+   "description": "Free half-hourly electricity analysis for UK businesses and public bodies",
+   "publisher": {
+    "@id": "https://www.kinetic-energy.co.uk/#organization"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "index.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Guides",
+     "item": "guides.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Supply capacity and kVA",
+     "item": "supply-capacity.html"
+    }
+   ]
+  },
+  {
+   "@type": "Article",
+   "headline": "Supply capacity and kVA: room for heat pumps and EVs",
+   "description": "Agreed supply capacity explained: kW to kVA, comparing half-hourly peaks with capacity, and headroom for heat pumps and EV charging.",
+   "inLanguage": "en-GB",
+   "datePublished": "2026-11-14",
+   "dateModified": "2026-11-14",
+   "author": {
+    "@id": "https://www.kinetic-energy.co.uk/#organization"
+   },
+   "publisher": {
+    "@id": "https://www.kinetic-energy.co.uk/#organization"
+   },
+   "isPartOf": {
+    "@id": "#website"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Where do I find my agreed supply capacity?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "On your electricity bill or connection agreement, in kVA. Your supplier can confirm it."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What power factor should I use?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "If you do not know it, 0.95 is a reasonable starting assumption. A lower value is likely if your bill shows reactive power charges."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is half-hourly data enough to plan a new connection?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It is a good first screen, but half-hour averages hide very short peaks. For a significant new load, talk to your network operator before committing."
+     }
+    }
+   ]
+  }
+ ]
+}
+  </script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav class="site-nav" id="siteNav" aria-label="Main">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Half Hourly Insights home">
+      <svg viewBox="0 0 34 34" aria-hidden="true"><rect x="3" y="15" width="5" height="10" rx="1" fill="#0065A4"/><rect x="10" y="9" width="5" height="16" rx="1" fill="#0065A4"/><rect x="17" y="3" width="5" height="22" rx="1" fill="#F8C05D"/><rect x="24" y="12" width="5" height="13" rx="1" fill="#0065A4"/><rect x="1" y="26" width="32" height="3" rx="1.5" fill="#063C55"/></svg>
+      <span class="nav-logo-name">Half Hourly Insights</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="guides.html" class="active" aria-current="page">Guides</a></li><li><a href="sectors.html">Sectors</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li>
+      <li><a href="analyser/" class="nav-cta">Open the analyser</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<main id="main">
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> <span aria-hidden="true">/</span> <a href="guides.html">Guides</a> <span aria-hidden="true">/</span> <span aria-current="page">Supply capacity and kVA</span></nav>
+    <span class="page-hero-kicker">Guide</span>
+    <h1 class="page-hero-title">Supply capacity and kVA</h1>
+    <p class="page-hero-lead">Before adding heat pumps, EV chargers or new plant, check how close your highest half hours already come to your agreed supply capacity.</p>
+  </div>
+</section><div class="guide">
+  <article class="guide-main prose">
+<p class="byline">Last updated <time datetime="2026-11-14">14 November 2026</time></p>
+<p class="answer">Your agreed supply capacity is the maximum demand, in kVA, your connection is set up for. Convert your half-hourly peaks from kW to kVA (divide by the power factor), compare them with the agreed capacity, and the gap is your headroom for new load such as heat pumps and EV chargers.</p>
+
+<h2 id="what">What agreed supply capacity is</h2>
+<p>Larger supplies have an agreed capacity, sometimes called authorised or available capacity, set in the connection agreement and usually shown on the bill in kVA. You typically pay a charge for it every day whether you use it or not. Going over it can bring extra charges, and the network operator may ask you to increase it.</p>
+
+<h2 id="kva">kW and kVA</h2>
+<p>Meters measure energy (kWh); half-hourly data gives average power in each half hour (kW). Capacity is set in kVA, which also counts reactive power. The link is the power factor:</p>
+<div class="note"><strong>kVA = kW ÷ power factor.</strong> At a power factor of 0.95, a 95 kW peak is 100 kVA. If your bill shows reactive power charges, your power factor is probably lower than 0.95.</div>
+
+<h2 id="headroom">Working out headroom</h2>
+<ol><li><strong>Find your highest half hours</strong> over at least a year, so winter peaks are included.</li><li><strong>Convert them to kVA</strong> with your power factor.</li><li><strong>Keep a safety margin</strong>, for example 10%, below the agreed capacity.</li><li><strong>The headroom</strong> is the largest constant load you could add without going over the margin in any half hour.</li></ol>
+<p>Half-hourly averages smooth out very short spikes, so this is a screen, not confirmation from your network operator.</p>
+
+<h2 id="new-load">Heat pumps and EV charging</h2>
+<p>A heat pump's electrical input is much lower than its heat output: at a coefficient of performance of 3, a 150 kW heat output draws about 50 kW. It runs hardest in winter, when building peaks are usually highest. EV charging overnight lands where the site is quietest. The analyser lets you test a new load at a chosen time of day and season against your actual half-hourly peaks.</p>
+<h2 id="questions">Questions people ask</h2>
+<div class="faq"><details><summary>Where do I find my agreed supply capacity?</summary><div class="faq-a"><p>On your electricity bill or connection agreement, in kVA. Your supplier can confirm it.</p></div></details><details><summary>What power factor should I use?</summary><div class="faq-a"><p>If you do not know it, 0.95 is a reasonable starting assumption. A lower value is likely if your bill shows reactive power charges.</p></div></details><details><summary>Is half-hourly data enough to plan a new connection?</summary><div class="faq-a"><p>It is a good first screen, but half-hour averages hide very short peaks. For a significant new load, talk to your network operator before committing.</p></div></details></div><h2 id="next">Read next</h2>
+<div class="link-grid"><a class="link-card" href="base-load.html"><h3>Base load</h3><p>The demand that never goes away.</p><span class="more">Read the guide</span></a><a class="link-card" href="example-office-analysis.html"><h3>Worked example</h3><p>Peaks against capacity in one office.</p><span class="more">Read the guide</span></a><a class="link-card" href="how-it-works.html"><h3>How the analyser works</h3><p>Including how headroom is worked out.</p><span class="more">Read the guide</span></a></div>
+  </article>
+  <aside class="guide-side">
+    <nav class="toc" aria-label="On this page"><div class="toc-title">On this page</div><ol><li><a href="#what">What agreed supply capacity is</a></li><li><a href="#kva">kW and kVA</a></li><li><a href="#headroom">Working out headroom</a></li><li><a href="#new-load">Heat pumps and EV charging</a></li><li><a href="#questions">Questions people ask</a></li></ol></nav>
+    <div class="side-cta"><strong>Try it on your own data</strong><p>Free, no sign-up, and your file stays on your computer.</p><a href="analyser/" class="btn">Open the analyser</a></div>
+  </aside>
+</div><section class="cta-strip">
+  <div class="cta-strip-inner">
+    <h2 class="cta-strip-title">Try it on your own data</h2>
+    <div class="cta-strip-btns">
+      <a href="analyser/" class="btn btn-gold btn-lg">Open the analyser</a>
+      <a href="contact.html" class="btn btn-outline-white btn-lg">Talk to an expert</a>
+    </div>
+    <p class="cta-strip-lead">Free, no sign-up, and your file stays on your computer.</p>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><svg viewBox="0 0 34 34" aria-hidden="true"><rect x="3" y="15" width="5" height="10" rx="1" fill="#0065A4"/><rect x="10" y="9" width="5" height="16" rx="1" fill="#0065A4"/><rect x="17" y="3" width="5" height="22" rx="1" fill="#F8C05D"/><rect x="24" y="12" width="5" height="13" rx="1" fill="#0065A4"/><rect x="1" y="26" width="32" height="3" rx="1.5" fill="#FFFFFF"/></svg><span class="footer-logo-name">Half Hourly Insights</span></div>
+        <p class="footer-desc">Free half-hourly electricity analysis for UK businesses and public sector organisations, run by Kinetic Energy Consulting. It runs in your browser: your meter data never leaves your computer.</p>
+        <div class="footer-contact-item">Email: <a href="mailto:pjohnston663@gmail.com">pjohnston663@gmail.com</a></div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Analyser</div>
+        <ul><li><a href="analyser/">Open the analyser</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="example-office-analysis.html">Worked example</a></li><li><a href="samples/example-office.csv" download>Example data file</a></li><li><a href="faq.html">FAQ</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Guides</div>
+        <ul><li><a href="get-your-data.html">Getting your half-hourly data</a></li><li><a href="out-of-hours-electricity.html">Out-of-hours electricity use</a></li><li><a href="base-load.html">Base load</a></li><li><a href="supply-capacity.html">Supply capacity and kVA</a></li><li><a href="reading-a-heatmap.html">Reading a heatmap</a></li><li><a href="glossary.html">Glossary</a></li><li><a href="guides.html">All guides</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">About</div>
+        <ul><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="https://uksolarcalculator.co.uk/">UK Solar Calculator</a>, our sister site</li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 Kinetic Energy Consulting</div>
+      <div class="footer-disclaimer">All analyser outputs are indicative estimates from the data you load, not a guarantee of savings. Guides are general information, not financial, tax or legal advice.</div>
+    </div>
+  </div>
+</footer>
+<script>
+  document.getElementById('navToggle').addEventListener('click', function (e) {
+    var open = document.getElementById('siteNav').classList.toggle('nav-mobile-open');
+    e.currentTarget.setAttribute('aria-expanded', open ? 'true' : 'false');
+    e.currentTarget.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+</script>
+</body>
+</html>

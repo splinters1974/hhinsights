@@ -4,22 +4,72 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>What to look for by sector | Half Hourly Insights</title>
-  <meta name="description" content="The half-hourly patterns worth checking in schools, offices, leisure centres, healthcare, industrial and retail sites.">
+  <meta name="description" content="What half-hourly electricity data shows in schools, offices and council buildings, leisure centres, healthcare, industrial sites and retail.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_GB">
   <meta property="og:title" content="What to look for by sector | Half Hourly Insights">
-  <meta property="og:description" content="The half-hourly patterns worth checking in schools, offices, leisure centres, healthcare, industrial and retail sites.">
+  <meta property="og:description" content="What half-hourly electricity data shows in schools, offices and council buildings, leisure centres, healthcare, industrial sites and retail.">
   <meta property="og:image" content="images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Half Hourly Insights">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="preload" href="fonts/schibsted-grotesk-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/site.css">
   <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "Organization", "name": "Kinetic Energy Consulting", "url": "https://www.kinetic-energy.co.uk",
- "email": "pjohnston663@gmail.com", "sameAs": ["https://www.linkedin.com/company/kinetic-energy-consulting"],
- "areaServed": {"@type": "Country", "name": "United Kingdom"},
- "contactPoint": {"@type": "ContactPoint", "contactType": "Sales", "email": "pjohnston663@gmail.com", "areaServed": "GB"}}
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://www.kinetic-energy.co.uk/#organization",
+   "name": "Kinetic Energy Consulting",
+   "url": "https://www.kinetic-energy.co.uk",
+   "email": "pjohnston663@gmail.com",
+   "sameAs": [
+    "https://www.linkedin.com/company/kinetic-energy-consulting"
+   ],
+   "areaServed": {
+    "@type": "Country",
+    "name": "United Kingdom"
+   },
+   "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Sales",
+    "email": "pjohnston663@gmail.com",
+    "areaServed": "GB"
+   }
+  },
+  {
+   "@type": "WebSite",
+   "@id": "#website",
+   "name": "Half Hourly Insights",
+   "inLanguage": "en-GB",
+   "description": "Free half-hourly electricity analysis for UK businesses and public bodies",
+   "publisher": {
+    "@id": "https://www.kinetic-energy.co.uk/#organization"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "index.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Sectors",
+     "item": "sectors.html"
+    }
+   ]
+  }
+ ]
+}
   </script>
 </head>
 <body>
@@ -31,7 +81,7 @@
       <span class="nav-logo-name">Half Hourly Insights</span>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="get-your-data.html">Get your data</a></li><li><a href="sectors.html" class="active" aria-current="page">Sectors</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li>
+      <li><a href="index.html">Home</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="guides.html">Guides</a></li><li><a href="sectors.html" class="active" aria-current="page">Sectors</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li>
       <li><a href="analyser/" class="nav-cta">Open the analyser</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
@@ -42,11 +92,12 @@
 <main id="main">
 <section class="page-hero">
   <div class="page-hero-inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">Sectors</span></nav>
     <span class="page-hero-kicker">Sectors</span>
     <h1 class="page-hero-title">What to look for in your sector</h1>
-    <p class="page-hero-lead">Every building type has its own normal. These are the patterns worth checking first.</p>
+    <p class="page-hero-lead">Every building type has its own normal. Choose yours for the patterns worth checking first.</p>
   </div>
-</section><section class="section"><div class="section-inner"><div class="link-grid"><div class="link-card"><h3>Schools and colleges</h3><p>Holiday weeks and weekends should look almost flat. Look for heating, ventilation and IT left on through the holidays, and for evening lettings that run the whole building for one room.</p></div><div class="link-card"><h3>Offices and council buildings</h3><p>Use should fall sharply after hours. Watch for early starts well before staff arrive, air handling running all night, and floors lit for a cleaner or one late worker.</p></div><div class="link-card"><h3>Leisure centres and pools</h3><p>Long opening hours and pools that run around the clock make base load high. The question is what the floor is made of: pool plant, ventilation and dehumidifiers are often set once and left.</p></div><div class="link-card"><h3>Healthcare</h3><p>Many sites are genuinely 24/7, so the useful comparisons are day against night and weekday against weekend, and how far peaks sit from supply capacity before new electric heating goes in.</p></div><div class="link-card"><h3>Industrial and warehouses</h3><p>Shift patterns make the calendar important. Look at shutdown periods, compressed air and refrigeration overnight, and peaks against capacity before adding EV charging or electrification.</p></div><div class="link-card"><h3>Retail and hospitality</h3><p>Trading hours are fixed, so out-of-hours use is easy to see. Check refrigeration, signage, kitchen extraction and heating schedules that do not follow closing time.</p></div></div><p class="note" style="margin-top:32px">These are general starting points, not rules. The analyser compares each site with its own calendar, so set the opening hours first.</p></div></section><section class="cta-strip">
+</section><section class="section"><div class="section-inner"><div class="link-grid"><a class="link-card" href="schools-electricity.html"><h3>Schools and colleges</h3><p>Schools are closed for around 13 weeks a year, so holidays and weekends should look almost flat. When they don't, there's usually a schedule to fix.</p><span class="more">Read more</span></a><a class="link-card" href="offices-council-buildings.html"><h3>Offices and council buildings</h3><p>Office demand should fall sharply when people go home. The interesting part is everything that doesn't.</p><span class="more">Read more</span></a><a class="link-card" href="leisure-centres.html"><h3>Leisure centres and pools</h3><p>Long opening hours and pools that run around the clock make leisure centres high users. The question is what the overnight floor is made of.</p><span class="more">Read more</span></a><a class="link-card" href="healthcare-electricity.html"><h3>Healthcare</h3><p>Hospitals and many care settings run 24/7, so out-of-hours use isn't the right question. Day against night, and peaks against capacity, are.</p><span class="more">Read more</span></a><a class="link-card" href="industrial-warehouses.html"><h3>Industrial and warehouses</h3><p>Shift patterns make the calendar the most important setting. Get it right and shutdowns, compressed air and refrigeration show up clearly.</p><span class="more">Read more</span></a><a class="link-card" href="retail-hospitality.html"><h3>Retail and hospitality</h3><p>Fixed trading hours make out-of-hours use easy to see. Refrigeration, signage and kitchen equipment are the usual suspects.</p><span class="more">Read more</span></a></div></div></section><section class="cta-strip">
   <div class="cta-strip-inner">
     <h2 class="cta-strip-title">Check your own sites</h2>
     <div class="cta-strip-btns">
@@ -67,15 +118,15 @@
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Analyser</div>
-        <ul><li><a href="analyser/">Open the analyser</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="samples/example-office.csv" download>Example data file</a></li><li><a href="faq.html">FAQ</a></li></ul>
+        <ul><li><a href="analyser/">Open the analyser</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="example-office-analysis.html">Worked example</a></li><li><a href="samples/example-office.csv" download>Example data file</a></li><li><a href="faq.html">FAQ</a></li></ul>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Guides</div>
-        <ul><li><a href="get-your-data.html">Getting your half-hourly data</a></li><li><a href="sectors.html">What to look for by sector</a></li></ul>
+        <ul><li><a href="get-your-data.html">Getting your half-hourly data</a></li><li><a href="out-of-hours-electricity.html">Out-of-hours electricity use</a></li><li><a href="base-load.html">Base load</a></li><li><a href="supply-capacity.html">Supply capacity and kVA</a></li><li><a href="reading-a-heatmap.html">Reading a heatmap</a></li><li><a href="glossary.html">Glossary</a></li><li><a href="guides.html">All guides</a></li></ul>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">About</div>
-        <ul><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li></ul>
+        <ul><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="https://uksolarcalculator.co.uk/">UK Solar Calculator</a>, our sister site</li></ul>
       </div>
     </div>
     <div class="footer-bottom">

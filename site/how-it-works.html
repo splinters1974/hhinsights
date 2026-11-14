@@ -5,21 +5,88 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>How it works | Half Hourly Insights</title>
   <meta name="description" content="What the analyser does with your half-hourly data: how it reads files, checks quality, sets the base load, prices out-of-hours use and builds findings.">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
   <meta property="og:locale" content="en_GB">
   <meta property="og:title" content="How it works | Half Hourly Insights">
   <meta property="og:description" content="What the analyser does with your half-hourly data: how it reads files, checks quality, sets the base load, prices out-of-hours use and builds findings.">
   <meta property="og:image" content="images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Half Hourly Insights">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="preload" href="fonts/schibsted-grotesk-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/site.css">
   <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "Organization", "name": "Kinetic Energy Consulting", "url": "https://www.kinetic-energy.co.uk",
- "email": "pjohnston663@gmail.com", "sameAs": ["https://www.linkedin.com/company/kinetic-energy-consulting"],
- "areaServed": {"@type": "Country", "name": "United Kingdom"},
- "contactPoint": {"@type": "ContactPoint", "contactType": "Sales", "email": "pjohnston663@gmail.com", "areaServed": "GB"}}
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://www.kinetic-energy.co.uk/#organization",
+   "name": "Kinetic Energy Consulting",
+   "url": "https://www.kinetic-energy.co.uk",
+   "email": "pjohnston663@gmail.com",
+   "sameAs": [
+    "https://www.linkedin.com/company/kinetic-energy-consulting"
+   ],
+   "areaServed": {
+    "@type": "Country",
+    "name": "United Kingdom"
+   },
+   "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Sales",
+    "email": "pjohnston663@gmail.com",
+    "areaServed": "GB"
+   }
+  },
+  {
+   "@type": "WebSite",
+   "@id": "#website",
+   "name": "Half Hourly Insights",
+   "inLanguage": "en-GB",
+   "description": "Free half-hourly electricity analysis for UK businesses and public bodies",
+   "publisher": {
+    "@id": "https://www.kinetic-energy.co.uk/#organization"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "index.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "How it works",
+     "item": "how-it-works.html"
+    }
+   ]
+  },
+  {
+   "@type": "Article",
+   "headline": "How it works",
+   "description": "What the analyser does with your half-hourly data: how it reads files, checks quality, sets the base load, prices out-of-hours use and builds findings.",
+   "inLanguage": "en-GB",
+   "datePublished": "2026-11-14",
+   "dateModified": "2026-11-14",
+   "author": {
+    "@id": "https://www.kinetic-energy.co.uk/#organization"
+   },
+   "publisher": {
+    "@id": "https://www.kinetic-energy.co.uk/#organization"
+   },
+   "isPartOf": {
+    "@id": "#website"
+   }
+  }
+ ]
+}
   </script>
 </head>
 <body>
@@ -31,7 +98,7 @@
       <span class="nav-logo-name">Half Hourly Insights</span>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li><li><a href="how-it-works.html" class="active" aria-current="page">How it works</a></li><li><a href="get-your-data.html">Get your data</a></li><li><a href="sectors.html">Sectors</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li>
+      <li><a href="index.html">Home</a></li><li><a href="how-it-works.html" class="active" aria-current="page">How it works</a></li><li><a href="guides.html">Guides</a></li><li><a href="sectors.html">Sectors</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li>
       <li><a href="analyser/" class="nav-cta">Open the analyser</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
@@ -42,13 +109,14 @@
 <main id="main">
 <section class="page-hero">
   <div class="page-hero-inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">How it works</span></nav>
     <span class="page-hero-kicker">How it works</span>
     <h1 class="page-hero-title">What the analyser does with your data</h1>
     <p class="page-hero-lead">Plain-English notes on every step, from reading the file to the figures in the report. The full method is in the analyser itself: every finding has a "show calculation and evidence" link.</p>
   </div>
 </section><div class="guide">
   <article class="guide-main prose">
-
+<p class="byline">Last updated <time datetime="2026-11-14">14 November 2026</time></p>
 <p class="answer">The analyser reads every half-hourly reading, checks it, works out what the site uses when it's open and when it's shut, and prices the difference at your rates. It shows where to look, not what to fix.</p>
 
 <h2 id="files">1. Reading your files</h2>
@@ -80,7 +148,8 @@
 
 <h2 id="limits">What it can't tell you</h2>
 <ul><li>Whole-site data shows when demand happens, not which equipment causes it. Findings are things to check on site.</li><li>Figures aren't adjusted for weather or changes in occupancy.</li><li>Carbon figures use the factor you enter, one value for the year.</li></ul>
-
+<h2 id="next">Read next</h2>
+<div class="link-grid"><a class="link-card" href="example-office-analysis.html"><h3>Worked example</h3><p>The method applied to one office, step by step.</p><span class="more">Read the guide</span></a><a class="link-card" href="out-of-hours-electricity.html"><h3>Out-of-hours use</h3><p>Finding and cutting use when the building is shut.</p><span class="more">Read the guide</span></a><a class="link-card" href="base-load.html"><h3>Base load</h3><p>What never switches off, and why it matters.</p><span class="more">Read the guide</span></a></div>
   </article>
   <aside class="guide-side">
     <nav class="toc" aria-label="On this page"><div class="toc-title">On this page</div><ol>
@@ -108,15 +177,15 @@
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Analyser</div>
-        <ul><li><a href="analyser/">Open the analyser</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="samples/example-office.csv" download>Example data file</a></li><li><a href="faq.html">FAQ</a></li></ul>
+        <ul><li><a href="analyser/">Open the analyser</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="example-office-analysis.html">Worked example</a></li><li><a href="samples/example-office.csv" download>Example data file</a></li><li><a href="faq.html">FAQ</a></li></ul>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Guides</div>
-        <ul><li><a href="get-your-data.html">Getting your half-hourly data</a></li><li><a href="sectors.html">What to look for by sector</a></li></ul>
+        <ul><li><a href="get-your-data.html">Getting your half-hourly data</a></li><li><a href="out-of-hours-electricity.html">Out-of-hours electricity use</a></li><li><a href="base-load.html">Base load</a></li><li><a href="supply-capacity.html">Supply capacity and kVA</a></li><li><a href="reading-a-heatmap.html">Reading a heatmap</a></li><li><a href="glossary.html">Glossary</a></li><li><a href="guides.html">All guides</a></li></ul>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">About</div>
-        <ul><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li></ul>
+        <ul><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="https://uksolarcalculator.co.uk/">UK Solar Calculator</a>, our sister site</li></ul>
       </div>
     </div>
     <div class="footer-bottom">

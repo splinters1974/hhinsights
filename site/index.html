@@ -4,22 +4,84 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Half Hourly Insights: free half-hourly electricity analysis</title>
-  <meta name="description" content="Load your half-hourly meter data and see where the electricity goes: out-of-hours use, base load, peaks against capacity and unusual days, priced at your rates. Free, and it runs in your browser.">
+  <meta name="description" content="Free analysis of UK half-hourly electricity data: out-of-hours use, base load, peaks against capacity and unusual days. Runs in your browser.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_GB">
   <meta property="og:title" content="Half Hourly Insights: free half-hourly electricity analysis">
-  <meta property="og:description" content="Load your half-hourly meter data and see where the electricity goes: out-of-hours use, base load, peaks against capacity and unusual days, priced at your rates. Free, and it runs in your browser.">
+  <meta property="og:description" content="Free analysis of UK half-hourly electricity data: out-of-hours use, base load, peaks against capacity and unusual days. Runs in your browser.">
   <meta property="og:image" content="images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Half Hourly Insights">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="preload" href="fonts/schibsted-grotesk-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/site.css">
   <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "Organization", "name": "Kinetic Energy Consulting", "url": "https://www.kinetic-energy.co.uk",
- "email": "pjohnston663@gmail.com", "sameAs": ["https://www.linkedin.com/company/kinetic-energy-consulting"],
- "areaServed": {"@type": "Country", "name": "United Kingdom"},
- "contactPoint": {"@type": "ContactPoint", "contactType": "Sales", "email": "pjohnston663@gmail.com", "areaServed": "GB"}}
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://www.kinetic-energy.co.uk/#organization",
+   "name": "Kinetic Energy Consulting",
+   "url": "https://www.kinetic-energy.co.uk",
+   "email": "pjohnston663@gmail.com",
+   "sameAs": [
+    "https://www.linkedin.com/company/kinetic-energy-consulting"
+   ],
+   "areaServed": {
+    "@type": "Country",
+    "name": "United Kingdom"
+   },
+   "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Sales",
+    "email": "pjohnston663@gmail.com",
+    "areaServed": "GB"
+   }
+  },
+  {
+   "@type": "WebSite",
+   "@id": "#website",
+   "name": "Half Hourly Insights",
+   "inLanguage": "en-GB",
+   "description": "Free half-hourly electricity analysis for UK businesses and public bodies",
+   "publisher": {
+    "@id": "https://www.kinetic-energy.co.uk/#organization"
+   }
+  },
+  {
+   "@type": "WebApplication",
+   "name": "Half Hourly Insights analyser",
+   "url": "analyser/",
+   "applicationCategory": "BusinessApplication",
+   "operatingSystem": "Any (runs in Chrome or Edge)",
+   "browserRequirements": "A recent desktop browser; works offline once loaded",
+   "isAccessibleForFree": true,
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "GBP"
+   },
+   "description": "Analyses UK half-hourly electricity meter data in the browser: out-of-hours use, base load, peaks against supply capacity, unusual days, savings scenarios, PDF and Excel reports. Meter data is never uploaded.",
+   "featureList": [
+    "Excel and CSV half-hourly files",
+    "Data quality checks",
+    "Out-of-hours use priced at your rates",
+    "Base load",
+    "Supply capacity and headroom",
+    "Unusual days",
+    "Savings scenarios",
+    "PDF and Excel reports",
+    "Password-protected customer dashboards"
+   ],
+   "provider": {
+    "@id": "https://www.kinetic-energy.co.uk/#organization"
+   }
+  }
+ ]
+}
   </script>
 </head>
 <body>
@@ -31,7 +93,7 @@
       <span class="nav-logo-name">Half Hourly Insights</span>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html" class="active" aria-current="page">Home</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="get-your-data.html">Get your data</a></li><li><a href="sectors.html">Sectors</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li>
+      <li><a href="index.html" class="active" aria-current="page">Home</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="guides.html">Guides</a></li><li><a href="sectors.html">Sectors</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li>
       <li><a href="analyser/" class="nav-cta">Open the analyser</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
@@ -62,7 +124,7 @@
       <div class="big">33%</div>
       <div class="small">of its electricity used when the building was shut</div>
     </div>
-    <p class="or">No data to hand? <a href="samples/example-office.csv" download>Download an example file</a> (a made-up office) and load that.</p>
+    <p class="or">No data to hand? <a href="samples/example-office.csv" download>Download an example file</a> (a made-up office) and load that, or <a href="example-office-analysis.html">read the worked example</a>.</p>
   </div>
 </section>
 </div>
@@ -132,6 +194,28 @@
   </div>
 </section>
 
+<section class="section band-mist">
+  <div class="section-inner">
+    <div class="head-row">
+      <h2 class="section-title">Guides</h2>
+      <p>Plain-English answers to the questions that come up when you first look at half-hourly data.</p>
+    </div>
+    <div class="link-grid" style="margin-top:36px">
+      <a class="link-card" href="example-office-analysis.html"><h3>Worked example</h3><p>One office, one year of data, and what the analyser found.</p><span class="more">Read the example</span></a>
+      <a class="link-card" href="out-of-hours-electricity.html"><h3>Out-of-hours use</h3><p>How to find electricity used when the building is shut, and cut it.</p><span class="more">Read the guide</span></a>
+      <a class="link-card" href="base-load.html"><h3>Base load</h3><p>What never switches off, why it matters and how to bring it down.</p><span class="more">Read the guide</span></a>
+      <a class="link-card" href="supply-capacity.html"><h3>Supply capacity</h3><p>kVA, your agreed capacity, and room for heat pumps and EV charging.</p><span class="more">Read the guide</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner split">
+    <div><span class="section-kicker">Sister site</span><h2 class="section-title">Thinking about solar too?</h2></div>
+    <div><p class="section-lead">Half-hourly data shows how much of your electricity you use in daylight hours, which is what on-site solar can supply. The <a href="https://uksolarcalculator.co.uk/" style="color:var(--blue);text-decoration:underline">UK Solar Calculator</a>, from the same team, estimates system size, savings and payback for your roof.</p></div>
+  </div>
+</section>
+
 <section class="cta-strip">
   <div class="cta-strip-inner">
     <h2 class="cta-strip-title">Want a second pair of eyes on the results?</h2>
@@ -154,15 +238,15 @@
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Analyser</div>
-        <ul><li><a href="analyser/">Open the analyser</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="samples/example-office.csv" download>Example data file</a></li><li><a href="faq.html">FAQ</a></li></ul>
+        <ul><li><a href="analyser/">Open the analyser</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="example-office-analysis.html">Worked example</a></li><li><a href="samples/example-office.csv" download>Example data file</a></li><li><a href="faq.html">FAQ</a></li></ul>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Guides</div>
-        <ul><li><a href="get-your-data.html">Getting your half-hourly data</a></li><li><a href="sectors.html">What to look for by sector</a></li></ul>
+        <ul><li><a href="get-your-data.html">Getting your half-hourly data</a></li><li><a href="out-of-hours-electricity.html">Out-of-hours electricity use</a></li><li><a href="base-load.html">Base load</a></li><li><a href="supply-capacity.html">Supply capacity and kVA</a></li><li><a href="reading-a-heatmap.html">Reading a heatmap</a></li><li><a href="glossary.html">Glossary</a></li><li><a href="guides.html">All guides</a></li></ul>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">About</div>
-        <ul><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li></ul>
+        <ul><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="https://uksolarcalculator.co.uk/">UK Solar Calculator</a>, our sister site</li></ul>
       </div>
     </div>
     <div class="footer-bottom">

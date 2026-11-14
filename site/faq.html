@@ -10,16 +10,159 @@
   <meta property="og:title" content="Questions and answers | Half Hourly Insights">
   <meta property="og:description" content="Common questions about the free half-hourly electricity analyser: cost, privacy, the data you need and what the results mean.">
   <meta property="og:image" content="images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Half Hourly Insights">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="preload" href="fonts/schibsted-grotesk-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/site.css">
   <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "Organization", "name": "Kinetic Energy Consulting", "url": "https://www.kinetic-energy.co.uk",
- "email": "pjohnston663@gmail.com", "sameAs": ["https://www.linkedin.com/company/kinetic-energy-consulting"],
- "areaServed": {"@type": "Country", "name": "United Kingdom"},
- "contactPoint": {"@type": "ContactPoint", "contactType": "Sales", "email": "pjohnston663@gmail.com", "areaServed": "GB"}}
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://www.kinetic-energy.co.uk/#organization",
+   "name": "Kinetic Energy Consulting",
+   "url": "https://www.kinetic-energy.co.uk",
+   "email": "pjohnston663@gmail.com",
+   "sameAs": [
+    "https://www.linkedin.com/company/kinetic-energy-consulting"
+   ],
+   "areaServed": {
+    "@type": "Country",
+    "name": "United Kingdom"
+   },
+   "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Sales",
+    "email": "pjohnston663@gmail.com",
+    "areaServed": "GB"
+   }
+  },
+  {
+   "@type": "WebSite",
+   "@id": "#website",
+   "name": "Half Hourly Insights",
+   "inLanguage": "en-GB",
+   "description": "Free half-hourly electricity analysis for UK businesses and public bodies",
+   "publisher": {
+    "@id": "https://www.kinetic-energy.co.uk/#organization"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "index.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "FAQ",
+     "item": "faq.html"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Is it really free?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. There is no charge, no account and no limit on the number of sites. If you want help acting on the results, you can contact us, but you don't have to."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do I need to install anything?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. It runs in Chrome or Edge on a recent computer. It isn't designed for phones; the charts need a bigger screen."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How many sites can I load?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "As many as your computer will hold. One file per meter; each becomes a site, and the analyser ranks them so you know where to start."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I save my work?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Save a project file to your computer and open it again later. It holds the readings and every setting, so treat it like the original data."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I share results with a client or colleague?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Download the site or portfolio PDF, export to Excel, or make a customer dashboard: a locked, password-protected copy of the analyser holding just their sites."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is my data uploaded anywhere?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. The analysis runs entirely in your browser. Meter files are read on your computer and nothing is sent to us or anyone else. You can disconnect from the internet once the page has loaded and keep working."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What data do I need?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Half-hourly electricity readings for each meter, ideally 12 months or more. Here is how to get them."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What if my file has gaps or errors?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The analyser finds them before it shows any figure. Missing readings are left out, never counted as zero; zero days and clock-change days are flagged for you to decide on."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Are the costs savings?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. They are what a pattern costs now at the rates you entered. A saving depends on what you change. The savings scenarios are what-ifs, clearly labelled."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How accurate is it?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "As accurate as the data and the opening hours you give it. Every finding shows its confidence and the evidence behind it, and every figure says whether it was measured or estimated."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can it tell me which equipment is wasting energy?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Whole-site data shows when energy is used, not by what. The findings tell you where and when to look; a site visit finds the cause."
+     }
+    }
+   ]
+  }
+ ]
+}
   </script>
 </head>
 <body>
@@ -31,7 +174,7 @@
       <span class="nav-logo-name">Half Hourly Insights</span>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="get-your-data.html">Get your data</a></li><li><a href="sectors.html">Sectors</a></li><li><a href="faq.html" class="active" aria-current="page">FAQ</a></li><li><a href="contact.html">Contact</a></li>
+      <li><a href="index.html">Home</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="guides.html">Guides</a></li><li><a href="sectors.html">Sectors</a></li><li><a href="faq.html" class="active" aria-current="page">FAQ</a></li><li><a href="contact.html">Contact</a></li>
       <li><a href="analyser/" class="nav-cta">Open the analyser</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
@@ -67,15 +210,15 @@
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Analyser</div>
-        <ul><li><a href="analyser/">Open the analyser</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="samples/example-office.csv" download>Example data file</a></li><li><a href="faq.html">FAQ</a></li></ul>
+        <ul><li><a href="analyser/">Open the analyser</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="example-office-analysis.html">Worked example</a></li><li><a href="samples/example-office.csv" download>Example data file</a></li><li><a href="faq.html">FAQ</a></li></ul>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Guides</div>
-        <ul><li><a href="get-your-data.html">Getting your half-hourly data</a></li><li><a href="sectors.html">What to look for by sector</a></li></ul>
+        <ul><li><a href="get-your-data.html">Getting your half-hourly data</a></li><li><a href="out-of-hours-electricity.html">Out-of-hours electricity use</a></li><li><a href="base-load.html">Base load</a></li><li><a href="supply-capacity.html">Supply capacity and kVA</a></li><li><a href="reading-a-heatmap.html">Reading a heatmap</a></li><li><a href="glossary.html">Glossary</a></li><li><a href="guides.html">All guides</a></li></ul>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">About</div>
-        <ul><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li></ul>
+        <ul><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="https://uksolarcalculator.co.uk/">UK Solar Calculator</a>, our sister site</li></ul>
       </div>
     </div>
     <div class="footer-bottom">
