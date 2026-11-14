@@ -21,13 +21,13 @@ Netlify project: `halfhourlyinsights` (`63ad63f4-872f-4fa8-a21c-8c0d01546a81`)
 
 ## Image implementation note
 
-The approved designs were resized and compressed into optimised JPEG/PNG files, then embedded inside self-contained SVG image wrappers in `site/images/phase1`. This was used because the available GitHub text-file action supports UTF-8, not direct binary asset updates. Visually these contain the supplied artwork, and all 25 files exist on the branch.
+All 25 approved designs have been exported as **native optimised JPEG or PNG files** and committed on this development branch. A development-only GitHub Actions workflow extracted the native files from self-contained SVG staging assets; it successfully committed them on the planning branch without touching `main`.
 
-- The `<img>` elements on the reviewed pages now point to these SVG wrappers.
-- The **existing JPEG/PNG social preview URLs remain unchanged** because social platforms may not accept SVG for Open Graph images. Before release, check and preferably replace social JPEGs with matching 1200 × 630 native raster assets.
-- Confirm SVG wrapper display on Netlify, Chrome, Edge and Safari, and check the page CSP. If a browser blocks embedded image data, restore the original JPG references or switch to native raster assets before release.
-- The originals remain in Google Drive, under `HH analyser images`. Compressed JPEG staging copies are in `Phase 1 web optimised assets (staging)`.
-- Do not describe the SVG wrappers as true vector drawings; they contain JPEG or PNG data.
+- Website image references now point to native files under `site/images/guides/` and `site/images/photos/`; the default preview is `site/images/og-image.png`.
+- Existing Open Graph URLs now resolve to the new native image versions when this branch is eventually approved and deployed. No SVG social-preview dependency remains.
+- Staging SVG wrappers in `site/images/phase1/` are retained solely to make generation reproducible. They are **not** used as page images.
+- The originals remain in Google Drive under `HH analyser images`; compressed staging copies are in `Phase 1 web optimised assets (staging)`.
+- A live browser and social-sharing check is still required after an approved deploy. This does not affect the completed native-image integration.
 
 ## Current Netlify form blocker (confirmed via connected Netlify project)
 
@@ -40,18 +40,18 @@ No Netlify configuration was changed during this work.
 ## Tests completed without deployment
 
 - Inspected metadata on 25 page files: canonical, absolute `og:url` and absolute social image URL present (the `thanks` page remains `noindex`).
-- Confirmed all 25 SVG artwork files exist on the planning branch.
+- Confirmed all 25 staged SVG source files and all 25 native image files are present on the planning branch.
 - Scanned reviewed pages for draft privacy placeholders: none identified.
 - Reviewed which pages reference the new artwork, and that the sample route is linked from the homepage.
 - Confirmed the branch is ahead of `main` with no commits pulled into production.
-- Rendered a locally generated example of the self-contained SVG image wrapper in a vector renderer (not a complete browser test).
+- Verified the development-only raster materialisation workflow committed the approved files; no live browser test has been claimed.
 
 **GitHub Actions Phase 1 website checks completed successfully** on the draft pull request (run ID 43597918807). This validates the scripted static-site checks. A full deployed-browser or form submission session has not yet been verified.
 
 ## Release-blocking checks still required
 
 1. **Form:** enable the site Forms feature and test real submission/email delivery; verify Netlify captures a record.
-2. **Imaging:** browser-test staged SVGs and ensure social share images display the approved designs, not older versions.
+2. **Imaging:** verify the native JPG/PNG artwork, responsive cropping and social previews on a deployed preview or after approved production release.
 3. **Data privacy:** the controller must approve the enquiry retention criteria and processor/consent wording.
 4. **Analyser accuracy:** run sample CSV and an XLSX file; verify time-zone clock changes, gaps, duplicates, base load, cost figures, savings overlap and report exports.
 5. **Browser/device:** test desktop and mobile navigation, layout, keyboard focus and contact submission; capture screenshots.
