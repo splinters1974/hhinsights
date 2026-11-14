@@ -46,7 +46,7 @@ No Netlify configuration was changed during this work.
 - Confirmed the branch is ahead of `main` with no commits pulled into production.
 - Rendered a locally generated example of the self-contained SVG image wrapper in a vector renderer (not a complete browser test).
 
-Automated Node test and GitHub Actions workflow have been committed, but no successful action run or full browser session has yet been verified.
+**GitHub Actions Phase 1 website checks completed successfully** on the draft pull request (run ID 43597918807). This validates the scripted static-site checks. A full deployed-browser or form submission session has not yet been verified.
 
 ## Release-blocking checks still required
 
