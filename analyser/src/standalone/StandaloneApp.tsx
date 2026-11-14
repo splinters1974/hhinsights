@@ -212,6 +212,12 @@ export default function StandaloneApp({ mode = 'internal', customer = '' }: {
             )}
           </div>
           <div className="flex-1" />
+          {IS_HHI && !isCustomer && /^https?:/.test(location.protocol) && (
+            <a href="../downloads/half-hourly-insights-user-guide.pdf" target="_blank" rel="noopener"
+              title="Download the user guide (PDF)" className="text-sm font-semibold text-[var(--brand)] hover:underline px-2 py-2">
+              User guide (PDF)
+            </a>
+          )}
           <span className="hidden 2xl:inline-flex items-center gap-1.5 text-xs font-semibold text-[#008540] bg-[#ebf6ef] rounded-full px-3 py-1"><span className="w-1.5 h-1.5 rounded-full bg-[#008540]" aria-hidden />Offline · data stays on this computer</span>
           {!isCustomer && !IS_STANDARD && (
             <>

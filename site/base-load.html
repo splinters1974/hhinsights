@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="canonical" href="https://halfhourlyinsights.netlify.app/base-load.html">
   <title>Base load electricity: what it is and how to cut it</title>
   <meta name="description" content="What base load electricity is, how to measure it from half-hourly data, what makes it up, and how to reduce it. Each kilowatt running all year is 8,760 kWh.">
+  <link rel="canonical" href="https://halfhourlyinsights.netlify.app/base-load.html">
   <meta property="og:url" content="https://halfhourlyinsights.netlify.app/base-load.html">
   <meta property="og:type" content="article">
   <meta property="og:locale" content="en_GB">
@@ -18,7 +18,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="preload" href="fonts/schibsted-grotesk-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/site.css?v=c94a9336">
+  <link rel="stylesheet" href="css/site.css?v=4d8fd3a4">
   <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -45,13 +45,14 @@
   },
   {
    "@type": "WebSite",
-   "@id": "#website",
+   "@id": "https://halfhourlyinsights.netlify.app/#website",
    "name": "Half Hourly Insights",
    "inLanguage": "en-GB",
    "description": "Free half-hourly electricity analysis for UK businesses and public bodies",
    "publisher": {
     "@id": "https://www.kinetic-energy.co.uk/#organization"
-   }
+   },
+   "url": "https://halfhourlyinsights.netlify.app/"
   },
   {
    "@type": "BreadcrumbList",
@@ -60,19 +61,19 @@
      "@type": "ListItem",
      "position": 1,
      "name": "Home",
-     "item": "index.html"
+     "item": "https://halfhourlyinsights.netlify.app/"
     },
     {
      "@type": "ListItem",
      "position": 2,
      "name": "Guides",
-     "item": "guides.html"
+     "item": "https://halfhourlyinsights.netlify.app/guides.html"
     },
     {
      "@type": "ListItem",
      "position": 3,
      "name": "Base load: what never switches off",
-     "item": "base-load.html"
+     "item": "https://halfhourlyinsights.netlify.app/base-load.html"
     }
    ]
   },
@@ -80,7 +81,7 @@
    "@type": "Article",
    "headline": "Base load electricity: what it is and how to cut it",
    "description": "What base load electricity is, how to measure it from half-hourly data, what makes it up, and how to reduce it. Each kilowatt running all year is 8,760 kWh.",
-   "image": "images/guides/base-load.jpg",
+   "image": "https://halfhourlyinsights.netlify.app/images/guides/base-load.jpg",
    "inLanguage": "en-GB",
    "datePublished": "2026-11-14",
    "dateModified": "2026-11-14",
@@ -91,8 +92,9 @@
     "@id": "https://www.kinetic-energy.co.uk/#organization"
    },
    "isPartOf": {
-    "@id": "#website"
-   }
+    "@id": "https://halfhourlyinsights.netlify.app/#website"
+   },
+   "mainEntityOfPage": "https://halfhourlyinsights.netlify.app/base-load.html"
   },
   {
    "@type": "FAQPage",
@@ -102,7 +104,7 @@
      "name": "What is a typical base load?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "It depends on the building: a data-heavy office or a site with refrigeration will have a much higher floor than a school. Compare a site against itself over time, and against similar buildings in your estate."
+      "text": "It depends on the building. An office with a lot of IT, or a site with refrigeration, will have a much higher base load than a school. Compare each site with its own history, and with similar buildings in your estate."
      }
     },
     {
@@ -110,7 +112,7 @@
      "name": "Why is my base load higher at weekends than overnight on weekdays?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "It shouldn't be. If it is, something is switching on at weekends (heating frost protection, a scheduled process or a booking). Check the heatmap for the weekend pattern."
+      "text": "It shouldn't be. If it is, something is switching on at weekends, such as frost protection on the heating, a scheduled process or a booking. Check the weekend pattern on the heatmap."
      }
     },
     {
@@ -118,7 +120,7 @@
      "name": "How much does 1 kW of base load cost?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "It runs 8,760 hours a year, so 8,760 kWh. At 25p/kWh that is about £2,190 a year; multiply by your own rate."
+      "text": "It runs 8,760 hours a year, so it uses 8,760 kWh. At 25p/kWh that's about £2,190 a year. Multiply 8,760 by your own rate to check."
      }
     }
    ]
@@ -150,32 +152,32 @@
     <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> <span aria-hidden="true">/</span> <a href="guides.html">Guides</a> <span aria-hidden="true">/</span> <span aria-current="page">Base load: what never switches off</span></nav>
     <span class="page-hero-kicker">Guide</span>
     <h1 class="page-hero-title">Base load: what never switches off</h1>
-    <p class="page-hero-lead">Every building has a level of demand it never drops below. Because it runs every hour of the year, small reductions add up.</p>
+    <p class="page-hero-lead">Every building has a level of electricity use it never drops below. Because that use continues every hour of the year, even small reductions add up.</p>
   </div>
 </section><div class="guide">
   <article class="guide-main prose">
 <p class="byline">Last updated <time datetime="2026-11-14">14 November 2026</time></p>
-<p class="answer">Base load is the electricity demand a building never drops below, overnight and at weekends as well as during the day. Each kilowatt of it runs for 8,760 hours a year: 8,760 kWh, about £2,190 at 25p/kWh. Measure it from half-hourly data, find out what makes it up, and switch off what doesn't need to run.</p>
+<p class="answer">Base load is the minimum electricity a building uses at all times, overnight and at weekends as well as during the day. Each kilowatt of base load runs for 8,760 hours a year. That's 8,760 kWh, or about £2,190 at 25p/kWh. You can measure it from half-hourly data, find out what makes it up, and switch off anything that doesn't need to run.</p>
 
 <h2 id="measure">How to measure it</h2>
-<p>Take every valid half-hourly reading, convert to kW (kWh divided by half an hour), and find the level demand is above 95% of the time: the 5th percentile. That's the analyser's base load reference.</p>
-<p>Why not the lowest reading? One meter dropout or a power cut would set it, and the true floor would look lower than it is. The analyser shows the lowest half hour alongside, so you can see the difference.</p>
+<p>The analyser takes every valid half-hourly reading, converts it to kW (the kWh reading divided by half an hour) and finds the level that demand stays above 95% of the time. This is called the 5th percentile, and it's what the analyser uses as the base load.</p>
+<p>It doesn't use the single lowest reading, because one meter fault or power cut could set it and make the base load look lower than it really is. The analyser shows the lowest half hour alongside so you can compare.</p>
 
 <h2 id="what">What makes it up</h2>
-<ul><li>IT: servers, network switches, phone systems</li><li>Refrigeration: kitchen fridges, freezers, vending machines, water coolers</li><li>Pumps and fans that run continuously</li><li>Hot water heaters and boilers kept on standby</li><li>Security, fire systems and emergency lighting</li><li>Equipment on standby, and plant left running by mistake</li></ul>
+<ul><li>IT: servers, network equipment and phone systems</li><li>Refrigeration: kitchen fridges, freezers, vending machines and water coolers</li><li>Pumps and fans that run continuously</li><li>Water heaters and boilers kept on standby</li><li>Security systems, fire alarms and emergency lighting</li><li>Equipment left on standby, or left running by mistake</li></ul>
 
 <h2 id="reduce">How to reduce it</h2>
-<ol><li><strong>Walk the building at night or at a weekend</strong> and note everything that's on.</li><li><strong>Sort it</strong>: must run, could run less, shouldn't be on.</li><li><strong>Fix the easy ones</strong>: timers on water heaters and vending machines, switch-off routines, consolidating servers.</li><li><strong>Watch the base load month by month.</strong> A step up usually means something new was installed or left on; the analyser flags lasting changes like this.</li></ol>
+<ol><li><strong>Walk round the building at night or at a weekend</strong> and note everything that's switched on. It's often a surprise.</li><li><strong>Sort what you find</strong> into must run, could run less, and shouldn't be on.</li><li><strong>Fix the easy ones first</strong>, such as timers on water heaters and vending machines, switch-off routines and combining servers.</li><li><strong>Check the base load every month.</strong> A step up usually means new equipment has been installed or something has been left on. The analyser flags lasting changes like this.</li></ol>
 
-<h2 id="worth">Is it worth it?</h2>
-<p>At 25p/kWh, every 1 kW cut from the base load is worth about £2,190 a year. A 0.5 kW cut from a heater left on, at the same rate, is about £1,100. The arithmetic is simple because base load runs every hour of the year.</p>
+<h2 id="worth">Working out the saving</h2>
+<p>Because base load runs every hour of the year, savings are easy to estimate: multiply the kilowatts you remove by 8,760 hours and by your unit rate. At 25p/kWh, 1 kW is worth about £2,190 a year, and switching off a 0.5 kW water heater that was left on all the time saves about £1,100.</p>
 <h2 id="questions">Questions people ask</h2>
-<div class="faq"><details><summary>What is a typical base load?</summary><div class="faq-a"><p>It depends on the building: a data-heavy office or a site with refrigeration will have a much higher floor than a school. Compare a site against itself over time, and against similar buildings in your estate.</p></div></details><details><summary>Why is my base load higher at weekends than overnight on weekdays?</summary><div class="faq-a"><p>It shouldn't be. If it is, something is switching on at weekends (heating frost protection, a scheduled process or a booking). Check the heatmap for the weekend pattern.</p></div></details><details><summary>How much does 1 kW of base load cost?</summary><div class="faq-a"><p>It runs 8,760 hours a year, so 8,760 kWh. At 25p/kWh that is about £2,190 a year; multiply by your own rate.</p></div></details></div><h2 id="next">Read next</h2>
-<div class="link-grid"><a class="link-card has-thumb" href="out-of-hours-electricity.html"><div class="card-thumb"><img src="images/guides/out-of-hours-electricity.jpg" width="1200" height="630" alt="" loading="lazy"></div><h3>Out-of-hours use</h3><p>Use above the base load while the building is shut.</p><span class="more">Read the guide</span></a><a class="link-card has-thumb" href="supply-capacity.html"><div class="card-thumb"><img src="images/guides/supply-capacity.jpg" width="1200" height="630" alt="" loading="lazy"></div><h3>Supply capacity</h3><p>The other end of the scale: your peaks.</p><span class="more">Read the guide</span></a><a class="link-card has-thumb" href="example-office-analysis.html"><div class="card-thumb"><img src="images/guides/example-office-analysis.jpg" width="1200" height="630" alt="" loading="lazy"></div><h3>Worked example</h3><p>Base load in one office, with figures.</p><span class="more">Read the guide</span></a></div>
+<div class="faq"><details><summary>What is a typical base load?</summary><div class="faq-a"><p>It depends on the building. An office with a lot of IT, or a site with refrigeration, will have a much higher base load than a school. Compare each site with its own history, and with similar buildings in your estate.</p></div></details><details><summary>Why is my base load higher at weekends than overnight on weekdays?</summary><div class="faq-a"><p>It shouldn't be. If it is, something is switching on at weekends, such as frost protection on the heating, a scheduled process or a booking. Check the weekend pattern on the heatmap.</p></div></details><details><summary>How much does 1 kW of base load cost?</summary><div class="faq-a"><p>It runs 8,760 hours a year, so it uses 8,760 kWh. At 25p/kWh that's about £2,190 a year. Multiply 8,760 by your own rate to check.</p></div></details></div><h2 id="next">Read next</h2>
+<div class="link-grid"><a class="link-card has-thumb" href="out-of-hours-electricity.html"><div class="card-thumb"><img src="images/guides/out-of-hours-electricity.jpg" srcset="images/guides/out-of-hours-electricity-600.jpg 600w, images/guides/out-of-hours-electricity.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Out-of-hours use</h3><p>Use above the base load while the building is closed.</p><span class="more">Read the guide</span></a><a class="link-card has-thumb" href="supply-capacity.html"><div class="card-thumb"><img src="images/guides/supply-capacity.jpg" srcset="images/guides/supply-capacity-600.jpg 600w, images/guides/supply-capacity.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Supply capacity</h3><p>The other end of the scale: your busiest half hours.</p><span class="more">Read the guide</span></a><a class="link-card has-thumb" href="example-office-analysis.html"><div class="card-thumb"><img src="images/guides/example-office-analysis.jpg" srcset="images/guides/example-office-analysis-600.jpg 600w, images/guides/example-office-analysis.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Worked example</h3><p>Base load in one office, with figures.</p><span class="more">Read the guide</span></a></div>
   </article>
   <aside class="guide-side">
-    <nav class="toc" aria-label="On this page"><div class="toc-title">On this page</div><ol><li><a href="#measure">How to measure it</a></li><li><a href="#what">What makes it up</a></li><li><a href="#reduce">How to reduce it</a></li><li><a href="#worth">Is it worth it?</a></li><li><a href="#questions">Questions people ask</a></li></ol></nav>
-    <div class="side-cta"><strong>Try it on your own data</strong><p>Free, no sign-up, and your file stays on your computer.</p><a href="analyser/" class="btn">Open the analyser</a></div>
+    <nav class="toc" aria-label="On this page"><div class="toc-title">On this page</div><ol><li><a href="#measure">How to measure it</a></li><li><a href="#what">What makes it up</a></li><li><a href="#reduce">How to reduce it</a></li><li><a href="#worth">Working out the saving</a></li><li><a href="#questions">Questions people ask</a></li></ol></nav>
+    <div class="side-cta"><strong>Try it on your own data</strong><p>It's free, there's no sign-up, and your file stays on your computer.</p><a href="analyser/" class="btn">Open the analyser</a></div>
   </aside>
 </div><section class="cta-strip">
   <div class="cta-strip-inner">
@@ -184,7 +186,7 @@
       <a href="analyser/" class="btn btn-gold btn-lg">Open the analyser</a>
       <a href="contact.html" class="btn btn-outline-white btn-lg">Talk to an expert</a>
     </div>
-    <p class="cta-strip-lead">Free, no sign-up, and your file stays on your computer.</p>
+    <p class="cta-strip-lead">It's free, there's no sign-up, and your file stays on your computer.</p>
   </div>
 </section>
 </main>
@@ -193,12 +195,12 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo"><svg viewBox="0 0 34 34" aria-hidden="true"><rect x="3" y="15" width="5" height="10" rx="1" fill="#0065A4"/><rect x="10" y="9" width="5" height="16" rx="1" fill="#0065A4"/><rect x="17" y="3" width="5" height="22" rx="1" fill="#F8C05D"/><rect x="24" y="12" width="5" height="13" rx="1" fill="#0065A4"/><rect x="1" y="26" width="32" height="3" rx="1.5" fill="#FFFFFF"/></svg><span class="footer-logo-name">Half Hourly Insights</span></div>
-        <p class="footer-desc">Free half-hourly electricity analysis for UK businesses and public sector organisations, run by Kinetic Energy Consulting. It runs in your browser: your meter data never leaves your computer.</p>
+        <p class="footer-desc">Free half-hourly electricity analysis for UK businesses and public sector organisations, run by Kinetic Energy Consulting. The analysis runs in your browser, so your meter data never leaves your computer.</p>
         <div class="footer-contact-item">Email: <a href="mailto:pjohnston663@gmail.com">pjohnston663@gmail.com</a></div>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Analyser</div>
-        <ul><li><a href="analyser/">Open the analyser</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="example-office-analysis.html">Worked example</a></li><li><a href="samples/example-office.csv" download>Example data file</a></li><li><a href="faq.html">FAQ</a></li></ul>
+        <ul><li><a href="analyser/">Open the analyser</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="example-office-analysis.html">Worked example</a></li><li><a href="sample-report.html">Sample report</a></li><li><a href="samples/example-office.csv" download>Example data file</a></li><li><a href="downloads/half-hourly-insights-user-guide.pdf" download>User guide (PDF)</a></li><li><a href="faq.html">FAQ</a></li></ul>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Guides</div>
@@ -211,7 +213,7 @@
     </div>
     <div class="footer-bottom">
       <div class="footer-copy">&copy; 2026 Kinetic Energy Consulting</div>
-      <div class="footer-disclaimer">All analyser outputs are indicative estimates from the data you load, not a guarantee of savings. Guides are general information, not financial, tax or legal advice.</div>
+      <div class="footer-disclaimer">All analyser results are estimates based on the data you load and do not guarantee savings. Our guides are general information and are not financial, tax or legal advice.</div>
     </div>
   </div>
 </footer>

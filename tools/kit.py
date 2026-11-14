@@ -12,10 +12,11 @@ YEAR = 2026
 # Date the guides were last reviewed; shown on each guide and in its schema.
 UPDATED = '2026-11-14'
 UPDATED_TEXT = '14 November 2026'
-# Domain to be confirmed. Leave empty until then: once set (e.g.
-# 'https://www.example.co.uk', no trailing slash) every page gains canonical and
-# absolute share links, robots.txt points at the sitemap, and sitemap.xml is written.
-SITE_URL = ''
+# The site's public address, no trailing slash. Every page's canonical and
+# share links, robots.txt and sitemap.xml are built from it, so moving to a
+# custom domain (for example https://hhinsights.co.uk) is this one change plus
+# a rebuild. Empty disables canonical links and the sitemap.
+SITE_URL = 'https://halfhourlyinsights.netlify.app'
 
 # Run by Kinetic Energy Consulting, as with the UK Solar Calculator.
 OPERATOR = 'Kinetic Energy Consulting'
@@ -204,6 +205,15 @@ def link_card(f, t, d, more='Read the guide'):
     return f'<a class="link-card{" has-thumb" if img else ""}" href="{f}">{thumb}<h3>{t}</h3><p>{d}</p><span class="more">{more}</span></a>'
 
 
+# The downloadable user guide, built by tools/build_guide.py.
+GUIDE_PDF = 'downloads/half-hourly-insights-user-guide.pdf'
+
+
+def guide_download(lead='Prefer to read it on paper?'):
+    return (f'<div class="note"><strong>{lead}</strong> <a href="{GUIDE_PDF}" download>Download the user guide</a> '
+            '(PDF, 13 pages). It walks you through loading your data, setting opening hours, reading the results and sharing them.</div>')
+
+
 def related(links):
     """'Read next' cards at the end of a guide: [(file, title, one line)]."""
     return '<h2 id="next">Read next</h2>\n<div class="link-grid">' + ''.join(
@@ -226,7 +236,7 @@ def guide(main, side=''):
   </article>
   <aside class="guide-side">
 {side}
-    <div class="side-cta"><strong>Try it on your own data</strong><p>Free, no sign-up, and your file stays on your computer.</p><a href="analyser/" class="btn">Open the analyser</a></div>
+    <div class="side-cta"><strong>Try it on your own data</strong><p>It's free, there's no sign-up, and your file stays on your computer.</p><a href="analyser/" class="btn">Open the analyser</a></div>
   </aside>
 </div>'''
 
@@ -247,7 +257,7 @@ def layout(page):
     current = NAV_PARENT.get(page.file, page.file)
     active = ' class="active" aria-current="page"'
     links = ''.join(f'<li><a href="{href}"{active if href == current else ""}>{label}</a></li>' for href, label in NAV)
-    canonical = f'  <link rel="canonical" href="{url(page.file)}">\n  <meta property="og:url" content="{url(page.file)}">\n' if SITE_URL else ''
+    canonical = f'  <link rel="canonical" href="{url(page.file)}">\n  <meta property="og:url" content="{url(page.file)}">\n' if SITE_URL and not page.noindex else ''
     robots = '  <meta name="robots" content="noindex">\n' if page.noindex else ''
     return f'''<!DOCTYPE html>
 <html lang="en-GB">
@@ -292,12 +302,12 @@ def layout(page):
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo">{MARK.format(base='#FFFFFF')}<span class="footer-logo-name">{NAME}</span></div>
-        <p class="footer-desc">Free half-hourly electricity analysis for UK businesses and public sector organisations, run by {OPERATOR}. It runs in your browser: your meter data never leaves your computer.</p>
+        <p class="footer-desc">Free half-hourly electricity analysis for UK businesses and public sector organisations, run by {OPERATOR}. The analysis runs in your browser, so your meter data never leaves your computer.</p>
         <div class="footer-contact-item">Email: <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a></div>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Analyser</div>
-        <ul><li><a href="analyser/">Open the analyser</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="example-office-analysis.html">Worked example</a></li><li><a href="samples/example-office.csv" download>Example data file</a></li><li><a href="faq.html">FAQ</a></li></ul>
+        <ul><li><a href="analyser/">Open the analyser</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="example-office-analysis.html">Worked example</a></li><li><a href="sample-report.html">Sample report</a></li><li><a href="samples/example-office.csv" download>Example data file</a></li><li><a href="{GUIDE_PDF}" download>User guide (PDF)</a></li><li><a href="faq.html">FAQ</a></li></ul>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Guides</div>
@@ -310,7 +320,7 @@ def layout(page):
     </div>
     <div class="footer-bottom">
       <div class="footer-copy">&copy; {YEAR} {OPERATOR}</div>
-      <div class="footer-disclaimer">All analyser outputs are indicative estimates from the data you load, not a guarantee of savings. Guides are general information, not financial, tax or legal advice.</div>
+      <div class="footer-disclaimer">All analyser results are estimates based on the data you load and do not guarantee savings. Our guides are general information and are not financial, tax or legal advice.</div>
     </div>
   </div>
 </footer>

@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="canonical" href="https://halfhourlyinsights.netlify.app/how-it-works.html">
   <title>How it works | Half Hourly Insights</title>
-  <meta name="description" content="What the analyser does with your half-hourly data: how it reads files, checks quality, sets the base load, prices out-of-hours use and builds findings.">
+  <meta name="description" content="What the analyser does with your half-hourly data: how it reads files, checks quality, sets the base load, prices use while closed and builds findings.">
+  <link rel="canonical" href="https://halfhourlyinsights.netlify.app/how-it-works.html">
   <meta property="og:url" content="https://halfhourlyinsights.netlify.app/how-it-works.html">
   <meta property="og:type" content="article">
   <meta property="og:locale" content="en_GB">
   <meta property="og:title" content="How it works | Half Hourly Insights">
-  <meta property="og:description" content="What the analyser does with your half-hourly data: how it reads files, checks quality, sets the base load, prices out-of-hours use and builds findings.">
+  <meta property="og:description" content="What the analyser does with your half-hourly data: how it reads files, checks quality, sets the base load, prices use while closed and builds findings.">
   <meta property="og:image" content="https://halfhourlyinsights.netlify.app/images/guides/how-it-works.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -18,7 +18,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="preload" href="fonts/schibsted-grotesk-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/site.css?v=c94a9336">
+  <link rel="stylesheet" href="css/site.css?v=4d8fd3a4">
   <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -45,13 +45,14 @@
   },
   {
    "@type": "WebSite",
-   "@id": "#website",
+   "@id": "https://halfhourlyinsights.netlify.app/#website",
    "name": "Half Hourly Insights",
    "inLanguage": "en-GB",
    "description": "Free half-hourly electricity analysis for UK businesses and public bodies",
    "publisher": {
     "@id": "https://www.kinetic-energy.co.uk/#organization"
-   }
+   },
+   "url": "https://halfhourlyinsights.netlify.app/"
   },
   {
    "@type": "BreadcrumbList",
@@ -60,21 +61,21 @@
      "@type": "ListItem",
      "position": 1,
      "name": "Home",
-     "item": "index.html"
+     "item": "https://halfhourlyinsights.netlify.app/"
     },
     {
      "@type": "ListItem",
      "position": 2,
      "name": "How it works",
-     "item": "how-it-works.html"
+     "item": "https://halfhourlyinsights.netlify.app/how-it-works.html"
     }
    ]
   },
   {
    "@type": "Article",
    "headline": "How it works",
-   "description": "What the analyser does with your half-hourly data: how it reads files, checks quality, sets the base load, prices out-of-hours use and builds findings.",
-   "image": "images/guides/how-it-works.jpg",
+   "description": "What the analyser does with your half-hourly data: how it reads files, checks quality, sets the base load, prices use while closed and builds findings.",
+   "image": "https://halfhourlyinsights.netlify.app/images/guides/how-it-works.jpg",
    "inLanguage": "en-GB",
    "datePublished": "2026-11-14",
    "dateModified": "2026-11-14",
@@ -85,8 +86,9 @@
     "@id": "https://www.kinetic-energy.co.uk/#organization"
    },
    "isPartOf": {
-    "@id": "#website"
-   }
+    "@id": "https://halfhourlyinsights.netlify.app/#website"
+   },
+   "mainEntityOfPage": "https://halfhourlyinsights.netlify.app/how-it-works.html"
   }
  ]
 }
@@ -115,59 +117,59 @@
     <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">How it works</span></nav>
     <span class="page-hero-kicker">How it works</span>
     <h1 class="page-hero-title">What the analyser does with your data</h1>
-    <p class="page-hero-lead">Plain-English notes on every step, from reading the file to the figures in the report. The full method is in the analyser itself: every finding has a "show calculation and evidence" link.</p>
+    <p class="page-hero-lead">A step-by-step explanation, from reading your file to the figures in the report. In the analyser, each finding also has a "show calculation and evidence" link with the full working.</p>
   </div>
 </section><div class="guide">
   <article class="guide-main prose">
 <p class="byline">Last updated <time datetime="2026-11-14">14 November 2026</time></p>
-<p class="answer">The analyser reads every half-hourly reading, checks it, works out what the site uses when it's open and when it's shut, and prices the difference at your rates. It shows where to look, not what to fix.</p>
-<figure class="figure"><img src="images/photos/switchroom-tablet.jpg" srcset="images/photos/switchroom-tablet-800.jpg 800w, images/photos/switchroom-tablet.jpg 1448w" sizes="(max-width: 860px) 100vw, 860px" width="1448" height="1086" alt="Three people in a switch room looking at data on a tablet beside open electrical panels" loading="lazy"><figcaption>The analyser points to where to look. Someone who knows the building decides what to change.</figcaption></figure>
+<p class="answer">The analyser checks every half-hourly reading, works out how much electricity the site uses when it's open and when it's closed, and prices the difference at your rates. It tells you where to look. Someone who knows the building then decides what to change.</p>
+<figure class="figure"><img src="images/photos/switchroom-tablet.jpg" srcset="images/photos/switchroom-tablet-800.jpg 800w, images/photos/switchroom-tablet.jpg 1448w" sizes="(max-width: 860px) 100vw, 860px" width="1448" height="1086" alt="Three people in a switch room looking at data on a tablet beside open electrical panels" loading="lazy"><figcaption>The findings tell you where to look. A walk round the building tells you why.</figcaption></figure><div class="note"><strong>Want the practical steps?</strong> <a href="downloads/half-hourly-insights-user-guide.pdf" download>Download the user guide</a> (PDF, 13 pages). It walks you through loading your data, setting opening hours, reading the results and sharing them.</div>
 
 <h2 id="files">1. Reading your files</h2>
-<p>Load one file per meter, as Excel (.xlsx, .xls) or CSV. Three layouts work:</p>
-<ul><li><strong>Day per row:</strong> a date, then 48 half-hourly readings (the most common supplier format).</li><li><strong>Day per column:</strong> the same, turned on its side.</li><li><strong>Timestamped:</strong> one reading per row with its date and time.</li></ul>
-<p>The analyser tells you how it read each file: which column held the dates, whether readings were kWh or kW, and anything it ignored. Files covering more than a year are analysed over the last 12 months by default; you can pick any other period, and long-term trends still use the whole file.</p>
+<p>Load one file for each meter, as Excel (.xlsx or .xls) or CSV. Three layouts work:</p>
+<ul><li><strong>Day per row:</strong> a date, then 48 half-hourly readings. This is the most common supplier format.</li><li><strong>Day per column:</strong> the same, turned on its side.</li><li><strong>Timestamped:</strong> one reading per row, with its date and time.</li></ul>
+<p>The analyser shows how it read each file: which column held the dates, whether readings were in kWh or kW, and anything it ignored. If a file covers more than a year, the last 12 months are analysed by default. You can choose a different period, and long-term trends still use the whole file.</p>
 
 <h2 id="checks">2. Checking the data</h2>
-<p>Before showing any figure, the analyser looks for problems that would make it wrong:</p>
-<ul><li>missing readings and gaps (left out, never counted as zero)</li><li>days of zero readings, which usually mean a meter or data fault</li><li>clock-change days and duplicate rows, which it holds back for you to decide</li><li>single readings far above the normal peak</li></ul>
-<p>Each site gets a verdict (Good, Check or Poor) and you can exclude anything you know is wrong, with a reason that's kept with the analysis.</p>
+<p>Before showing any figures, the analyser looks for problems that would make them wrong:</p>
+<ul><li>missing readings, which are left out rather than counted as zero</li><li>days of zero readings, which usually point to a meter or data fault</li><li>days when the clocks change, and duplicate rows, which it holds back for you to decide on</li><li>single readings far above the usual peak</li></ul>
+<p>Each site is rated Good, Check or Poor. You can exclude readings you know are wrong and record why, and the reason is saved with the analysis.</p>
 
 <h2 id="calendar">3. Opening hours</h2>
-<p>Out-of-hours findings depend on knowing when a building should be open. Every site starts with typical office hours, clearly marked as unconfirmed. Set the hours for all sites at once or one by one, including closures, bank holidays and overnight shifts. Findings that rely on unconfirmed hours carry lower confidence.</p>
+<p>The figures for use while closed depend on knowing when each building should be open. Every site starts with standard office hours, marked as unconfirmed until you check them. You can set hours for all sites at once or one at a time, including closures, bank holidays and overnight shifts. Findings based on unconfirmed hours get a lower confidence rating.</p>
 
-<h2 id="base">4. Base load and out-of-hours use</h2>
-<p>The <strong>base load</strong> is the level the site rarely drops below: the 5th percentile of all valid half-hourly demand. It's what never switches off, such as servers, fridges and standby loads.</p>
-<p><strong>Closed-hours excess</strong> is energy used while the site is shut, above that base load. This is the figure the analyser ranks sites by, because it is often the cheapest consumption to tackle: through controls, time clocks and building management settings rather than new equipment.</p>
+<h2 id="base">4. Base load and use while closed</h2>
+<p><strong>Base load</strong> is the level of demand a site rarely drops below. The analyser measures it as the 5th percentile of all valid half-hourly readings, which means demand is higher than this 95% of the time. It's the equipment that never switches off, such as servers, fridges and anything on standby.</p>
+<p><strong>Closed-hours excess</strong> is the electricity used while the site is closed, over and above the base load. Sites are ranked by this figure because it's often the cheapest use to reduce, usually by changing timers, controls and building management settings rather than buying new equipment.</p>
 
 <h2 id="costs">5. Costs and annual figures</h2>
-<p>Costs are energy cost at the rates you enter: one flat rate, or time bands such as day and night. They exclude standing charges, capacity charges and other fixed costs. They show what a pattern costs now, not a guaranteed saving.</p>
-<p>Annual figures are scaled from the valid readings. With less than about 11 months of good data they are marked indicative, and under six months they aren't shown at all.</p>
+<p>Costs use the unit rates you enter, either one flat rate or different rates for different times of day. They leave out standing charges, capacity charges and other fixed costs. They show what a pattern costs you now and are not a promise of savings.</p>
+<p>Annual figures are scaled up from the valid readings. With less than about 11 months of good data they're marked as indicative, and with less than six months they aren't shown.</p>
 
 <h2 id="findings">6. Findings</h2>
-<p>Each finding has two separate labels. <strong>Impact</strong> is how much it matters, based on cost and share of use. <strong>Confidence</strong> is how good the evidence is, based on data quality and whether the hours are confirmed. A high-impact, low-confidence finding is worth checking, not quoting.</p>
+<p>Each finding has two separate ratings. <strong>Impact</strong> shows how much it matters, based on cost and share of total use. <strong>Confidence</strong> shows how reliable the evidence is, based on data quality and whether the opening hours are confirmed. A finding with high impact and low confidence is worth checking before you quote it.</p>
 
 <h2 id="capacity">7. Capacity and headroom</h2>
-<p>Enter your agreed supply capacity (in kVA, from your bill or connection agreement) and an assumed power factor. The analyser compares every half hour against it and works out how much constant new load the site could add before it runs short. It's a screen, not confirmation from your network operator.</p>
+<p>Enter your agreed supply capacity (in kVA, from your bill or connection agreement) and an assumed power factor. The analyser compares every half hour with it and works out how much extra constant load the site could take before reaching the limit. Treat this as an early check, because only your network operator can confirm it.</p>
 
 <h2 id="limits">What it can't tell you</h2>
-<ul><li>Whole-site data shows when demand happens, not which equipment causes it. Findings are things to check on site.</li><li>Figures aren't adjusted for weather or changes in occupancy.</li><li>Carbon figures use the factor you enter, one value for the year.</li></ul>
+<ul><li>Data from the main meter shows when electricity is used, but not which equipment is using it. Findings are things to check on site.</li><li>Figures are not adjusted for weather or changes in occupancy.</li><li>Carbon figures use a single conversion factor for the year, which you enter.</li></ul>
 <h2 id="next">Read next</h2>
-<div class="link-grid"><a class="link-card has-thumb" href="example-office-analysis.html"><div class="card-thumb"><img src="images/guides/example-office-analysis.jpg" width="1200" height="630" alt="" loading="lazy"></div><h3>Worked example</h3><p>The method applied to one office, step by step.</p><span class="more">Read the guide</span></a><a class="link-card has-thumb" href="out-of-hours-electricity.html"><div class="card-thumb"><img src="images/guides/out-of-hours-electricity.jpg" width="1200" height="630" alt="" loading="lazy"></div><h3>Out-of-hours use</h3><p>Finding and cutting use when the building is shut.</p><span class="more">Read the guide</span></a><a class="link-card has-thumb" href="base-load.html"><div class="card-thumb"><img src="images/guides/base-load.jpg" width="1200" height="630" alt="" loading="lazy"></div><h3>Base load</h3><p>What never switches off, and why it matters.</p><span class="more">Read the guide</span></a></div>
+<div class="link-grid"><a class="link-card has-thumb" href="example-office-analysis.html"><div class="card-thumb"><img src="images/guides/example-office-analysis.jpg" srcset="images/guides/example-office-analysis-600.jpg 600w, images/guides/example-office-analysis.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Worked example</h3><p>The method applied to one office, step by step.</p><span class="more">Read the guide</span></a><a class="link-card has-thumb" href="out-of-hours-electricity.html"><div class="card-thumb"><img src="images/guides/out-of-hours-electricity.jpg" srcset="images/guides/out-of-hours-electricity-600.jpg 600w, images/guides/out-of-hours-electricity.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Out-of-hours use</h3><p>Finding and reducing use while the building is closed.</p><span class="more">Read the guide</span></a><a class="link-card has-thumb" href="base-load.html"><div class="card-thumb"><img src="images/guides/base-load.jpg" srcset="images/guides/base-load-600.jpg 600w, images/guides/base-load.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Base load</h3><p>What always runs, and why it matters.</p><span class="more">Read the guide</span></a></div>
   </article>
   <aside class="guide-side">
     <nav class="toc" aria-label="On this page"><div class="toc-title">On this page</div><ol>
-      <li><a href="#files">Reading your files</a></li><li><a href="#checks">Checking the data</a></li><li><a href="#calendar">Opening hours</a></li><li><a href="#base">Base load and out-of-hours use</a></li><li><a href="#costs">Costs and annual figures</a></li><li><a href="#findings">Findings</a></li><li><a href="#capacity">Capacity and headroom</a></li><li><a href="#limits">What it can't tell you</a></li></ol></nav>
-    <div class="side-cta"><strong>Try it on your own data</strong><p>Free, no sign-up, and your file stays on your computer.</p><a href="analyser/" class="btn">Open the analyser</a></div>
+      <li><a href="#files">Reading your files</a></li><li><a href="#checks">Checking the data</a></li><li><a href="#calendar">Opening hours</a></li><li><a href="#base">Base load and use while closed</a></li><li><a href="#costs">Costs and annual figures</a></li><li><a href="#findings">Findings</a></li><li><a href="#capacity">Capacity and headroom</a></li><li><a href="#limits">What it can't tell you</a></li></ol></nav>
+    <div class="side-cta"><strong>Try it on your own data</strong><p>It's free, there's no sign-up, and your file stays on your computer.</p><a href="analyser/" class="btn">Open the analyser</a></div>
   </aside>
 </div><section class="cta-strip">
   <div class="cta-strip-inner">
-    <h2 class="cta-strip-title">See it on your own data</h2>
+    <h2 class="cta-strip-title">Try it on your own data</h2>
     <div class="cta-strip-btns">
       <a href="analyser/" class="btn btn-gold btn-lg">Open the analyser</a>
       <a href="contact.html" class="btn btn-outline-white btn-lg">Talk to an expert</a>
     </div>
-    <p class="cta-strip-lead">Free, no sign-up, and nothing is uploaded.</p>
+    <p class="cta-strip-lead">It's free, there's no sign-up, and nothing is uploaded.</p>
   </div>
 </section>
 </main>
@@ -176,12 +178,12 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo"><svg viewBox="0 0 34 34" aria-hidden="true"><rect x="3" y="15" width="5" height="10" rx="1" fill="#0065A4"/><rect x="10" y="9" width="5" height="16" rx="1" fill="#0065A4"/><rect x="17" y="3" width="5" height="22" rx="1" fill="#F8C05D"/><rect x="24" y="12" width="5" height="13" rx="1" fill="#0065A4"/><rect x="1" y="26" width="32" height="3" rx="1.5" fill="#FFFFFF"/></svg><span class="footer-logo-name">Half Hourly Insights</span></div>
-        <p class="footer-desc">Free half-hourly electricity analysis for UK businesses and public sector organisations, run by Kinetic Energy Consulting. It runs in your browser: your meter data never leaves your computer.</p>
+        <p class="footer-desc">Free half-hourly electricity analysis for UK businesses and public sector organisations, run by Kinetic Energy Consulting. The analysis runs in your browser, so your meter data never leaves your computer.</p>
         <div class="footer-contact-item">Email: <a href="mailto:pjohnston663@gmail.com">pjohnston663@gmail.com</a></div>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Analyser</div>
-        <ul><li><a href="analyser/">Open the analyser</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="example-office-analysis.html">Worked example</a></li><li><a href="samples/example-office.csv" download>Example data file</a></li><li><a href="faq.html">FAQ</a></li></ul>
+        <ul><li><a href="analyser/">Open the analyser</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="example-office-analysis.html">Worked example</a></li><li><a href="sample-report.html">Sample report</a></li><li><a href="samples/example-office.csv" download>Example data file</a></li><li><a href="downloads/half-hourly-insights-user-guide.pdf" download>User guide (PDF)</a></li><li><a href="faq.html">FAQ</a></li></ul>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Guides</div>
@@ -194,7 +196,7 @@
     </div>
     <div class="footer-bottom">
       <div class="footer-copy">&copy; 2026 Kinetic Energy Consulting</div>
-      <div class="footer-disclaimer">All analyser outputs are indicative estimates from the data you load, not a guarantee of savings. Guides are general information, not financial, tax or legal advice.</div>
+      <div class="footer-disclaimer">All analyser results are estimates based on the data you load and do not guarantee savings. Our guides are general information and are not financial, tax or legal advice.</div>
     </div>
   </div>
 </footer>

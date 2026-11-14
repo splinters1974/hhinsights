@@ -1,0 +1,70 @@
+# Checks the website on every pull request and on pushes to the development
+# branch. Read-only: it never deploys or commits.
+name: Site checks
+
+on:
+  pull_request:
+  push:
+    branches:
+      - planning/phase-1-site-improvements-2026-11
+
+permissions:
+  contents: read
+
+jobs:
+  static:
+    name: Pages, links, images and SEO
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Published HTML matches the page builder
+        run: |
+          python3 tools/build_pages.py
+          git diff --exit-code --stat -- site/ || { echo "site/ differs from tools/build_pages.py output: edit tools/*.py and rebuild, not the HTML"; exit 1; }
+      - name: Static checks
+        run: node scripts/check-static-site.mjs
+
+  browser:
+    name: Browser smoke tests (desktop and mobile)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Playwright and Chromium
+        run: |
+          npm install --no-save --no-package-lock playwright@1.48.2
+          npx playwright install --with-deps chromium
+      - name: Smoke tests
+        run: node scripts/smoke-site.mjs
+      - name: Save screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-screenshots
+          path: site-screenshots/
+          if-no-files-found: ignore
+
+  analyser:
+    name: Analyser unit tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: analyser
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: analyser/package-lock.json
+      - run: npm ci
+      - run: npm test

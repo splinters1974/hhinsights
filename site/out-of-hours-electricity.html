@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="canonical" href="https://halfhourlyinsights.netlify.app/out-of-hours-electricity.html">
   <title>Out-of-hours electricity use: how to find and cut it</title>
-  <meta name="description" content="How to find out-of-hours electricity use in half-hourly data, what causes it, and how to cut it with controls and schedules, not new equipment.">
+  <meta name="description" content="How to find out-of-hours electricity use in half-hourly data, what usually causes it, and how to reduce it by changing timers and controls.">
+  <link rel="canonical" href="https://halfhourlyinsights.netlify.app/out-of-hours-electricity.html">
   <meta property="og:url" content="https://halfhourlyinsights.netlify.app/out-of-hours-electricity.html">
   <meta property="og:type" content="article">
   <meta property="og:locale" content="en_GB">
   <meta property="og:title" content="Out-of-hours electricity use: how to find and cut it">
-  <meta property="og:description" content="How to find out-of-hours electricity use in half-hourly data, what causes it, and how to cut it with controls and schedules, not new equipment.">
+  <meta property="og:description" content="How to find out-of-hours electricity use in half-hourly data, what usually causes it, and how to reduce it by changing timers and controls.">
   <meta property="og:image" content="https://halfhourlyinsights.netlify.app/images/guides/out-of-hours-electricity.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -18,7 +18,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="preload" href="fonts/schibsted-grotesk-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/site.css?v=c94a9336">
+  <link rel="stylesheet" href="css/site.css?v=4d8fd3a4">
   <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -45,13 +45,14 @@
   },
   {
    "@type": "WebSite",
-   "@id": "#website",
+   "@id": "https://halfhourlyinsights.netlify.app/#website",
    "name": "Half Hourly Insights",
    "inLanguage": "en-GB",
    "description": "Free half-hourly electricity analysis for UK businesses and public bodies",
    "publisher": {
     "@id": "https://www.kinetic-energy.co.uk/#organization"
-   }
+   },
+   "url": "https://halfhourlyinsights.netlify.app/"
   },
   {
    "@type": "BreadcrumbList",
@@ -60,27 +61,27 @@
      "@type": "ListItem",
      "position": 1,
      "name": "Home",
-     "item": "index.html"
+     "item": "https://halfhourlyinsights.netlify.app/"
     },
     {
      "@type": "ListItem",
      "position": 2,
      "name": "Guides",
-     "item": "guides.html"
+     "item": "https://halfhourlyinsights.netlify.app/guides.html"
     },
     {
      "@type": "ListItem",
      "position": 3,
      "name": "Out-of-hours electricity use",
-     "item": "out-of-hours-electricity.html"
+     "item": "https://halfhourlyinsights.netlify.app/out-of-hours-electricity.html"
     }
    ]
   },
   {
    "@type": "Article",
    "headline": "Out-of-hours electricity use: how to find and cut it",
-   "description": "How to find out-of-hours electricity use in half-hourly data, what causes it, and how to cut it with controls and schedules, not new equipment.",
-   "image": "images/guides/out-of-hours-electricity.jpg",
+   "description": "How to find out-of-hours electricity use in half-hourly data, what usually causes it, and how to reduce it by changing timers and controls.",
+   "image": "https://halfhourlyinsights.netlify.app/images/guides/out-of-hours-electricity.jpg",
    "inLanguage": "en-GB",
    "datePublished": "2026-11-14",
    "dateModified": "2026-11-14",
@@ -91,8 +92,9 @@
     "@id": "https://www.kinetic-energy.co.uk/#organization"
    },
    "isPartOf": {
-    "@id": "#website"
-   }
+    "@id": "https://halfhourlyinsights.netlify.app/#website"
+   },
+   "mainEntityOfPage": "https://halfhourlyinsights.netlify.app/out-of-hours-electricity.html"
   },
   {
    "@type": "FAQPage",
@@ -102,7 +104,7 @@
      "name": "Is all out-of-hours use waste?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "No. Some load must run all the time. The out-of-hours excess, use while shut above the base load, is the part worth investigating."
+      "text": "No. Some equipment has to run all the time. The part worth investigating is the excess, meaning use while closed above the base load."
      }
     },
     {
@@ -110,7 +112,7 @@
      "name": "Why do opening hours matter so much?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "They decide which half hours count as closed. If a building is genuinely used on Saturdays and the calendar says it is shut, Saturday use shows as out-of-hours. Confirm the hours before acting on the figures."
+      "text": "They decide which half hours count as closed. If a building is used on Saturdays but the calendar says it's closed, Saturday use shows up as out-of-hours. Confirm the hours before acting on the figures."
      }
     },
     {
@@ -118,7 +120,7 @@
      "name": "How quickly can I see whether a change worked?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "With half-hourly data, within weeks. Compare the same days before and after the change; the analyser has a before-and-after view for this."
+      "text": "Within a few weeks. Compare the same days before and after the change using the analyser's before-and-after view."
      }
     }
    ]
@@ -150,32 +152,35 @@
     <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> <span aria-hidden="true">/</span> <a href="guides.html">Guides</a> <span aria-hidden="true">/</span> <span aria-current="page">Out-of-hours electricity use</span></nav>
     <span class="page-hero-kicker">Guide</span>
     <h1 class="page-hero-title">Out-of-hours electricity use</h1>
-    <p class="page-hero-lead">Electricity used when a building should be shut is often the cheapest consumption to cut. Here is how to find it in half-hourly data, and what usually causes it.</p>
+    <p class="page-hero-lead">Electricity used while a building should be closed is often the cheapest kind to cut. This guide explains how to find it in half-hourly data, what usually causes it, and who to involve in fixing it.</p>
   </div>
 </section><div class="guide">
   <article class="guide-main prose">
 <p class="byline">Last updated <time datetime="2026-11-14">14 November 2026</time></p>
-<p class="answer">Out-of-hours use is electricity used while a building should be shut. Compare each half hour against the opening hours and subtract what never switches off (the base load); what's left is the out-of-hours excess. It's usually the cheapest use to cut, because the fix is a setting, not new equipment.</p>
+<p class="answer">Out-of-hours use is electricity used while a building should be closed. To find it, compare each half hour with the opening hours and take away what always has to run (the base load). What's left is the closed-hours excess. It's usually the cheapest use to cut, because the fix is often a change to a timer or control setting.</p>
 
 <h2 id="what">What counts as out-of-hours</h2>
-<p>Any half hour outside the building's opening hours: evenings, nights, weekends, bank holidays and closure periods. Not all of it is waste. Some load has to run all the time, such as servers, fridges, security and emergency lighting. That's the <a href="base-load.html">base load</a>.</p>
-<p>The useful figure is the <strong>excess</strong>: use while shut, above the base load. In the analyser it's called the closed-hours excess, and it's the figure sites are ranked by.</p>
+<p>Any half hour outside opening hours counts: evenings, nights, weekends, bank holidays and closure periods. Some of this use is unavoidable. Servers, fridges, security systems and emergency lighting have to run all the time, and together they make up the <a href="base-load.html">base load</a>.</p>
+<p>The figure to focus on is the <strong>excess</strong>, meaning use while closed above the base load. The analyser calls this the closed-hours excess and ranks sites by it, so you can see which buildings to look at first.</p>
 
 <h2 id="find">How to find it</h2>
-<ol><li><strong>Set the opening hours properly.</strong> Everything depends on them. Include bank holidays, closure weeks and regular evening or weekend use.</li><li><strong>Look at the heatmap.</strong> Every half hour of the year in one picture: open hours show as a bright band, and anything bright outside it is out-of-hours use.</li><li><strong>Split it by day type.</strong> Weeknights, Saturdays, Sundays and bank holidays usually have different causes.</li><li><strong>Check the edges of the day.</strong> Demand that rises an hour or two before opening, or stays up after closing, points to time clocks and optimum-start settings.</li></ol>
+<ol><li><strong>Set the opening hours accurately.</strong> Every figure depends on them, so include bank holidays, closure weeks and any regular evening or weekend use.</li><li><strong>Look at the heatmap.</strong> It shows every half hour of the year on one chart. Opening hours appear as a dark band, and anything dark outside that band is out-of-hours use.</li><li><strong>Break it down by type of day.</strong> Weeknights, Saturdays, Sundays and bank holidays usually have different causes.</li><li><strong>Check the start and end of the day.</strong> If demand rises an hour or two before opening, or stays high after closing, timers or heating start-up settings are usually to blame.</li></ol>
 
 <h2 id="causes">What usually causes it</h2>
-<ul><li>Heating, ventilation and cooling running to the wrong schedule, or not knowing about bank holidays</li><li>Lighting left on, or on timers that no longer match the building's use</li><li>A small evening or weekend booking running the whole building</li><li>Plant left in hand (manual override) after maintenance</li><li>IT, catering and hot water equipment left on rather than on timers</li></ul>
+<ul><li>Heating, ventilation and air conditioning running to the wrong schedule, or not set up for bank holidays</li><li>Lights left on, or on timers that no longer match how the building is used</li><li>A small evening or weekend booking that runs the whole building</li><li>Equipment left on manual override after maintenance, then forgotten</li><li>IT, catering and hot water equipment left on instead of being put on timers</li></ul>
 
 <h2 id="cut">How to cut it</h2>
-<p>Most of the fixes are settings: building management system schedules, time clocks, holiday calendars and switch-off routines. Start with the biggest block, often weekends or a recurring evening, and check the half-hourly data a month later to see whether it worked. The analyser's before-and-after comparison is built for exactly this.</p>
+<p>Most fixes are changes to settings: building management system schedules, timers, holiday calendars and switch-off routines. Start with the biggest block of use, which is often weekends or a regular evening. Then check the half-hourly data a month later to see whether it worked. The analyser's before-and-after comparison is designed for this.</p>
+
+<h2 id="who">Who to involve</h2>
+<p>Fixes usually need two people working together: someone who can change the controls, such as your facilities team or building management system contractor, and someone who knows how the building is really used, such as a site manager or caretaker. Share the heatmap and the breakdown by type of day with both. It's much easier to agree a new schedule when everyone can see exactly when the building is using electricity.</p>
 <h2 id="questions">Questions people ask</h2>
-<div class="faq"><details><summary>Is all out-of-hours use waste?</summary><div class="faq-a"><p>No. Some load must run all the time. The out-of-hours excess, use while shut above the base load, is the part worth investigating.</p></div></details><details><summary>Why do opening hours matter so much?</summary><div class="faq-a"><p>They decide which half hours count as closed. If a building is genuinely used on Saturdays and the calendar says it is shut, Saturday use shows as out-of-hours. Confirm the hours before acting on the figures.</p></div></details><details><summary>How quickly can I see whether a change worked?</summary><div class="faq-a"><p>With half-hourly data, within weeks. Compare the same days before and after the change; the analyser has a before-and-after view for this.</p></div></details></div><h2 id="next">Read next</h2>
-<div class="link-grid"><a class="link-card has-thumb" href="base-load.html"><div class="card-thumb"><img src="images/guides/base-load.jpg" width="1200" height="630" alt="" loading="lazy"></div><h3>Base load</h3><p>The other half of the picture: what never switches off.</p><span class="more">Read the guide</span></a><a class="link-card has-thumb" href="example-office-analysis.html"><div class="card-thumb"><img src="images/guides/example-office-analysis.jpg" width="1200" height="630" alt="" loading="lazy"></div><h3>Worked example</h3><p>Out-of-hours use in one office, with figures.</p><span class="more">Read the guide</span></a><a class="link-card has-thumb" href="sectors.html"><div class="card-thumb"><img src="images/guides/sectors.jpg" width="1200" height="630" alt="" loading="lazy"></div><h3>By sector</h3><p>What normal looks like in schools, offices, leisure and more.</p><span class="more">Read the guide</span></a></div>
+<div class="faq"><details><summary>Is all out-of-hours use waste?</summary><div class="faq-a"><p>No. Some equipment has to run all the time. The part worth investigating is the excess, meaning use while closed above the base load.</p></div></details><details><summary>Why do opening hours matter so much?</summary><div class="faq-a"><p>They decide which half hours count as closed. If a building is used on Saturdays but the calendar says it's closed, Saturday use shows up as out-of-hours. Confirm the hours before acting on the figures.</p></div></details><details><summary>How quickly can I see whether a change worked?</summary><div class="faq-a"><p>Within a few weeks. Compare the same days before and after the change using the analyser's before-and-after view.</p></div></details></div><h2 id="next">Read next</h2>
+<div class="link-grid"><a class="link-card has-thumb" href="base-load.html"><div class="card-thumb"><img src="images/guides/base-load.jpg" srcset="images/guides/base-load-600.jpg 600w, images/guides/base-load.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Base load</h3><p>The other half of the picture: what always runs.</p><span class="more">Read the guide</span></a><a class="link-card has-thumb" href="example-office-analysis.html"><div class="card-thumb"><img src="images/guides/example-office-analysis.jpg" srcset="images/guides/example-office-analysis-600.jpg 600w, images/guides/example-office-analysis.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Worked example</h3><p>Out-of-hours use in one office, with figures.</p><span class="more">Read the guide</span></a><a class="link-card has-thumb" href="sectors.html"><div class="card-thumb"><img src="images/guides/sectors.jpg" srcset="images/guides/sectors-600.jpg 600w, images/guides/sectors.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>By sector</h3><p>What normal looks like in schools, offices, leisure centres and more.</p><span class="more">Read the guide</span></a></div>
   </article>
   <aside class="guide-side">
-    <nav class="toc" aria-label="On this page"><div class="toc-title">On this page</div><ol><li><a href="#what">What counts as out-of-hours</a></li><li><a href="#find">How to find it</a></li><li><a href="#causes">What usually causes it</a></li><li><a href="#cut">How to cut it</a></li><li><a href="#questions">Questions people ask</a></li></ol></nav>
-    <div class="side-cta"><strong>Try it on your own data</strong><p>Free, no sign-up, and your file stays on your computer.</p><a href="analyser/" class="btn">Open the analyser</a></div>
+    <nav class="toc" aria-label="On this page"><div class="toc-title">On this page</div><ol><li><a href="#what">What counts as out-of-hours</a></li><li><a href="#find">How to find it</a></li><li><a href="#causes">What usually causes it</a></li><li><a href="#cut">How to cut it</a></li><li><a href="#who">Who to involve</a></li><li><a href="#questions">Questions people ask</a></li></ol></nav>
+    <div class="side-cta"><strong>Try it on your own data</strong><p>It's free, there's no sign-up, and your file stays on your computer.</p><a href="analyser/" class="btn">Open the analyser</a></div>
   </aside>
 </div><section class="cta-strip">
   <div class="cta-strip-inner">
@@ -184,7 +189,7 @@
       <a href="analyser/" class="btn btn-gold btn-lg">Open the analyser</a>
       <a href="contact.html" class="btn btn-outline-white btn-lg">Talk to an expert</a>
     </div>
-    <p class="cta-strip-lead">Free, no sign-up, and your file stays on your computer.</p>
+    <p class="cta-strip-lead">It's free, there's no sign-up, and your file stays on your computer.</p>
   </div>
 </section>
 </main>
@@ -193,12 +198,12 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo"><svg viewBox="0 0 34 34" aria-hidden="true"><rect x="3" y="15" width="5" height="10" rx="1" fill="#0065A4"/><rect x="10" y="9" width="5" height="16" rx="1" fill="#0065A4"/><rect x="17" y="3" width="5" height="22" rx="1" fill="#F8C05D"/><rect x="24" y="12" width="5" height="13" rx="1" fill="#0065A4"/><rect x="1" y="26" width="32" height="3" rx="1.5" fill="#FFFFFF"/></svg><span class="footer-logo-name">Half Hourly Insights</span></div>
-        <p class="footer-desc">Free half-hourly electricity analysis for UK businesses and public sector organisations, run by Kinetic Energy Consulting. It runs in your browser: your meter data never leaves your computer.</p>
+        <p class="footer-desc">Free half-hourly electricity analysis for UK businesses and public sector organisations, run by Kinetic Energy Consulting. The analysis runs in your browser, so your meter data never leaves your computer.</p>
         <div class="footer-contact-item">Email: <a href="mailto:pjohnston663@gmail.com">pjohnston663@gmail.com</a></div>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Analyser</div>
-        <ul><li><a href="analyser/">Open the analyser</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="example-office-analysis.html">Worked example</a></li><li><a href="samples/example-office.csv" download>Example data file</a></li><li><a href="faq.html">FAQ</a></li></ul>
+        <ul><li><a href="analyser/">Open the analyser</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="example-office-analysis.html">Worked example</a></li><li><a href="sample-report.html">Sample report</a></li><li><a href="samples/example-office.csv" download>Example data file</a></li><li><a href="downloads/half-hourly-insights-user-guide.pdf" download>User guide (PDF)</a></li><li><a href="faq.html">FAQ</a></li></ul>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Guides</div>
@@ -211,7 +216,7 @@
     </div>
     <div class="footer-bottom">
       <div class="footer-copy">&copy; 2026 Kinetic Energy Consulting</div>
-      <div class="footer-disclaimer">All analyser outputs are indicative estimates from the data you load, not a guarantee of savings. Guides are general information, not financial, tax or legal advice.</div>
+      <div class="footer-disclaimer">All analyser results are estimates based on the data you load and do not guarantee savings. Our guides are general information and are not financial, tax or legal advice.</div>
     </div>
   </div>
 </footer>

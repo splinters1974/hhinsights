@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Half Hourly Insights: user guide</title>
+<style>
+@font-face { font-family: 'Schibsted Grotesk'; src: url('../../site/fonts/schibsted-grotesk-latin-400-normal.woff2') format('woff2'); font-weight: 300 400; }
+@font-face { font-family: 'Schibsted Grotesk'; src: url('../../site/fonts/schibsted-grotesk-latin-600-normal.woff2') format('woff2'); font-weight: 500 600; }
+@font-face { font-family: 'Schibsted Grotesk'; src: url('../../site/fonts/schibsted-grotesk-latin-700-normal.woff2') format('woff2'); font-weight: 700; }
+@font-face { font-family: 'Schibsted Grotesk'; src: url('../../site/fonts/schibsted-grotesk-latin-800-normal.woff2') format('woff2'); font-weight: 800 900; }
+@page { size: A4; margin: 18mm 17mm 20mm 17mm; }
+@page cover { margin: 0; }
+:root { --blue: #0065A4; --green: #00853F; --ink: #063C55; --ink-deep: #042A3C; --text: #3E4A51; --muted: #58595B; --line: #D3D9DD; --mist: #EFF0F1; --tint: #e6f0f7; --gtint: #ebf6ef; --lime: #8FD16A; --sun: #F8C05D; --amber: #b7791f; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: 'Schibsted Grotesk', 'Liberation Sans', sans-serif; color: var(--text); font-size: 9.8pt; line-height: 1.5; margin: 0; }
+h1, h2, h3 { color: var(--ink); line-height: 1.15; font-weight: 800; letter-spacing: -0.01em; }
+h1 { font-size: 24pt; margin: 0 0 5mm; padding-bottom: 3mm; border-bottom: 0.3mm solid var(--line); position: relative; break-after: avoid; }
+h1::after { content: ''; position: absolute; left: 0; bottom: -0.6mm; width: 18mm; height: 1.2mm; background: var(--blue); }
+h2 { font-size: 13.5pt; margin: 6mm 0 2mm; break-after: avoid; }
+h3 { font-size: 10.5pt; font-weight: 700; margin: 4mm 0 1.5mm; break-after: avoid; }
+p { margin: 0 0 2.5mm; }
+ul, ol { margin: 0 0 3mm; padding-left: 5.5mm; }
+li { margin-bottom: 1mm; }
+strong { font-weight: 700; }
+a { color: var(--blue); text-decoration: none; }
+section.chapter { break-before: page; }
+table { width: 100%; border-collapse: collapse; margin: 1mm 0 4mm; font-size: 8.8pt; }
+th { background: var(--ink); color: #fff; text-align: left; font-weight: 600; padding: 1.6mm 2mm; }
+td { padding: 1.5mm 2mm; border-bottom: 0.25mm solid var(--line); vertical-align: top; }
+tr { break-inside: avoid; }
+tr:nth-child(even) td { background: #f6f7f8; }
+thead { display: table-header-group; }
+figure { margin: 2mm 0 5mm; break-inside: avoid; }
+figure img { max-width: 100%; max-height: 80mm; width: auto; border: 0.3mm solid var(--line); border-radius: 1.5mm; display: block; margin: 0 auto; }
+figure.short img { max-height: 58mm; }
+figure.tiny img { max-height: 40mm; }
+figure.strip img { max-height: 9mm; }
+figcaption { font-size: 8pt; color: var(--muted); margin-top: 1.5mm; text-align: center; }
+.box { border-left: 1.4mm solid var(--blue); background: var(--mist); padding: 3mm 4mm; margin: 3mm 0 4mm; break-inside: avoid; border-radius: 0 1.5mm 1.5mm 0; }
+.box.green { border-color: var(--green); background: var(--gtint); }
+.box.warn { border-color: var(--amber); background: #fdf6e7; }
+.box p:last-child, .box ul:last-child, .box ol:last-child { margin-bottom: 0; }
+.box .label { font-weight: 700; color: var(--ink); display: block; margin-bottom: 1mm; }
+.box.green .label { color: var(--green); }
+.box.warn .label { color: var(--amber); }
+.steps { counter-reset: s; list-style: none; padding: 0; }
+.steps > li { counter-increment: s; position: relative; padding-left: 10mm; margin-bottom: 3mm; break-inside: avoid; }
+.steps > li::before { content: counter(s); position: absolute; left: 0; top: -0.3mm; width: 6.5mm; height: 6.5mm; border-radius: 50%; background: var(--blue); color: #fff; font-weight: 700; text-align: center; line-height: 6.5mm; font-size: 9pt; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; align-items: start; }
+.cols figure img { max-height: 70mm; }
+.muted { color: var(--muted); }
+
+/* Logo: the site's bar-chart mark and name */
+.logo { display: flex; align-items: center; gap: 3mm; }
+.logo svg { width: 13mm; height: 13mm; }
+.logo span { font-weight: 800; font-size: 20pt; color: var(--ink); letter-spacing: -0.02em; }
+
+/* Cover */
+.cover { page: cover; height: 297mm; position: relative; overflow: hidden; break-after: page; background: var(--mist); }
+.cover .top { padding: 20mm 20mm 14mm; background: #fff; border-bottom: 0.3mm solid var(--line); }
+.cover .band { position: absolute; left: 0; right: 0; top: 62mm; background: var(--ink); color: #fff; padding: 18mm 20mm 16mm; }
+.cover .band::after { content: ''; position: absolute; left: 0; bottom: 0; width: 60mm; height: 2mm; background: var(--sun); }
+.cover .eyebrow { color: var(--lime); font-weight: 600; font-size: 11pt; margin: 0 0 3mm; }
+.cover h1.title { color: #fff; border: 0; font-size: 38pt; margin: 0 0 4mm; padding: 0; font-weight: 800; letter-spacing: -0.02em; }
+.cover h1.title::after { display: none; }
+.cover .sub { font-size: 14pt; font-weight: 400; margin: 0; color: rgba(255,255,255,0.85); }
+.cover .shot { position: absolute; left: 20mm; right: 20mm; top: 150mm; }
+.cover .shot img { width: 100%; border: 0.3mm solid var(--line); border-radius: 2mm; box-shadow: 0 2mm 6mm rgba(0,0,0,0.08); }
+.cover .meta { position: absolute; left: 20mm; right: 20mm; bottom: 22mm; font-size: 9.5pt; color: var(--muted); display: flex; justify-content: space-between; align-items: flex-end; }
+.cover .meta strong { color: var(--ink); }
+
+.toc { list-style: none; padding: 0; margin: 0; }
+.toc li { display: flex; padding: 1.4mm 0; border-bottom: 0.25mm solid var(--line); font-size: 10.5pt; }
+.toc li span.num { color: var(--blue); font-weight: 700; width: 9mm; }
+.toc li span.desc { color: var(--muted); margin-left: auto; font-size: 8.8pt; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="top"><div class="logo">{{MARK}}<span>Half Hourly Insights</span></div></div>
+  <div class="band">
+    <p class="eyebrow">User guide</p>
+    <h1 class="title">Getting started with the analyser</h1>
+    <p class="sub">How to load your half-hourly data, read the results and share them</p>
+  </div>
+  <div class="shot"><img src="img/03-table.png" alt=""></div>
+  <div class="meta">
+    <div><strong>Half Hourly Insights</strong><br>Free half-hourly electricity analysis. November 2026</div>
+    <div style="text-align:right">Run by {{OPERATOR}}<br>{{EMAIL}}</div>
+  </div>
+</div>
+
+<!-- CONTENTS -->
+<section>
+  <h1>About this guide</h1>
+  <p>Half Hourly Insights is a free website for UK businesses and public sector organisations. At its centre is the analyser: a tool that reads the half-hourly data from your electricity meters and shows when your buildings use electricity, how much is used while they're closed, what never switches off, and what all of it costs. This guide takes you through using it, from getting your data to sharing the results.</p>
+  <p>You don't need any energy background. Where a term needs explaining, we explain it, and the glossary on the website covers the rest.</p>
+
+  <h2>Contents</h2>
+  <ul class="toc">
+    <li><span class="num">1</span>Getting started<span class="desc">From your meter file to your first report</span></li>
+    <li><span class="num">2</span>Using the website<span class="desc">Guides, examples and help</span></li>
+    <li><span class="num">3</span>Getting and loading your data<span class="desc">What to ask for, file formats, how readings are checked</span></li>
+    <li><span class="num">4</span>Setting opening hours<span class="desc">The most important setting</span></li>
+    <li><span class="num">5</span>Reading the results<span class="desc">Rankings, findings, the heatmap</span></li>
+    <li><span class="num">6</span>Reports and saving your work<span class="desc">PDFs, Excel and project files</span></li>
+    <li><span class="num">7</span>Customer dashboards<span class="desc">Sharing results with a client</span></li>
+    <li><span class="num">8</span>Troubleshooting<span class="desc">Common problems and what to do</span></li>
+  </ul>
+
+  <div class="box green" style="margin-top:6mm">
+    <span class="label">If you only read one page</span>
+    <p>Read section 1. Then, before you share any figures, check three things on every site: the <strong>opening hours</strong> are right and marked as confirmed, the <strong>Data review</strong> tab has nothing important left waiting for a decision, and the <strong>data quality</strong> rating isn't Poor. Most wrong answers come from one of those three.</p>
+  </div>
+  <div class="box">
+    <span class="label">Your data stays on your computer</span>
+    <p>The analyser runs entirely in your web browser. Your meter files are read on your own computer and are never uploaded to us or anyone else. Once the page has loaded you can even disconnect from the internet and carry on working.</p>
+  </div>
+</section>
+
+<section class="chapter">
+  <h1>1. Getting started</h1>
+  <ol class="steps">
+    <li><strong>Open the analyser.</strong> Go to the website and click <em>Open the analyser</em>. It works in Chrome or Edge on a laptop or desktop computer. There's nothing to install and no account to create. It isn't designed for phones, because the charts need a larger screen.</li>
+    <li><strong>Load your meter files.</strong> Drag them onto the upload box, or click it to choose them. Use one file per meter: each file becomes a site, named after the file. No data to hand? Download the example file from the website and use that.</li>
+    <li><strong>Set the opening hours.</strong> Every site starts as an office open 07:00 to 19:00 on weekdays, marked as <em>unconfirmed</em>. Click <em>Set building type and hours for all sites</em> to set them all at once, then open each site's <strong>Calendar</strong> tab to adjust it, add closures such as school holidays, and tick <em>Hours confirmed with the site</em>.</li>
+    <li><strong>Check the data.</strong> On each site's <strong>Data review</strong> tab, read how the file was read and decide on any days held back for review, such as days when the clocks changed.</li>
+    <li><strong>Check the rate.</strong> Costs use 25p/kWh unless you change it. Enter your own unit rate in <em>Report details</em>, or set different rates for one site or for different times of day in that site's <strong>Settings</strong> tab.</li>
+    <li><strong>Read the results.</strong> <em>Where to start</em> ranks your sites by the cost of electricity used while they're closed. Click a site to see its findings, charts and heatmap.</li>
+    <li><strong>Save and share.</strong> Download PDF reports or Excel files, and click <em>Save project</em> to keep your work so you can pick it up later.</li>
+  </ol>
+
+  <figure><img src="img/02-portfolio.png" alt=""><figcaption>The main page after loading three sites: the estate total, the reports, the reminder to set opening hours, and the report details.</figcaption></figure>
+
+  <div class="box warn">
+    <span class="label">Before you share any figures</span>
+    <ul>
+      <li>Every site's opening hours are checked and confirmed. Until they are, findings that depend on them are rated Medium confidence at best.</li>
+      <li>The data quality rating is Good or Check, and you've read any Check notes. Don't quote figures from a site rated Poor.</li>
+      <li>The costs are what each pattern costs now, at your rates. They aren't guaranteed savings, and figures for different findings overlap, so don't add them together.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="chapter">
+  <h1>2. Using the website</h1>
+  <p>The analyser does the number crunching. The rest of the website explains what the numbers mean and what to do about them. These pages are the most useful alongside the analyser:</p>
+  <table>
+    <thead><tr><th style="width:32%">Page</th><th>Use it to</th></tr></thead>
+    <tbody>
+      <tr><td><strong>How to get your half-hourly data</strong></td><td>Find out who holds your data and what to ask for. It includes a letter template you can send to your supplier.</td></tr>
+      <tr><td><strong>Worked examples</strong></td><td>See a full analysis of a made-up office and a made-up primary school, finding by finding. Download the example files and follow along in the analyser.</td></tr>
+      <tr><td><strong>Sector pages</strong></td><td>See what normal looks like for schools, offices and council buildings, leisure centres, healthcare, industrial sites and retail, and what to check first.</td></tr>
+      <tr><td><strong>Guides</strong></td><td>Read about out-of-hours use, base load, supply capacity, reading a heatmap, proving a saving and half-hourly settlement in more depth.</td></tr>
+      <tr><td><strong>How it works</strong></td><td>Understand the method behind every figure: how files are read and checked, how base load is measured and how costs are worked out.</td></tr>
+      <tr><td><strong>Glossary and FAQ</strong></td><td>Look up a term, or check the answer to a common question.</td></tr>
+      <tr><td><strong>Contact</strong></td><td>Ask us for help turning your findings into savings, or for a full energy audit. There's no obligation.</td></tr>
+    </tbody>
+  </table>
+  <div class="box">
+    <span class="label">A good first hour</span>
+    <p>Read the office worked example, then load the example file into the analyser and find the same figures yourself. You'll then know your way round before you load your own data.</p>
+  </div>
+</section>
+
+<section class="chapter">
+  <h1>3. Getting and loading your data</h1>
+  <h2>What to ask for</h2>
+  <p>Ask your electricity supplier for the half-hourly consumption data for each meter, covering at least the last 12 months, as an Excel or CSV file. Many suppliers also let you download it from your online account. Your energy broker, energy manager or building management system may hold it too. The website's <em>How to get your half-hourly data</em> page has a letter template you can use.</p>
+
+  <h2>File types and layouts</h2>
+  <p>The analyser reads Excel (.xlsx, .xlsm, .xls) and CSV or text files. Use one meter per file. The file name becomes the site name, so name each file after the building.</p>
+  <table>
+    <thead><tr><th style="width:28%">Layout</th><th>Looks like</th></tr></thead>
+    <tbody>
+      <tr><td>Days down the side</td><td>A date, then 48 half-hourly readings across the row. This is the most common supplier format.</td></tr>
+      <tr><td>Days across the top</td><td>One column per day, with 48 rows of readings. It's turned round automatically.</td></tr>
+      <tr><td>Timestamped</td><td>One row per reading, with its date and time. 15-minute readings are added up into half hours. Hourly data can't be used.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>How your readings are checked</h2>
+  <ul>
+    <li><strong>Missing readings are left out, never counted as zero.</strong> Annual figures are scaled up from the readings that are there.</li>
+    <li><strong>Units.</strong> Readings are treated as kWh per half hour unless the column headings say kW. The <strong>Data review</strong> tab shows which was used.</li>
+    <li><strong>Clock changes.</strong> Days when the clocks go forward or back are read correctly if the file has 46 or 50 readings for them. If it has 48, the analyser can't tell which hour is affected, so it holds the day back for you to decide.</li>
+    <li><strong>Duplicate rows.</strong> Exact repeats are counted once. If a date appears twice with different readings, the day is held back until you choose which to use.</li>
+  </ul>
+  <figure class="short"><img src="img/07-review.png" alt=""><figcaption>The Data review tab shows how the file was read, and lists any days held back for your decision.</figcaption></figure>
+
+  <h2>Files covering more than a year</h2>
+  <p>Each site is analysed over its last 12 months by default, so it's judged on how it runs now. You can choose a different period from the bar at the top of the site page. Longer-term trends, such as base load by month, still use the whole file.</p>
+  <p>Each site also gets a data quality rating: Good, Check or Poor. With less than about 11 months of valid readings, annual figures are marked as estimates, and with less than six months they aren't shown.</p>
+</section>
+
+<section class="chapter">
+  <h1>4. Setting opening hours</h1>
+  <p>The analyser needs to know when each building should be open, half hour by half hour. Every figure for use while closed depends on this, so it's the most important setting. If a building is used on Saturdays but its calendar says it's closed, all that Saturday use will show up as waste.</p>
+  <figure><img src="img/08-calendar.png" alt=""><figcaption>The top of a site's Calendar tab: confirmation, weekly hours and bank holidays. Closures and exceptional periods are further down.</figcaption></figure>
+  <ul>
+    <li><strong>Building type and weekly hours.</strong> Choose a building type for sensible starting hours, then adjust each day. A day can have more than one period, and a period that ends before it starts runs overnight, for night shifts.</li>
+    <li><strong>Bank holidays.</strong> Choose England and Wales, Scotland or Northern Ireland, and whether the site is closed, on Sunday hours or open as normal.</li>
+    <li><strong>Closures.</strong> School holidays, Christmas shutdowns and other dates when the site is closed all day. School term dates are never assumed, because they vary from school to school, so enter them here. You can paste several at once.</li>
+    <li><strong>Exceptional periods.</strong> Dates with different hours, such as events, extended opening or building works.</li>
+    <li><strong>Hours confirmed.</strong> Tick this once you've checked the hours with someone who knows the site. Until you do, findings that depend on the hours are rated Medium confidence at best.</li>
+  </ul>
+  <div class="box">
+    <span class="label">Sites that never close</span>
+    <p>For a hospital or other 24-hour site there's no "use while closed" to measure. Set it as always open, and use the <em>low-activity window</em> to tell the analyser its quietest hours, such as 01:00 to 05:00. The analysis then focuses on night-time use, base load and peaks.</p>
+  </div>
+  <p>The <em>Set building type and hours for all sites</em> button on the main page sets the same hours for every site at once, which saves time across a large estate. You can then adjust individual sites.</p>
+</section>
+
+<section class="chapter">
+  <h1>5. Reading the results</h1>
+  <h2>Where to start</h2>
+  <figure class="short"><img src="img/03-table.png" alt=""><figcaption>Sites ranked by the yearly cost of electricity used while they're closed. Click a heading to sort.</figcaption></figure>
+  <p>The main page ranks your sites by the yearly cost of electricity used while they're closed, above what never switches off. That's usually the cheapest kind of use to cut, so it's a good place to start. Alongside are each site's yearly use and cost, its base load, the share of use while closed, its data quality rating and how many findings it has. The <em>Opportunities</em> view lists every finding across all your sites in one place.</p>
+
+  <h2>A site's page</h2>
+  <figure class="strip"><img src="img/05b-tabs.png" alt=""><figcaption>The tabs on each site's page.</figcaption></figure>
+  <p>Click a site to open its page. The <strong>Overview</strong> tab shows the key figures, each marked as measured or estimated, the three issues most worth investigating, and every finding. The other tabs go into more detail: <strong>Base load</strong>, <strong>Heatmap</strong>, <strong>Unusual days</strong>, savings <strong>Scenarios</strong>, supply <strong>Capacity</strong>, <strong>Charts</strong> and <strong>Settings</strong>.</p>
+  <figure class="tiny"><img src="img/20-split.png" alt=""><figcaption>Where the energy goes: base load, use while open, and use while closed above the base load.</figcaption></figure>
+
+  <h2>Findings</h2>
+  <figure><img src="img/06-findings.png" alt=""><figcaption>The top issues to investigate, with the evidence for the first one open.</figcaption></figure>
+  <p>Each finding has two separate ratings. <strong>Impact</strong> is how much it could matter, based on its cost and share of the site's use. <strong>Confidence</strong> is how reliable the evidence is, based on data quality, how much data there is and whether the hours are confirmed. A finding with high impact and low confidence is worth checking before you quote it. Click <em>Show calculation and evidence</em> on any finding to see exactly how it was worked out.</p>
+  <p>You can also record what's happening with each finding, such as <em>Under review</em> or <em>Action agreed</em>, with an owner, a date and notes. These are saved with your project.</p>
+
+  <h2>The heatmap</h2>
+  <figure class="tiny"><img src="img/10-heatmap.png" alt=""><figcaption>One column per day, one row per half hour. Darker means more demand.</figcaption></figure>
+  <p>The heatmap shows every half hour of the year on one chart. Normal use shows as a dark band during opening hours. Anything dark outside that band, at night, at weekends or in holidays, is worth a closer look. Click any day to compare it with a typical day. The website's guide to reading a heatmap explains the common patterns.</p>
+
+  <div class="box warn">
+    <span class="label">Costs are not savings</span>
+    <p>Each cost shows what a pattern costs now, at the rates you entered. Any saving depends on what you change. Findings also overlap (weekend use is part of the use-while-closed figure, for example), so don't add them up. To estimate a saving, use the <strong>Scenarios</strong> tab, which avoids counting the same saving twice.</p>
+  </div>
+</section>
+
+<section class="chapter">
+  <h1>6. Reports and saving your work</h1>
+  <h2>Downloads</h2>
+  <table>
+    <thead><tr><th style="width:30%">Download</th><th>What's in it</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Site summary (PDF)</strong></td><td>One page per site, with an appendix covering the top issues, every finding and how it was worked out, the data review and the opening hours.</td></tr>
+      <tr><td><strong>Download all charts (PDF)</strong></td><td>A full report for a site, with every chart and table, plus the appendix.</td></tr>
+      <tr><td><strong>Portfolio report (PDF)</strong></td><td>The ranked table of sites, the findings across your estate, then a page for each site.</td></tr>
+      <tr><td><strong>Table to Excel</strong></td><td>The Where to start table, in the order shown.</td></tr>
+      <tr><td><strong>Export to Excel</strong></td><td>A full workbook: summary, findings, scenarios, data review, calendars and rates, and the half-hourly readings for each site.</td></tr>
+      <tr><td><strong>Charts</strong></td><td>Every chart has its own download button, so you can use it in a presentation or report.</td></tr>
+    </tbody>
+  </table>
+  <p>Enter your organisation's name, and add your logo if you'd like, in <em>Report details</em> before you download. Both appear on every PDF.</p>
+
+  <h2>Saving and reopening your work</h2>
+  <p>Nothing is stored in your browser between visits, so closing the page clears your work. Click <strong>Save project</strong> to download a single project file containing your readings, settings, opening hours, finding statuses, notes and scenarios. Click <strong>Open project</strong> next time to carry on where you left off, or send the file to a colleague. The project file contains your meter data, so store it as securely as the original files.</p>
+</section>
+
+<section class="chapter">
+  <h1>7. Customer dashboards</h1>
+  <p>If you're a consultant or energy manager sharing results with someone else, you can create a customer dashboard: a single file holding one client's sites, locked with a password. Your client can open it in their browser, explore every chart, adjust the things they know better than you do, such as opening hours and rates, and download their own reports.</p>
+  <div class="cols">
+    <figure><img src="img/17-edition-dialog.png" alt=""><figcaption>Creating a customer dashboard.</figcaption></figure>
+    <figure><img src="img/18-gate.png" alt=""><figcaption>What your client sees first.</figcaption></figure>
+  </div>
+  <ol class="steps">
+    <li><strong>Load only that client's sites</strong>, or open their project file, and set them up fully, including opening hours, rates, their name and logo.</li>
+    <li><strong>Click <em>Customer edition</em></strong> on the main page, check the name and year, and choose whether to include your internal notes. Normally you wouldn't.</li>
+    <li><strong>Click <em>Create file</em></strong>, then open the file yourself with the password to check it.</li>
+    <li><strong>Send the file and the password separately</strong>, for example the file by email and the password by phone.</li>
+  </ol>
+  <div class="box warn">
+    <span class="label">Choose a stronger password for sensitive data</span>
+    <p>The suggested password is the customer's name in lower case followed by the year, such as <em>examplecouncil2026</em>. That's easy to guess, so for anything sensitive add something random and keep a note of it. A forgotten password can't be recovered, and a dashboard can't be updated or withdrawn once it's sent.</p>
+  </div>
+  <p>Your client can't add or remove sites, change your finding statuses, or export the half-hourly readings. If they change anything, they can save a new copy of the dashboard with their changes, and every report they download afterwards says it includes their changes.</p>
+</section>
+
+<section class="chapter">
+  <h1>8. Troubleshooting</h1>
+  <table>
+    <thead><tr><th style="width:36%">Problem</th><th>What to do</th></tr></thead>
+    <tbody>
+      <tr><td>A file is refused because it contains several meters</td><td>Split it into one file per meter (one per MPAN) and load them separately.</td></tr>
+      <tr><td>Hourly data is refused</td><td>The analyser needs half-hourly (or 15-minute) readings. Ask your supplier for half-hourly data.</td></tr>
+      <tr><td>"Already loaded"</td><td>The same readings are already loaded as another site. Use the existing one.</td></tr>
+      <tr><td>Some days are missing from the analysis</td><td>Check <em>Held back for review</em> on the Data review tab. Clock-change days and conflicting duplicate rows wait for your decision.</td></tr>
+      <tr><td>No annual figures</td><td>There are fewer than six months of valid readings. Use the figures for the period you have, or load a longer file.</td></tr>
+      <tr><td>Every finding is Medium confidence</td><td>Confirm the opening hours on the Calendar tab, and read any Check notes on the data quality rating.</td></tr>
+      <tr><td>Use while closed looks far too high</td><td>Check the opening hours. A site that's open 24 hours but set up as an office will show most of its use as closed hours.</td></tr>
+      <tr><td>Time-of-day rates are ignored</td><td>Read the message under the rates. A gap or overlap between time bands makes the analyser fall back to the flat rate.</td></tr>
+      <tr><td>A customer dashboard won't open</td><td>Check the password. Save the file and open it in Chrome or Edge, not in an email preview.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>What the analyser can't tell you</h2>
+  <ul>
+    <li>Data from the main meter shows when electricity is used, but not which equipment is using it. Findings are things to check on site.</li>
+    <li>Figures aren't adjusted for weather or changes in occupancy, so a cold winter shows as more use.</li>
+    <li>Costs cover unit rates only. Standing charges and capacity charges aren't included.</li>
+    <li>Supply capacity headroom is an early check based on half-hourly averages. Confirm it with your network operator before relying on it.</li>
+  </ul>
+
+  <div class="box green">
+    <span class="label">Need a hand?</span>
+    <p>If you'd like help understanding your results or turning them into savings, get in touch through the contact page on the website or email {{EMAIL}}. There's no obligation.</p>
+  </div>
+</section>
+
+</body>
+</html>
