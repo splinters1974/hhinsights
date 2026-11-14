@@ -75,7 +75,8 @@ for (const name of pages) {
   }
 
   // Every local href, src and srcset entry must exist; every <img> needs alt and a size.
-  const refs = [...html.matchAll(/\s(?:href|src)="([^"]+)"/g)].map((m) => m[1]);
+  // <base href="/"> on the 404 page sets the root for its links; it is not a link itself.
+  const refs = [...html.replace(/<base\b[^>]*>/, '').matchAll(/\s(?:href|src)="([^"]+)"/g)].map((m) => m[1]);
   for (const [, set] of html.matchAll(/\ssrcset="([^"]+)"/g)) refs.push(...set.split(',').map((s) => s.trim().split(/\s+/)[0]));
   for (const ref of refs) {
     if (/^(https?:|mailto:|tel:|data:|#)/.test(ref)) continue;
