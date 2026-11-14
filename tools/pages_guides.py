@@ -500,6 +500,10 @@ GUIDE_LIST = [
     ('half-hourly-settlement.html', 'Half-hourly settlement (MHHS) explained', 'What the move to half-hourly settlement means, and the timetable to 2027.'),
     ('mpan-profile-class.html', 'Reading your MPAN', 'Profile class, network region and what half-hourly settlement changes.'),
     ('electricity-benchmarks.html', 'Electricity benchmarks by sector', 'Typical kWh per m² for offices, shops, schools and more.'),
+    ('business-electricity-price.html', "What's in a business electricity price", 'Wholesale, network, policy, tax and supplier costs, with a worked example.'),
+    ('non-energy-charges.html', 'Non-energy charges explained', 'TNUoS, DUoS, BSUoS, levies and taxes, with 2026/27 rates.'),
+    ('electricity-prices-ten-years.html', 'Ten years of business electricity prices', 'What businesses paid from 2015 to 2026, and why.'),
+    ('non-energy-costs-outlook.html', 'Where non-energy costs are heading', 'Published forecasts and decisions for 2027 and beyond.'),
     ('glossary.html', 'Glossary', 'kW, kWh, kVA, base load, MPAN and other terms.'),
     ('how-it-works.html', 'How the analyser works', 'Each step, from reading your file to the report.'),
 ]

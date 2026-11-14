@@ -9,6 +9,11 @@
   "modified": "2026-11-14",
   "fingerprint": "538538767cd03d99"
  },
+ "business-electricity-price.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "6a16f44821b03a68"
+ },
  "contact.html": {
   "published": "2026-11-14",
   "modified": "2026-11-14",
@@ -18,6 +23,11 @@
   "published": "2026-11-14",
   "modified": "2026-11-14",
   "fingerprint": "7559a2478a6fbf06"
+ },
+ "electricity-prices-ten-years.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "9e4963508490c5da"
  },
  "example-office-analysis.html": {
   "published": "2026-11-14",
@@ -47,7 +57,7 @@
  "guides.html": {
   "published": "2026-11-14",
   "modified": "2026-11-14",
-  "fingerprint": "c5bb18b589db3028"
+  "fingerprint": "1579bac40f298e02"
  },
  "half-hourly-data-british-gas.html": {
   "published": "2026-11-14",
@@ -108,6 +118,16 @@
   "published": "2026-11-14",
   "modified": "2026-11-14",
   "fingerprint": "a59162ecdcf901ef"
+ },
+ "non-energy-charges.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "d553476e431be95c"
+ },
+ "non-energy-costs-outlook.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "09520aaca21e8dca"
  },
  "offices-council-buildings.html": {
   "published": "2026-11-14",

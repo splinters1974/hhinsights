@@ -23,6 +23,10 @@ CARDS = {
     'half-hourly-data-totalenergies': 'Half-hourly data from TotalEnergies',
     'mpan-profile-class': 'Reading your MPAN',
     'electricity-benchmarks': 'Electricity benchmarks by sector',
+    'business-electricity-price': "What's in a business electricity price",
+    'non-energy-charges': 'Non-energy charges explained',
+    'electricity-prices-ten-years': 'Ten years of business electricity prices',
+    'non-energy-costs-outlook': 'Where non-energy costs are heading',
 }
 
 TEAL, LIME, WHITE = (3, 52, 59), (181, 247, 53), (255, 255, 255)
