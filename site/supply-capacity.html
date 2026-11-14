@@ -108,7 +108,7 @@
      "name": "What power factor should I use?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Use 0.95 if you don't know it. It's probably lower if your bill shows reactive power charges."
+      "text": "If you don't know it, 0.95 is a reasonable starting assumption. It's probably lower if your bill shows reactive power charges."
      }
     },
     {
@@ -116,7 +116,7 @@
      "name": "Is half-hourly data enough to plan a new connection?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "It's a good first check. For a significant new load, speak to your network operator first."
+      "text": "It's a good first check, but half-hour averages hide very short peaks. For a significant new load, speak to your network operator before committing."
      }
     }
    ]
@@ -148,29 +148,29 @@
     <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> <span aria-hidden="true">/</span> <a href="guides.html">Guides</a> <span aria-hidden="true">/</span> <span aria-current="page">Supply capacity and kVA</span></nav>
     <span class="page-hero-kicker">Guide</span>
     <h1 class="page-hero-title">Supply capacity and kVA</h1>
-    <p class="page-hero-lead">Before adding heat pumps or EV chargers, check how close your busiest half hours already come to your supply limit.</p>
+    <p class="page-hero-lead">Before adding heat pumps, EV chargers or other new equipment, check how close your busiest half hours already come to your agreed supply capacity.</p>
   </div>
 </section><div class="guide">
   <article class="guide-main prose">
 <p class="byline">Last updated <time datetime="2026-11-14">14 November 2026</time></p>
-<p class="answer">Your agreed supply capacity is the maximum demand your connection is set up for, in kVA. Convert your busiest half hours from kW to kVA (divide by the power factor) and compare. The gap is your headroom for new equipment such as heat pumps and EV chargers.</p>
+<p class="answer">Your agreed supply capacity is the maximum demand your electricity connection is set up for, measured in kVA. To see how much room you have, convert your busiest half hours from kW to kVA (divide by the power factor) and compare them with the agreed capacity. The gap is your headroom for new equipment such as heat pumps and EV chargers.</p>
 
-<figure class="figure"><img src="images/photos/plant-outside.jpg" srcset="images/photos/plant-outside-800.jpg 800w, images/photos/plant-outside.jpg 1600w" sizes="(max-width: 860px) 100vw, 860px" width="1600" height="900" alt="Two engineers with a tablet beside packaged plant, flues and pipework outside a large building" loading="lazy"></figure>
+<figure class="figure"><img src="images/photos/plant-outside.jpg" srcset="images/photos/plant-outside-800.jpg 800w, images/photos/plant-outside.jpg 1600w" sizes="(max-width: 860px) 100vw, 860px" width="1600" height="900" alt="Two engineers with a tablet beside packaged plant, flues and pipework outside a large building" loading="lazy"><figcaption>New equipment such as heat pumps has to fit within the site's supply. Half-hourly data shows how close the busiest periods already come to it.</figcaption></figure>
 <h2 id="what">What agreed supply capacity is</h2>
-<p>Larger supplies have an agreed (or authorised) capacity, set in the connection agreement and shown on the bill in kVA. You pay a daily charge for it whether you use it or not, and going over it can bring extra charges.</p>
+<p>Larger electricity supplies have an agreed capacity, sometimes called authorised or available capacity. It's set in the connection agreement and usually shown on the bill in kVA. You normally pay a daily charge for it whether you use it or not. If you go over it you may face extra charges, and the network operator may ask you to increase it.</p>
 
 <h2 id="kva">kW and kVA</h2>
-<p>Half-hourly data gives average power in kW. Capacity is set in kVA, which also counts reactive power drawn by equipment such as motors. The power factor links them:</p>
+<p>Meters measure energy in kWh. Half-hourly data gives the average power in each half hour, in kW. Capacity is set in kVA, which also includes reactive power: power drawn by equipment such as motors that doesn't do useful work. The two are linked by the power factor:</p>
 <div class="note"><strong>kVA = kW ÷ power factor.</strong> At a power factor of 0.95, a 95 kW peak is 100 kVA. If your bill includes reactive power charges, your power factor is probably below 0.95.</div>
 
 <h2 id="headroom">Working out headroom</h2>
-<ol><li><strong>Find your busiest half hours</strong> over a full year, to include winter.</li><li><strong>Convert them to kVA.</strong></li><li><strong>Keep a margin</strong>, say 10%, below the agreed capacity.</li><li><strong>Headroom</strong> is the largest constant load you could add without breaching that margin.</li></ol>
-<p>Half-hour averages hide very short spikes, so confirm with your network operator before relying on it.</p>
+<ol><li><strong>Find your busiest half hours</strong> over at least a year, so winter peaks are included.</li><li><strong>Convert them to kVA</strong> using your power factor.</li><li><strong>Keep a safety margin</strong>, for example 10%, below the agreed capacity.</li><li><strong>Your headroom</strong> is the largest constant extra load you could add without going over that margin in any half hour.</li></ol>
+<p>Half-hourly readings are averages, so they smooth out very short spikes. Treat this as an early check, and confirm with your network operator before relying on it.</p>
 
 <h2 id="new-load">Heat pumps and EV charging</h2>
-<p>A heat pump with a coefficient of performance (COP) of 3 draws about 50 kW of electricity to produce 150 kW of heat. It works hardest in winter, when peaks are usually highest. Overnight EV charging falls when sites are quietest. The analyser tests a new load at a chosen time and season against your actual peaks.</p>
+<p>A heat pump uses much less electricity than the heat it produces. With a coefficient of performance (COP) of 3, a heat pump producing 150 kW of heat draws about 50 kW of electricity. It works hardest in winter, which is usually when a building's peaks are highest, so the two add together. EV charging is different: if it happens overnight, it falls when most sites are quietest. The analyser lets you test a new load at a chosen time of day and season against your actual half-hourly peaks.</p>
 <h2 id="questions">Questions people ask</h2>
-<div class="faq"><details><summary>Where do I find my agreed supply capacity?</summary><div class="faq-a"><p>On your electricity bill or connection agreement, in kVA. Your supplier can confirm it.</p></div></details><details><summary>What power factor should I use?</summary><div class="faq-a"><p>Use 0.95 if you don't know it. It's probably lower if your bill shows reactive power charges.</p></div></details><details><summary>Is half-hourly data enough to plan a new connection?</summary><div class="faq-a"><p>It's a good first check. For a significant new load, speak to your network operator first.</p></div></details></div><h2 id="next">Read next</h2>
+<div class="faq"><details><summary>Where do I find my agreed supply capacity?</summary><div class="faq-a"><p>On your electricity bill or connection agreement, in kVA. Your supplier can confirm it.</p></div></details><details><summary>What power factor should I use?</summary><div class="faq-a"><p>If you don't know it, 0.95 is a reasonable starting assumption. It's probably lower if your bill shows reactive power charges.</p></div></details><details><summary>Is half-hourly data enough to plan a new connection?</summary><div class="faq-a"><p>It's a good first check, but half-hour averages hide very short peaks. For a significant new load, speak to your network operator before committing.</p></div></details></div><h2 id="next">Read next</h2>
 <div class="link-grid"><a class="link-card has-thumb" href="base-load.html"><div class="card-thumb"><img src="images/guides/base-load.jpg" srcset="images/guides/base-load-600.jpg 600w, images/guides/base-load.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Base load</h3><p>The demand that never goes away.</p><span class="more">Read the guide</span></a><a class="link-card has-thumb" href="example-office-analysis.html"><div class="card-thumb"><img src="images/guides/example-office-analysis.jpg" srcset="images/guides/example-office-analysis-600.jpg 600w, images/guides/example-office-analysis.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Worked example</h3><p>Peaks against capacity in one office.</p><span class="more">Read the guide</span></a><a class="link-card has-thumb" href="how-it-works.html"><div class="card-thumb"><img src="images/guides/how-it-works.jpg" srcset="images/guides/how-it-works-600.jpg 600w, images/guides/how-it-works.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>How the analyser works</h3><p>Including how headroom is worked out.</p><span class="more">Read the guide</span></a></div>
   </article>
   <aside class="guide-side">

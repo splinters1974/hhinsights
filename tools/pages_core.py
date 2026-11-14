@@ -4,7 +4,7 @@ privacy and 404. Bodies are HTML; metadata for search and AI tools is added
 in core_pages() at the bottom.
 
 Written for a general business reader, in the voice of the team that runs the
-site ("we"). Explain terms on first use; keep sentences short.
+site ("we"). Explain terms on first use; write as much as the reader needs.
 """
 from kit import (CONTACT_EMAIL, CONTACT_NAME, OPERATOR, OPERATOR_URL, SOLAR_URL, APP, Page,
                  cta, photo, faq_section, guide, page_hero, related, updated_line)
@@ -23,7 +23,7 @@ PAGES['index.html'] = ('Half Hourly Insights: free half-hourly electricity analy
   <div class="hero-copy">
     <p class="hero-pre">Free for UK businesses and public sector organisations. No sign-up needed.</p>
     <h1 id="hero-h">Where is your electricity going?</h1>
-    <p class="hero-lead">Load your half-hourly meter readings and within a minute see what your buildings use while closed, what never switches off, how close you get to your supply limit, and what it all costs.</p>
+    <p class="hero-lead">Load the half-hourly readings from your electricity meter. Within a minute you'll see how much your buildings use while they're closed, what never switches off, how close you get to your supply limit, and what each of these costs you.</p>
     <div class="hero-points">
       <div><strong>Biggest costs first</strong><span>Ranked by cost, with the evidence for each</span></div>
       <div><strong>Many sites at once</strong><span>One file per meter, with every site ranked</span></div>
@@ -48,15 +48,15 @@ PAGES['index.html'] = ('Half Hourly Insights: free half-hourly electricity analy
   <div class="section-inner">
     <div class="head-row">
       <h2 class="section-title">What half-hourly data shows</h2>
-      <p>Your bill gives one total. Half-hourly data records use every 30 minutes, so you can see when electricity is used, and when it shouldn't be.</p>
+      <p>Your bill gives one total for the month. Half-hourly data records your use every 30 minutes, 48 readings a day, so you can see when electricity is used and spot use that shouldn't be happening.</p>
     </div>
     <div class="reasons">
-      <div><h3>Use while closed</h3><p>Electricity used when the building should be shut. Often the cheapest saving, fixed by changing timers and controls.</p></div>
-      <div><h3>Base load</h3><p>The minimum your building uses at all times. It runs all year, so small cuts add up.</p></div>
-      <div><h3>Peaks and supply capacity</h3><p>Your busiest half hours against your connection's limit, and the room left for heat pumps or EV charging.</p></div>
-      <div><h3>Unusual days</h3><p>Days that break the normal pattern, and lasting changes that show something was left on, or a fix worked.</p></div>
-      <div><h3>Weekends and bank holidays</h3><p>Days the site should be quiet but isn't.</p></div>
-      <div><h3>Savings estimates</h3><p>What you could save by cutting closed-hours use or peaks, with overlaps counted once.</p></div>
+      <div><h3>Use while closed</h3><p>Electricity used when the building should be shut, over and above what always runs. It's often the cheapest saving to make, because it can usually be fixed by changing timers and control settings.</p></div>
+      <div><h3>Base load</h3><p>The minimum your building uses at all times, including overnight and at weekends. Because it runs all year, even a small reduction makes a noticeable saving.</p></div>
+      <div><h3>Peaks and supply capacity</h3><p>Your busiest half hours compared with the maximum your electricity connection allows, and how much room is left for heat pumps or EV charging.</p></div>
+      <div><h3>Unusual days</h3><p>Days that don't follow the normal pattern, and lasting changes that suggest something was left on, or that a fix has worked.</p></div>
+      <div><h3>Weekends and bank holidays</h3><p>Days when the site should be quiet but isn't, checked against the opening hours you enter.</p></div>
+      <div><h3>Savings estimates</h3><p>What you could save by cutting use while closed or reducing peaks. Where two savings overlap, they're only counted once.</p></div>
     </div>
   </div>
 </section>
@@ -64,11 +64,11 @@ PAGES['index.html'] = ('Half Hourly Insights: free half-hourly electricity analy
 <section class="section privacy-band">
   <div class="section-inner">
     <h2 class="section-title">Your data stays on your computer</h2>
-    <p class="section-lead">The analyser works inside your web browser. Your meter files are never sent to us or anyone else.</p>
+    <p class="section-lead">The analyser does all its work inside your web browser. Your meter files are read on your own computer and are never sent to us or anyone else.</p>
     <div class="reasons">
-      <div><h3>Nothing uploaded</h3><p>Once the page has loaded, you can even work offline.</p></div>
-      <div><h3>No account</h3><p>No sign-up, no email address, no tracking cookies.</p></div>
-      <div><h3>You keep the results</h3><p>Reports and project files save to your computer.</p></div>
+      <div><h3>Nothing uploaded</h3><p>No server is involved in the analysis. Once the page has loaded, you can disconnect from the internet and carry on working.</p></div>
+      <div><h3>No account</h3><p>You don't need to sign up or give an email address, and the site uses no tracking cookies.</p></div>
+      <div><h3>You keep the results</h3><p>Reports, spreadsheets and project files are saved to your computer. Save a project to come back to it later.</p></div>
     </div>
   </div>
 </section>
@@ -79,11 +79,11 @@ PAGES['index.html'] = ('Half Hourly Insights: free half-hourly electricity analy
       <div>
         <span class="section-kicker">The analyser</span>
         <h2 class="section-title">What you get for each site</h2>
-        <p class="section-lead">Each site opens with its three most costly issues, rated for how reliable the evidence is.</p>
+        <p class="section-lead">Each site opens with its three most costly issues to investigate, and a rating for how reliable the evidence is. Every figure is labelled as measured or estimated.</p>
         <ul class="ticks">
-          <li><strong>PDF reports</strong> for each site and your estate, plus Excel</li>
+          <li><strong>PDF reports</strong> for each site and for your whole estate, plus Excel files for your own analysis</li>
           <li><strong>A heatmap</strong> showing every half hour of the year on one chart</li>
-          <li><strong>Data checks</strong> for gaps, zero days and clock changes</li>
+          <li><strong>Data checks</strong> for missing readings, zero days, clock changes and duplicate rows before any figures are shown</li>
           <li><strong>Customer dashboards</strong>, a password-protected copy you can send to a client</li>
         </ul>
       </div>
@@ -99,12 +99,12 @@ PAGES['index.html'] = ('Half Hourly Insights: free half-hourly electricity analy
   <div class="section-inner">
     <div class="head-row">
       <h2 class="section-title">How it works in three steps</h2>
-      <p>Nothing to install. Works in Chrome or Edge.</p>
+      <p>No account and nothing to install. It works in Chrome or Edge on any recent computer.</p>
     </div>
     <div class="steps">
-      <div><div class="step-head"><span class="step-n">1</span><span class="step-line"></span></div><h3>Load your files</h3><p>Drag in one file per meter. The analyser checks the readings and reports what it found.</p></div>
-      <div><div class="step-head"><span class="step-n">2</span><span class="step-line"></span></div><h3>Set opening hours</h3><p>Enter when each building is open. The closed-hours figures depend on it.</p></div>
-      <div><div class="step-head"><span class="step-n">3</span><span class="step-line"></span></div><h3>Review and share</h3><p>Work through the findings and download reports.</p></div>
+      <div><div class="step-head"><span class="step-n">1</span><span class="step-line"></span></div><h3>Load your files</h3><p>Drag in one file for each meter. The analyser works out the layout, checks the readings and tells you what it found.</p></div>
+      <div><div class="step-head"><span class="step-n">2</span><span class="step-line"></span></div><h3>Set opening hours</h3><p>Enter when each building is open. The figures for use while closed depend on this, so the analyser asks you to confirm them.</p></div>
+      <div><div class="step-head"><span class="step-n">3</span><span class="step-line"></span></div><h3>Review and share</h3><p>Work through the findings, then download PDF reports, Excel files or a customer dashboard.</p></div>
     </div>
   </div>
 </section>
@@ -114,7 +114,7 @@ PAGES['index.html'] = ('Half Hourly Insights: free half-hourly electricity analy
     <div>
       <span class="section-kicker">Who it's for</span>
       <h2 class="section-title">Any building with a half-hourly meter</h2>
-      <p class="section-lead">Schools, offices, leisure centres, hospitals, factories and shops all use electricity differently, so each site is compared with its own opening hours rather than a benchmark.</p>
+      <p class="section-lead">Schools, offices, council buildings, leisure centres, hospitals, factories and shops all use electricity differently. That's why the analyser compares each site with its own opening hours rather than a general benchmark.</p>
       <p style="margin-top:24px"><a href="sectors.html" class="btn btn-outline">What to look for in your sector</a></p>
     </div>
     <div>{photo('town-street', 'A town high street with an electric bus, a civic building and a car charging at a roadside charger')}</div>
@@ -125,7 +125,7 @@ PAGES['index.html'] = ('Half Hourly Insights: free half-hourly electricity analy
   <div class="section-inner">
     <div class="head-row">
       <h2 class="section-title">Guides</h2>
-      <p>Answers to the questions people ask about half-hourly data.</p>
+      <p>Clear answers to the questions people ask when they first look at half-hourly data.</p>
     </div>
     <div class="link-grid" style="margin-top:36px">
       <a class="link-card has-thumb" href="example-office-analysis.html"><div class="card-thumb"><img src="images/guides/example-office-analysis.jpg" srcset="images/guides/example-office-analysis-600.jpg 600w, images/guides/example-office-analysis.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Worked example</h3><p>A year of data from one office, and what the analyser found.</p><span class="more">Read the example</span></a>
@@ -139,48 +139,53 @@ PAGES['index.html'] = ('Half Hourly Insights: free half-hourly electricity analy
 <section class="section">
   <div class="section-inner split">
     <div><span class="section-kicker">Sister site</span><h2 class="section-title">Thinking about solar too?</h2></div>
-    <div><p class="section-lead">Solar saves most when a building uses plenty of electricity in daylight, which your half-hourly data shows. Our <a href="{SOLAR_URL}" style="color:var(--blue);text-decoration:underline">UK Solar Calculator</a> estimates system size, savings and payback for your roof.</p>
+    <div><p class="section-lead">Solar panels generate in daylight, so they save the most when a building uses plenty of electricity during the day. Your half-hourly data shows how much that is. Our <a href="{SOLAR_URL}" style="color:var(--blue);text-decoration:underline">UK Solar Calculator</a> estimates system size, savings and payback for your roof.</p>
     {photo('solar-private-wire', 'Aerial view of a solar farm connected by cable to a substation and a business park beside farmland')}</div>
   </div>
 </section>
 
-{cta('Want help with your results?', 'We can help turn the findings into savings, or audit your whole estate.')}
+{cta('Want help with your results?', 'We can help you turn the findings into savings, or carry out a full energy audit across your sites.')}
 ''')
 
 # ── HOW IT WORKS ────────────────────────────────────────────────────────
 PAGES['how-it-works.html'] = ('How it works | Half Hourly Insights',
   'What the analyser does with your half-hourly data: how it reads files, checks quality, sets the base load, prices use while closed and builds findings.',
   page_hero('How it works', 'What the analyser does with your data',
-            'Each step, from reading your file to the report. In the analyser, every finding links to its full calculation.',
+            'A step-by-step explanation, from reading your file to the figures in the report. In the analyser, each finding also has a "show calculation and evidence" link with the full working.',
             crumbs=[HOME, ('How it works', 'how-it-works.html')]) +
   guide(updated_line() + '''
-<p class="answer">The analyser checks every reading, works out how much the site uses when open and when closed, and prices the difference at your rates. It tells you where to look; someone who knows the building decides what to change.</p>
-''' + photo('switchroom-tablet', 'Three people in a switch room looking at data on a tablet beside open electrical panels', '') + '''
+<p class="answer">The analyser checks every half-hourly reading, works out how much electricity the site uses when it's open and when it's closed, and prices the difference at your rates. It tells you where to look. Someone who knows the building then decides what to change.</p>
+''' + photo('switchroom-tablet', 'Three people in a switch room looking at data on a tablet beside open electrical panels', 'The findings tell you where to look. A walk round the building tells you why.') + '''
 
 <h2 id="files">1. Reading your files</h2>
-<p>One Excel or CSV file per meter, in any of the <a href="get-your-data.html#formats">common layouts</a>. The analyser shows how it read each file, including whether readings were kWh or kW. Files longer than a year use the last 12 months by default; trends still use the whole file.</p>
+<p>Load one file for each meter, as Excel (.xlsx or .xls) or CSV. Three layouts work:</p>
+<ul><li><strong>Day per row:</strong> a date, then 48 half-hourly readings. This is the most common supplier format.</li><li><strong>Day per column:</strong> the same, turned on its side.</li><li><strong>Timestamped:</strong> one reading per row, with its date and time.</li></ul>
+<p>The analyser shows how it read each file: which column held the dates, whether readings were in kWh or kW, and anything it ignored. If a file covers more than a year, the last 12 months are analysed by default. You can choose a different period, and long-term trends still use the whole file.</p>
 
 <h2 id="checks">2. Checking the data</h2>
-<p>Before showing figures, the analyser looks for missing readings (left out, never counted as zero), zero days, clock changes, duplicate rows and extreme spikes. Each site is rated Good, Check or Poor, and you can exclude bad readings with a note of why.</p>
+<p>Before showing any figures, the analyser looks for problems that would make them wrong:</p>
+<ul><li>missing readings, which are left out rather than counted as zero</li><li>days of zero readings, which usually point to a meter or data fault</li><li>days when the clocks change, and duplicate rows, which it holds back for you to decide on</li><li>single readings far above the usual peak</li></ul>
+<p>Each site is rated Good, Check or Poor. You can exclude readings you know are wrong and record why, and the reason is saved with the analysis.</p>
 
 <h2 id="calendar">3. Opening hours</h2>
-<p>Every site starts with standard office hours, marked unconfirmed until you check them. Set hours for all sites or one at a time, including closures, bank holidays and night shifts. Findings based on unconfirmed hours get lower confidence.</p>
+<p>The figures for use while closed depend on knowing when each building should be open. Every site starts with standard office hours, marked as unconfirmed until you check them. You can set hours for all sites at once or one at a time, including closures, bank holidays and overnight shifts. Findings based on unconfirmed hours get a lower confidence rating.</p>
 
 <h2 id="base">4. Base load and use while closed</h2>
-<p><strong>Base load</strong> is the level demand stays above 95% of the time (the 5th percentile): servers, fridges and anything on standby.</p>
-<p><strong>Closed-hours excess</strong> is use while closed, above the base load. Sites are ranked by it because it's usually the cheapest to cut, through timers and controls.</p>
+<p><strong>Base load</strong> is the level of demand a site rarely drops below. The analyser measures it as the 5th percentile of all valid half-hourly readings, which means demand is higher than this 95% of the time. It's the equipment that never switches off, such as servers, fridges and anything on standby.</p>
+<p><strong>Closed-hours excess</strong> is the electricity used while the site is closed, over and above the base load. Sites are ranked by this figure because it's often the cheapest use to reduce, usually by changing timers, controls and building management settings rather than buying new equipment.</p>
 
 <h2 id="costs">5. Costs and annual figures</h2>
-<p>Costs use your unit rates (flat or by time of day) and exclude standing and capacity charges. They show what a pattern costs now, not a promised saving. Annual figures are scaled from valid readings: marked indicative under about 11 months of data, and not shown under six.</p>
+<p>Costs use the unit rates you enter, either one flat rate or different rates for different times of day. They leave out standing charges, capacity charges and other fixed costs. They show what a pattern costs you now and are not a promise of savings.</p>
+<p>Annual figures are scaled up from the valid readings. With less than about 11 months of good data they're marked as indicative, and with less than six months they aren't shown.</p>
 
 <h2 id="findings">6. Findings</h2>
-<p>Each finding has two ratings. <strong>Impact</strong> is how much it matters. <strong>Confidence</strong> is how reliable the evidence is. Check a high-impact, low-confidence finding before quoting it.</p>
+<p>Each finding has two separate ratings. <strong>Impact</strong> shows how much it matters, based on cost and share of total use. <strong>Confidence</strong> shows how reliable the evidence is, based on data quality and whether the opening hours are confirmed. A finding with high impact and low confidence is worth checking before you quote it.</p>
 
 <h2 id="capacity">7. Capacity and headroom</h2>
-<p>Enter your agreed supply capacity (kVA, from your bill) and a power factor. The analyser works out how much extra constant load the site could take. Only your network operator can confirm it.</p>
+<p>Enter your agreed supply capacity (in kVA, from your bill or connection agreement) and an assumed power factor. The analyser compares every half hour with it and works out how much extra constant load the site could take before reaching the limit. Treat this as an early check, because only your network operator can confirm it.</p>
 
 <h2 id="limits">What it can't tell you</h2>
-<ul><li>Main meter data shows when electricity is used, not which equipment uses it.</li><li>Figures aren't adjusted for weather or occupancy.</li><li>Carbon uses one conversion factor you enter.</li></ul>
+<ul><li>Data from the main meter shows when electricity is used, but not which equipment is using it. Findings are things to check on site.</li><li>Figures are not adjusted for weather or changes in occupancy.</li><li>Carbon figures use a single conversion factor for the year, which you enter.</li></ul>
 ''' + related([('example-office-analysis.html', 'Worked example', 'The method applied to one office, step by step.'),
                ('out-of-hours-electricity.html', 'Out-of-hours use', 'Finding and reducing use while the building is closed.'),
                ('base-load.html', 'Base load', 'What always runs, and why it matters.')]), '''    <nav class="toc" aria-label="On this page"><div class="toc-title">On this page</div><ol>
@@ -189,8 +194,8 @@ PAGES['how-it-works.html'] = ('How it works | Half Hourly Insights',
 
 # ── GET YOUR DATA ───────────────────────────────────────────────────────
 GET_DATA_FAQS = [
-    ('What is half-hourly electricity data?', "A reading of the electricity used in each half hour: 48 a day, 17,520 a year. It shows when a site uses electricity as well as how much."),
-    ('How far back can I get data?', 'Ask for at least 12 months, and up to three years. A full year means annual figures are measured, not estimated.'),
+    ('What is half-hourly electricity data?', "A record of the electricity used in each half hour of the day. That's 48 readings a day and 17,520 in a normal year. It shows when a site uses electricity as well as how much."),
+    ('How far back can I get data?', 'Ask for at least 12 months, and up to three years if your supplier has it. A full year shows seasonal patterns and means annual figures are measured rather than estimated.'),
     ('Does it cost anything to get my data?', 'Ask your supplier. Many provide it free on request or through your online account.'),
     ('Where do I find my MPAN?', 'On your electricity bill. It is the 13-digit supply number, usually in a box labelled S or "Supply number".'),
 ]
@@ -201,49 +206,54 @@ PAGES['get-your-data.html'] = ('How to get your half-hourly electricity data',
             "Most organisations already have this data. It just isn't shown on the bill. Here's where to find it and what to ask for.",
             crumbs=[HOME, GUIDES, ('Getting your half-hourly data', 'get-your-data.html')]) +
   guide(updated_line() + '''
-<p class="answer">Ask your supplier for the half-hourly consumption data for each meter, for at least the last 12 months, as a spreadsheet. Many let you download it from your online account.</p>
+<p class="answer">Ask your electricity supplier for the half-hourly consumption data for each of your meters, covering at least the last 12 months, as a spreadsheet. Many suppliers also let you download it from your online account.</p>
 
 <h2 id="who">Who has it</h2>
-<p>Your <strong>supplier</strong> receives your half-hourly readings and can send them. With more meters moving to <a href="half-hourly-settlement.html">half-hourly settlement</a>, it's worth asking even for small premises. Also try:</p>
-<ul><li>your supplier's online account, under "usage" or "data download"</li><li>your energy broker or energy manager</li><li>a building management or monitoring system</li><li>a smart meter app with half-hourly downloads</li></ul>
+<p>If your meter records half-hourly readings, your <strong>supplier</strong> receives them and can send them to you. Larger business sites have had half-hourly meters for years, and more meters are moving to <a href="half-hourly-settlement.html">half-hourly settlement</a>, so it's worth asking even for smaller premises.</p>
+<p>You may also find it in:</p>
+<ul><li><strong>Your supplier's online account</strong>, often under "consumption", "usage" or "data download"</li><li><strong>Your energy broker or energy manager</strong>, if you have one</li><li><strong>A building management or energy monitoring system</strong> that can export meter data</li><li><strong>A smart meter app or service</strong> that offers half-hourly downloads</li></ul>
 
 <h2 id="ask">What to ask for</h2>
 <p>A request like this works:</p>
 <div class="note"><strong>Example request</strong><br>Please send the half-hourly consumption data (kWh) for meter [MPAN], from [date] to [date], as an Excel or CSV file with one row per day and 48 half-hourly columns.</div>
-<ul><li><strong>One file per meter</strong>, named after the site.</li><li><strong>At least 12 months</strong>, ideally up to three years.</li><li><strong>kWh per half hour</strong> is best; kW also works.</li></ul>
-<p>Your MPAN (the 13-digit supply number) is on your bill.</p>
-<p><a href="downloads/half-hourly-data-request.docx" download><strong>Download a letter template</strong></a> (Word) with spaces for your MPANs and dates.</p>
+<ul><li><strong>One file per meter.</strong> Name each file after the site, because the analyser uses the file name as the site name.</li><li><strong>At least 12 months of data</strong>, so annual figures and seasonal patterns are reliable. Up to three years helps show longer-term trends.</li><li><strong>Readings in kWh for each half hour</strong> are best. Files in kW also work, and the analyser tells you which it found.</li></ul>
+<p>Your meter's MPAN (the 13-digit supply number) is on your electricity bill.</p>
+<p><a href="downloads/half-hourly-data-request.docx" download><strong>Download a letter template</strong></a> (Word). It lists what to ask for, with spaces for your MPANs and dates.</p>
 
 <h2 id="formats">File formats the analyser reads</h2>
 <div class="table-wrap"><table><thead><tr><th>Layout</th><th>Looks like</th></tr></thead><tbody>
 <tr><td>Day per row</td><td>Date, then 48 columns of half-hourly readings</td></tr>
 <tr><td>Day per column</td><td>Dates across the top, 48 rows of readings</td></tr>
 <tr><td>Timestamped</td><td>One row per reading, with its date and time</td></tr></tbody></table></div>
-<p>Excel and CSV both work, and extra columns are ignored. Not sure? <a href="samples/example-office.csv" download>Compare with our example file</a>.</p>
+<p>Excel (.xlsx, .xls) and CSV files both work. Extra columns, such as meter references, are ignored. If a file can't be read, the analyser explains why.</p>
+<p>Not sure what your file should look like? <a href="samples/example-office.csv" download>Download our example file</a> and compare.</p>
+
+<h2 id="no-data">If your supplier can't provide it</h2>
+<p>If your supplier says the meter doesn't record half-hourly readings, ask whether it can be replaced with a smart or advanced meter that does. In the meantime, check whether a building management or monitoring system on site keeps its own records. Monthly meter readings will show how use changes through the year, but they can't show the daily and overnight patterns this analyser looks for.</p>
 ''' + faq_section(GET_DATA_FAQS) + related([
     ('example-office-analysis.html', 'Worked example', 'What a year of data shows about one office.'),
     ('out-of-hours-electricity.html', 'Out-of-hours use', 'The first thing to look at once you have the data.'),
-    ('how-it-works.html', 'How the analyser works', 'What it does with your file, step by step.')]), '''    <nav class="toc" aria-label="On this page"><div class="toc-title">On this page</div><ol><li><a href="#who">Who has it</a></li><li><a href="#ask">What to ask for</a></li><li><a href="#formats">File formats the analyser reads</a></li></ol></nav>''')
+    ('how-it-works.html', 'How the analyser works', 'What it does with your file, step by step.')]), '''    <nav class="toc" aria-label="On this page"><div class="toc-title">On this page</div><ol><li><a href="#who">Who has it</a></li><li><a href="#ask">What to ask for</a></li><li><a href="#formats">File formats the analyser reads</a></li><li><a href="#no-data">If your supplier can't provide it</a></li></ol></nav>''')
   + cta('Got your file?', 'Load it now. It takes about a minute and the data stays on your computer.'))
 
 # ── FAQ ─────────────────────────────────────────────────────────────────
 FAQ = [
   ('Using the analyser', [
-    ('Is it really free?', "Yes. No charge, no account and no limit on sites. You can contact us for help, but there's no obligation."),
-    ('Do I need to install anything?', "No. It runs in Chrome or Edge on a computer. It isn't designed for phones."),
-    ('How many sites can I load?', 'As many as your computer can handle. Sites are ranked so you know where to start.'),
-    ('Can I save my work?', 'Yes. Save a project file and open it later. It holds your readings, so store it securely.'),
-    ('Can I share results with a client or colleague?', "Yes. Download PDF reports, export to Excel, or create a password-protected customer dashboard showing only their sites."),
+    ('Is it really free?', "Yes. There's no charge, no account and no limit on the number of sites. If you'd like help acting on the results you can contact us, but there's no obligation."),
+    ('Do I need to install anything?', "No. It runs in Chrome or Edge on a recent computer. It isn't designed for phones, because the charts need a larger screen."),
+    ('How many sites can I load?', 'As many as your computer can handle. Each meter file becomes a site, and the analyser ranks them so you know which to look at first.'),
+    ('Can I save my work?', 'Yes. Save a project file to your computer and open it again later. It contains the readings and all your settings, so store it as carefully as the original data.'),
+    ('Can I share results with a client or colleague?', "Yes. You can download a PDF report for one site or your whole portfolio, export to Excel, or create a customer dashboard. That's a password-protected copy of the analyser containing only their sites."),
   ]),
   ('Your data', [
-    ('Is my data uploaded anywhere?', 'No. The analysis runs entirely in your browser and nothing is sent to us or anyone else.'),
+    ('Is my data uploaded anywhere?', 'No. The analysis runs entirely in your web browser. Your meter files are read on your own computer and nothing is sent to us or anyone else. Once the page has loaded you can even disconnect from the internet and keep working.'),
     ('What data do I need?', 'Half-hourly electricity readings for each meter, ideally covering 12 months or more. <a href="get-your-data.html">Here is how to get them.</a>'),
-    ('What if my file has gaps or errors?', 'The analyser finds them first. Missing readings are left out, never counted as zero, and odd days are flagged for you.'),
+    ('What if my file has gaps or errors?', 'The analyser finds them before showing any figures. Missing readings are left out rather than counted as zero, and days with zero readings or clock changes are flagged for you to decide on.'),
   ]),
   ('The results', [
-    ('Are the costs savings?', 'No. They show what a pattern costs now. Any saving depends on what you change.'),
-    ('How accurate is it?', "As accurate as your data and opening hours. Each finding shows its confidence and evidence."),
-    ('Can it tell me which equipment is wasting energy?', 'No. Meter data shows when electricity is used, not by what. A visit to the building finds the cause.'),
+    ('Are the costs savings?', 'No. They show what a pattern costs now at the rates you entered. Any saving depends on what you change. The savings estimates are clearly labelled as estimates.'),
+    ('How accurate is it?', "It's as accurate as the data and opening hours you give it. Each finding shows a confidence rating and the evidence behind it, and each figure is labelled as measured or estimated."),
+    ('Can it tell me which equipment is wasting energy?', 'No. Data from the main meter shows when electricity is used, but not what is using it. The findings tell you when and where to look, and a visit to the building finds the cause.'),
   ]),
 ]
 PAGES['faq.html'] = ('Questions and answers | Half Hourly Insights',
@@ -259,7 +269,7 @@ PAGES['faq.html'] = ('Questions and answers | Half Hourly Insights',
 PAGES['contact.html'] = ('Contact | Half Hourly Insights',
   'Talk to an energy expert about your half-hourly results, a full energy audit or help reducing out-of-hours use across your sites.',
   page_hero('Contact', 'Talk to an expert',
-            "If you'd like help turning the findings into savings, tell us about your sites. There's no obligation.") +
+            "The analyser shows you where to look. If you'd like help turning the findings into savings, tell us about your sites and we'll be in touch. There's no obligation.") +
   f'''<section class="section"><div class="section-inner contact-grid">
 <div class="contact-info">
   <a href="{OPERATOR_URL}" target="_blank" rel="noopener noreferrer" class="kec-logo-link">
@@ -308,10 +318,11 @@ PAGES['privacy.html'] = ('Privacy | Half Hourly Insights',
   page_hero('Privacy', 'Privacy notice', 'In short, your meter data never leaves your computer. If you contact us, we only use your details to reply.') +
   guide(f'''
 <h2 id="analyser">The analyser</h2>
-<p>The analyser runs entirely in your browser. Your meter files, settings and downloads stay on your computer; they are never uploaded and we never see them. Nothing is stored between visits unless you save a project file.</p>
+<p>The analyser runs entirely in your web browser. Meter files you load are read on your own computer. They are never uploaded and we never see them. The same goes for everything you enter (opening hours, rates, notes) and everything you download (PDFs, spreadsheets, project files and customer dashboards).</p>
+<p>The analyser stores nothing in your browser between visits. Save a project file if you want to come back to your work.</p>
 
 <h2 id="enquiries">Enquiries</h2>
-<p>If you use the contact form, we receive the details you enter and only use them to reply. We don't sell them or add you to a mailing list.</p>
+<p>If you send the contact form, we receive the details you enter: your name, email, organisation, phone, sector, number of sites and message. We only use them to reply to your enquiry and any follow-up you ask for. We don't sell them or add you to a mailing list.</p>
 <p>{OPERATOR} is responsible for the details you send (the data controller). The form is processed by our website host, Netlify, which stores submissions on our behalf. [Retention period to be confirmed.]</p>
 
 <h2 id="cookies">Cookies and tracking</h2>
@@ -339,7 +350,7 @@ def core_pages():
                                   summary='The method in full: reading files, data checks, opening hours, base load (5th percentile), closed-hours excess, costs, annualisation, findings, capacity, and limits.'),
         'get-your-data.html': dict(crumbs=[home, ('Guides', 'guides.html'), ('Getting your half-hourly data', 'get-your-data.html')],
                                    article=True, faqs=GET_DATA_FAQS, section='Guides',
-                                   summary='Who holds half-hourly data, what to ask your supplier for, and the file layouts the analyser reads.'),
+                                   summary='Who holds half-hourly data, what to ask your supplier for, the file layouts the analyser reads, and what to do if your supplier cannot provide it.'),
         'faq.html': dict(crumbs=[home, ('FAQ', 'faq.html')], faqs=[qa for _, items in FAQ for qa in items], section='Core pages',
                          summary='Cost, privacy, the data needed and what the results mean.'),
         'contact.html': dict(crumbs=[home, ('Contact', 'contact.html')], section='Core pages',

@@ -21,9 +21,9 @@ Method in brief: base load is the 5th percentile of valid half-hourly demand; ou
 
 ## Guides
 
-- [How to get your half-hourly electricity data](get-your-data.html): Who holds half-hourly data, what to ask your supplier for, and the file layouts the analyser reads.
+- [How to get your half-hourly electricity data](get-your-data.html): Who holds half-hourly data, what to ask your supplier for, the file layouts the analyser reads, and what to do if your supplier cannot provide it.
 - [Worked example: a year of half-hourly data for one office](example-office-analysis.html): A small office run through the analyser: 33% of use while closed, £2,776 a year above base load, almost half on Saturdays; base load 2.6 kW; 67% of a 40 kVA supply.
-- [Out-of-hours electricity use: how to find and cut it](out-of-hours-electricity.html): What out-of-hours electricity use is, how to find it in half-hourly data (opening hours, heatmap, day types, start and end of the day), common causes, and fixes.
+- [Out-of-hours electricity use: how to find and cut it](out-of-hours-electricity.html): What out-of-hours electricity use is, how to find it in half-hourly data (opening hours, heatmap, day types, start and end of the day), common causes, fixes and who to involve.
 - [Base load electricity: what it is and how to cut it](base-load.html): What base load is, how to measure it from half-hourly data (5th percentile, not the minimum), what makes it up, how to reduce it; 1 kW all year is 8,760 kWh.
 - [Supply capacity and kVA: room for heat pumps and EVs](supply-capacity.html): Agreed supply capacity in kVA, kW to kVA via power factor, headroom from half-hourly peaks with a safety margin, and checking heat pumps and EV charging.
 - [Worked example: a primary school's half-hourly data](example-school-analysis.html): A primary school with term dates entered: 31% of use while closed, £1,261 a year above base load; heating left on through October half term (demand more than double); evening lettings.

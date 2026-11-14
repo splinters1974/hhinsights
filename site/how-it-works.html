@@ -113,38 +113,43 @@
     <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">How it works</span></nav>
     <span class="page-hero-kicker">How it works</span>
     <h1 class="page-hero-title">What the analyser does with your data</h1>
-    <p class="page-hero-lead">Each step, from reading your file to the report. In the analyser, every finding links to its full calculation.</p>
+    <p class="page-hero-lead">A step-by-step explanation, from reading your file to the figures in the report. In the analyser, each finding also has a "show calculation and evidence" link with the full working.</p>
   </div>
 </section><div class="guide">
   <article class="guide-main prose">
 <p class="byline">Last updated <time datetime="2026-11-14">14 November 2026</time></p>
-<p class="answer">The analyser checks every reading, works out how much the site uses when open and when closed, and prices the difference at your rates. It tells you where to look; someone who knows the building decides what to change.</p>
-<figure class="figure"><img src="images/photos/switchroom-tablet.jpg" srcset="images/photos/switchroom-tablet-800.jpg 800w, images/photos/switchroom-tablet.jpg 1448w" sizes="(max-width: 860px) 100vw, 860px" width="1448" height="1086" alt="Three people in a switch room looking at data on a tablet beside open electrical panels" loading="lazy"></figure>
+<p class="answer">The analyser checks every half-hourly reading, works out how much electricity the site uses when it's open and when it's closed, and prices the difference at your rates. It tells you where to look. Someone who knows the building then decides what to change.</p>
+<figure class="figure"><img src="images/photos/switchroom-tablet.jpg" srcset="images/photos/switchroom-tablet-800.jpg 800w, images/photos/switchroom-tablet.jpg 1448w" sizes="(max-width: 860px) 100vw, 860px" width="1448" height="1086" alt="Three people in a switch room looking at data on a tablet beside open electrical panels" loading="lazy"><figcaption>The findings tell you where to look. A walk round the building tells you why.</figcaption></figure>
 
 <h2 id="files">1. Reading your files</h2>
-<p>One Excel or CSV file per meter, in any of the <a href="get-your-data.html#formats">common layouts</a>. The analyser shows how it read each file, including whether readings were kWh or kW. Files longer than a year use the last 12 months by default; trends still use the whole file.</p>
+<p>Load one file for each meter, as Excel (.xlsx or .xls) or CSV. Three layouts work:</p>
+<ul><li><strong>Day per row:</strong> a date, then 48 half-hourly readings. This is the most common supplier format.</li><li><strong>Day per column:</strong> the same, turned on its side.</li><li><strong>Timestamped:</strong> one reading per row, with its date and time.</li></ul>
+<p>The analyser shows how it read each file: which column held the dates, whether readings were in kWh or kW, and anything it ignored. If a file covers more than a year, the last 12 months are analysed by default. You can choose a different period, and long-term trends still use the whole file.</p>
 
 <h2 id="checks">2. Checking the data</h2>
-<p>Before showing figures, the analyser looks for missing readings (left out, never counted as zero), zero days, clock changes, duplicate rows and extreme spikes. Each site is rated Good, Check or Poor, and you can exclude bad readings with a note of why.</p>
+<p>Before showing any figures, the analyser looks for problems that would make them wrong:</p>
+<ul><li>missing readings, which are left out rather than counted as zero</li><li>days of zero readings, which usually point to a meter or data fault</li><li>days when the clocks change, and duplicate rows, which it holds back for you to decide on</li><li>single readings far above the usual peak</li></ul>
+<p>Each site is rated Good, Check or Poor. You can exclude readings you know are wrong and record why, and the reason is saved with the analysis.</p>
 
 <h2 id="calendar">3. Opening hours</h2>
-<p>Every site starts with standard office hours, marked unconfirmed until you check them. Set hours for all sites or one at a time, including closures, bank holidays and night shifts. Findings based on unconfirmed hours get lower confidence.</p>
+<p>The figures for use while closed depend on knowing when each building should be open. Every site starts with standard office hours, marked as unconfirmed until you check them. You can set hours for all sites at once or one at a time, including closures, bank holidays and overnight shifts. Findings based on unconfirmed hours get a lower confidence rating.</p>
 
 <h2 id="base">4. Base load and use while closed</h2>
-<p><strong>Base load</strong> is the level demand stays above 95% of the time (the 5th percentile): servers, fridges and anything on standby.</p>
-<p><strong>Closed-hours excess</strong> is use while closed, above the base load. Sites are ranked by it because it's usually the cheapest to cut, through timers and controls.</p>
+<p><strong>Base load</strong> is the level of demand a site rarely drops below. The analyser measures it as the 5th percentile of all valid half-hourly readings, which means demand is higher than this 95% of the time. It's the equipment that never switches off, such as servers, fridges and anything on standby.</p>
+<p><strong>Closed-hours excess</strong> is the electricity used while the site is closed, over and above the base load. Sites are ranked by this figure because it's often the cheapest use to reduce, usually by changing timers, controls and building management settings rather than buying new equipment.</p>
 
 <h2 id="costs">5. Costs and annual figures</h2>
-<p>Costs use your unit rates (flat or by time of day) and exclude standing and capacity charges. They show what a pattern costs now, not a promised saving. Annual figures are scaled from valid readings: marked indicative under about 11 months of data, and not shown under six.</p>
+<p>Costs use the unit rates you enter, either one flat rate or different rates for different times of day. They leave out standing charges, capacity charges and other fixed costs. They show what a pattern costs you now and are not a promise of savings.</p>
+<p>Annual figures are scaled up from the valid readings. With less than about 11 months of good data they're marked as indicative, and with less than six months they aren't shown.</p>
 
 <h2 id="findings">6. Findings</h2>
-<p>Each finding has two ratings. <strong>Impact</strong> is how much it matters. <strong>Confidence</strong> is how reliable the evidence is. Check a high-impact, low-confidence finding before quoting it.</p>
+<p>Each finding has two separate ratings. <strong>Impact</strong> shows how much it matters, based on cost and share of total use. <strong>Confidence</strong> shows how reliable the evidence is, based on data quality and whether the opening hours are confirmed. A finding with high impact and low confidence is worth checking before you quote it.</p>
 
 <h2 id="capacity">7. Capacity and headroom</h2>
-<p>Enter your agreed supply capacity (kVA, from your bill) and a power factor. The analyser works out how much extra constant load the site could take. Only your network operator can confirm it.</p>
+<p>Enter your agreed supply capacity (in kVA, from your bill or connection agreement) and an assumed power factor. The analyser compares every half hour with it and works out how much extra constant load the site could take before reaching the limit. Treat this as an early check, because only your network operator can confirm it.</p>
 
 <h2 id="limits">What it can't tell you</h2>
-<ul><li>Main meter data shows when electricity is used, not which equipment uses it.</li><li>Figures aren't adjusted for weather or occupancy.</li><li>Carbon uses one conversion factor you enter.</li></ul>
+<ul><li>Data from the main meter shows when electricity is used, but not which equipment is using it. Findings are things to check on site.</li><li>Figures are not adjusted for weather or changes in occupancy.</li><li>Carbon figures use a single conversion factor for the year, which you enter.</li></ul>
 <h2 id="next">Read next</h2>
 <div class="link-grid"><a class="link-card has-thumb" href="example-office-analysis.html"><div class="card-thumb"><img src="images/guides/example-office-analysis.jpg" srcset="images/guides/example-office-analysis-600.jpg 600w, images/guides/example-office-analysis.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Worked example</h3><p>The method applied to one office, step by step.</p><span class="more">Read the guide</span></a><a class="link-card has-thumb" href="out-of-hours-electricity.html"><div class="card-thumb"><img src="images/guides/out-of-hours-electricity.jpg" srcset="images/guides/out-of-hours-electricity-600.jpg 600w, images/guides/out-of-hours-electricity.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Out-of-hours use</h3><p>Finding and reducing use while the building is closed.</p><span class="more">Read the guide</span></a><a class="link-card has-thumb" href="base-load.html"><div class="card-thumb"><img src="images/guides/base-load.jpg" srcset="images/guides/base-load-600.jpg 600w, images/guides/base-load.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Base load</h3><p>What always runs, and why it matters.</p><span class="more">Read the guide</span></a></div>
   </article>

@@ -100,7 +100,7 @@
      "name": "What is half-hourly electricity data?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "A reading of the electricity used in each half hour: 48 a day, 17,520 a year. It shows when a site uses electricity as well as how much."
+      "text": "A record of the electricity used in each half hour of the day. That's 48 readings a day and 17,520 in a normal year. It shows when a site uses electricity as well as how much."
      }
     },
     {
@@ -108,7 +108,7 @@
      "name": "How far back can I get data?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Ask for at least 12 months, and up to three years. A full year means annual figures are measured, not estimated."
+      "text": "Ask for at least 12 months, and up to three years if your supplier has it. A full year shows seasonal patterns and means annual figures are measured rather than estimated."
      }
     },
     {
@@ -161,31 +161,36 @@
 </section><div class="guide">
   <article class="guide-main prose">
 <p class="byline">Last updated <time datetime="2026-11-14">14 November 2026</time></p>
-<p class="answer">Ask your supplier for the half-hourly consumption data for each meter, for at least the last 12 months, as a spreadsheet. Many let you download it from your online account.</p>
+<p class="answer">Ask your electricity supplier for the half-hourly consumption data for each of your meters, covering at least the last 12 months, as a spreadsheet. Many suppliers also let you download it from your online account.</p>
 
 <h2 id="who">Who has it</h2>
-<p>Your <strong>supplier</strong> receives your half-hourly readings and can send them. With more meters moving to <a href="half-hourly-settlement.html">half-hourly settlement</a>, it's worth asking even for small premises. Also try:</p>
-<ul><li>your supplier's online account, under "usage" or "data download"</li><li>your energy broker or energy manager</li><li>a building management or monitoring system</li><li>a smart meter app with half-hourly downloads</li></ul>
+<p>If your meter records half-hourly readings, your <strong>supplier</strong> receives them and can send them to you. Larger business sites have had half-hourly meters for years, and more meters are moving to <a href="half-hourly-settlement.html">half-hourly settlement</a>, so it's worth asking even for smaller premises.</p>
+<p>You may also find it in:</p>
+<ul><li><strong>Your supplier's online account</strong>, often under "consumption", "usage" or "data download"</li><li><strong>Your energy broker or energy manager</strong>, if you have one</li><li><strong>A building management or energy monitoring system</strong> that can export meter data</li><li><strong>A smart meter app or service</strong> that offers half-hourly downloads</li></ul>
 
 <h2 id="ask">What to ask for</h2>
 <p>A request like this works:</p>
 <div class="note"><strong>Example request</strong><br>Please send the half-hourly consumption data (kWh) for meter [MPAN], from [date] to [date], as an Excel or CSV file with one row per day and 48 half-hourly columns.</div>
-<ul><li><strong>One file per meter</strong>, named after the site.</li><li><strong>At least 12 months</strong>, ideally up to three years.</li><li><strong>kWh per half hour</strong> is best; kW also works.</li></ul>
-<p>Your MPAN (the 13-digit supply number) is on your bill.</p>
-<p><a href="downloads/half-hourly-data-request.docx" download><strong>Download a letter template</strong></a> (Word) with spaces for your MPANs and dates.</p>
+<ul><li><strong>One file per meter.</strong> Name each file after the site, because the analyser uses the file name as the site name.</li><li><strong>At least 12 months of data</strong>, so annual figures and seasonal patterns are reliable. Up to three years helps show longer-term trends.</li><li><strong>Readings in kWh for each half hour</strong> are best. Files in kW also work, and the analyser tells you which it found.</li></ul>
+<p>Your meter's MPAN (the 13-digit supply number) is on your electricity bill.</p>
+<p><a href="downloads/half-hourly-data-request.docx" download><strong>Download a letter template</strong></a> (Word). It lists what to ask for, with spaces for your MPANs and dates.</p>
 
 <h2 id="formats">File formats the analyser reads</h2>
 <div class="table-wrap"><table><thead><tr><th>Layout</th><th>Looks like</th></tr></thead><tbody>
 <tr><td>Day per row</td><td>Date, then 48 columns of half-hourly readings</td></tr>
 <tr><td>Day per column</td><td>Dates across the top, 48 rows of readings</td></tr>
 <tr><td>Timestamped</td><td>One row per reading, with its date and time</td></tr></tbody></table></div>
-<p>Excel and CSV both work, and extra columns are ignored. Not sure? <a href="samples/example-office.csv" download>Compare with our example file</a>.</p>
+<p>Excel (.xlsx, .xls) and CSV files both work. Extra columns, such as meter references, are ignored. If a file can't be read, the analyser explains why.</p>
+<p>Not sure what your file should look like? <a href="samples/example-office.csv" download>Download our example file</a> and compare.</p>
+
+<h2 id="no-data">If your supplier can't provide it</h2>
+<p>If your supplier says the meter doesn't record half-hourly readings, ask whether it can be replaced with a smart or advanced meter that does. In the meantime, check whether a building management or monitoring system on site keeps its own records. Monthly meter readings will show how use changes through the year, but they can't show the daily and overnight patterns this analyser looks for.</p>
 <h2 id="questions">Questions people ask</h2>
-<div class="faq"><details><summary>What is half-hourly electricity data?</summary><div class="faq-a"><p>A reading of the electricity used in each half hour: 48 a day, 17,520 a year. It shows when a site uses electricity as well as how much.</p></div></details><details><summary>How far back can I get data?</summary><div class="faq-a"><p>Ask for at least 12 months, and up to three years. A full year means annual figures are measured, not estimated.</p></div></details><details><summary>Does it cost anything to get my data?</summary><div class="faq-a"><p>Ask your supplier. Many provide it free on request or through your online account.</p></div></details><details><summary>Where do I find my MPAN?</summary><div class="faq-a"><p>On your electricity bill. It is the 13-digit supply number, usually in a box labelled S or "Supply number".</p></div></details></div><h2 id="next">Read next</h2>
+<div class="faq"><details><summary>What is half-hourly electricity data?</summary><div class="faq-a"><p>A record of the electricity used in each half hour of the day. That's 48 readings a day and 17,520 in a normal year. It shows when a site uses electricity as well as how much.</p></div></details><details><summary>How far back can I get data?</summary><div class="faq-a"><p>Ask for at least 12 months, and up to three years if your supplier has it. A full year shows seasonal patterns and means annual figures are measured rather than estimated.</p></div></details><details><summary>Does it cost anything to get my data?</summary><div class="faq-a"><p>Ask your supplier. Many provide it free on request or through your online account.</p></div></details><details><summary>Where do I find my MPAN?</summary><div class="faq-a"><p>On your electricity bill. It is the 13-digit supply number, usually in a box labelled S or "Supply number".</p></div></details></div><h2 id="next">Read next</h2>
 <div class="link-grid"><a class="link-card has-thumb" href="example-office-analysis.html"><div class="card-thumb"><img src="images/guides/example-office-analysis.jpg" srcset="images/guides/example-office-analysis-600.jpg 600w, images/guides/example-office-analysis.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Worked example</h3><p>What a year of data shows about one office.</p><span class="more">Read the guide</span></a><a class="link-card has-thumb" href="out-of-hours-electricity.html"><div class="card-thumb"><img src="images/guides/out-of-hours-electricity.jpg" srcset="images/guides/out-of-hours-electricity-600.jpg 600w, images/guides/out-of-hours-electricity.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Out-of-hours use</h3><p>The first thing to look at once you have the data.</p><span class="more">Read the guide</span></a><a class="link-card has-thumb" href="how-it-works.html"><div class="card-thumb"><img src="images/guides/how-it-works.jpg" srcset="images/guides/how-it-works-600.jpg 600w, images/guides/how-it-works.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>How the analyser works</h3><p>What it does with your file, step by step.</p><span class="more">Read the guide</span></a></div>
   </article>
   <aside class="guide-side">
-    <nav class="toc" aria-label="On this page"><div class="toc-title">On this page</div><ol><li><a href="#who">Who has it</a></li><li><a href="#ask">What to ask for</a></li><li><a href="#formats">File formats the analyser reads</a></li></ol></nav>
+    <nav class="toc" aria-label="On this page"><div class="toc-title">On this page</div><ol><li><a href="#who">Who has it</a></li><li><a href="#ask">What to ask for</a></li><li><a href="#formats">File formats the analyser reads</a></li><li><a href="#no-data">If your supplier can't provide it</a></li></ol></nav>
     <div class="side-cta"><strong>Try it on your own data</strong><p>It's free, there's no sign-up, and your file stays on your computer.</p><a href="analyser/" class="btn">Open the analyser</a></div>
   </aside>
 </div><section class="cta-strip">

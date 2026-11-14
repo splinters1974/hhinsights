@@ -100,7 +100,7 @@
      "name": "Is this real data?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "No. It's made up so we can show the method without using anyone's real data."
+      "text": "No. We made up the office and its readings so we could show the method without using anyone's real data. Every figure is what the analyser reports for the example file."
      }
     },
     {
@@ -108,7 +108,7 @@
      "name": "How long does an analysis like this take?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Loading the data takes about a minute. Confirming the opening hours takes longer, and matters more."
+      "text": "Loading a year of data takes about a minute. Confirming the opening hours and reading the findings takes longer, and matters more."
      }
     },
     {
@@ -148,50 +148,51 @@
     <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> <span aria-hidden="true">/</span> <a href="guides.html">Guides</a> <span aria-hidden="true">/</span> <span aria-current="page">Worked example</span></nav>
     <span class="page-hero-kicker">Guide</span>
     <h1 class="page-hero-title">Worked example: one office, one year</h1>
-    <p class="page-hero-lead">A year of data from a small office, run through the analyser. The office is made up; every figure is what the analyser reports.</p>
+    <p class="page-hero-lead">We ran a year of half-hourly data from a small office through the analyser. The office and its data are made up, but every figure below is exactly what the analyser reports.</p>
   </div>
 </section><div class="guide">
   <article class="guide-main prose">
 <p class="byline">Last updated <time datetime="2026-11-14">14 November 2026</time></p>
-<p class="answer">This office used a third of its electricity (33%) while closed. Above what always has to run, that costs about £2,800 a year at 25p/kWh, and almost half of it is on Saturdays.</p>
+<p class="answer">This office used a third of its electricity (33%) while the building was closed. Leaving aside what always has to run, that closed-hours use costs about £2,800 a year at 25p/kWh, and almost half of it happens on Saturdays.</p>
 
-<div class="note"><strong>Made-up data.</strong> <a href="samples/example-office.csv" download>Download the file</a> and load it into the <a href="analyser/">analyser</a> to follow along.</div>
+<div class="note"><strong>Made-up data.</strong> We invented this office so we could show the method without using anyone's real data. <a href="samples/example-office.csv" download>Download the file</a> and load it into the <a href="analyser/">analyser</a> to follow along.</div>
 
 <h2 id="headline">The headline figures</h2>
 <div class="table-wrap"><table><thead><tr><th>Measure</th><th class="num">Value</th><th>What it means</th></tr></thead><tbody>
-<tr><td>Electricity a year</td><td class="num">79,191 kWh</td><td>From 363 days of readings (99.5% coverage)</td></tr>
-<tr><td>Energy cost a year</td><td class="num">£19,798</td><td>At 25p/kWh, before standing charges</td></tr>
+<tr><td>Electricity a year</td><td class="num">79,191 kWh</td><td>Scaled up from 363 days of valid readings (99.5% coverage)</td></tr>
+<tr><td>Energy cost a year</td><td class="num">£19,798</td><td>At a flat rate of 25p/kWh, before standing and capacity charges</td></tr>
 <tr><td>Base load</td><td class="num">2.6 kW</td><td>The level demand rarely drops below</td></tr>
 <tr><td>Busiest half hour</td><td class="num">25.5 kW</td><td>28 January 2025, midday</td></tr>
-<tr><td>Use while closed</td><td class="num">33%</td><td>Office hours, 07:00 to 19:00 weekdays</td></tr>
-<tr><td>Closed-hours excess</td><td class="num">£2,776</td><td>Use while closed, above base load</td></tr>
+<tr><td>Use while closed</td><td class="num">33%</td><td>Using the default office hours, 07:00 to 19:00 on weekdays</td></tr>
+<tr><td>Closed-hours excess</td><td class="num">£2,776</td><td>Electricity used while closed, above the base load, at 25p/kWh</td></tr>
 </tbody></table></div>
 
 <h2 id="split">Where the electricity goes</h2>
-<p>The three parts add up to the total:</p>
-<ul><li><strong>Base load, 29%</strong> (22,606 kWh): runs around the clock.</li><li><strong>Open, above base load, 57%</strong> (45,062 kWh): normal use.</li><li><strong>Closed-hours excess, 14%</strong> (11,035 kWh): use while closed, above base load.</li></ul>
+<p>The analyser splits each half hour's use at the base load. The three parts add up to the total:</p>
+<ul><li><strong>Base load, 29%</strong> (22,606 kWh). What runs around the clock, whether anyone is in or not.</li><li><strong>Use above base load while open, 57%</strong> (45,062 kWh). The building in normal use: lights, heating, computers and kitchens during the working day.</li><li><strong>Closed-hours excess, 14%</strong> (11,035 kWh). Use above base load while the building should be closed. This is the place to start, because it usually costs little to fix.</li></ul>
 
 <h2 id="findings">What the analyser found</h2>
 <h3>1. Use while closed: £2,776 a year (high impact)</h3>
+<p>Breaking this down by type of day is the most useful step, because each type usually has a different cause:</p>
 <div class="table-wrap"><table><thead><tr><th>When</th><th class="num">Above base load</th></tr></thead><tbody>
 <tr><td>Saturdays</td><td class="num">5,155 kWh</td></tr><tr><td>Weekday evenings and nights</td><td class="num">3,750 kWh</td></tr>
 <tr><td>Bank holidays</td><td class="num">1,408 kWh</td></tr><tr><td>Sundays</td><td class="num">722 kWh</td></tr></tbody></table></div>
-<p>Saturdays account for almost half, but Sundays are quiet, so the building is being used on some Saturdays. If that's planned, add it to the calendar. If not, a Saturday booking may be running the whole building.</p>
+<p>Saturdays account for almost half. Sundays are quiet, so this isn't heating or ventilation running all weekend. The building is being used on some Saturdays. If that's planned, add Saturdays to the calendar and the figure falls. If it isn't, a Saturday booking or a few staff may be running the whole building.</p>
 
 <h3>2. Seven bank holidays look like working days (medium impact)</h3>
-<p>On seven bank holidays, including Christmas Day, the office used at least 80% of a normal weekday's electricity. If it was closed, the heating schedules probably don't include bank holidays.</p>
+<p>On seven bank holidays, including Christmas Day and Boxing Day, the office used at least 80% of a normal weekday's electricity. If the office was closed, the heating and ventilation schedules probably don't include bank holidays, which is very common. If it was open, the calendar needs updating.</p>
 
 <h3>3. Early starts and late finishes: £629 a year (low impact)</h3>
-<p>About 1,250 kWh a year above base load in the two hours before opening, and the same after closing. Timers and heating start-up settings are the usual cause.</p>
+<p>Demand rises before opening and stays high after closing. That's about 1,250 kWh a year above base load in the two hours before opening, and the same again in the two hours after closing. Timers and heating start-up settings are the usual cause, and they're quick to adjust.</p>
 
 <h2 id="capacity">Supply capacity</h2>
-<p>With a 40 kVA supply and a power factor of 0.95, the busiest half hour reaches 27 kVA, 67% of capacity. Keeping a 10% margin leaves about 9 kW, enough for one 7 kW EV charger but not a heat pump for the building. See <a href="supply-capacity.html">supply capacity and kVA</a>.</p>
+<p>Assuming an agreed supply capacity of 40 kVA and a power factor of 0.95, the busiest half hour reaches 27 kVA, which is 67% of capacity. Keeping a 10% safety margin, the site could take about 9 kW of extra constant load. That's enough for modest EV charging, such as one 7 kW charger, but nowhere near enough for a heat pump to heat the whole building. See <a href="supply-capacity.html">supply capacity and kVA</a>.</p>
 
 <h2 id="next-steps">What we'd do next</h2>
-<ol><li><strong>Confirm the opening hours</strong>, including Saturdays.</li><li><strong>Check the heating schedules</strong> for bank holidays and start times.</li><li><strong>Walk round on a Saturday</strong> to see what's on.</li><li><strong>Look at the base load.</strong> 2.6 kW running all year is about 22,800 kWh, roughly £5,700 at 25p/kWh. See <a href="base-load.html">how to reduce it</a>.</li></ol>
-<p>57% of its electricity is used in the working day, when solar panels generate. Our <a href="https://uksolarcalculator.co.uk/">UK Solar Calculator</a> estimates what a roof system would save.</p>
+<ol><li><strong>Confirm the opening hours</strong>, including Saturdays. Every closed-hours figure depends on them.</li><li><strong>Check the heating and ventilation schedules</strong> for bank holidays and start times.</li><li><strong>Walk round the building on a Saturday</strong> to see what's switched on and who is using it.</li><li><strong>Look at the base load.</strong> 2.6 kW running all year is about 22,800 kWh, roughly £5,700 at 25p/kWh. See <a href="base-load.html">how to reduce it</a>.</li></ol>
+<p>57% of this office's electricity is used during the working day, which is when solar panels generate. Our <a href="https://uksolarcalculator.co.uk/">UK Solar Calculator</a> estimates what a roof system would save.</p>
 <h2 id="questions">Questions people ask</h2>
-<div class="faq"><details><summary>Is this real data?</summary><div class="faq-a"><p>No. It's made up so we can show the method without using anyone's real data.</p></div></details><details><summary>How long does an analysis like this take?</summary><div class="faq-a"><p>Loading the data takes about a minute. Confirming the opening hours takes longer, and matters more.</p></div></details><details><summary>Are these figures savings?</summary><div class="faq-a"><p>No. They're what each pattern costs now at 25p/kWh. Any saving depends on what you change.</p></div></details></div><h2 id="next">Read next</h2>
+<div class="faq"><details><summary>Is this real data?</summary><div class="faq-a"><p>No. We made up the office and its readings so we could show the method without using anyone's real data. Every figure is what the analyser reports for the example file.</p></div></details><details><summary>How long does an analysis like this take?</summary><div class="faq-a"><p>Loading a year of data takes about a minute. Confirming the opening hours and reading the findings takes longer, and matters more.</p></div></details><details><summary>Are these figures savings?</summary><div class="faq-a"><p>No. They're what each pattern costs now at 25p/kWh. Any saving depends on what you change.</p></div></details></div><h2 id="next">Read next</h2>
 <div class="link-grid"><a class="link-card has-thumb" href="out-of-hours-electricity.html"><div class="card-thumb"><img src="images/guides/out-of-hours-electricity.jpg" srcset="images/guides/out-of-hours-electricity-600.jpg 600w, images/guides/out-of-hours-electricity.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Out-of-hours use</h3><p>How to find and reduce use while the building is closed.</p><span class="more">Read the guide</span></a><a class="link-card has-thumb" href="base-load.html"><div class="card-thumb"><img src="images/guides/base-load.jpg" srcset="images/guides/base-load-600.jpg 600w, images/guides/base-load.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Base load</h3><p>What always runs, and why it adds up.</p><span class="more">Read the guide</span></a><a class="link-card has-thumb" href="get-your-data.html"><div class="card-thumb"><img src="images/guides/get-your-data.jpg" srcset="images/guides/get-your-data-600.jpg 600w, images/guides/get-your-data.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Get your own data</h3><p>What to ask your supplier for.</p><span class="more">Read the guide</span></a></div>
   </article>
   <aside class="guide-side">
