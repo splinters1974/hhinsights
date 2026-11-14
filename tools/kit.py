@@ -156,6 +156,23 @@ def faq_section(faqs, title='Questions people ask'):
         f'<details><summary>{q}</summary><div class="faq-a"><p>{a}</p></div></details>' for q, a in faqs) + '</div>'
 
 
+# Illustrations and photos in site/images/photos, each saved at 1600 px and 800 px wide.
+PHOTO_SIZES = {
+    'estate-hospital': (1448, 1086), 'estate-business-park': (1448, 1086), 'estate-town': (1448, 1086),
+    'town-school-leisure': (888, 370), 'town-street': (1600, 900), 'energy-centre': (1072, 620),
+}
+
+
+def photo(name, alt, caption='', cls='figure', lazy=True):
+    w, h = PHOTO_SIZES[name]
+    big = f'images/photos/{name}.jpg'
+    small = f'images/photos/{name}-800.jpg'
+    cap = f'<figcaption>{caption}</figcaption>' if caption else ''
+    load = ' loading="lazy"' if lazy else ''
+    return (f'<figure class="{cls}"><img src="{big}" srcset="{small} 800w, {big} {w}w" '
+            f'sizes="(max-width: 860px) 100vw, 860px" width="{w}" height="{h}" alt="{alt}"{load}>{cap}</figure>')
+
+
 def related(links):
     """'Read next' cards at the end of a guide: [(file, title, one line)]."""
     return '<h2 id="next">Read next</h2>\n<div class="link-grid">' + ''.join(

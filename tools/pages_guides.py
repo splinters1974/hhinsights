@@ -7,7 +7,7 @@ Figures in the worked example come from the analyser run on
 site/samples/example-office.csv (made-up data). Re-check them if that file
 or the engine changes.
 """
-from kit import (NAV_PARENT, SOLAR_URL, Page, cta, faq_section, guide, page_hero, related, sources, strip_tags, toc,
+from kit import (NAV_PARENT, SOLAR_URL, Page, cta, faq_section, guide, page_hero, photo, related, sources, strip_tags, toc,
                  updated_line)
 
 HOME = ('Home', 'index.html')
@@ -159,6 +159,7 @@ PAGES.append(guide_page(
   '''
 <p class="answer">Your agreed supply capacity is the maximum demand, in kVA, your connection is set up for. Convert your half-hourly peaks from kW to kVA (divide by the power factor), compare them with the agreed capacity, and the gap is your headroom for new load such as heat pumps and EV chargers.</p>
 
+''' + photo('energy-centre', 'A site energy centre with generators, flues and a tall chimney behind security fencing', 'New plant like this is sized against the site\'s peaks. Half-hourly data shows how close those peaks already come to the supply capacity.') + '''
 <h2 id="what">What agreed supply capacity is</h2>
 <p>Larger supplies have an agreed capacity, sometimes called authorised or available capacity, set in the connection agreement and usually shown on the bill in kVA. You typically pay a charge for it every day whether you use it or not. Going over it can bring extra charges, and the network operator may ask you to increase it.</p>
 
@@ -433,13 +434,22 @@ SECTOR_DATA = [
     ('How do I compare several shops or venues?', 'Load one file per meter. The analyser ranks sites by out-of-hours excess and has an estate comparison by building type.')]),
 ]
 
+SECTOR_PHOTOS = {
+    'schools-electricity.html': ('town-school-leisure', 'Illustration of a town with a school, a sports pitch and a swimming pool among streets of houses'),
+    'offices-council-buildings.html': ('estate-town', 'Illustration of a town centre with offices, civic buildings, a school, housing and an energy centre'),
+    'leisure-centres.html': ('town-school-leisure', 'Illustration of a leisure centre with an outdoor pool next to a school and sports pitch'),
+    'healthcare-electricity.html': ('estate-hospital', 'Illustration of a hospital estate with clinical buildings, a multi-storey car park, plant compounds and a substation'),
+    'industrial-warehouses.html': ('estate-business-park', 'Illustration of a business park with warehouses, a plant compound, battery storage, a substation and ground-mounted solar'),
+    'retail-hospitality.html': ('estate-business-park', 'Illustration of commercial units with car parking, delivery vans and on-site plant'),
+}
+
 for file, short, h1, lead, normal, checks, calendar_tip, faqs in SECTOR_DATA:
     PAGES.append(guide_page(
       file, f'{short}: what half-hourly data shows', h1, lead,
       f'Half-hourly electricity data in {short.lower()}: what normal looks like, what to check first and how to set opening hours.',
       f'''
 <p class="answer">{normal}</p>
-
+{photo(*SECTOR_PHOTOS[file])}
 <h2 id="check">What to check first</h2>
 <ul>{''.join(f'<li>{c}</li>' for c in checks)}</ul>
 
@@ -460,7 +470,9 @@ PAGES.append(Page(
   'What half-hourly electricity data shows in schools, offices and council buildings, leisure centres, healthcare, industrial sites and retail.',
   page_hero('Sectors', 'What to look for in your sector', 'Every building type has its own normal. Choose yours for the patterns worth checking first.',
             crumbs=[HOME, SECTORS]) +
-  '<section class="section"><div class="section-inner"><div class="link-grid">' +
+  '<section class="section"><div class="section-inner">' +
+  photo('estate-town', 'Illustration of a town with offices, civic buildings, a school, a leisure centre, housing and an energy centre', cls='figure figure-wide', lazy=False) +
+  '<div class="link-grid">' +
   ''.join(f'<a class="link-card" href="{f}"><h3>{s}</h3><p>{lead}</p><span class="more">Read more</span></a>'
           for f, s, _, lead, *_ in SECTOR_DATA) +
   '</div></div></section>' + cta('Check your own sites', 'Load several meters at once and the analyser ranks them, so you know where to start.'),

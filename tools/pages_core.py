@@ -4,7 +4,7 @@ privacy and 404. Bodies are HTML; metadata for search and AI tools is added
 in core_pages() at the bottom.
 """
 from kit import (CONTACT_EMAIL, CONTACT_NAME, OPERATOR, OPERATOR_URL, SOLAR_URL, APP, Page,
-                 cta, faq_section, guide, page_hero, related, updated_line)
+                 cta, photo, faq_section, guide, page_hero, related, updated_line)
 
 HOME = ('Home', 'index.html')
 GUIDES = ('Guides', 'guides.html')
@@ -103,6 +103,18 @@ PAGES['index.html'] = ('Half Hourly Insights: free half-hourly electricity analy
       <div><div class="step-head"><span class="step-n">2</span><span class="step-line"></span></div><h3>Set the hours</h3><p>Tell it when each building is open. Out-of-hours findings depend on this, so it asks you to confirm.</p></div>
       <div><div class="step-head"><span class="step-n">3</span><span class="step-line"></span></div><h3>Read and share</h3><p>Work through the findings, then download PDFs, Excel or a customer dashboard.</p></div>
     </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner split">
+    <div>
+      <span class="section-kicker">Who it's for</span>
+      <h2 class="section-title">Schools, offices, leisure centres, hospitals and businesses</h2>
+      <p class="section-lead">Any building with a half-hourly meter. Every building type has its own normal, so the analyser compares each site with its own opening hours, not a benchmark.</p>
+      <p style="margin-top:24px"><a href="sectors.html" class="btn btn-outline">What to look for in your sector</a></p>
+    </div>
+    <div>{photo('town-street', 'A town street with an energy centre, offices, a civic building, an electric bus and a car charging at a roadside charger')}</div>
   </div>
 </section>
 
