@@ -15,15 +15,17 @@ GUIDES = ('Guides', 'guides.html')
 PAGES = {}
 
 # ── HOME ────────────────────────────────────────────────────────────────
-PAGES['index.html'] = ('Half Hourly Insights: free half-hourly electricity analysis',
-  'Free analysis of UK half-hourly electricity data: use while buildings are closed, base load, peaks against supply capacity and unusual days. Runs in a browser.',
+PAGES['index.html'] = ('Half Hourly Insights: free business electricity data analysis',
+  'Free analysis of half-hourly (HH) electricity data for UK businesses and public sector sites: use while closed, base load, peaks and unusual days.',
   f'''<div class="hero-wrap">
 <div class="hero-media" aria-hidden="true"><img src="images/hero-town.jpg" srcset="images/hero-town-900.jpg 800w, images/hero-town.jpg 1440w" sizes="100vw" width="1440" height="1080" alt="" fetchpriority="high"></div>
 <section class="hero" aria-labelledby="hero-h">
   <div class="hero-copy">
-    <p class="hero-pre">Free for UK businesses and public sector organisations. No sign-up needed.</p>
-    <h1 id="hero-h">Where is your electricity going?</h1>
-    <p class="hero-lead">Load the half-hourly readings from your electricity meter. Within a minute you'll see how much your buildings use while they're closed, what never switches off, how close you get to your supply limit, and what each of these costs you.</p>
+    <p class="hero-audience">For UK businesses and public sector sites with half-hourly (HH) electricity data</p>
+    <h1 id="hero-h">Where is your business's electricity going?</h1>
+    <p class="hero-lead">Load the half-hourly readings from your business electricity meters. Within a minute you'll see how much your buildings use while they're closed, what never switches off, how close you get to your supply limit, and what each of these costs you.</p>
+    <p class="hero-check">Free, with no sign-up. Not sure whether you have half-hourly data? <a href="get-your-data.html">Here's how to check</a>.</p>
+    <p class="hero-check hero-not">This site is for business and public sector meters only. It isn't designed for household electricity.</p>
     <div class="hero-points">
       <div><strong>Biggest costs first</strong><span>Ranked by cost, with the evidence for each</span></div>
       <div><strong>Many sites at once</strong><span>One file per meter, with every site ranked</span></div>
@@ -31,7 +33,7 @@ PAGES['index.html'] = ('Half Hourly Insights: free half-hourly electricity analy
     </div>
   </div>
   <div class="start-card">
-    <h2>Start with your meter file</h2>
+    <h2>Start with your HH meter file</h2>
     <p>An Excel or CSV file for each meter. All the common supplier layouts work.</p>
     <a href="analyser/" class="btn btn-gold btn-lg">Open the analyser</a>
     <div class="start-result">
@@ -240,6 +242,7 @@ PAGES['get-your-data.html'] = ('How to get your half-hourly electricity data',
 # ── FAQ ─────────────────────────────────────────────────────────────────
 FAQ = [
   ('Using the analyser', [
+    ('Can I use it for my home?', 'No. The site and the analyser are built for business and public sector buildings, with opening hours, closures and supply capacity in mind, so the results wouldn\'t mean much for a household. For advice on home energy use and bills, <a href="https://www.citizensadvice.org.uk/consumer/energy/" rel="noopener">Citizens Advice</a> is a good place to start.'),
     ('Is it really free?', "Yes. There's no charge, no account and no limit on the number of sites. If you'd like help acting on the results you can contact us, but there's no obligation."),
     ('Do I need to install anything?', "No. It runs in Chrome or Edge on a recent computer. It isn't designed for phones, because the charts need a larger screen."),
     ('How many sites can I load?', 'As many as your computer can handle. Each meter file becomes a site, and the analyser ranks them so you know which to look at first.'),
