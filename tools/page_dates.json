@@ -14,6 +14,11 @@
   "modified": "2026-11-14",
   "fingerprint": "1a105343602cf53e"
  },
+ "electricity-benchmarks.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "7559a2478a6fbf06"
+ },
  "example-office-analysis.html": {
   "published": "2026-11-14",
   "modified": "2026-11-14",
@@ -32,17 +37,42 @@
  "get-your-data.html": {
   "published": "2026-11-14",
   "modified": "2026-11-14",
-  "fingerprint": "6c209ffe6b6756c4"
+  "fingerprint": "9f3946e13ec8dff1"
  },
  "glossary.html": {
   "published": "2026-11-14",
   "modified": "2026-11-14",
-  "fingerprint": "83348a061660b06c"
+  "fingerprint": "490aea06ebda0db9"
  },
  "guides.html": {
   "published": "2026-11-14",
   "modified": "2026-11-14",
-  "fingerprint": "468458e2033697d4"
+  "fingerprint": "c5bb18b589db3028"
+ },
+ "half-hourly-data-british-gas.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "cb97e7c12dbe0aa4"
+ },
+ "half-hourly-data-edf.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "7b43b563de4099df"
+ },
+ "half-hourly-data-eon-next.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "6b441f60bfeb8c62"
+ },
+ "half-hourly-data-npower-business-solutions.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "8bcfb454db4ca54a"
+ },
+ "half-hourly-data-totalenergies.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "0992b7be79227dd2"
  },
  "half-hourly-settlement.html": {
   "published": "2026-11-14",
@@ -73,6 +103,11 @@
   "published": "2026-11-14",
   "modified": "2026-11-14",
   "fingerprint": "d56cad59c091af0e"
+ },
+ "mpan-profile-class.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "a59162ecdcf901ef"
  },
  "offices-council-buildings.html": {
   "published": "2026-11-14",

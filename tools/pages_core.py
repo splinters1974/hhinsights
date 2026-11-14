@@ -7,7 +7,8 @@ Written for a general business reader, in the voice of the team that runs the
 site ("we"). Explain terms on first use; write as much as the reader needs.
 """
 from kit import (CONTACT_EMAIL, CONTACT_NAME, OPERATOR, OPERATOR_URL, SOLAR_URL, APP, Page,
-                 cta, photo, faq_section, guide, page_hero, related, updated_line, GUIDE_PDF, guide_download)
+                 cta, photo, faq_section, guide, page_hero, related, updated_line, GUIDE_PDF, guide_download, sources)
+from pages_data import GOV_OFFER, SUPPLIERS
 
 FORM_ENDPOINT = 'https://formspree.io/f/xeagedqj'  # Half Hourly Insights enquiries form in Formspree
 
@@ -222,8 +223,15 @@ PAGES['get-your-data.html'] = ('How to get your half-hourly electricity data',
 <p>A request like this works:</p>
 <div class="note"><strong>Example request</strong><br>Please send the half-hourly consumption data (kWh) for meter [MPAN], from [date] to [date], as an Excel or CSV file with one row per day and 48 half-hourly columns.</div>
 <ul><li><strong>One file per meter.</strong> Name each file after the site, because the analyser uses the file name as the site name.</li><li><strong>At least 12 months of data</strong>, so annual figures and seasonal patterns are reliable. Up to three years helps show longer-term trends.</li><li><strong>Readings in kWh for each half hour</strong> are best. Files in kW also work, and the analyser tells you which it found.</li></ul>
-<p>Your meter's MPAN (the 13-digit supply number) is on your electricity bill.</p>
+<p>Your meter's MPAN (the 13-digit number on the bottom line of the supply number) is on your electricity bill. <a href="mpan-profile-class.html">How to read it</a>.</p>
 <p><a href="downloads/half-hourly-data-request.docx" download><strong>Download a letter template</strong></a> (Word). It lists what to ask for, with spaces for your MPANs and dates.</p>
+
+<h2 id="right">Your right to the data</h2>
+<p>Since 1 December 2022, business customers with a smart or advanced (AMR) meter, and anyone they nominate, can ask their supplier for up to 12 months of their historic smart meter data, free of charge and in a machine-readable format. The supplier must reply within 10 working days.<sup><a href="#sources">1</a></sup></p>
+
+<h2 id="suppliers">Supplier by supplier</h2>
+<p>Where to find half-hourly data with some of the larger business suppliers, from their own published guidance:</p>
+<ul>''' + ''.join(f'<li><a href="{f}">{n}</a></li>' for f, n in SUPPLIERS) + '''</ul>
 
 <h2 id="formats">File formats the analyser reads</h2>
 <div class="table-wrap"><table><thead><tr><th>Layout</th><th>Looks like</th></tr></thead><tbody>
@@ -236,10 +244,10 @@ PAGES['get-your-data.html'] = ('How to get your half-hourly electricity data',
 
 <h2 id="no-data">If your supplier can't provide it</h2>
 <p>If your supplier says the meter doesn't record half-hourly readings, ask whether it can be replaced with a smart or advanced meter that does. In the meantime, check whether a building management or monitoring system on site keeps its own records. Monthly meter readings will show how use changes through the year, but they can't show the daily and overnight patterns this analyser looks for.</p>
-''' + faq_section(GET_DATA_FAQS) + related([
+''' + sources([GOV_OFFER]) + faq_section(GET_DATA_FAQS) + related([
     ('example-office-analysis.html', 'Worked example', 'What a year of data shows about one office.'),
     ('out-of-hours-electricity.html', 'Out-of-hours use', 'The first thing to look at once you have the data.'),
-    ('how-it-works.html', 'How the analyser works', 'What it does with your file, step by step.')]), '''    <nav class="toc" aria-label="On this page"><div class="toc-title">On this page</div><ol><li><a href="#who">Who has it</a></li><li><a href="#ask">What to ask for</a></li><li><a href="#formats">File formats the analyser reads</a></li><li><a href="#no-data">If your supplier can't provide it</a></li></ol></nav>''')
+    ('how-it-works.html', 'How the analyser works', 'What it does with your file, step by step.')]), '''    <nav class="toc" aria-label="On this page"><div class="toc-title">On this page</div><ol><li><a href="#who">Who has it</a></li><li><a href="#ask">What to ask for</a></li><li><a href="#right">Your right to the data</a></li><li><a href="#suppliers">Supplier by supplier</a></li><li><a href="#formats">File formats the analyser reads</a></li><li><a href="#no-data">If your supplier can't provide it</a></li></ol></nav>''')
   + cta('Got your file?', 'Load it now. It takes about a minute and the data stays on your computer.'))
 
 # ── FAQ ─────────────────────────────────────────────────────────────────

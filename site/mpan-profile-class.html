@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reading your MPAN: profile class, network region and half-hourly data</title>
+  <meta name="description" content="What the MPAN supply number on a business electricity bill means: the 13-digit core, distributor IDs 10 to 23, profile classes 00 to 08, and what half-hourly settlement changes.">
+  <link rel="canonical" href="https://halfhourlyinsights.netlify.app/mpan-profile-class.html">
+  <meta property="og:url" content="https://halfhourlyinsights.netlify.app/mpan-profile-class.html">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:title" content="Reading your MPAN: profile class, network region and half-hourly data">
+  <meta property="og:description" content="What the MPAN supply number on a business electricity bill means: the 13-digit core, distributor IDs 10 to 23, profile classes 00 to 08, and what half-hourly settlement changes.">
+  <meta property="og:image" content="https://halfhourlyinsights.netlify.app/images/guides/mpan-profile-class.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Half Hourly Insights">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preload" href="fonts/schibsted-grotesk-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/site.css?v=4d8fd3a4">
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://www.kinetic-energy.co.uk/#organization",
+   "name": "Kinetic Energy Consulting",
+   "url": "https://www.kinetic-energy.co.uk",
+   "email": "pjohnston663@gmail.com",
+   "sameAs": [
+    "https://www.linkedin.com/company/kinetic-energy-consulting"
+   ],
+   "areaServed": {
+    "@type": "Country",
+    "name": "United Kingdom"
+   },
+   "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Sales",
+    "email": "pjohnston663@gmail.com",
+    "areaServed": "GB"
+   }
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://halfhourlyinsights.netlify.app/#website",
+   "name": "Half Hourly Insights",
+   "inLanguage": "en-GB",
+   "description": "Free half-hourly electricity analysis for UK businesses and public bodies",
+   "publisher": {
+    "@id": "https://www.kinetic-energy.co.uk/#organization"
+   },
+   "url": "https://halfhourlyinsights.netlify.app/"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://halfhourlyinsights.netlify.app/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Guides",
+     "item": "https://halfhourlyinsights.netlify.app/guides.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Reading your MPAN",
+     "item": "https://halfhourlyinsights.netlify.app/mpan-profile-class.html"
+    }
+   ]
+  },
+  {
+   "@type": "Article",
+   "headline": "Reading your MPAN: profile class, network region and half-hourly data",
+   "description": "What the MPAN supply number on a business electricity bill means: the 13-digit core, distributor IDs 10 to 23, profile classes 00 to 08, and what half-hourly settlement changes.",
+   "image": "https://halfhourlyinsights.netlify.app/images/guides/mpan-profile-class.jpg",
+   "inLanguage": "en-GB",
+   "datePublished": "2026-11-14",
+   "dateModified": "2026-11-14",
+   "author": {
+    "@id": "https://www.kinetic-energy.co.uk/#organization"
+   },
+   "publisher": {
+    "@id": "https://www.kinetic-energy.co.uk/#organization"
+   },
+   "isPartOf": {
+    "@id": "https://halfhourlyinsights.netlify.app/#website"
+   },
+   "mainEntityOfPage": "https://halfhourlyinsights.netlify.app/mpan-profile-class.html"
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Does profile class 00 mean I have a half-hourly meter?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It used to. Under market-wide half-hourly settlement, meters that have moved across and have no profile class are shown as 00, smart meters included. So 00 now means the supply is settled half-hourly, from either kind of meter."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I find my network operator from my MPAN?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The first two digits of the 13-digit MPAN are the distributor ID. Numbers 10 to 23 are the 14 regional network operators; higher numbers are independent network operators."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does my MPAN change when I switch supplier?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. The MPAN identifies the supply point, so it stays the same."
+     }
+    }
+   ]
+  }
+ ]
+}
+  </script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav class="site-nav" id="siteNav" aria-label="Main">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Half Hourly Insights home">
+      <svg viewBox="0 0 34 34" aria-hidden="true"><rect x="3" y="15" width="5" height="10" rx="1" fill="#0065A4"/><rect x="10" y="9" width="5" height="16" rx="1" fill="#0065A4"/><rect x="17" y="3" width="5" height="22" rx="1" fill="#F8C05D"/><rect x="24" y="12" width="5" height="13" rx="1" fill="#0065A4"/><rect x="1" y="26" width="32" height="3" rx="1.5" fill="#063C55"/></svg>
+      <span class="nav-logo-name">Half Hourly Insights</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="guides.html" class="active" aria-current="page">Guides</a></li><li><a href="sectors.html">Sectors</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li>
+      <li><a href="analyser/" class="nav-cta">Open the analyser</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<main id="main">
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> <span aria-hidden="true">/</span> <a href="guides.html">Guides</a> <span aria-hidden="true">/</span> <span aria-current="page">Reading your MPAN</span></nav>
+    <span class="page-hero-kicker">Guide</span>
+    <h1 class="page-hero-title">Reading your MPAN</h1>
+    <p class="page-hero-lead">The supply number on your electricity bill tells you more than most people realise: your network region, how your meter is settled and, for now, whether it is half-hourly.</p>
+  </div>
+</section><div class="guide">
+  <article class="guide-main prose">
+<p class="byline">Last updated <time datetime="2026-11-14">14 November 2026</time></p>
+<p class="answer">Your MPAN is the supply number on every electricity bill. The bottom line is the 13-digit MPAN itself, and its first two digits identify your network region. The top line starts with the profile class: 00 has meant a half-hourly metered supply, and 01 to 08 mean your use is estimated from standard profiles. As meters move to market-wide half-hourly settlement, smart meters are being given 00 too, so 00 no longer tells you which kind of meter you have.<sup><a href="#sources">1,2,3</a></sup></p>
+
+<h2 id="where">Where to find it</h2>
+<p>Suppliers must show the supply number on every bill, or at least once a year if no bill is sent.<sup><a href="#sources">1</a></sup> It is often called the supply number or "S number", and is printed in two rows: a top line and a bottom line.<sup><a href="#sources">1,4</a></sup> E.ON Next notes that the MPAN is also on the meter itself.<sup><a href="#sources">3</a></sup></p>
+
+<h2 id="bottom">The bottom line: your MPAN</h2>
+<p>The bottom line is the Meter Point Administration Number (MPAN): a distributor ID, a unique reference number and a check digit.<sup><a href="#sources">1</a></sup> It is 13 digits long.<sup><a href="#sources">4</a></sup> This is the number to quote when you ask for half-hourly data, and it stays the same when you change supplier.</p>
+<p>The first two digits, the distributor ID, tell you which network region you are in and so which distribution network operator (DNO) runs your local network:<sup><a href="#sources">4,5</a></sup></p>
+<div class="table-wrap"><table><thead><tr><th>Distributor ID</th><th>Region</th><th>Network operator</th></tr></thead><tbody>
+<tr><td>10</td><td>East England</td><td>UK Power Networks (Eastern Power Networks)</td></tr><tr><td>11</td><td>East Midlands</td><td>National Grid Electricity Distribution (East Midlands)</td></tr><tr><td>12</td><td>London</td><td>UK Power Networks (London Power Networks)</td></tr><tr><td>13</td><td>North Wales, Merseyside and Cheshire</td><td>SP Energy Networks (SP Manweb)</td></tr><tr><td>14</td><td>West Midlands</td><td>National Grid Electricity Distribution (West Midlands)</td></tr><tr><td>15</td><td>North East England</td><td>Northern Powergrid (Northeast)</td></tr><tr><td>16</td><td>North West England</td><td>Electricity North West</td></tr><tr><td>17</td><td>North Scotland</td><td>Scottish and Southern Electricity Networks (Scottish Hydro Electric Power Distribution)</td></tr><tr><td>18</td><td>Central and Southern Scotland</td><td>SP Energy Networks (SP Distribution)</td></tr><tr><td>19</td><td>South East England</td><td>UK Power Networks (South Eastern Power Networks)</td></tr><tr><td>20</td><td>Southern England</td><td>Scottish and Southern Electricity Networks (Southern Electric Power Distribution)</td></tr><tr><td>21</td><td>South Wales</td><td>National Grid Electricity Distribution (South Wales)</td></tr><tr><td>22</td><td>South West England</td><td>National Grid Electricity Distribution (South West)</td></tr><tr><td>23</td><td>Yorkshire</td><td>Northern Powergrid (Yorkshire)</td></tr>
+</tbody></table></div>
+<p>Numbers above 23 belong to independent network operators (IDNOs).<sup><a href="#sources">4</a></sup> The region matters because network charges are set by each network operator, so they differ from one region to another.</p>
+
+<h2 id="top">The top line: profile class and charging codes</h2>
+<p>Traditionally the top line holds three codes: the profile class, the meter timeswitch code (MTC) and the line loss factor class (LLFC).<sup><a href="#sources">1</a></sup> The line loss factor class links to the network charges and losses that apply to your supply.</p>
+<p>The profile class tells the industry how your electricity use is estimated for settlement:<sup><a href="#sources">2,3</a></sup></p>
+<div class="table-wrap"><table><thead><tr><th>Profile class</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>00</td><td>Half-hourly metered and settled</td></tr><tr><td>01</td><td>Domestic unrestricted</td></tr><tr><td>02</td><td>Domestic Economy 7</td></tr><tr><td>03</td><td>Non-domestic unrestricted</td></tr><tr><td>04</td><td>Non-domestic Economy 7</td></tr><tr><td>05</td><td>Non-domestic maximum demand, peak load factor less than 20%</td></tr><tr><td>06</td><td>Non-domestic maximum demand, peak load factor 20% to 30%</td></tr><tr><td>07</td><td>Non-domestic maximum demand, peak load factor 30% to 40%</td></tr><tr><td>08</td><td>Non-domestic maximum demand, peak load factor over 40%</td></tr>
+</tbody></table></div>
+<p>Classes 05 to 08 are for maximum demand meters, which record the highest demand in a period. The peak load factor is the electricity actually used in a period as a percentage of what would have been supplied if the maximum demand had been kept up for the whole period.<sup><a href="#sources">2</a></sup> The government's smart meter rollout for businesses covers profile classes 1 to 4. Larger sites outside it already have advanced (AMR) meters.<sup><a href="#sources">6</a></sup></p>
+
+<h2 id="mhhs">What half-hourly settlement changes</h2>
+<p>Under <a href="half-hourly-settlement.html">market-wide half-hourly settlement</a>, profile classes are being removed, except for older meters that aren't smart.<sup><a href="#sources">1</a></sup> Ofgem approved a new top-line format in 2023:<sup><a href="#sources">1</a></sup></p>
+<ul><li>The profile class stays, but a meter that has moved to the new arrangements and no longer has a profile class shows 00.</li><li>The meter timeswitch code is replaced by a Standard Settlement Configuration (SSC) ID, shown as 0000 where it doesn't apply.</li><li>The line loss factor class is replaced by a DUoS tariff ID, which identifies the network charges that apply.</li></ul>
+<p>The bottom line, your MPAN, doesn't change.<sup><a href="#sources">1</a></sup></p>
+<p>In practice, 00 on a recent bill now means your supply is settled half-hourly. It no longer tells you whether you have a traditional half-hourly (AMR) meter or a smart meter. Either way, your meter records half-hourly readings, so ask your supplier for them.</p>
+<div class="sources"><h2 id="sources">Sources</h2><ol><li><a href="https://www.ofgem.gov.uk/sites/default/files/2023-11/Decision%20to%20approve%20REC%20Change%20Proposal%20R0083%20Changes%20to%20Supply%20Number%20Format%20for%20MHHS%20and%20to%20reject%20R0083A.pdf">Ofgem: Decision to approve REC Change Proposal R0083, changes to supply number format for MHHS (November 2023)</a></li><li><a href="https://www.elexon.co.uk/bsc/settlement/profiling/">Elexon: Profiling (profile classes)</a></li><li><a href="https://www.eonnext.com/business/half-hourly-meters">E.ON Next: Half hourly meters</a></li><li><a href="https://www.edfenergy.com/node/5541">EDF: Distribution network operators (MPAN prefix look-up)</a></li><li><a href="https://www.ofgem.gov.uk/sites/default/files/2026-06/List%20of%20all%20electricity%20licensees%20including%20suppliers.pdf">Ofgem: List of all electricity licensees (August 2026)</a></li><li><a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1080384/maximising-non-domestic-smart-meter-data-offer-industry-guidance.pdf">Department for Business, Energy and Industrial Strategy: Maximising non-domestic smart meter consumer benefits, supporting industry guidance (June 2022)</a></li></ol></div><h2 id="questions">Questions people ask</h2>
+<div class="faq"><details><summary>Does profile class 00 mean I have a half-hourly meter?</summary><div class="faq-a"><p>It used to. Under market-wide half-hourly settlement, meters that have moved across and have no profile class are shown as 00, smart meters included. So 00 now means the supply is settled half-hourly, from either kind of meter.</p></div></details><details><summary>How do I find my network operator from my MPAN?</summary><div class="faq-a"><p>The first two digits of the 13-digit MPAN are the distributor ID. Numbers 10 to 23 are the 14 regional network operators; higher numbers are independent network operators.</p></div></details><details><summary>Does my MPAN change when I switch supplier?</summary><div class="faq-a"><p>No. The MPAN identifies the supply point, so it stays the same.</p></div></details></div><h2 id="next">Read next</h2>
+<div class="link-grid"><a class="link-card has-thumb" href="get-your-data.html"><div class="card-thumb"><img src="images/guides/get-your-data.jpg" srcset="images/guides/get-your-data-600.jpg 600w, images/guides/get-your-data.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Getting your half-hourly data</h3><p>What to ask for once you have your MPAN.</p><span class="more">Read the guide</span></a><a class="link-card has-thumb" href="half-hourly-settlement.html"><div class="card-thumb"><img src="images/guides/half-hourly-settlement.jpg" srcset="images/guides/half-hourly-settlement-600.jpg 600w, images/guides/half-hourly-settlement.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Half-hourly settlement (MHHS)</h3><p>The timetable and what it means for you.</p><span class="more">Read the guide</span></a><a class="link-card has-thumb" href="glossary.html"><div class="card-thumb"><img src="images/guides/glossary.jpg" srcset="images/guides/glossary-600.jpg 600w, images/guides/glossary.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Glossary</h3><p>kW, kWh, kVA and other terms.</p><span class="more">Read the guide</span></a></div>
+  </article>
+  <aside class="guide-side">
+    <nav class="toc" aria-label="On this page"><div class="toc-title">On this page</div><ol><li><a href="#where">Where to find it</a></li><li><a href="#bottom">The bottom line: your MPAN</a></li><li><a href="#top">The top line</a></li><li><a href="#mhhs">What half-hourly settlement changes</a></li><li><a href="#questions">Questions people ask</a></li></ol></nav>
+    <div class="side-cta"><strong>Try it on your own data</strong><p>It's free, there's no sign-up, and your file stays on your computer.</p><a href="analyser/" class="btn">Open the analyser</a></div>
+  </aside>
+</div><section class="cta-strip">
+  <div class="cta-strip-inner">
+    <h2 class="cta-strip-title">Try it on your own data</h2>
+    <div class="cta-strip-btns">
+      <a href="analyser/" class="btn btn-gold btn-lg">Open the analyser</a>
+      <a href="contact.html" class="btn btn-outline-white btn-lg">Talk to an expert</a>
+    </div>
+    <p class="cta-strip-lead">It's free, there's no sign-up, and your file stays on your computer.</p>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><svg viewBox="0 0 34 34" aria-hidden="true"><rect x="3" y="15" width="5" height="10" rx="1" fill="#0065A4"/><rect x="10" y="9" width="5" height="16" rx="1" fill="#0065A4"/><rect x="17" y="3" width="5" height="22" rx="1" fill="#F8C05D"/><rect x="24" y="12" width="5" height="13" rx="1" fill="#0065A4"/><rect x="1" y="26" width="32" height="3" rx="1.5" fill="#FFFFFF"/></svg><span class="footer-logo-name">Half Hourly Insights</span></div>
+        <p class="footer-desc">Free half-hourly electricity analysis for UK businesses and public sector organisations, run by Kinetic Energy Consulting. The analysis runs in your browser, so your meter data never leaves your computer.</p>
+        <div class="footer-contact-item">Email: <a href="mailto:pjohnston663@gmail.com">pjohnston663@gmail.com</a></div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Analyser</div>
+        <ul><li><a href="analyser/">Open the analyser</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="example-office-analysis.html">Worked example</a></li><li><a href="sample-report.html">Sample report</a></li><li><a href="samples/example-office.csv" download>Example data file</a></li><li><a href="downloads/half-hourly-insights-user-guide.pdf" download>User guide (PDF)</a></li><li><a href="faq.html">FAQ</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Guides</div>
+        <ul><li><a href="get-your-data.html">Getting your half-hourly data</a></li><li><a href="out-of-hours-electricity.html">Out-of-hours electricity use</a></li><li><a href="base-load.html">Base load</a></li><li><a href="supply-capacity.html">Supply capacity and kVA</a></li><li><a href="reading-a-heatmap.html">Reading a heatmap</a></li><li><a href="glossary.html">Glossary</a></li><li><a href="guides.html">All guides</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">About</div>
+        <ul><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="https://uksolarcalculator.co.uk/">UK Solar Calculator</a>, our sister site</li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 Kinetic Energy Consulting</div>
+      <div class="footer-disclaimer">All analyser results are estimates based on the data you load and do not guarantee savings. Our guides are general information and are not financial, tax or legal advice.</div>
+    </div>
+  </div>
+</footer>
+<script>
+  document.getElementById('navToggle').addEventListener('click', function (e) {
+    var open = document.getElementById('siteNav').classList.toggle('nav-mobile-open');
+    e.currentTarget.setAttribute('aria-expanded', open ? 'true' : 'false');
+    e.currentTarget.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+</script>
+</body>
+</html>
