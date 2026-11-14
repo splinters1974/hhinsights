@@ -3,7 +3,7 @@
 **Repository:** `splinters1974/hhinsights`  
 **Planning branch:** `planning/phase-1-site-improvements-2026-11`  
 **Prepared:** 14 November 2026  
-**Status:** Proposed only. No production changes authorised.
+**Status:** Original plan, kept for reference. What was actually built, and how it was tested, is in `PHASE-1-IMPLEMENTATION-STATUS.md`. No production changes authorised.
 
 ## Objective
 
