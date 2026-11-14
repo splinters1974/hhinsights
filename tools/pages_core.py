@@ -9,7 +9,7 @@ site ("we"). Explain terms on first use; write as much as the reader needs.
 from kit import (CONTACT_EMAIL, CONTACT_NAME, OPERATOR, OPERATOR_URL, SOLAR_URL, APP, Page,
                  cta, photo, faq_section, guide, page_hero, related, updated_line, GUIDE_PDF, guide_download)
 
-FORM_ENDPOINT = 'https://formspree.io/f/mvzvpjbe'  # same Formspree form as the UK Solar Calculator
+FORM_ENDPOINT = 'https://formspree.io/f/xeagedqj'  # Half Hourly Insights enquiries form in Formspree
 
 HOME = ('Home', 'index.html')
 GUIDES = ('Guides', 'guides.html')
