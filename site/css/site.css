@@ -500,6 +500,7 @@ button, input, select, textarea { font-family: inherit; }
 .hero-audience { display: inline-block; font-size: 15px; font-weight: 700; color: var(--ink); background: var(--lime); border-radius: 999px; padding: 7px 16px; margin-bottom: 22px; line-height: 1.35; }
 .hero-check { margin-top: 16px; font-size: 16px; color: #C9D9E2; }
 .hero-check a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.hero-not { margin-top: 6px; font-weight: 600; color: #fff; }
 .hero h1 { font-size: clamp(42px, 6vw, 72px); line-height: 1; letter-spacing: -0.03em; font-weight: 800; color: #fff; }
 .hero-lead { margin-top: 24px; font-size: 20px; line-height: 1.55; color: #E2EBF0; max-width: 560px; }
 .hero-points { margin-top: 36px; display: flex; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.28); max-width: 600px; }
