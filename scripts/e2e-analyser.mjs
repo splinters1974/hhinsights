@@ -98,6 +98,8 @@ try {
     const t = await text(page);
     check(/£2,776/.test(t) && /£19,798/.test(t) && /79,191/.test(t) && /33%/.test(t), 'office CSV: portfolio shows £2,776, £19,798, 79,191 kWh and 33%, as the sample report says');
     check(/not a guaranteed saving/i.test(t), 'office CSV: closed-hours cost labelled as not a guaranteed saving');
+    const stored = await page.evaluate(async () => ({ idb: (await indexedDB.databases()).length, ls: localStorage.length, ss: sessionStorage.length, cookie: document.cookie }));
+    check(stored.idb === 0 && stored.ls === 0 && stored.ss === 0 && stored.cookie === '', `nothing stored in the browser, as the privacy notice says (${JSON.stringify(stored)})`);
     await page.screenshot({ path: `${shots}/analyser-portfolio.png` });
 
     checkPdf(await download(page, 'Portfolio report (PDF)', 'portfolio'), 'portfolio report');
