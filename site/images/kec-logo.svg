@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 395 188" role="img" aria-label="Kinetic Energy Consulting — The power behind your progress">
+
+  <!-- Blue flame shape (larger, dominant) -->
+  <path d="M40,94 C32,76 16,62 14,43 C12,22 27,4 46,4 C65,4 76,19 72,38 C68,56 52,64 46,80 Z" fill="#1b3a82"/>
+
+  <!-- Green flame shape (smaller, overlapping lower) -->
+  <path d="M18,110 C13,93 5,79 7,61 C9,42 24,29 39,32 C51,34 56,47 50,60 C42,68 30,82 24,98 Z" fill="#1e5c2e"/>
+
+  <!-- Kinetic (navy) -->
+  <text x="106" y="48" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="40" fill="#1b3a82">Kinetic</text>
+
+  <!-- Energy (green) -->
+  <text x="106" y="92" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="40" fill="#1e5c2e">Energy</text>
+
+  <!-- CONSULTING -->
+  <text x="108" y="114" font-family="Arial,Helvetica,sans-serif" font-weight="400" font-size="18" fill="#1b3a82" letter-spacing="5">CONSULTING</text>
+
+  <!-- Separator line -->
+  <line x1="2" y1="130" x2="393" y2="130" stroke="#1b3a82" stroke-width="1.5"/>
+
+  <!-- Tagline -->
+  <text x="197" y="160" font-family="Arial,Helvetica,sans-serif" font-style="italic" font-size="16" fill="#1b3a82" text-anchor="middle">The power behind your progress</text>
+
+</svg>
