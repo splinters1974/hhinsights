@@ -40,6 +40,6 @@ Until then (Source: deploy from a branch), the top-level `index.html` forwards v
 
 ## Before going live
 
-- **Enquiry emails:** the form uses Netlify Forms (no third-party script). In Netlify, go to the site's Forms settings, then Form notifications, and add an email notification for the `enquiry` form to the agreed enquiries inbox. Without this, submissions are stored in Netlify but nobody is emailed.
+- **Enquiry emails:** the contact form sends to its own Formspree form (`FORM_ENDPOINT` in `tools/pages_core.py`), with the subject "New Half Hourly Insights enquiry". Formspree emails each one to the address set on that form.
 - **Domain (to be confirmed):** set `SITE_URL` in `tools/kit.py` and rebuild. Every page then gets canonical and absolute share links, `robots.txt` points at the sitemap, and `sitemap.xml` is written. Then submit the sitemap in Google Search Console and Bing Webmaster Tools.
 - **Privacy notice:** confirm how long enquiries are kept (marked in `tools/build_pages.py`, privacy section).
