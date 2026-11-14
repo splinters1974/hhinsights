@@ -159,7 +159,7 @@ PAGES.append(guide_page(
   '''
 <p class="answer">Your agreed supply capacity is the maximum demand, in kVA, your connection is set up for. Convert your half-hourly peaks from kW to kVA (divide by the power factor), compare them with the agreed capacity, and the gap is your headroom for new load such as heat pumps and EV chargers.</p>
 
-''' + photo('energy-centre', 'A site energy centre with generators, flues and a tall chimney behind security fencing', 'New plant like this is sized against the site\'s peaks. Half-hourly data shows how close those peaks already come to the supply capacity.') + '''
+''' + photo('plant-outside', 'Two engineers with a tablet beside packaged plant, flues and pipework outside a large building', 'New plant such as heat pumps or generators is sized against the site\'s peaks. Half-hourly data shows how close those peaks already come to the supply capacity.') + '''
 <h2 id="what">What agreed supply capacity is</h2>
 <p>Larger supplies have an agreed capacity, sometimes called authorised or available capacity, set in the connection agreement and usually shown on the bill in kVA. You typically pay a charge for it every day whether you use it or not. Going over it can bring extra charges, and the network operator may ask you to increase it.</p>
 
@@ -283,6 +283,7 @@ PAGES.append(guide_page(
   '''
 <p class="answer">Compare matched periods before and after the change: the same days of the week, the same kind of day (open, closed, holiday), and enough weeks to smooth out noise. Look at the part of demand the change should affect, such as base load or out-of-hours use, rather than the total bill.</p>
 
+''' + photo('board-review', 'A team reviewing charts and printed reports around a meeting table, with solar panels and battery units outside the window', 'A saving is easier to sign off when the before-and-after comparison is fair.') + '''
 <h2 id="match">Compare like with like</h2>
 <ul><li><strong>Same kind of day.</strong> Compare weekdays with weekdays and holidays with holidays. A before period full of bank holidays will flatter the after period, or the reverse.</li><li><strong>Long enough.</strong> Four to eight weeks either side is usually enough to see a real change in half-hourly data. A single week can be swayed by one unusual day.</li><li><strong>Close in time.</strong> The nearer the two periods, the less the weather and the seasons get in the way.</li><li><strong>Leave out the change itself.</strong> Skip the days when the work was being done.</li></ul>
 
@@ -321,6 +322,7 @@ PAGES.append(guide_page(
   '''
 <p class="answer">Market-wide half-hourly settlement (MHHS) means suppliers will be charged for the electricity their customers use in each half hour, rather than from estimated profiles. Migration began in October 2025 and is due to be complete in May 2027. For organisations with smart or advanced meters, it means half-hourly readings are part of how electricity is settled, so it's worth asking your supplier for them.</p>
 
+''' + photo('site-plans-substation', 'Four people in hard hats and high-visibility vests reviewing site plans next to a substation and solar panels') + '''
 <h2 id="what">What it is</h2>
 <p>Large sites have been settled half-hourly for years. Smaller sites have mostly been settled using standard profiles: estimates of when a typical customer uses electricity. MHHS replaces those estimates with actual half-hourly readings wherever a meter can provide them.<sup><a href="#sources">1</a></sup></p>
 <p>The programme's stated objective is "to maximise the opportunities provided by smart metering by developing and implementing an enduring process for MHHS, that delivers benefits for consumers and enables a smart, flexible energy system."<sup><a href="#sources">2</a></sup></p>
