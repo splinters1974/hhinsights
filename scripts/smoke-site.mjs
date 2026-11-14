@@ -19,7 +19,23 @@ async function loadServer(){
 }
 function assert(condition,message){if(!condition)errors.push(message);}
 async function checkImageLoad(page,label){
- const bad=await page.locator('img[src]').evaluateAll(nodes=>nodes.filter(n=>!n.complete||n.naturalWidth===0).map(n=>n.getAttribute('src')));
+ // Lazy images do not start loading until they are near the viewport.
+ // Scroll each image into view first and wait for its load/decode outcome.
+ const images=page.locator('img[src]');
+ for(let i=0;i<await images.count();i++){
+   const img=images.nth(i);
+   await img.scrollIntoViewIfNeeded();
+   try{
+     await img.evaluate(async node=>{
+       if(!node.complete)await new Promise((resolve,reject)=>{
+         node.addEventListener('load',resolve,{once:true});
+         node.addEventListener('error',reject,{once:true});
+       });
+       if(node.decode && node.naturalWidth>0)await node.decode();
+     },{timeout:10000});
+   }catch(e){errors.push(label+': image load error: '+await img.getAttribute('src')+' ('+String(e).slice(0,120)+')');}
+ }
+ const bad=await images.evaluateAll(nodes=>nodes.filter(n=>n.complete&&n.naturalWidth===0).map(n=>n.getAttribute('src')));
  assert(bad.length===0,label+': failed images: '+bad.join(', '));
 }
 try{
