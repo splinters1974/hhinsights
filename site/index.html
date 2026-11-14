@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Half Hourly Insights: free half-hourly electricity analysis</title>
-  <meta name="description" content="Free analysis of UK half-hourly electricity data: out-of-hours use, base load, peaks against capacity and unusual days. Runs in your browser.">
+  <meta name="description" content="Free analysis of UK half-hourly electricity data: use while buildings are closed, base load, peaks against supply capacity and unusual days. Runs in a browser.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_GB">
   <meta property="og:title" content="Half Hourly Insights: free half-hourly electricity analysis">
-  <meta property="og:description" content="Free analysis of UK half-hourly electricity data: out-of-hours use, base load, peaks against capacity and unusual days. Runs in your browser.">
+  <meta property="og:description" content="Free analysis of UK half-hourly electricity data: use while buildings are closed, base load, peaks against supply capacity and unusual days. Runs in a browser.">
   <meta property="og:image" content="images/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -106,25 +106,25 @@
 <div class="hero-media" aria-hidden="true"><img src="images/hero-town.jpg" srcset="images/hero-town-900.jpg 800w, images/hero-town.jpg 1440w" sizes="100vw" width="1440" height="1080" alt="" fetchpriority="high"></div>
 <section class="hero" aria-labelledby="hero-h">
   <div class="hero-copy">
-    <p class="hero-pre">Free for UK businesses and public bodies. No sign-up.</p>
+    <p class="hero-pre">Free for UK businesses and public sector organisations. No sign-up needed.</p>
     <h1 id="hero-h">Where is your electricity going?</h1>
-    <p class="hero-lead">Load your half-hourly meter data. In a minute you can see what runs when the building is shut, what never switches off, how close you get to your supply capacity, and what each pattern costs at your rates.</p>
+    <p class="hero-lead">Load your half-hourly meter readings and within a minute see what your buildings use while closed, what never switches off, how close you get to your supply limit, and what it all costs.</p>
     <div class="hero-points">
-      <div><strong>Findings first</strong><span>Ranked by cost, with the evidence behind each one</span></div>
-      <div><strong>Many sites</strong><span>One file per meter, the whole estate ranked</span></div>
-      <div><strong>Private</strong><span>Runs in your browser; nothing is uploaded</span></div>
+      <div><strong>Biggest costs first</strong><span>Ranked by cost, with the evidence for each</span></div>
+      <div><strong>Many sites at once</strong><span>One file per meter, with every site ranked</span></div>
+      <div><strong>Private</strong><span>Your data stays on your computer</span></div>
     </div>
   </div>
   <div class="start-card">
     <h2>Start with your meter file</h2>
-    <p>Excel or CSV, one file per meter. Day-per-row, day-per-column and timestamped layouts all work.</p>
+    <p>An Excel or CSV file for each meter. All the common supplier layouts work.</p>
     <a href="analyser/" class="btn btn-gold btn-lg">Open the analyser</a>
     <div class="start-result">
       <div class="k">From the example file (a made-up office)</div>
       <div class="big">33%</div>
-      <div class="small">of its electricity used when the building was shut</div>
+      <div class="small">of its electricity was used while the building was closed</div>
     </div>
-    <p class="or">No data to hand? <a href="samples/example-office.csv" download>Download an example file</a> (a made-up office) and load that, or <a href="example-office-analysis.html">read the worked example</a>.</p>
+    <p class="or">No data to hand? <a href="samples/example-office.csv" download>Download our example file</a> and load that, or <a href="example-office-analysis.html">read the worked example</a>.</p>
   </div>
 </section>
 </div>
@@ -132,28 +132,28 @@
 <section class="section">
   <div class="section-inner">
     <div class="head-row">
-      <h2 class="section-title">The patterns a bill can't show you</h2>
-      <p>A bill tells you how much. Half-hourly data tells you when, and that is where most avoidable use hides.</p>
+      <h2 class="section-title">What half-hourly data shows</h2>
+      <p>Your bill gives one total. Half-hourly data records use every 30 minutes, so you can see when electricity is used, and when it shouldn't be.</p>
     </div>
     <div class="reasons">
-      <div><h3>Out-of-hours use</h3><p>Energy used when the building should be shut, above what never switches off. Usually the cheapest saving: controls and schedules, not capital.</p></div>
-      <div><h3>Base load</h3><p>The demand that never goes away, overnight and at weekends. Every kilowatt of it runs all year, so small cuts add up.</p></div>
-      <div><h3>Peaks and capacity</h3><p>Your highest half hours against your agreed supply capacity, and how much new load (heat pumps, EV charging) the site could take.</p></div>
-      <div><h3>Unusual days</h3><p>Days that don't match their usual pattern, and lasting changes that show when something was left on, or a fix worked.</p></div>
-      <div><h3>Bank holidays and weekends</h3><p>Days the site should be quiet but isn't, checked against the opening hours you set.</p></div>
-      <div><h3>Savings scenarios</h3><p>What-ifs such as cutting out-of-hours use or lowering peak demand, without counting the same saving twice.</p></div>
+      <div><h3>Use while closed</h3><p>Electricity used when the building should be shut. Often the cheapest saving, fixed by changing timers and controls.</p></div>
+      <div><h3>Base load</h3><p>The minimum your building uses at all times. It runs all year, so small cuts add up.</p></div>
+      <div><h3>Peaks and supply capacity</h3><p>Your busiest half hours against your connection's limit, and the room left for heat pumps or EV charging.</p></div>
+      <div><h3>Unusual days</h3><p>Days that break the normal pattern, and lasting changes that show something was left on, or a fix worked.</p></div>
+      <div><h3>Weekends and bank holidays</h3><p>Days the site should be quiet but isn't.</p></div>
+      <div><h3>Savings estimates</h3><p>What you could save by cutting closed-hours use or peaks, with overlaps counted once.</p></div>
     </div>
   </div>
 </section>
 
 <section class="section privacy-band">
   <div class="section-inner">
-    <h2 class="section-title">Your data never leaves your computer</h2>
-    <p class="section-lead">The analyser is one web page that does all its work in your browser. Meter files are read on your machine and nothing is sent to us or anyone else.</p>
+    <h2 class="section-title">Your data stays on your computer</h2>
+    <p class="section-lead">The analyser works inside your web browser. Your meter files are never sent to us or anyone else.</p>
     <div class="reasons">
-      <div><h3>No upload</h3><p>There is no server doing the analysis. Once the page has loaded, you can switch off your connection and keep working.</p></div>
+      <div><h3>Nothing uploaded</h3><p>Once the page has loaded, you can even work offline.</p></div>
       <div><h3>No account</h3><p>No sign-up, no email address, no tracking cookies.</p></div>
-      <div><h3>You keep the outputs</h3><p>PDFs, spreadsheets and project files save to your computer. Save a project to pick up where you left off.</p></div>
+      <div><h3>You keep the results</h3><p>Reports and project files save to your computer.</p></div>
     </div>
   </div>
 </section>
@@ -163,17 +163,17 @@
     <div class="split">
       <div>
         <span class="section-kicker">The analyser</span>
-        <h2 class="section-title">Findings first, evidence underneath</h2>
-        <p class="section-lead">Each site opens on its top three investigations, ranked by cost, with how confident the evidence is. Every figure says whether it was measured or estimated.</p>
+        <h2 class="section-title">What you get for each site</h2>
+        <p class="section-lead">Each site opens with its three most costly issues, rated for how reliable the evidence is.</p>
         <ul class="ticks">
-          <li><strong>Site and estate PDFs</strong> ready to send, plus Excel for your own analysis</li>
-          <li><strong>A year at a glance:</strong> every half hour in one heatmap</li>
-          <li><strong>Data checks</strong> for gaps, zero days, clock changes and duplicate rows before any figure is shown</li>
-          <li><strong>Customer dashboards:</strong> a locked, password-protected copy to send to a client</li>
+          <li><strong>PDF reports</strong> for each site and your estate, plus Excel</li>
+          <li><strong>A heatmap</strong> showing every half hour of the year on one chart</li>
+          <li><strong>Data checks</strong> for gaps, zero days and clock changes</li>
+          <li><strong>Customer dashboards</strong>, a password-protected copy you can send to a client</li>
         </ul>
       </div>
       <div>
-        <div class="shot"><img src="images/shot-site.png" width="1360" height="900" alt="The analyser showing a site's headline figures, energy split and top investigations" loading="lazy"></div>
+        <div class="shot"><img src="images/shot-site.png" width="1360" height="900" alt="The analyser showing a site's headline figures, energy split and top issues to investigate" loading="lazy"></div>
         <p class="shot-caption">A site page from the example file. All data on this site is made up.</p>
       </div>
     </div>
@@ -183,13 +183,13 @@
 <section class="section">
   <div class="section-inner">
     <div class="head-row">
-      <h2 class="section-title">Three steps</h2>
-      <p>No account, no installation. Works in Chrome or Edge on any recent computer.</p>
+      <h2 class="section-title">How it works in three steps</h2>
+      <p>Nothing to install. Works in Chrome or Edge.</p>
     </div>
     <div class="steps">
-      <div><div class="step-head"><span class="step-n">1</span><span class="step-line"></span></div><h3>Load your files</h3><p>Drag in one file per meter. The analyser reads the layout, checks the data and tells you exactly what it found.</p></div>
-      <div><div class="step-head"><span class="step-n">2</span><span class="step-line"></span></div><h3>Set the hours</h3><p>Tell it when each building is open. Out-of-hours findings depend on this, so it asks you to confirm.</p></div>
-      <div><div class="step-head"><span class="step-n">3</span><span class="step-line"></span></div><h3>Read and share</h3><p>Work through the findings, then download PDFs, Excel or a customer dashboard.</p></div>
+      <div><div class="step-head"><span class="step-n">1</span><span class="step-line"></span></div><h3>Load your files</h3><p>Drag in one file per meter. The analyser checks the readings and reports what it found.</p></div>
+      <div><div class="step-head"><span class="step-n">2</span><span class="step-line"></span></div><h3>Set opening hours</h3><p>Enter when each building is open. The closed-hours figures depend on it.</p></div>
+      <div><div class="step-head"><span class="step-n">3</span><span class="step-line"></span></div><h3>Review and share</h3><p>Work through the findings and download reports.</p></div>
     </div>
   </div>
 </section>
@@ -198,8 +198,8 @@
   <div class="section-inner split">
     <div>
       <span class="section-kicker">Who it's for</span>
-      <h2 class="section-title">Schools, offices, leisure centres, hospitals and businesses</h2>
-      <p class="section-lead">Any building with a half-hourly meter. Every building type has its own normal, so the analyser compares each site with its own opening hours, not a benchmark.</p>
+      <h2 class="section-title">Any building with a half-hourly meter</h2>
+      <p class="section-lead">Schools, offices, leisure centres, hospitals, factories and shops all use electricity differently, so each site is compared with its own opening hours rather than a benchmark.</p>
       <p style="margin-top:24px"><a href="sectors.html" class="btn btn-outline">What to look for in your sector</a></p>
     </div>
     <div><figure class="figure"><img src="images/photos/town-street.jpg" srcset="images/photos/town-street-800.jpg 800w, images/photos/town-street.jpg 1600w" sizes="(max-width: 860px) 100vw, 860px" width="1600" height="900" alt="A town high street with an electric bus, a civic building and a car charging at a roadside charger" loading="lazy"></figure></div>
@@ -210,13 +210,13 @@
   <div class="section-inner">
     <div class="head-row">
       <h2 class="section-title">Guides</h2>
-      <p>Plain-English answers to the questions that come up when you first look at half-hourly data.</p>
+      <p>Answers to the questions people ask about half-hourly data.</p>
     </div>
     <div class="link-grid" style="margin-top:36px">
-      <a class="link-card has-thumb" href="example-office-analysis.html"><div class="card-thumb"><img src="images/guides/example-office-analysis.jpg" srcset="images/guides/example-office-analysis-600.jpg 600w, images/guides/example-office-analysis.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Worked example</h3><p>One office, one year of data, and what the analyser found.</p><span class="more">Read the example</span></a>
-      <a class="link-card has-thumb" href="out-of-hours-electricity.html"><div class="card-thumb"><img src="images/guides/out-of-hours-electricity.jpg" srcset="images/guides/out-of-hours-electricity-600.jpg 600w, images/guides/out-of-hours-electricity.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Out-of-hours use</h3><p>How to find electricity used when the building is shut, and cut it.</p><span class="more">Read the guide</span></a>
-      <a class="link-card has-thumb" href="base-load.html"><div class="card-thumb"><img src="images/guides/base-load.jpg" srcset="images/guides/base-load-600.jpg 600w, images/guides/base-load.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Base load</h3><p>What never switches off, why it matters and how to bring it down.</p><span class="more">Read the guide</span></a>
-      <a class="link-card has-thumb" href="supply-capacity.html"><div class="card-thumb"><img src="images/guides/supply-capacity.jpg" srcset="images/guides/supply-capacity-600.jpg 600w, images/guides/supply-capacity.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Supply capacity</h3><p>kVA, your agreed capacity, and room for heat pumps and EV charging.</p><span class="more">Read the guide</span></a>
+      <a class="link-card has-thumb" href="example-office-analysis.html"><div class="card-thumb"><img src="images/guides/example-office-analysis.jpg" srcset="images/guides/example-office-analysis-600.jpg 600w, images/guides/example-office-analysis.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Worked example</h3><p>A year of data from one office, and what the analyser found.</p><span class="more">Read the example</span></a>
+      <a class="link-card has-thumb" href="out-of-hours-electricity.html"><div class="card-thumb"><img src="images/guides/out-of-hours-electricity.jpg" srcset="images/guides/out-of-hours-electricity-600.jpg 600w, images/guides/out-of-hours-electricity.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Out-of-hours use</h3><p>How to find electricity used while the building is closed, and reduce it.</p><span class="more">Read the guide</span></a>
+      <a class="link-card has-thumb" href="base-load.html"><div class="card-thumb"><img src="images/guides/base-load.jpg" srcset="images/guides/base-load-600.jpg 600w, images/guides/base-load.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Base load</h3><p>What always runs, why it matters and how to reduce it.</p><span class="more">Read the guide</span></a>
+      <a class="link-card has-thumb" href="supply-capacity.html"><div class="card-thumb"><img src="images/guides/supply-capacity.jpg" srcset="images/guides/supply-capacity-600.jpg 600w, images/guides/supply-capacity.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Supply capacity</h3><p>Your supply limit, and whether there's room for heat pumps and EV charging.</p><span class="more">Read the guide</span></a>
     </div>
   </div>
 </section>
@@ -224,19 +224,19 @@
 <section class="section">
   <div class="section-inner split">
     <div><span class="section-kicker">Sister site</span><h2 class="section-title">Thinking about solar too?</h2></div>
-    <div><p class="section-lead">Half-hourly data shows how much of your electricity you use in daylight hours, which is what on-site solar can supply. The <a href="https://uksolarcalculator.co.uk/" style="color:var(--blue);text-decoration:underline">UK Solar Calculator</a>, from the same team, estimates system size, savings and payback for your roof.</p>
+    <div><p class="section-lead">Solar saves most when a building uses plenty of electricity in daylight, which your half-hourly data shows. Our <a href="https://uksolarcalculator.co.uk/" style="color:var(--blue);text-decoration:underline">UK Solar Calculator</a> estimates system size, savings and payback for your roof.</p>
     <figure class="figure"><img src="images/photos/solar-private-wire.jpg" srcset="images/photos/solar-private-wire-800.jpg 800w, images/photos/solar-private-wire.jpg 1600w" sizes="(max-width: 860px) 100vw, 860px" width="1600" height="900" alt="Aerial view of a solar farm connected by cable to a substation and a business park beside farmland" loading="lazy"></figure></div>
   </div>
 </section>
 
 <section class="cta-strip">
   <div class="cta-strip-inner">
-    <h2 class="cta-strip-title">Want a second pair of eyes on the results?</h2>
+    <h2 class="cta-strip-title">Want help with your results?</h2>
     <div class="cta-strip-btns">
       <a href="analyser/" class="btn btn-gold btn-lg">Open the analyser</a>
       <a href="contact.html" class="btn btn-outline-white btn-lg">Talk to an expert</a>
     </div>
-    <p class="cta-strip-lead">The analyser shows where to look. If you want help turning findings into savings, or a full energy audit across your estate, get in touch.</p>
+    <p class="cta-strip-lead">We can help turn the findings into savings, or audit your whole estate.</p>
   </div>
 </section>
 
@@ -246,7 +246,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo"><svg viewBox="0 0 34 34" aria-hidden="true"><rect x="3" y="15" width="5" height="10" rx="1" fill="#0065A4"/><rect x="10" y="9" width="5" height="16" rx="1" fill="#0065A4"/><rect x="17" y="3" width="5" height="22" rx="1" fill="#F8C05D"/><rect x="24" y="12" width="5" height="13" rx="1" fill="#0065A4"/><rect x="1" y="26" width="32" height="3" rx="1.5" fill="#FFFFFF"/></svg><span class="footer-logo-name">Half Hourly Insights</span></div>
-        <p class="footer-desc">Free half-hourly electricity analysis for UK businesses and public sector organisations, run by Kinetic Energy Consulting. It runs in your browser: your meter data never leaves your computer.</p>
+        <p class="footer-desc">Free half-hourly electricity analysis for UK businesses and public sector organisations, run by Kinetic Energy Consulting. The analysis runs in your browser, so your meter data never leaves your computer.</p>
         <div class="footer-contact-item">Email: <a href="mailto:pjohnston663@gmail.com">pjohnston663@gmail.com</a></div>
       </div>
       <div class="footer-col">
@@ -264,7 +264,7 @@
     </div>
     <div class="footer-bottom">
       <div class="footer-copy">&copy; 2026 Kinetic Energy Consulting</div>
-      <div class="footer-disclaimer">All analyser outputs are indicative estimates from the data you load, not a guarantee of savings. Guides are general information, not financial, tax or legal advice.</div>
+      <div class="footer-disclaimer">All analyser results are estimates based on the data you load and do not guarantee savings. Our guides are general information and are not financial, tax or legal advice.</div>
     </div>
   </div>
 </footer>

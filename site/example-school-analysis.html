@@ -100,7 +100,7 @@
      "name": "Do I have to enter term dates?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Yes. The analyser never assumes them, because they vary by school and by year. Paste them in as closures; without them, holiday weeks count as normal school days."
+      "text": "Yes. They vary between schools and years, so the analyser never assumes them. Without them, holidays count as school days."
      }
     },
     {
@@ -108,7 +108,7 @@
      "name": "Should a school use nothing in the holidays?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "No. The base load continues (IT, fridges, security). Holiday use above the base load is what to look at."
+      "text": "No. The base load carries on (IT, fridges, security). Holiday use above the base load is what to look at."
      }
     },
     {
@@ -116,7 +116,7 @@
      "name": "Is this real data?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "No. The school and its readings are made up, so the method can be shown without anyone's real data."
+      "text": "No. It's made up so we can show the method without using anyone's real data."
      }
     }
    ]
@@ -148,47 +148,46 @@
     <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> <span aria-hidden="true">/</span> <a href="guides.html">Guides</a> <span aria-hidden="true">/</span> <span aria-current="page">Worked example: school</span></nav>
     <span class="page-hero-kicker">Guide</span>
     <h1 class="page-hero-title">Worked example: one primary school</h1>
-    <p class="page-hero-lead">A year of half-hourly data from a primary school, set up with its term dates and run through the analyser. The school is made up; every figure is what the analyser reports.</p>
+    <p class="page-hero-lead">A year of data from a primary school, run through the analyser with its term dates entered. The school is made up; every figure is what the analyser reports.</p>
   </div>
 </section><div class="guide">
   <article class="guide-main prose">
 <p class="byline">Last updated <time datetime="2026-11-14">14 November 2026</time></p>
-<p class="answer">Once its term dates were entered, this school used 31% of its electricity while shut: about £1,260 a year above what never switches off, at 25p/kWh. The biggest single problem was October half term, when demand was more than double what it should have been for an empty building.</p>
+<p class="answer">This school used 31% of its electricity while closed: about £1,260 a year above what always runs, at 25p/kWh. The biggest issue was October half term, when the empty building used more than twice what it should have.</p>
 
-<div class="note"><strong>Made-up data.</strong> <a href="samples/example-school.csv" download>Download the file</a> and load it into the <a href="analyser/">analyser</a> to follow along. Set the building type to School and add the term dates below as closures.</div>
+<div class="note"><strong>Made-up data.</strong> <a href="samples/example-school.csv" download>Download the file</a> and load it into the <a href="analyser/">analyser</a> to follow along. Set the building type to School and enter the term dates below as closures.</div>
 
 <h2 id="setup">Setting it up</h2>
-<p>School holidays are never assumed: the analyser asks you to enter them. For this school:</p>
-<ul><li>Building type: School (open 07:00 to 17:30 on weekdays)</li><li>Six closures: Easter, May half term, summer, October half term, Christmas and February half term</li><li>Hours ticked as confirmed</li></ul>
-<p>Without the term dates, holiday weeks would count as normal school days, and a heating fault in a holiday would hide as normal use.</p>
+<p>The analyser never assumes school holidays. For this school we entered:</p>
+<ul><li>Building type: School (open 07:00 to 17:30 on weekdays)</li><li>Six closures: Easter, May half term, summer, October half term, Christmas and February half term</li><li>Hours marked as confirmed</li></ul>
 
 <h2 id="headline">The headline figures</h2>
 <div class="table-wrap"><table><thead><tr><th>Measure</th><th class="num">Value</th></tr></thead><tbody>
 <tr><td>Electricity a year</td><td class="num">57,753 kWh</td></tr><tr><td>Energy cost a year (25p/kWh)</td><td class="num">£14,438</td></tr>
-<tr><td>Base load</td><td class="num">1.9 kW</td></tr><tr><td>Highest half hour</td><td class="num">30.1 kW</td></tr>
-<tr><td>Use while shut</td><td class="num">31%</td></tr><tr><td>Out-of-hours excess</td><td class="num">£1,261 a year</td></tr></tbody></table></div>
+<tr><td>Base load</td><td class="num">1.9 kW</td></tr><tr><td>Busiest half hour</td><td class="num">30.1 kW</td></tr>
+<tr><td>Use while closed</td><td class="num">31%</td></tr><tr><td>Closed-hours excess</td><td class="num">£1,261 a year</td></tr></tbody></table></div>
 
 <h2 id="heatmap">The year at a glance</h2>
-<figure class="figure"><img src="images/heatmap-school.png" width="2464" height="896" alt="Heatmap of a school year: dark blocks in term time, blank holidays, a pale block across October half term and thin stripes on Tuesday and Thursday evenings" loading="lazy"><figcaption>One column per day, one row per half hour. Term weeks are dark; holidays should be blank. October half term isn't.</figcaption></figure>
-<p>Two things stand out: a pale block across the whole of October half term, and thin stripes after 18:00 on two evenings a week in term. <a href="reading-a-heatmap.html">How to read a heatmap</a>.</p>
+<figure class="figure"><img src="images/heatmap-school.png" width="2464" height="896" alt="Heatmap of a school year: dark blocks in term time, blank holidays, a pale block across October half term and thin stripes on Tuesday and Thursday evenings" loading="lazy"><figcaption>One column per day and one row per half hour. Term weeks are dark and holidays should be blank, but October half term isn't.</figcaption></figure>
+<p>Two things stand out: a block across October half term, and stripes after 18:00 on two evenings a week. See <a href="reading-a-heatmap.html">how to read a heatmap</a>.</p>
 
 <h2 id="findings">What the analyser found</h2>
-<h3>1. Heating plant on through October half term</h3>
-<p>The three largest out-of-hours days of the year were all in half term, about 100 kWh each above base load. The analyser flagged a lasting change: demand from 25 October was at least 15% above its expected level on five of nine days, on average more than double. The pattern (07:00 to 17:00 on weekdays, nobody in) points to plant running to its term-time schedule.</p>
+<h3>1. Heating left on through October half term</h3>
+<p>The three worst days of the year were all in half term, each about 100 kWh above base load. From 25 October, demand was at least 15% above expected on five of nine days, and on average more than double. The 07:00 to 17:00 weekday pattern suggests heating and ventilation stayed on the term-time schedule.</p>
 <h3>2. Evening lettings</h3>
-<p>Weekday evenings account for the largest share of the out-of-hours excess: 2,765 kWh above base load. The stripes on Tuesday and Thursday evenings are a regular hall letting. Lettings are fine, but they should be in the calendar as open hours, and it's worth checking whether a hall booking is lighting and heating more of the building than it needs.</p>
+<p>Weekday evenings are the largest share of the closed-hours excess: 2,765 kWh above base load. The Tuesday and Thursday stripes are a hall letting. Enter it as open hours, and check whether it lights and heats more of the building than it needs.</p>
 <h3>3. Holidays and weekends</h3>
-<p>The holidays themselves added 1,157 kWh above base load, most of it in October. Saturdays and Sundays were close to base load (556 kWh and 526 kWh above it across the year), which is what you'd hope for.</p>
+<p>Holidays added 1,157 kWh above base load, mostly in October. Weekends were close to base load (556 kWh on Saturdays and 526 kWh on Sundays over the year), as you'd expect.</p>
 
 <h2 id="next-steps">What we'd do next</h2>
-<ol><li><strong>Add the holiday calendar to the building management system</strong>, so heating and ventilation switch off for half terms as well as the long holidays.</li><li><strong>Add the lettings to the analyser's calendar</strong>, then look at what the hall booking switches on.</li><li><strong>Check the next half term</strong> with the analyser's before-and-after comparison to see whether the fix worked.</li></ol>
+<ol><li><strong>Add half terms to the building management system</strong> as well as the long holidays.</li><li><strong>Enter the lettings in the calendar</strong> and check what the hall booking switches on.</li><li><strong>Check the next half term</strong> with the before-and-after comparison.</li></ol>
 <h2 id="questions">Questions people ask</h2>
-<div class="faq"><details><summary>Do I have to enter term dates?</summary><div class="faq-a"><p>Yes. The analyser never assumes them, because they vary by school and by year. Paste them in as closures; without them, holiday weeks count as normal school days.</p></div></details><details><summary>Should a school use nothing in the holidays?</summary><div class="faq-a"><p>No. The base load continues (IT, fridges, security). Holiday use above the base load is what to look at.</p></div></details><details><summary>Is this real data?</summary><div class="faq-a"><p>No. The school and its readings are made up, so the method can be shown without anyone's real data.</p></div></details></div><h2 id="next">Read next</h2>
+<div class="faq"><details><summary>Do I have to enter term dates?</summary><div class="faq-a"><p>Yes. They vary between schools and years, so the analyser never assumes them. Without them, holidays count as school days.</p></div></details><details><summary>Should a school use nothing in the holidays?</summary><div class="faq-a"><p>No. The base load carries on (IT, fridges, security). Holiday use above the base load is what to look at.</p></div></details><details><summary>Is this real data?</summary><div class="faq-a"><p>No. It's made up so we can show the method without using anyone's real data.</p></div></details></div><h2 id="next">Read next</h2>
 <div class="link-grid"><a class="link-card has-thumb" href="reading-a-heatmap.html"><div class="card-thumb"><img src="images/guides/reading-a-heatmap.jpg" width="512" height="256" alt="" loading="lazy"></div><h3>Reading a heatmap</h3><p>How to spot patterns like half term at a glance.</p><span class="more">Read the guide</span></a><a class="link-card has-thumb" href="schools-electricity.html"><div class="card-thumb"><img src="images/guides/schools-electricity.jpg" srcset="images/guides/schools-electricity-600.jpg 600w, images/guides/schools-electricity.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Schools and colleges</h3><p>What to check first in education buildings.</p><span class="more">Read the guide</span></a><a class="link-card has-thumb" href="proving-savings.html"><div class="card-thumb"><img src="images/guides/proving-savings.jpg" srcset="images/guides/proving-savings-600.jpg 600w, images/guides/proving-savings.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Proving a saving</h3><p>Checking whether the half-term fix worked.</p><span class="more">Read the guide</span></a></div>
   </article>
   <aside class="guide-side">
     <nav class="toc" aria-label="On this page"><div class="toc-title">On this page</div><ol><li><a href="#setup">Setting it up</a></li><li><a href="#headline">The headline figures</a></li><li><a href="#heatmap">The year at a glance</a></li><li><a href="#findings">What the analyser found</a></li><li><a href="#next-steps">What we'd do next</a></li><li><a href="#questions">Questions people ask</a></li></ol></nav>
-    <div class="side-cta"><strong>Try it on your own data</strong><p>Free, no sign-up, and your file stays on your computer.</p><a href="analyser/" class="btn">Open the analyser</a></div>
+    <div class="side-cta"><strong>Try it on your own data</strong><p>It's free, there's no sign-up, and your file stays on your computer.</p><a href="analyser/" class="btn">Open the analyser</a></div>
   </aside>
 </div><section class="cta-strip">
   <div class="cta-strip-inner">
@@ -197,7 +196,7 @@
       <a href="analyser/" class="btn btn-gold btn-lg">Open the analyser</a>
       <a href="contact.html" class="btn btn-outline-white btn-lg">Talk to an expert</a>
     </div>
-    <p class="cta-strip-lead">Free, no sign-up, and your file stays on your computer.</p>
+    <p class="cta-strip-lead">It's free, there's no sign-up, and your file stays on your computer.</p>
   </div>
 </section>
 </main>
@@ -206,7 +205,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo"><svg viewBox="0 0 34 34" aria-hidden="true"><rect x="3" y="15" width="5" height="10" rx="1" fill="#0065A4"/><rect x="10" y="9" width="5" height="16" rx="1" fill="#0065A4"/><rect x="17" y="3" width="5" height="22" rx="1" fill="#F8C05D"/><rect x="24" y="12" width="5" height="13" rx="1" fill="#0065A4"/><rect x="1" y="26" width="32" height="3" rx="1.5" fill="#FFFFFF"/></svg><span class="footer-logo-name">Half Hourly Insights</span></div>
-        <p class="footer-desc">Free half-hourly electricity analysis for UK businesses and public sector organisations, run by Kinetic Energy Consulting. It runs in your browser: your meter data never leaves your computer.</p>
+        <p class="footer-desc">Free half-hourly electricity analysis for UK businesses and public sector organisations, run by Kinetic Energy Consulting. The analysis runs in your browser, so your meter data never leaves your computer.</p>
         <div class="footer-contact-item">Email: <a href="mailto:pjohnston663@gmail.com">pjohnston663@gmail.com</a></div>
       </div>
       <div class="footer-col">
@@ -224,7 +223,7 @@
     </div>
     <div class="footer-bottom">
       <div class="footer-copy">&copy; 2026 Kinetic Energy Consulting</div>
-      <div class="footer-disclaimer">All analyser outputs are indicative estimates from the data you load, not a guarantee of savings. Guides are general information, not financial, tax or legal advice.</div>
+      <div class="footer-disclaimer">All analyser results are estimates based on the data you load and do not guarantee savings. Our guides are general information and are not financial, tax or legal advice.</div>
     </div>
   </div>
 </footer>

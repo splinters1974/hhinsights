@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Worked example: a year of half-hourly data for one office</title>
-  <meta name="description" content="One office, one year of half-hourly data: out-of-hours use, base load, peaks against supply capacity, and what to do next.">
+  <meta name="description" content="One office, one year of half-hourly data: use while closed, base load, peaks against supply capacity, and what to do next.">
   <meta property="og:type" content="article">
   <meta property="og:locale" content="en_GB">
   <meta property="og:title" content="Worked example: a year of half-hourly data for one office">
-  <meta property="og:description" content="One office, one year of half-hourly data: out-of-hours use, base load, peaks against supply capacity, and what to do next.">
+  <meta property="og:description" content="One office, one year of half-hourly data: use while closed, base load, peaks against supply capacity, and what to do next.">
   <meta property="og:image" content="images/guides/example-office-analysis.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -77,7 +77,7 @@
   {
    "@type": "Article",
    "headline": "Worked example: a year of half-hourly data for one office",
-   "description": "One office, one year of half-hourly data: out-of-hours use, base load, peaks against supply capacity, and what to do next.",
+   "description": "One office, one year of half-hourly data: use while closed, base load, peaks against supply capacity, and what to do next.",
    "image": "images/guides/example-office-analysis.jpg",
    "inLanguage": "en-GB",
    "datePublished": "2026-11-14",
@@ -100,7 +100,7 @@
      "name": "Is this real data?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "No. The office and its readings are made up, so the method can be shown without anyone's real data. Every figure is what the analyser reports for the example file."
+      "text": "No. It's made up so we can show the method without using anyone's real data."
      }
     },
     {
@@ -108,7 +108,7 @@
      "name": "How long does an analysis like this take?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Loading a year of data takes about a minute. Confirming the opening hours and reading the findings takes longer, and matters more."
+      "text": "Loading the data takes about a minute. Confirming the opening hours takes longer, and matters more."
      }
     },
     {
@@ -116,7 +116,7 @@
      "name": "Are these figures savings?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "No. They are what each pattern costs now at 25p/kWh. A saving depends on what you change."
+      "text": "No. They're what each pattern costs now at 25p/kWh. Any saving depends on what you change."
      }
     }
    ]
@@ -148,56 +148,55 @@
     <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> <span aria-hidden="true">/</span> <a href="guides.html">Guides</a> <span aria-hidden="true">/</span> <span aria-current="page">Worked example</span></nav>
     <span class="page-hero-kicker">Guide</span>
     <h1 class="page-hero-title">Worked example: one office, one year</h1>
-    <p class="page-hero-lead">A year of half-hourly data from a small office, run through the analyser. The office and its data are made up, but every figure below is what the analyser reports for it.</p>
+    <p class="page-hero-lead">A year of data from a small office, run through the analyser. The office is made up; every figure is what the analyser reports.</p>
   </div>
 </section><div class="guide">
   <article class="guide-main prose">
 <p class="byline">Last updated <time datetime="2026-11-14">14 November 2026</time></p>
-<p class="answer">A third of this office's electricity (33%) was used while the building was shut. After allowing for what never switches off, that is about £2,800 a year at 25p/kWh, and almost half of it happens on Saturdays.</p>
+<p class="answer">This office used a third of its electricity (33%) while closed. Above what always has to run, that costs about £2,800 a year at 25p/kWh, and almost half of it is on Saturdays.</p>
 
-<div class="note"><strong>Made-up data.</strong> The office is invented so you can see the method without anyone's real data. <a href="samples/example-office.csv" download>Download the file</a> and load it into the <a href="analyser/">analyser</a> to follow along.</div>
+<div class="note"><strong>Made-up data.</strong> <a href="samples/example-office.csv" download>Download the file</a> and load it into the <a href="analyser/">analyser</a> to follow along.</div>
 
 <h2 id="headline">The headline figures</h2>
 <div class="table-wrap"><table><thead><tr><th>Measure</th><th class="num">Value</th><th>What it means</th></tr></thead><tbody>
-<tr><td>Electricity a year</td><td class="num">79,191 kWh</td><td>Scaled from 363 days of valid readings (99.5% coverage)</td></tr>
-<tr><td>Energy cost a year</td><td class="num">£19,798</td><td>At a flat 25p/kWh, before standing and capacity charges</td></tr>
+<tr><td>Electricity a year</td><td class="num">79,191 kWh</td><td>From 363 days of readings (99.5% coverage)</td></tr>
+<tr><td>Energy cost a year</td><td class="num">£19,798</td><td>At 25p/kWh, before standing charges</td></tr>
 <tr><td>Base load</td><td class="num">2.6 kW</td><td>The level demand rarely drops below</td></tr>
-<tr><td>Highest half hour</td><td class="num">25.5 kW</td><td>28 January 2025, midday</td></tr>
-<tr><td>Use while shut</td><td class="num">33%</td><td>With the default office hours, 07:00 to 19:00 on weekdays</td></tr>
-<tr><td>Out-of-hours excess</td><td class="num">£2,776</td><td>Energy used while shut, above the base load, priced at 25p/kWh</td></tr>
+<tr><td>Busiest half hour</td><td class="num">25.5 kW</td><td>28 January 2025, midday</td></tr>
+<tr><td>Use while closed</td><td class="num">33%</td><td>Office hours, 07:00 to 19:00 weekdays</td></tr>
+<tr><td>Closed-hours excess</td><td class="num">£2,776</td><td>Use while closed, above base load</td></tr>
 </tbody></table></div>
 
-<h2 id="split">Where the energy goes</h2>
-<p>The analyser splits every half hour at the base load. The three parts add up to the total:</p>
-<ul><li><strong>Base load, 29%</strong> (22,606 kWh): what runs around the clock.</li><li><strong>Open hours above base load, 57%</strong> (45,062 kWh): the building doing its job.</li><li><strong>Closed-hours excess, 14%</strong> (11,035 kWh): use above base load while the building should be shut. This is where to look first.</li></ul>
+<h2 id="split">Where the electricity goes</h2>
+<p>The three parts add up to the total:</p>
+<ul><li><strong>Base load, 29%</strong> (22,606 kWh): runs around the clock.</li><li><strong>Open, above base load, 57%</strong> (45,062 kWh): normal use.</li><li><strong>Closed-hours excess, 14%</strong> (11,035 kWh): use while closed, above base load.</li></ul>
 
 <h2 id="findings">What the analyser found</h2>
-<h3>1. Out-of-hours use: £2,776 a year (high impact)</h3>
-<p>The breakdown by day type is the useful part:</p>
+<h3>1. Use while closed: £2,776 a year (high impact)</h3>
 <div class="table-wrap"><table><thead><tr><th>When</th><th class="num">Above base load</th></tr></thead><tbody>
 <tr><td>Saturdays</td><td class="num">5,155 kWh</td></tr><tr><td>Weekday evenings and nights</td><td class="num">3,750 kWh</td></tr>
 <tr><td>Bank holidays</td><td class="num">1,408 kWh</td></tr><tr><td>Sundays</td><td class="num">722 kWh</td></tr></tbody></table></div>
-<p>Saturdays account for almost half. Sundays are quiet, so this isn't plant running all weekend: the building is being used on some Saturdays. Either that's planned (then the calendar should say so, and the figure falls) or a Saturday booking is running the whole building.</p>
+<p>Saturdays account for almost half, but Sundays are quiet, so the building is being used on some Saturdays. If that's planned, add it to the calendar. If not, a Saturday booking may be running the whole building.</p>
 
 <h3>2. Seven bank holidays look like working days (medium impact)</h3>
-<p>Seven bank holidays used at least 80% of a normal weekday, including Christmas Day and Boxing Day. If the office was shut, heating and ventilation schedules probably don't know about bank holidays. If it was open, the calendar should be changed.</p>
+<p>On seven bank holidays, including Christmas Day, the office used at least 80% of a normal weekday's electricity. If it was closed, the heating schedules probably don't include bank holidays.</p>
 
 <h3>3. Early starts and late finishes: £629 a year (low impact)</h3>
-<p>Demand rises before opening and stays up after closing: about 1,250 kWh a year above base load in the two hours before opening, and the same in the two hours after closing. Optimum-start and time-clock settings are the usual cause.</p>
+<p>About 1,250 kWh a year above base load in the two hours before opening, and the same after closing. Timers and heating start-up settings are the usual cause.</p>
 
 <h2 id="capacity">Supply capacity</h2>
-<p>Assuming an agreed supply capacity of 40 kVA and a power factor of 0.95, the highest half hour reaches 27 kVA, 67% of capacity. Keeping a 10% safety margin, the site could take about 9 kW of constant new load. That's enough for modest EV charging, not a heat pump for the whole building. See <a href="supply-capacity.html">supply capacity and kVA</a>.</p>
+<p>With a 40 kVA supply and a power factor of 0.95, the busiest half hour reaches 27 kVA, 67% of capacity. Keeping a 10% margin leaves about 9 kW, enough for one 7 kW EV charger but not a heat pump for the building. See <a href="supply-capacity.html">supply capacity and kVA</a>.</p>
 
 <h2 id="next-steps">What we'd do next</h2>
-<ol><li><strong>Confirm the opening hours</strong>, including Saturdays. Every out-of-hours figure depends on them.</li><li><strong>Check the heating and ventilation schedules</strong> for bank holidays and start times.</li><li><strong>Walk the building on a Saturday</strong> to see what's on and who is using it.</li><li><strong>Look at the base load</strong>: 2.6 kW running all year is about 22,800 kWh, roughly £5,700 at 25p/kWh. See <a href="base-load.html">how to bring it down</a>.</li></ol>
-<p>57% of this office's electricity is used while it's open, during the working day, which is when on-site solar generates. The <a href="https://uksolarcalculator.co.uk/">UK Solar Calculator</a> estimates what a roof system would save.</p>
+<ol><li><strong>Confirm the opening hours</strong>, including Saturdays.</li><li><strong>Check the heating schedules</strong> for bank holidays and start times.</li><li><strong>Walk round on a Saturday</strong> to see what's on.</li><li><strong>Look at the base load.</strong> 2.6 kW running all year is about 22,800 kWh, roughly £5,700 at 25p/kWh. See <a href="base-load.html">how to reduce it</a>.</li></ol>
+<p>57% of its electricity is used in the working day, when solar panels generate. Our <a href="https://uksolarcalculator.co.uk/">UK Solar Calculator</a> estimates what a roof system would save.</p>
 <h2 id="questions">Questions people ask</h2>
-<div class="faq"><details><summary>Is this real data?</summary><div class="faq-a"><p>No. The office and its readings are made up, so the method can be shown without anyone's real data. Every figure is what the analyser reports for the example file.</p></div></details><details><summary>How long does an analysis like this take?</summary><div class="faq-a"><p>Loading a year of data takes about a minute. Confirming the opening hours and reading the findings takes longer, and matters more.</p></div></details><details><summary>Are these figures savings?</summary><div class="faq-a"><p>No. They are what each pattern costs now at 25p/kWh. A saving depends on what you change.</p></div></details></div><h2 id="next">Read next</h2>
-<div class="link-grid"><a class="link-card has-thumb" href="out-of-hours-electricity.html"><div class="card-thumb"><img src="images/guides/out-of-hours-electricity.jpg" srcset="images/guides/out-of-hours-electricity-600.jpg 600w, images/guides/out-of-hours-electricity.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Out-of-hours use</h3><p>How to find and cut use while the building is shut.</p><span class="more">Read the guide</span></a><a class="link-card has-thumb" href="base-load.html"><div class="card-thumb"><img src="images/guides/base-load.jpg" srcset="images/guides/base-load-600.jpg 600w, images/guides/base-load.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Base load</h3><p>What never switches off, and why it adds up.</p><span class="more">Read the guide</span></a><a class="link-card has-thumb" href="get-your-data.html"><div class="card-thumb"><img src="images/guides/get-your-data.jpg" srcset="images/guides/get-your-data-600.jpg 600w, images/guides/get-your-data.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Get your own data</h3><p>What to ask your supplier for.</p><span class="more">Read the guide</span></a></div>
+<div class="faq"><details><summary>Is this real data?</summary><div class="faq-a"><p>No. It's made up so we can show the method without using anyone's real data.</p></div></details><details><summary>How long does an analysis like this take?</summary><div class="faq-a"><p>Loading the data takes about a minute. Confirming the opening hours takes longer, and matters more.</p></div></details><details><summary>Are these figures savings?</summary><div class="faq-a"><p>No. They're what each pattern costs now at 25p/kWh. Any saving depends on what you change.</p></div></details></div><h2 id="next">Read next</h2>
+<div class="link-grid"><a class="link-card has-thumb" href="out-of-hours-electricity.html"><div class="card-thumb"><img src="images/guides/out-of-hours-electricity.jpg" srcset="images/guides/out-of-hours-electricity-600.jpg 600w, images/guides/out-of-hours-electricity.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Out-of-hours use</h3><p>How to find and reduce use while the building is closed.</p><span class="more">Read the guide</span></a><a class="link-card has-thumb" href="base-load.html"><div class="card-thumb"><img src="images/guides/base-load.jpg" srcset="images/guides/base-load-600.jpg 600w, images/guides/base-load.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Base load</h3><p>What always runs, and why it adds up.</p><span class="more">Read the guide</span></a><a class="link-card has-thumb" href="get-your-data.html"><div class="card-thumb"><img src="images/guides/get-your-data.jpg" srcset="images/guides/get-your-data-600.jpg 600w, images/guides/get-your-data.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Get your own data</h3><p>What to ask your supplier for.</p><span class="more">Read the guide</span></a></div>
   </article>
   <aside class="guide-side">
-    <nav class="toc" aria-label="On this page"><div class="toc-title">On this page</div><ol><li><a href="#headline">The headline figures</a></li><li><a href="#split">Where the energy goes</a></li><li><a href="#findings">What the analyser found</a></li><li><a href="#capacity">Supply capacity</a></li><li><a href="#next-steps">What we'd do next</a></li><li><a href="#questions">Questions people ask</a></li></ol></nav>
-    <div class="side-cta"><strong>Try it on your own data</strong><p>Free, no sign-up, and your file stays on your computer.</p><a href="analyser/" class="btn">Open the analyser</a></div>
+    <nav class="toc" aria-label="On this page"><div class="toc-title">On this page</div><ol><li><a href="#headline">The headline figures</a></li><li><a href="#split">Where the electricity goes</a></li><li><a href="#findings">What the analyser found</a></li><li><a href="#capacity">Supply capacity</a></li><li><a href="#next-steps">What we'd do next</a></li><li><a href="#questions">Questions people ask</a></li></ol></nav>
+    <div class="side-cta"><strong>Try it on your own data</strong><p>It's free, there's no sign-up, and your file stays on your computer.</p><a href="analyser/" class="btn">Open the analyser</a></div>
   </aside>
 </div><section class="cta-strip">
   <div class="cta-strip-inner">
@@ -206,7 +205,7 @@
       <a href="analyser/" class="btn btn-gold btn-lg">Open the analyser</a>
       <a href="contact.html" class="btn btn-outline-white btn-lg">Talk to an expert</a>
     </div>
-    <p class="cta-strip-lead">Free, no sign-up, and your file stays on your computer.</p>
+    <p class="cta-strip-lead">It's free, there's no sign-up, and your file stays on your computer.</p>
   </div>
 </section>
 </main>
@@ -215,7 +214,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo"><svg viewBox="0 0 34 34" aria-hidden="true"><rect x="3" y="15" width="5" height="10" rx="1" fill="#0065A4"/><rect x="10" y="9" width="5" height="16" rx="1" fill="#0065A4"/><rect x="17" y="3" width="5" height="22" rx="1" fill="#F8C05D"/><rect x="24" y="12" width="5" height="13" rx="1" fill="#0065A4"/><rect x="1" y="26" width="32" height="3" rx="1.5" fill="#FFFFFF"/></svg><span class="footer-logo-name">Half Hourly Insights</span></div>
-        <p class="footer-desc">Free half-hourly electricity analysis for UK businesses and public sector organisations, run by Kinetic Energy Consulting. It runs in your browser: your meter data never leaves your computer.</p>
+        <p class="footer-desc">Free half-hourly electricity analysis for UK businesses and public sector organisations, run by Kinetic Energy Consulting. The analysis runs in your browser, so your meter data never leaves your computer.</p>
         <div class="footer-contact-item">Email: <a href="mailto:pjohnston663@gmail.com">pjohnston663@gmail.com</a></div>
       </div>
       <div class="footer-col">
@@ -233,7 +232,7 @@
     </div>
     <div class="footer-bottom">
       <div class="footer-copy">&copy; 2026 Kinetic Energy Consulting</div>
-      <div class="footer-disclaimer">All analyser outputs are indicative estimates from the data you load, not a guarantee of savings. Guides are general information, not financial, tax or legal advice.</div>
+      <div class="footer-disclaimer">All analyser results are estimates based on the data you load and do not guarantee savings. Our guides are general information and are not financial, tax or legal advice.</div>
     </div>
   </div>
 </footer>

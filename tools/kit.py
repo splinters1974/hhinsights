@@ -226,7 +226,7 @@ def guide(main, side=''):
   </article>
   <aside class="guide-side">
 {side}
-    <div class="side-cta"><strong>Try it on your own data</strong><p>Free, no sign-up, and your file stays on your computer.</p><a href="analyser/" class="btn">Open the analyser</a></div>
+    <div class="side-cta"><strong>Try it on your own data</strong><p>It's free, there's no sign-up, and your file stays on your computer.</p><a href="analyser/" class="btn">Open the analyser</a></div>
   </aside>
 </div>'''
 
@@ -292,7 +292,7 @@ def layout(page):
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo">{MARK.format(base='#FFFFFF')}<span class="footer-logo-name">{NAME}</span></div>
-        <p class="footer-desc">Free half-hourly electricity analysis for UK businesses and public sector organisations, run by {OPERATOR}. It runs in your browser: your meter data never leaves your computer.</p>
+        <p class="footer-desc">Free half-hourly electricity analysis for UK businesses and public sector organisations, run by {OPERATOR}. The analysis runs in your browser, so your meter data never leaves your computer.</p>
         <div class="footer-contact-item">Email: <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a></div>
       </div>
       <div class="footer-col">
@@ -310,7 +310,7 @@ def layout(page):
     </div>
     <div class="footer-bottom">
       <div class="footer-copy">&copy; {YEAR} {OPERATOR}</div>
-      <div class="footer-disclaimer">All analyser outputs are indicative estimates from the data you load, not a guarantee of savings. Guides are general information, not financial, tax or legal advice.</div>
+      <div class="footer-disclaimer">All analyser results are estimates based on the data you load and do not guarantee savings. Our guides are general information and are not financial, tax or legal advice.</div>
     </div>
   </div>
 </footer>
