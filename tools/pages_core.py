@@ -158,7 +158,7 @@ PAGES['how-it-works.html'] = ('How it works | Half Hourly Insights',
   'What the analyser does with your half-hourly data: how it reads files, checks quality, sets the base load, prices use while closed and builds findings.',
   page_hero('How it works', 'What the analyser does with your data',
             'A step-by-step explanation, from reading your file to the figures in the report. In the analyser, each finding also has a "show calculation and evidence" link with the full working.',
-            crumbs=[HOME, ('How it works', 'how-it-works.html')]) +
+            crumbs=[HOME, ('How it works', 'how-it-works.html')], image='how-it-works') +
   guide(updated_line() + '''
 <p class="answer">The analyser checks every half-hourly reading, works out how much electricity the site uses when it's open and when it's closed, and prices the difference at your rates. It tells you where to look. Someone who knows the building then decides what to change.</p>
 ''' + photo('switchroom-tablet', 'Three people in a switch room looking at data on a tablet beside open electrical panels', 'The findings tell you where to look. A walk round the building tells you why.') + guide_download('Want the practical steps?') + '''
@@ -274,7 +274,7 @@ FAQ = [
 ]
 PAGES['faq.html'] = ('Questions and answers | Half Hourly Insights',
   'Common questions about the free half-hourly electricity analyser: cost, privacy, the data you need and what the results mean.',
-  page_hero('FAQ', 'Questions and answers', 'If your question isn\'t answered here, <a href="contact.html" style="color:var(--blue);text-decoration:underline">ask us</a>.') +
+  page_hero('FAQ', 'Questions and answers', 'If your question isn\'t answered here, <a href="contact.html">ask us</a>.', image='faq') +
   '<section class="section"><div class="section-inner" style="max-width:820px">'
   '<p class="answer">Half Hourly Insights is a free tool for UK businesses and public sector organisations that have half-hourly electricity data. '
   'It runs in your web browser, so your meter files are never uploaded. You need one Excel or CSV file per meter, ideally covering 12 months.</p>' +
@@ -287,7 +287,8 @@ PAGES['faq.html'] = ('Questions and answers | Half Hourly Insights',
 PAGES['contact.html'] = ('Contact | Half Hourly Insights',
   'Talk to an energy expert about your half-hourly results, a full energy audit or help reducing out-of-hours use across your sites.',
   page_hero('Contact', 'Talk to an expert',
-            "The analyser shows you where to look. If you'd like help turning the findings into savings, tell us about your sites and we'll be in touch. There's no obligation.") +
+            "The analyser shows you where to look. If you'd like help turning the findings into savings, tell us about your sites and we'll be in touch. There's no obligation.",
+            image='contact') +
   f'''<section class="section"><div class="section-inner contact-grid">
 <div class="contact-info">
   <a href="{OPERATOR_URL}" target="_blank" rel="noopener noreferrer" class="kec-logo-link">

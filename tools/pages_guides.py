@@ -480,7 +480,7 @@ PAGES.append(Page(
   'sectors.html', 'What to look for by sector | Half Hourly Insights',
   'What half-hourly electricity data shows in schools, offices and council buildings, leisure centres, healthcare, industrial sites and retail.',
   page_hero('Sectors', 'What to look for in your sector', 'Each type of building uses electricity differently. Choose yours to see what normal looks like and what to check first.',
-            crumbs=[HOME, SECTORS]) +
+            crumbs=[HOME, SECTORS], image='sectors') +
   '<section class="section"><div class="section-inner">' +
   photo('estate-town', 'Illustration of a town with offices, a town hall, a school, a leisure centre, housing and an energy centre', cls='figure figure-wide', lazy=False) +
   '<div class="link-grid">' +
@@ -508,7 +508,7 @@ PAGES.append(Page(
   'guides.html', 'Guides to half-hourly electricity data | Half Hourly Insights',
   'Simple guides to half-hourly electricity data: getting it, out-of-hours use, base load, supply capacity and worked examples.',
   page_hero('Guides', 'Guides to half-hourly data', 'Clear answers to the questions people ask when they first look at half-hourly electricity data.',
-            crumbs=[HOME, GUIDES]) +
+            crumbs=[HOME, GUIDES], image='guides') +
   '<section class="section"><div class="section-inner"><div class="link-grid">' +
   ''.join(link_card(f, t, d) for f, t, d in GUIDE_LIST) +
   '</div><p class="note" style="margin-top:32px">Looking for your sector? See <a href="sectors.html" style="color:var(--blue);text-decoration:underline">what to look for by sector</a>.</p></div></section>'

@@ -629,3 +629,19 @@ button, input, select, textarea { font-family: inherit; }
 .sample-steps li { margin-bottom: 8px; line-height: 1.6; }
 .sample-cta { display: flex; flex-wrap: wrap; gap: 14px; margin: 28px 0 18px; }
 .sample p a:not(.btn), .sample li a:not(.btn) { color: var(--blue); text-decoration: underline; text-underline-offset: 2px; }
+
+/* Tab landing pages with a photo header: the same slow pan and zoom as the home
+   page (hero-drift), held still for visitors who prefer reduced motion. The
+   photos are dark on the left; the overlay keeps the heading readable on any crop. */
+.page-hero-photo { position: relative; overflow: hidden; isolation: isolate; background: var(--ink-deep); border-bottom: 0; padding: 96px 24px 88px; }
+.page-hero-photo .hero-media img { opacity: 1; object-position: 70% 50%; }
+.page-hero-photo::before { content: ''; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(90deg, rgba(4,42,60,0.92) 0%, rgba(4,42,60,0.80) 40%, rgba(4,42,60,0.35) 75%, rgba(4,42,60,0.15) 100%); }
+.page-hero-photo .page-hero-title { color: #fff; }
+.page-hero-photo .page-hero-kicker, .page-hero-photo .page-hero-lead { color: #D6E4EC; }
+.page-hero-photo .page-hero-lead a, .page-hero-photo .breadcrumb a { color: #fff; text-decoration: underline; }
+.page-hero-photo .breadcrumb, .page-hero-photo .breadcrumb span { color: #C9D9E2; }
+@media (max-width: 700px) {
+  .page-hero-photo { padding: 64px 16px 56px; }
+  .page-hero-photo::before { background: linear-gradient(180deg, rgba(4,42,60,0.88) 0%, rgba(4,42,60,0.82) 100%); }
+}

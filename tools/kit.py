@@ -140,14 +140,35 @@ def jsonld(page):
 
 
 # ── Building blocks ────────────────────────────────────────────────────
-def page_hero(kicker, title, lead, extra='', crumbs=None):
+# Photo headers for the main tab pages, in site/images/heroes/<name>.jpg (wide,
+# dark on the left so the heading stays readable) plus <name>-900.jpg for
+# phones. A page only shows its photo once the file exists.
+HERO_DIR = os.path.join(os.path.dirname(__file__), '..', 'site', 'images', 'heroes')
+
+
+def hero_photo(name):
+    big = os.path.join(HERO_DIR, f'{name}.jpg')
+    if not name or not os.path.exists(big):
+        return ''
+    from PIL import Image
+    with Image.open(big) as im:
+        w, h = im.size
+    small = f'images/heroes/{name}-900.jpg'
+    srcset = (f' srcset="{small} 900w, images/heroes/{name}.jpg {w}w" sizes="100vw"'
+              if os.path.exists(os.path.join(HERO_DIR, f'{name}-900.jpg')) else '')
+    return (f'<div class="hero-media" aria-hidden="true"><img src="images/heroes/{name}.jpg"{srcset} '
+            f'width="{w}" height="{h}" alt="" fetchpriority="high"></div>\n  ')
+
+
+def page_hero(kicker, title, lead, extra='', crumbs=None, image=None):
+    media = hero_photo(image)
     trail = ''
     if crumbs:
         trail = '<nav class="breadcrumb" aria-label="Breadcrumb">' + ' <span aria-hidden="true">/</span> '.join(
             f'<a href="{href}">{escape(label)}</a>' if i < len(crumbs) - 1 else f'<span aria-current="page">{escape(label)}</span>'
             for i, (label, href) in enumerate(crumbs)) + '</nav>\n    '
-    return f'''<section class="page-hero">
-  <div class="page-hero-inner">
+    return f'''<section class="page-hero{' page-hero-photo' if media else ''}">
+  {media}<div class="page-hero-inner">
     {trail}<span class="page-hero-kicker">{kicker}</span>
     <h1 class="page-hero-title">{title}</h1>
     <p class="page-hero-lead">{lead}</p>{extra}
