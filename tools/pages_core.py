@@ -4,7 +4,7 @@ privacy and 404. Bodies are HTML; metadata for search and AI tools is added
 in core_pages() at the bottom.
 """
 from kit import (CONTACT_EMAIL, CONTACT_NAME, OPERATOR, OPERATOR_URL, SOLAR_URL, APP, Page,
-                 cta, faq_section, guide, page_hero, related, updated_line)
+                 cta, photo, faq_section, guide, page_hero, related, updated_line)
 
 HOME = ('Home', 'index.html')
 GUIDES = ('Guides', 'guides.html')
@@ -106,6 +106,18 @@ PAGES['index.html'] = ('Half Hourly Insights: free half-hourly electricity analy
   </div>
 </section>
 
+<section class="section">
+  <div class="section-inner split">
+    <div>
+      <span class="section-kicker">Who it's for</span>
+      <h2 class="section-title">Schools, offices, leisure centres, hospitals and businesses</h2>
+      <p class="section-lead">Any building with a half-hourly meter. Every building type has its own normal, so the analyser compares each site with its own opening hours, not a benchmark.</p>
+      <p style="margin-top:24px"><a href="sectors.html" class="btn btn-outline">What to look for in your sector</a></p>
+    </div>
+    <div>{photo('town-street', 'A town street with an energy centre, offices, a civic building, an electric bus and a car charging at a roadside charger')}</div>
+  </div>
+</section>
+
 <section class="section band-mist">
   <div class="section-inner">
     <div class="head-row">
@@ -124,7 +136,8 @@ PAGES['index.html'] = ('Half Hourly Insights: free half-hourly electricity analy
 <section class="section">
   <div class="section-inner split">
     <div><span class="section-kicker">Sister site</span><h2 class="section-title">Thinking about solar too?</h2></div>
-    <div><p class="section-lead">Half-hourly data shows how much of your electricity you use in daylight hours, which is what on-site solar can supply. The <a href="{SOLAR_URL}" style="color:var(--blue);text-decoration:underline">UK Solar Calculator</a>, from the same team, estimates system size, savings and payback for your roof.</p></div>
+    <div><p class="section-lead">Half-hourly data shows how much of your electricity you use in daylight hours, which is what on-site solar can supply. The <a href="{SOLAR_URL}" style="color:var(--blue);text-decoration:underline">UK Solar Calculator</a>, from the same team, estimates system size, savings and payback for your roof.</p>
+    {photo('solar-private-wire', 'Aerial view of a solar farm connected by cable to a substation and a business park beside farmland')}</div>
   </div>
 </section>
 
@@ -139,6 +152,7 @@ PAGES['how-it-works.html'] = ('How it works | Half Hourly Insights',
             crumbs=[HOME, ('How it works', 'how-it-works.html')]) +
   guide(updated_line() + '''
 <p class="answer">The analyser reads every half-hourly reading, checks it, works out what the site uses when it's open and when it's shut, and prices the difference at your rates. It shows where to look, not what to fix.</p>
+''' + photo('switchroom-tablet', 'Three people in a switch room looking at data on a tablet beside open electrical panels', 'The analyser points to where to look. Someone who knows the building decides what to change.') + '''
 
 <h2 id="files">1. Reading your files</h2>
 <p>Load one file per meter, as Excel (.xlsx, .xls) or CSV. Three layouts work:</p>
@@ -256,6 +270,7 @@ PAGES['contact.html'] = ('Contact | Half Hourly Insights',
     <span class="kec-sponsored-by">Sponsored by</span>
     <img src="images/kec-logo.svg" alt="{OPERATOR}" class="kec-logo-img" width="220" height="105">
   </a>
+  {photo('team-planning', 'Four people around a table with drawings, a laptop and a model of a site, with a dashboard on the wall behind')}
   <h2>{CONTACT_NAME}</h2>
   <p>Get in touch to talk through your results, or about help reducing out-of-hours use across your sites. Enquiries are typically responded to within one working day.</p>
   <dl class="contact-details">

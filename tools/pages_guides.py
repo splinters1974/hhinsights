@@ -7,7 +7,7 @@ Figures in the worked example come from the analyser run on
 site/samples/example-office.csv (made-up data). Re-check them if that file
 or the engine changes.
 """
-from kit import (NAV_PARENT, SOLAR_URL, Page, cta, faq_section, guide, page_hero, related, sources, strip_tags, toc,
+from kit import (NAV_PARENT, SOLAR_URL, Page, cta, faq_section, guide, page_hero, photo, related, sources, strip_tags, toc,
                  updated_line)
 
 HOME = ('Home', 'index.html')
@@ -159,6 +159,7 @@ PAGES.append(guide_page(
   '''
 <p class="answer">Your agreed supply capacity is the maximum demand, in kVA, your connection is set up for. Convert your half-hourly peaks from kW to kVA (divide by the power factor), compare them with the agreed capacity, and the gap is your headroom for new load such as heat pumps and EV chargers.</p>
 
+''' + photo('plant-outside', 'Two engineers with a tablet beside packaged plant, flues and pipework outside a large building', 'New plant such as heat pumps or generators is sized against the site\'s peaks. Half-hourly data shows how close those peaks already come to the supply capacity.') + '''
 <h2 id="what">What agreed supply capacity is</h2>
 <p>Larger supplies have an agreed capacity, sometimes called authorised or available capacity, set in the connection agreement and usually shown on the bill in kVA. You typically pay a charge for it every day whether you use it or not. Going over it can bring extra charges, and the network operator may ask you to increase it.</p>
 
@@ -282,6 +283,7 @@ PAGES.append(guide_page(
   '''
 <p class="answer">Compare matched periods before and after the change: the same days of the week, the same kind of day (open, closed, holiday), and enough weeks to smooth out noise. Look at the part of demand the change should affect, such as base load or out-of-hours use, rather than the total bill.</p>
 
+''' + photo('board-review', 'A team reviewing charts and printed reports around a meeting table, with solar panels and battery units outside the window', 'A saving is easier to sign off when the before-and-after comparison is fair.') + '''
 <h2 id="match">Compare like with like</h2>
 <ul><li><strong>Same kind of day.</strong> Compare weekdays with weekdays and holidays with holidays. A before period full of bank holidays will flatter the after period, or the reverse.</li><li><strong>Long enough.</strong> Four to eight weeks either side is usually enough to see a real change in half-hourly data. A single week can be swayed by one unusual day.</li><li><strong>Close in time.</strong> The nearer the two periods, the less the weather and the seasons get in the way.</li><li><strong>Leave out the change itself.</strong> Skip the days when the work was being done.</li></ul>
 
@@ -320,6 +322,7 @@ PAGES.append(guide_page(
   '''
 <p class="answer">Market-wide half-hourly settlement (MHHS) means suppliers will be charged for the electricity their customers use in each half hour, rather than from estimated profiles. Migration began in October 2025 and is due to be complete in May 2027. For organisations with smart or advanced meters, it means half-hourly readings are part of how electricity is settled, so it's worth asking your supplier for them.</p>
 
+''' + photo('site-plans-substation', 'Four people in hard hats and high-visibility vests reviewing site plans next to a substation and solar panels') + '''
 <h2 id="what">What it is</h2>
 <p>Large sites have been settled half-hourly for years. Smaller sites have mostly been settled using standard profiles: estimates of when a typical customer uses electricity. MHHS replaces those estimates with actual half-hourly readings wherever a meter can provide them.<sup><a href="#sources">1</a></sup></p>
 <p>The programme's stated objective is "to maximise the opportunities provided by smart metering by developing and implementing an enduring process for MHHS, that delivers benefits for consumers and enables a smart, flexible energy system."<sup><a href="#sources">2</a></sup></p>
@@ -433,13 +436,22 @@ SECTOR_DATA = [
     ('How do I compare several shops or venues?', 'Load one file per meter. The analyser ranks sites by out-of-hours excess and has an estate comparison by building type.')]),
 ]
 
+SECTOR_PHOTOS = {
+    'schools-electricity.html': ('town-school-leisure', 'Illustration of a town with a school, a sports pitch and a swimming pool among streets of houses'),
+    'offices-council-buildings.html': ('estate-town', 'Illustration of a town centre with offices, civic buildings, a school, housing and an energy centre'),
+    'leisure-centres.html': ('town-school-leisure', 'Illustration of a leisure centre with an outdoor pool next to a school and sports pitch'),
+    'healthcare-electricity.html': ('estate-hospital', 'Illustration of a hospital estate with clinical buildings, a multi-storey car park, plant compounds and a substation'),
+    'industrial-warehouses.html': ('estate-business-park', 'Illustration of a business park with warehouses, a plant compound, battery storage, a substation and ground-mounted solar'),
+    'retail-hospitality.html': ('estate-business-park', 'Illustration of commercial units with car parking, delivery vans and on-site plant'),
+}
+
 for file, short, h1, lead, normal, checks, calendar_tip, faqs in SECTOR_DATA:
     PAGES.append(guide_page(
       file, f'{short}: what half-hourly data shows', h1, lead,
       f'Half-hourly electricity data in {short.lower()}: what normal looks like, what to check first and how to set opening hours.',
       f'''
 <p class="answer">{normal}</p>
-
+{photo(*SECTOR_PHOTOS[file])}
 <h2 id="check">What to check first</h2>
 <ul>{''.join(f'<li>{c}</li>' for c in checks)}</ul>
 
@@ -460,7 +472,9 @@ PAGES.append(Page(
   'What half-hourly electricity data shows in schools, offices and council buildings, leisure centres, healthcare, industrial sites and retail.',
   page_hero('Sectors', 'What to look for in your sector', 'Every building type has its own normal. Choose yours for the patterns worth checking first.',
             crumbs=[HOME, SECTORS]) +
-  '<section class="section"><div class="section-inner"><div class="link-grid">' +
+  '<section class="section"><div class="section-inner">' +
+  photo('estate-town', 'Illustration of a town with offices, civic buildings, a school, a leisure centre, housing and an energy centre', cls='figure figure-wide', lazy=False) +
+  '<div class="link-grid">' +
   ''.join(f'<a class="link-card" href="{f}"><h3>{s}</h3><p>{lead}</p><span class="more">Read more</span></a>'
           for f, s, _, lead, *_ in SECTOR_DATA) +
   '</div></div></section>' + cta('Check your own sites', 'Load several meters at once and the analyser ranks them, so you know where to start.'),
