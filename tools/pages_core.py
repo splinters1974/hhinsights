@@ -125,10 +125,10 @@ PAGES['index.html'] = ('Half Hourly Insights: free half-hourly electricity analy
       <p>Plain-English answers to the questions that come up when you first look at half-hourly data.</p>
     </div>
     <div class="link-grid" style="margin-top:36px">
-      <a class="link-card" href="example-office-analysis.html"><h3>Worked example</h3><p>One office, one year of data, and what the analyser found.</p><span class="more">Read the example</span></a>
-      <a class="link-card" href="out-of-hours-electricity.html"><h3>Out-of-hours use</h3><p>How to find electricity used when the building is shut, and cut it.</p><span class="more">Read the guide</span></a>
-      <a class="link-card" href="base-load.html"><h3>Base load</h3><p>What never switches off, why it matters and how to bring it down.</p><span class="more">Read the guide</span></a>
-      <a class="link-card" href="supply-capacity.html"><h3>Supply capacity</h3><p>kVA, your agreed capacity, and room for heat pumps and EV charging.</p><span class="more">Read the guide</span></a>
+      <a class="link-card has-thumb" href="example-office-analysis.html"><img class="card-thumb" src="images/guides/example-office-analysis.jpg" width="512" height="256" alt="" loading="lazy"><h3>Worked example</h3><p>One office, one year of data, and what the analyser found.</p><span class="more">Read the example</span></a>
+      <a class="link-card has-thumb" href="out-of-hours-electricity.html"><img class="card-thumb" src="images/guides/out-of-hours-electricity.jpg" width="512" height="256" alt="" loading="lazy"><h3>Out-of-hours use</h3><p>How to find electricity used when the building is shut, and cut it.</p><span class="more">Read the guide</span></a>
+      <a class="link-card has-thumb" href="base-load.html"><img class="card-thumb" src="images/guides/base-load.jpg" width="512" height="256" alt="" loading="lazy"><h3>Base load</h3><p>What never switches off, why it matters and how to bring it down.</p><span class="more">Read the guide</span></a>
+      <a class="link-card has-thumb" href="supply-capacity.html"><img class="card-thumb" src="images/guides/supply-capacity.jpg" width="512" height="256" alt="" loading="lazy"><h3>Supply capacity</h3><p>kVA, your agreed capacity, and room for heat pumps and EV charging.</p><span class="more">Read the guide</span></a>
     </div>
   </div>
 </section>

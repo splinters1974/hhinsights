@@ -1,3 +1,4 @@
+import os
 """
 Shared pieces for the page builder: site settings, the page layout, and the
 structured data (schema.org JSON-LD) every page carries.
@@ -109,6 +110,7 @@ def jsonld(page):
             for i, (label, href) in enumerate(page.crumbs)]})
     if page.article:
         graph.append({'@type': 'Article', 'headline': page.title.split(' | ')[0], 'description': page.description,
+                      **({'image': url(guide_card(page.file))} if guide_card(page.file) else {}),
                       'inLanguage': 'en-GB', 'datePublished': UPDATED, 'dateModified': UPDATED,
                       'author': {'@id': ORG_ID}, 'publisher': {'@id': ORG_ID},
                       'isPartOf': {'@id': WEBSITE['@id']}, **({'mainEntityOfPage': url(page.file)} if SITE_URL else {})})
@@ -175,11 +177,25 @@ def photo(name, alt, caption='', cls='figure', lazy=True):
             f'sizes="(max-width: 860px) 100vw, 860px" width="{w}" height="{h}" alt="{alt}"{load}>{cap}</figure>')
 
 
+# Guide title cards (512 x 256) in site/images/guides, named after the page they belong to.
+GUIDE_CARD_DIR = os.path.join(os.path.dirname(__file__), '..', 'site', 'images', 'guides')
+
+
+def guide_card(file):
+    name = file.replace('.html', '.jpg')
+    return f'images/guides/{name}' if os.path.exists(os.path.join(GUIDE_CARD_DIR, name)) else None
+
+
+def link_card(f, t, d, more='Read the guide'):
+    img = guide_card(f)
+    thumb = f'<img class="card-thumb" src="{img}" width="512" height="256" alt="" loading="lazy">' if img else ''
+    return f'<a class="link-card{" has-thumb" if img else ""}" href="{f}">{thumb}<h3>{t}</h3><p>{d}</p><span class="more">{more}</span></a>'
+
+
 def related(links):
     """'Read next' cards at the end of a guide: [(file, title, one line)]."""
     return '<h2 id="next">Read next</h2>\n<div class="link-grid">' + ''.join(
-        f'<a class="link-card" href="{f}"><h3>{t}</h3><p>{d}</p><span class="more">Read the guide</span></a>'
-        for f, t, d in links) + '</div>'
+        link_card(f, t, d) for f, t, d in links) + '</div>'
 
 
 def updated_line():
@@ -203,6 +219,13 @@ def guide(main, side=''):
 </div>'''
 
 
+def og_image(page):
+    card = guide_card(page.file)
+    src, w, h = (card, 512, 256) if card else ('images/og-image.png', 1200, 630)
+    return (f'  <meta property="og:image" content="{url(src)}">\n  <meta property="og:image:width" content="{w}">\n'
+            f'  <meta property="og:image:height" content="{h}">')
+
+
 def layout(page):
     current = NAV_PARENT.get(page.file, page.file)
     active = ' class="active" aria-current="page"'
@@ -220,9 +243,7 @@ def layout(page):
   <meta property="og:locale" content="en_GB">
   <meta property="og:title" content="{escape(page.title)}">
   <meta property="og:description" content="{escape(page.description)}">
-  <meta property="og:image" content="{url('images/og-image.png')}">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+{og_image(page)}
   <meta property="og:site_name" content="{NAME}">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">

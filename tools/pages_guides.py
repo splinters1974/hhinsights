@@ -7,7 +7,7 @@ Figures in the worked example come from the analyser run on
 site/samples/example-office.csv (made-up data). Re-check them if that file
 or the engine changes.
 """
-from kit import (NAV_PARENT, SOLAR_URL, Page, cta, faq_section, guide, page_hero, photo, related, sources, strip_tags, toc,
+from kit import (NAV_PARENT, SOLAR_URL, Page, cta, link_card, faq_section, guide, page_hero, photo, related, sources, strip_tags, toc,
                  updated_line)
 
 HOME = ('Home', 'index.html')
@@ -500,7 +500,7 @@ PAGES.append(Page(
   page_hero('Guides', 'Guides to half-hourly data', 'Plain-English answers to the questions that come up when you first look at half-hourly electricity data.',
             crumbs=[HOME, GUIDES]) +
   '<section class="section"><div class="section-inner"><div class="link-grid">' +
-  ''.join(f'<a class="link-card" href="{f}"><h3>{t}</h3><p>{d}</p><span class="more">Read the guide</span></a>' for f, t, d in GUIDE_LIST) +
+  ''.join(link_card(f, t, d) for f, t, d in GUIDE_LIST) +
   '</div><p class="note" style="margin-top:32px">Looking for your sector? See <a href="sectors.html" style="color:var(--blue);text-decoration:underline">what to look for by sector</a>.</p></div></section>'
   + cta('Ready to look at your own data?', 'Free, no sign-up, and nothing is uploaded.'),
   crumbs=[HOME, GUIDES], section='Guides', summary='Index of guides.'))
