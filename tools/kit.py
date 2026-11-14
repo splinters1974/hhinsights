@@ -200,7 +200,7 @@ def link_card(f, t, d, more='Read the guide'):
         small = img.replace('.jpg', '-600.jpg')
         srcset = (f' srcset="{small} 600w, {img} {w}w" sizes="(max-width: 700px) 100vw, 400px"'
                   if os.path.exists(os.path.join(GUIDE_CARD_DIR, os.path.basename(small))) else '')
-        thumb = f'<img class="card-thumb" src="{img}"{srcset} width="{w}" height="{h}" alt="" loading="lazy">'
+        thumb = f'<div class="card-thumb"><img src="{img}"{srcset} width="{w}" height="{h}" alt="" loading="lazy"></div>'
     return f'<a class="link-card{" has-thumb" if img else ""}" href="{f}">{thumb}<h3>{t}</h3><p>{d}</p><span class="more">{more}</span></a>'
 
 
