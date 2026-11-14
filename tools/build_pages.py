@@ -8,14 +8,18 @@ Settings, layout and structured data: tools/kit.py
 Core pages: tools/pages_core.py
 Guides and sector pages: tools/pages_guides.py
 """
+import datetime as dt
+import hashlib
+import json
 from pathlib import Path
 
 import kit
-from kit import NAME, OPERATOR, SITE_URL, UPDATED, layout, url
+from kit import NAME, OPERATOR, SITE_URL, layout, url
 from pages_core import core_pages
 from pages_guides import PAGES as GUIDE_PAGES
 
 SITE = Path(__file__).resolve().parent.parent / 'site'
+DATES_FILE = Path(__file__).resolve().parent / 'page_dates.json'
 
 # Crawlers that answer questions and cite sources, listed explicitly (as on
 # the UK Solar Calculator) so a later change to the wildcard can't shut them out.
@@ -59,15 +63,38 @@ def llms(pages):
     return '\n'.join(out)
 
 
+def fingerprint(p):
+    """What a reader sees: title, description and body (not the layout around it)."""
+    return hashlib.sha256('\n'.join([p.title, p.description, p.body]).encode()).hexdigest()[:16]
+
+
+def update_dates(pages):
+    """Give a page today's date when its content changes; keep it otherwise."""
+    today = dt.date.today().isoformat()
+    old = json.loads(DATES_FILE.read_text()) if DATES_FILE.exists() else {}
+    new = {}
+    for p in pages:
+        h, prev = fingerprint(p), old.get(p.file)
+        if prev is None:
+            new[p.file] = {'published': today, 'modified': today, 'fingerprint': h}
+        elif prev['fingerprint'] != h:
+            new[p.file] = {**prev, 'modified': today, 'fingerprint': h}
+        else:
+            new[p.file] = prev
+    DATES_FILE.write_text(json.dumps(dict(sorted(new.items())), indent=1) + '\n')
+    kit.PAGE_DATES.update(new)
+
+
 def sitemap(pages):
-    rows = ''.join(f'  <url><loc>{url(p.file)}</loc><lastmod>{UPDATED}</lastmod></url>\n'
+    rows = ''.join(f'  <url><loc>{url(p.file)}</loc><lastmod>{kit.page_dates(p.file)[1]}</lastmod></url>\n'
                    for p in pages if not p.noindex)
-    rows += f'  <url><loc>{url("analyser/")}</loc><lastmod>{UPDATED}</lastmod></url>\n'
+    rows += f'  <url><loc>{url("analyser/")}</loc><lastmod>{max(d["modified"] for d in kit.PAGE_DATES.values())}</lastmod></url>\n'
     return f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{rows}</urlset>\n'
 
 
 def main():
     pages = core_pages() + GUIDE_PAGES
+    update_dates(pages)
     for p in pages:
         (SITE / p.file).write_text(layout(p), encoding='utf-8')
     (SITE / 'robots.txt').write_text(robots(), encoding='utf-8')

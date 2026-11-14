@@ -389,7 +389,8 @@ PAGES.append(Page(
   'Simple definitions of half-hourly electricity terms: base load, kW, kWh, kVA, power factor, MPAN, agreed supply capacity, settlement and more.',
   page_hero('Guide', 'Glossary', 'Simple definitions of the terms used in half-hourly electricity data and on this site.',
             crumbs=[HOME, GUIDES, ('Glossary', 'glossary.html')])
-  + guide(updated_line() + '<dl class="glossary">' + ''.join(
+  + guide(updated_line() + '<p class="answer">Half-hourly (HH) data is a record of the electricity a meter measures in every half hour: 48 readings a day, usually in kWh. The terms you will meet most often are kWh (energy, what you are billed for), kW (how fast electricity is being used at a given moment), base load (the demand that never switches off) and kVA (the unit your supply capacity is set in).</p>'
+          + '<dl class="glossary">' + ''.join(
       f'<div id="{t.lower().split(" (")[0].replace(" ", "-")}"><dt>{t}</dt><dd>{d}</dd></div>' for t, d in GLOSSARY) + '</dl>')
   + cta('See the terms in your own data', "It's free, there's no sign-up, and nothing is uploaded."),
   crumbs=[HOME, GUIDES, ('Glossary', 'glossary.html')], article=True, section='Guides',

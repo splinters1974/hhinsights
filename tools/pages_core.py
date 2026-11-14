@@ -267,7 +267,9 @@ FAQ = [
 PAGES['faq.html'] = ('Questions and answers | Half Hourly Insights',
   'Common questions about the free half-hourly electricity analyser: cost, privacy, the data you need and what the results mean.',
   page_hero('FAQ', 'Questions and answers', 'If your question isn\'t answered here, <a href="contact.html" style="color:var(--blue);text-decoration:underline">ask us</a>.') +
-  '<section class="section"><div class="section-inner" style="max-width:820px">' +
+  '<section class="section"><div class="section-inner" style="max-width:820px">'
+  '<p class="answer">Half Hourly Insights is a free tool for UK businesses and public sector organisations that have half-hourly electricity data. '
+  'It runs in your web browser, so your meter files are never uploaded. You need one Excel or CSV file per meter, ideally covering 12 months.</p>' +
   ''.join(f'<h2 class="faq-group">{g}</h2><div class="faq">' + ''.join(
       f'<details><summary>{q}</summary><div class="faq-a"><p>{a}</p></div></details>' for q, a in items) + '</div>'
           for g, items in FAQ) +
@@ -372,6 +374,8 @@ PAGES['sample-report.html'] = ('Sample electricity report for an office | Half H
             crumbs=[HOME, ('Sample report', 'sample-report.html')]) +
   f'''<section class="section"><div class="section-inner sample">
 <div class="note"><strong>Made-up example.</strong> The office and its meter readings are invented, so nothing here is a real customer's result. Every figure is what the analyser reports for our example file, at an illustrative 25p/kWh.</div>
+
+<p class="answer">This made-up office used 79,191 kWh of electricity in a year, costing about £19,798 at 25p/kWh. A third of it (33%) was used while the office was closed. Use above the base load during those closed hours costs about £2,776 a year, almost half of it on Saturdays.</p>
 
 <h2 class="section-title">The year at a glance</h2>
 <p class="section-lead">A small office, open 07:00 to 19:00 on weekdays, with 363 days of valid readings.</p>
