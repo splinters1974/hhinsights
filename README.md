@@ -12,6 +12,7 @@ in the visitor's browser: meter data is never uploaded.
 | `site/analyser/index.html` | The analyser: one self-contained page, built from `analyser/`. |
 | `site/samples/example-office.csv` | A made-up year of half-hourly data for visitors to try. |
 | `tools/build_pages.py` | Builds every page in `site/` from one layout (head, navigation, footer). Edit page text there, then run `python3 tools/build_pages.py`. |
+| `tools/build_guide.py` | Builds the downloadable user guide (`site/downloads/half-hourly-insights-user-guide.pdf`) from `tools/guide/guide.html` and the screenshots in `tools/guide/img`. Run `python3 tools/build_guide.py` after editing the guide. |
 | `analyser/` | Source of the analyser (React, TypeScript, Vite). |
 
 ## Updating the analyser
