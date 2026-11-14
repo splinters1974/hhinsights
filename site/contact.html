@@ -117,6 +117,7 @@
 <form class="form" id="enquiry" method="POST" action="https://formspree.io/f/xeagedqj">
   <input type="hidden" name="_subject" value="New Half Hourly Insights enquiry">
   <input type="hidden" name="site" value="Half Hourly Insights">
+  <input type="hidden" name="from_page" id="fromPage" value="">
   <p class="hp"><label>Leave this empty <input name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
   <div class="form-row">
     <div><label for="name">Name <span class="req">*</span></label><input id="name" name="name" autocomplete="name" required></div>
@@ -141,6 +142,8 @@
 <script>
 // Send the enquiry to Formspree, then show our own thank-you page.
 // Without JavaScript the form posts to Formspree directly.
+// Record which page on this site the visitor came from, so enquiries can be traced to a guide. Other sites are ignored.
+try { const r = new URL(document.referrer); if (r.origin === location.origin) document.getElementById('fromPage').value = r.pathname; } catch (_) {}
 document.getElementById('enquiry').addEventListener('submit', async (e) => {
   e.preventDefault();
   const form = e.target, btn = form.querySelector('button[type=submit]'), err = form.querySelector('.form-error');

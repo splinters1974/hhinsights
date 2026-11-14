@@ -314,6 +314,7 @@ PAGES['contact.html'] = ('Contact | Half Hourly Insights',
 <form class="form" id="enquiry" method="POST" action="{FORM_ENDPOINT}">
   <input type="hidden" name="_subject" value="New Half Hourly Insights enquiry">
   <input type="hidden" name="site" value="Half Hourly Insights">
+  <input type="hidden" name="from_page" id="fromPage" value="">
   <p class="hp"><label>Leave this empty <input name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
   <div class="form-row">
     <div><label for="name">Name <span class="req">*</span></label><input id="name" name="name" autocomplete="name" required></div>
@@ -338,6 +339,8 @@ PAGES['contact.html'] = ('Contact | Half Hourly Insights',
 <script>
 // Send the enquiry to Formspree, then show our own thank-you page.
 // Without JavaScript the form posts to Formspree directly.
+// Record which page on this site the visitor came from, so enquiries can be traced to a guide. Other sites are ignored.
+try {{ const r = new URL(document.referrer); if (r.origin === location.origin) document.getElementById('fromPage').value = r.pathname; }} catch (_) {{}}
 document.getElementById('enquiry').addEventListener('submit', async (e) => {{
   e.preventDefault();
   const form = e.target, btn = form.querySelector('button[type=submit]'), err = form.querySelector('.form-error');
@@ -366,10 +369,11 @@ PAGES['privacy.html'] = ('Privacy | Half Hourly Insights',
   guide(f'''
 <h2 id="analyser">The analyser</h2>
 <p>The analyser runs entirely in your web browser. Meter files you load are read on your own computer. They are never uploaded and we never see them. The same goes for everything you enter (opening hours, rates, notes) and everything you download (PDFs, spreadsheets, project files and customer dashboards).</p>
+<p>If you choose "Size solar for this site" on the Capacity tab, the analyser opens our sister site, the UK Solar Calculator, in a new tab. It passes only that site's annual use and the estimated share of solar output used on site, in the part of the web address after "#", which browsers do not send to any server. Your readings are not passed.</p>
 <p>The analyser stores nothing in your browser between visits. Save a project file if you want to come back to your work.</p>
 
 <h2 id="enquiries">Enquiries</h2>
-<p>If you send the contact form, we receive the details you enter: your name, email, organisation, phone, sector, number of sites and message. We only use them to reply to your enquiry and any follow-up you ask for. We don't sell them or add you to a mailing list.</p>
+<p>If you send the contact form, we receive the details you enter: your name, email, organisation, phone, sector, number of sites and message, plus the page on this site you came to the form from. We only use them to reply to your enquiry and any follow-up you ask for. We don't sell them or add you to a mailing list.</p>
 <p>{OPERATOR} is responsible for the details you send (the data controller). The form is sent through Formspree, a form-handling service, which emails your enquiry to us and keeps a copy in our Formspree account on our behalf. Formspree may process data outside the UK; its own privacy policy explains how.</p>
 <p>We keep enquiry details only for as long as we need them to deal with your enquiry and any follow-up you ask for. We then delete them, from our email and from Formspree, unless we have to keep them for a legal reason. You can ask us to delete them sooner at any time.</p>
 

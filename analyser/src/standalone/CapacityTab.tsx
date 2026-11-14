@@ -5,6 +5,7 @@ import type { SiteTab } from '../local/findings';
 import type { SiteSummary } from '../local/localClient';
 import HeadroomPanel from './HeadroomPanel';
 import CapacityWeek from './CapacityWeek';
+import SolarPanel from './SolarPanel';
 import { Card, Field, NumberInput } from './ui';
 import { kw, num, pct } from './format';
 
@@ -56,6 +57,7 @@ export default function CapacityTab({ site, onChange, locked, goTo }: {
           A peak that happens once is a different problem from one that happens every winter weekday.
         </p>
       </Card>
+      <SolarPanel site={site} />
     </div>
   );
 }

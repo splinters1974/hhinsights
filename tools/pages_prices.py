@@ -233,6 +233,7 @@ PAGES.append(guide_page(
 <h3 id="cm">Capacity Market (CM)</h3>
 <p>Pays capacity providers to make sure enough reliable capacity is available, for example during periods of low wind and high demand.{ref(n['cm'])} Payments for October 2026 to September 2027 total £3.47 billion.{ref(n['emrs'])} Suppliers pay according to their customers' share of demand between 4pm and 7pm on working days from November to February.{ref(n['cm'])} Dividing the total by the demand forecast for those hours gives about £{CM_RATE:.0f} for each MWh used in them (our calculation).{ref(n['emrs'])}</p>
 <p><strong>Half-hourly angle:</strong> this is the charge most affected by timing. Cutting use between 4pm and 7pm on winter working days cuts it directly.</p>
+<p><strong>Solar won't do much here:</strong> in midwinter the sun sets around 4pm across most of the UK, so panels produce little or nothing in these hours. Solar cuts the charges you pay per unit instead. To see how much of a solar system's output your site would use, try the analyser's Capacity tab or our sister site, the <a href="https://uksolarcalculator.co.uk/">UK Solar Calculator</a>.</p>
 
 <h3 id="rab">Nuclear RAB</h3>
 <p>Funds the construction of new nuclear power stations under the Regulated Asset Base model; the first is Sizewell C. It is collected from suppliers in the same way as the CfD levy.{ref(n['rab'])} The rate was £3.75/MWh from October 2026, rising to £5.15/MWh from 6 December 2026, and is £3.68/MWh for January to March 2027.{ref(n['emrs'])}</p>
