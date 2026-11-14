@@ -7,7 +7,7 @@ Written for a general business reader, in the voice of the team that runs the
 site ("we"). Explain terms on first use; write as much as the reader needs.
 """
 from kit import (CONTACT_EMAIL, CONTACT_NAME, OPERATOR, OPERATOR_URL, SOLAR_URL, APP, Page,
-                 cta, photo, faq_section, guide, page_hero, related, updated_line)
+                 cta, photo, faq_section, guide, page_hero, related, updated_line, GUIDE_PDF, guide_download)
 
 HOME = ('Home', 'index.html')
 GUIDES = ('Guides', 'guides.html')
@@ -99,7 +99,7 @@ PAGES['index.html'] = ('Half Hourly Insights: free half-hourly electricity analy
   <div class="section-inner">
     <div class="head-row">
       <h2 class="section-title">How it works in three steps</h2>
-      <p>No account and nothing to install. It works in Chrome or Edge on any recent computer.</p>
+      <p>No account and nothing to install. It works in Chrome or Edge on any recent computer. For a step-by-step walk-through, <a href="{GUIDE_PDF}" download style="color:var(--blue);text-decoration:underline">download the user guide</a> (PDF).</p>
     </div>
     <div class="steps">
       <div><div class="step-head"><span class="step-n">1</span><span class="step-line"></span></div><h3>Load your files</h3><p>Drag in one file for each meter. The analyser works out the layout, checks the readings and tells you what it found.</p></div>
@@ -155,7 +155,7 @@ PAGES['how-it-works.html'] = ('How it works | Half Hourly Insights',
             crumbs=[HOME, ('How it works', 'how-it-works.html')]) +
   guide(updated_line() + '''
 <p class="answer">The analyser checks every half-hourly reading, works out how much electricity the site uses when it's open and when it's closed, and prices the difference at your rates. It tells you where to look. Someone who knows the building then decides what to change.</p>
-''' + photo('switchroom-tablet', 'Three people in a switch room looking at data on a tablet beside open electrical panels', 'The findings tell you where to look. A walk round the building tells you why.') + '''
+''' + photo('switchroom-tablet', 'Three people in a switch room looking at data on a tablet beside open electrical panels', 'The findings tell you where to look. A walk round the building tells you why.') + guide_download('Want the practical steps?') + '''
 
 <h2 id="files">1. Reading your files</h2>
 <p>Load one file for each meter, as Excel (.xlsx or .xls) or CSV. Three layouts work:</p>
@@ -227,6 +227,7 @@ PAGES['get-your-data.html'] = ('How to get your half-hourly electricity data',
 <tr><td>Timestamped</td><td>One row per reading, with its date and time</td></tr></tbody></table></div>
 <p>Excel (.xlsx, .xls) and CSV files both work. Extra columns, such as meter references, are ignored. If a file can't be read, the analyser explains why.</p>
 <p>Not sure what your file should look like? <a href="samples/example-office.csv" download>Download our example file</a> and compare.</p>
+''' + guide_download('Got your file?') + '''
 
 <h2 id="no-data">If your supplier can't provide it</h2>
 <p>If your supplier says the meter doesn't record half-hourly readings, ask whether it can be replaced with a smart or advanced meter that does. In the meantime, check whether a building management or monitoring system on site keeps its own records. Monthly meter readings will show how use changes through the year, but they can't show the daily and overnight patterns this analyser looks for.</p>
@@ -242,6 +243,7 @@ FAQ = [
     ('Is it really free?', "Yes. There's no charge, no account and no limit on the number of sites. If you'd like help acting on the results you can contact us, but there's no obligation."),
     ('Do I need to install anything?', "No. It runs in Chrome or Edge on a recent computer. It isn't designed for phones, because the charts need a larger screen."),
     ('How many sites can I load?', 'As many as your computer can handle. Each meter file becomes a site, and the analyser ranks them so you know which to look at first.'),
+    ('Is there a user guide?', f'Yes. <a href="{GUIDE_PDF}" download>Download the user guide</a> (PDF). It takes you through getting your data, loading it, setting opening hours, reading the results, downloading reports and creating customer dashboards.'),
     ('Can I save my work?', 'Yes. Save a project file to your computer and open it again later. It contains the readings and all your settings, so store it as carefully as the original data.'),
     ('Can I share results with a client or colleague?', "Yes. You can download a PDF report for one site or your whole portfolio, export to Excel, or create a customer dashboard. That's a password-protected copy of the analyser containing only their sites."),
   ]),

@@ -204,6 +204,15 @@ def link_card(f, t, d, more='Read the guide'):
     return f'<a class="link-card{" has-thumb" if img else ""}" href="{f}">{thumb}<h3>{t}</h3><p>{d}</p><span class="more">{more}</span></a>'
 
 
+# The downloadable user guide, built by tools/build_guide.py.
+GUIDE_PDF = 'downloads/half-hourly-insights-user-guide.pdf'
+
+
+def guide_download(lead='Prefer to read it on paper?'):
+    return (f'<div class="note"><strong>{lead}</strong> <a href="{GUIDE_PDF}" download>Download the user guide</a> '
+            '(PDF, 13 pages). It walks you through loading your data, setting opening hours, reading the results and sharing them.</div>')
+
+
 def related(links):
     """'Read next' cards at the end of a guide: [(file, title, one line)]."""
     return '<h2 id="next">Read next</h2>\n<div class="link-grid">' + ''.join(
@@ -297,7 +306,7 @@ def layout(page):
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Analyser</div>
-        <ul><li><a href="analyser/">Open the analyser</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="example-office-analysis.html">Worked example</a></li><li><a href="samples/example-office.csv" download>Example data file</a></li><li><a href="faq.html">FAQ</a></li></ul>
+        <ul><li><a href="analyser/">Open the analyser</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="example-office-analysis.html">Worked example</a></li><li><a href="samples/example-office.csv" download>Example data file</a></li><li><a href="{GUIDE_PDF}" download>User guide (PDF)</a></li><li><a href="faq.html">FAQ</a></li></ul>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Guides</div>
