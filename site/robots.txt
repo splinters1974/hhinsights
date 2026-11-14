@@ -41,3 +41,5 @@ Allow: /
 
 User-agent: Meta-ExternalAgent
 Allow: /
+
+Sitemap: https://halfhourlyinsights.netlify.app/sitemap.xml
