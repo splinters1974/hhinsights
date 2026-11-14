@@ -10,6 +10,18 @@ from pathlib import Path
 SITE = Path(__file__).resolve().parent.parent / 'site'
 NAME = 'Half Hourly Insights'
 YEAR = 2026
+# Run by Kinetic Energy Consulting, as with the UK Solar Calculator.
+OPERATOR = 'Kinetic Energy Consulting'
+OPERATOR_URL = 'https://www.kinetic-energy.co.uk'
+CONTACT_NAME = 'Paul Johnston'
+CONTACT_EMAIL = 'pjohnston663@gmail.com'
+ORG_JSONLD = f'''  <script type="application/ld+json">
+{{"@context": "https://schema.org", "@type": "Organization", "name": "{OPERATOR}", "url": "{OPERATOR_URL}",
+ "email": "{CONTACT_EMAIL}", "sameAs": ["https://www.linkedin.com/company/kinetic-energy-consulting"],
+ "areaServed": {{"@type": "Country", "name": "United Kingdom"}},
+ "contactPoint": {{"@type": "ContactPoint", "contactType": "Sales", "email": "{CONTACT_EMAIL}", "areaServed": "GB"}}}}
+  </script>
+'''
 
 MARK = ('<svg viewBox="0 0 34 34" aria-hidden="true">'
         '<rect x="3" y="15" width="5" height="10" rx="1" fill="#0065A4"/>'
@@ -50,7 +62,7 @@ def layout(file, title, description, body, extra_head=''):
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="preload" href="fonts/schibsted-grotesk-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/site.css">
-{extra_head}</head>
+{ORG_JSONLD}{extra_head}</head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <nav class="site-nav" id="siteNav" aria-label="Main">
@@ -76,7 +88,8 @@ def layout(file, title, description, body, extra_head=''):
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo">{MARK.format(base='#FFFFFF')}<span class="footer-logo-name">{NAME}</span></div>
-        <p class="footer-desc">Free half-hourly electricity analysis for UK businesses and public bodies. It runs in your browser: your meter data never leaves your computer.</p>
+        <p class="footer-desc">Free half-hourly electricity analysis for UK businesses and public sector organisations, run by {OPERATOR}. It runs in your browser: your meter data never leaves your computer.</p>
+        <div class="footer-contact-item">Email: <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a></div>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Analyser</div>
@@ -92,8 +105,8 @@ def layout(file, title, description, body, extra_head=''):
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-copy">&copy; {YEAR} {NAME}</div>
-      <div class="footer-disclaimer">Results are estimates from the data you load, not a guarantee of savings. Costs are energy cost at the rates you enter. Guides are general information, not advice.</div>
+      <div class="footer-copy">&copy; {YEAR} {OPERATOR}</div>
+      <div class="footer-disclaimer">All analyser outputs are indicative estimates from the data you load, not a guarantee of savings. Guides are general information, not financial, tax or legal advice.</div>
     </div>
   </div>
 </footer>
@@ -365,8 +378,21 @@ PAGES['faq.html'] = ('Questions and answers | Half Hourly Insights',
 PAGES['contact.html'] = ('Contact | Half Hourly Insights',
   'Talk to an energy expert about your half-hourly results, a full energy audit or help reducing out-of-hours use across your estate.',
   page_hero('Contact', 'Talk to an expert',
-            'The analyser shows where to look. If you\'d like help turning findings into savings, tell us a little about your sites and we\'ll be in touch.') +
-  '''<section class="section"><div class="section-inner">
+            'The analyser shows where to look. If you\'d like help turning findings into savings, tell us a little about your sites and we\'ll be in touch. No obligation.') +
+  f'''<section class="section"><div class="section-inner contact-grid">
+<div class="contact-info">
+  <a href="{OPERATOR_URL}" target="_blank" rel="noopener noreferrer" class="kec-logo-link">
+    <span class="kec-sponsored-by">Sponsored by</span>
+    <img src="images/kec-logo.svg" alt="{OPERATOR}" class="kec-logo-img" width="220" height="105">
+  </a>
+  <h2>{CONTACT_NAME}</h2>
+  <p>Get in touch to talk through your results, or about help reducing out-of-hours use across your sites. Enquiries are typically responded to within one working day.</p>
+  <dl class="contact-details">
+    <div><dt>Email</dt><dd><a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a></dd></div>
+    <div><dt>Response time</dt><dd>Within 1 working day</dd></div>
+    <div><dt>Coverage</dt><dd>Nationwide across the UK</dd></div>
+  </dl>
+</div>
 <form class="form" name="enquiry" method="POST" action="thanks.html" data-netlify="true" netlify-honeypot="company_url">
   <input type="hidden" name="form-name" value="enquiry">
   <p class="hp"><label>Leave this empty <input name="company_url" tabindex="-1" autocomplete="off"></label></p>
@@ -390,7 +416,7 @@ PAGES['contact.html'] = ('Contact | Half Hourly Insights',
 </div></section>''')
 
 PAGES['thanks.html'] = ('Thank you | Half Hourly Insights', 'Your enquiry has been sent.',
-  page_hero('Contact', 'Thank you', 'Your enquiry has been sent. We\'ll reply by email, usually within two working days.',
+  page_hero('Contact', 'Thank you', 'Your enquiry has been sent. We\'ll reply by email, typically within one working day.',
             '\n    <a href="analyser/" class="btn btn-gold btn-lg">Back to the analyser</a>'),
   '  <meta name="robots" content="noindex">\n')
 
@@ -398,20 +424,20 @@ PAGES['thanks.html'] = ('Thank you | Half Hourly Insights', 'Your enquiry has be
 PAGES['privacy.html'] = ('Privacy | Half Hourly Insights',
   'How Half Hourly Insights handles your data: meter files never leave your computer; enquiry details are used only to reply.',
   page_hero('Privacy', 'Privacy notice', 'Short version: your meter data never leaves your computer. If you contact us, we use your details only to reply.') +
-  guide('''
+  guide(f'''
 <h2 id="analyser">The analyser</h2>
 <p>The analyser runs entirely in your web browser. Meter files you load are read on your computer. They are not uploaded, and we never see them. The same applies to everything you enter (opening hours, rates, notes) and everything you download (PDFs, spreadsheets, project files and customer dashboards).</p>
 <p>The analyser stores nothing in your browser between visits. Save a project file if you want to come back to your work.</p>
 
 <h2 id="enquiries">Enquiries</h2>
 <p>If you send the contact form, we receive the details you enter: your name, email, organisation, phone, sector, number of sites and message. We use them only to reply to your enquiry and any follow-up you ask for. We don't sell them or add you to a mailing list.</p>
-<p>The form is processed by our website host, Netlify, which stores submissions on our behalf. [Retention period and data controller details to be confirmed.]</p>
+<p>{OPERATOR} is responsible for the details you send (the data controller). The form is processed by our website host, Netlify, which stores submissions on our behalf. [Retention period to be confirmed.]</p>
 
 <h2 id="cookies">Cookies and tracking</h2>
 <p>This site sets no cookies and runs no advertising or tracking scripts. Fonts are served from this site, not a third party.</p>
 
 <h2 id="rights">Your rights</h2>
-<p>You can ask what we hold about you, ask us to correct it or delete it, by <a href="contact.html">contacting us</a>. You can also complain to the Information Commissioner's Office (ico.org.uk).</p>
+<p>You can ask what we hold about you, ask us to correct it or delete it, by emailing <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a>. You can also complain to the Information Commissioner's Office (ico.org.uk).</p>
 '''))
 
 PAGES['404.html'] = ('Page not found | Half Hourly Insights', 'This page does not exist.',

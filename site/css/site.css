@@ -556,3 +556,18 @@ button, input, select, textarea { font-family: inherit; }
 }
 .skip { position: absolute; left: -10000px; top: 8px; z-index: 2000; background: #fff; color: var(--ink); padding: 10px 16px; border-radius: 6px; font-weight: 600; }
 .skip:focus { left: 16px; }
+
+/* Contact: sponsor and contact card beside the form, as on the UK Solar Calculator */
+.contact-grid { display: flex; flex-wrap: wrap; gap: 48px 72px; align-items: flex-start; }
+.contact-grid .form { flex: 1 1 520px; }
+.contact-info { flex: 1 1 300px; max-width: 420px; }
+.kec-logo-link { display: inline-block; margin-bottom: 20px; }
+.kec-sponsored-by { display: block; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; color: var(--grey); margin-bottom: 6px; }
+.kec-logo-img { width: 220px; height: auto; transition: opacity 0.2s; }
+.kec-logo-link:hover .kec-logo-img { opacity: 0.85; }
+.contact-info h2 { font-size: 26px; font-weight: 800; letter-spacing: -0.01em; }
+.contact-info p { margin-top: 10px; font-size: 16px; line-height: 1.6; color: var(--text-2); }
+.contact-details { margin-top: 24px; display: grid; gap: 14px; border-top: 1px solid var(--rule); padding-top: 18px; }
+.contact-details dt { font-size: 14px; color: var(--grey); }
+.contact-details dd { font-size: 17px; font-weight: 600; color: var(--ink); }
+.contact-details a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }

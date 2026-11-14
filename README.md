@@ -25,9 +25,14 @@ npm run build   # writes site/analyser/index.html
 
 The engine is shared with the internal Data Analyser. Changes made there can be copied into `analyser/src`; this copy is branded Half Hourly Insights only.
 
+## Who runs it
+
+Run by Kinetic Energy Consulting, as with the UK Solar Calculator: the footer,
+copyright, contact page ("Sponsored by" logo and Paul Johnston's contact card)
+and privacy notice say so. These are set at the top of `tools/build_pages.py`.
+
 ## Before going live
 
-- **Domain:** add canonical URLs, absolute Open Graph image URLs and a sitemap once the domain is fixed.
-- **Enquiry form:** uses Netlify Forms (no third-party script). In Netlify, set form notifications to send to the inbox that should receive leads.
-- **Privacy notice:** fill in who the data controller is and how long enquiries are kept (marked in `tools/build_pages.py`, privacy section).
-- **Footer:** add the operating company's name and contact details.
+- **Enquiry emails:** the form uses Netlify Forms (no third-party script). In Netlify, go to the site's Forms settings, then Form notifications, and add an email notification for the `enquiry` form to the agreed enquiries inbox. Without this, submissions are stored in Netlify but nobody is emailed.
+- **Domain (to be confirmed):** then add canonical URLs, absolute Open Graph image URLs and a sitemap.
+- **Privacy notice:** confirm how long enquiries are kept (marked in `tools/build_pages.py`, privacy section).
