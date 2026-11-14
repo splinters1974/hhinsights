@@ -576,3 +576,9 @@ button, input, select, textarea { font-family: inherit; }
 .prose a.link-card { text-decoration: none; color: var(--ink); }
 .prose a.link-card h3 { margin: 0; }
 .prose a.link-card p { margin: 0; }
+/* Glossary */
+.glossary { display: grid; gap: 0; border-top: 1px solid var(--rule); }
+.glossary > div { padding: 16px 0; border-bottom: 1px solid var(--rule); scroll-margin-top: 96px; }
+.glossary dt { font-size: 19px; font-weight: 700; color: var(--ink); }
+.glossary dd { margin-top: 4px; font-size: 17px; line-height: 1.6; color: var(--text-2); }
+.prose sup a { text-decoration: none; font-size: 12px; }

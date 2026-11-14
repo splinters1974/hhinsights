@@ -26,6 +26,11 @@ Method in brief: base load is the 5th percentile of valid half-hourly demand; ou
 - [Out-of-hours electricity use: how to find and cut it](out-of-hours-electricity.html): What out-of-hours electricity use is, how to find it in half-hourly data (opening hours, heatmap, day types, edges of the day), common causes, and fixes.
 - [Base load electricity: what it is and how to cut it](base-load.html): What base load is, how to measure it from half-hourly data (5th percentile, not the minimum), what makes it up, how to reduce it; 1 kW all year is 8,760 kWh.
 - [Supply capacity and kVA: room for heat pumps and EVs](supply-capacity.html): Agreed supply capacity in kVA, kW to kVA via power factor, headroom from half-hourly peaks with a safety margin, and screening heat pumps and EV charging.
+- [Worked example: a primary school's half-hourly data](example-school-analysis.html): A primary school with term dates entered: 31% of use while shut, £1,261 a year above base load; heating plant on through October half term (demand more than double); evening lettings.
+- [How to read a half-hourly electricity heatmap](reading-a-heatmap.html): How to read a half-hourly heatmap (days across, time of day down, colour for demand) and the patterns that point to waste.
+- [How to prove an energy saving worked, with half-hourly data](proving-savings.html): Proving a saving with half-hourly data: matched before-and-after periods, the right measure for the change, weather effects, and the analyser tools.
+- [Market-wide half-hourly settlement (MHHS) explained](half-hourly-settlement.html): Market-wide half-hourly settlement: Ofgem decision 20 April 2021; migration began 21 October 2025, due complete 7 May 2027; four-month settlement timetable from 2 July 2027; microbusinesses cannot opt out.
+- [Glossary of half-hourly electricity terms](glossary.html): Definitions: base load, closed-hours excess, kW, kWh, kVA, power factor, MPAN, agreed supply capacity, settlement, MHHS, heatmap, load factor and more.
 - [Guides to half-hourly electricity data](guides.html): Index of guides.
 
 ## Sectors

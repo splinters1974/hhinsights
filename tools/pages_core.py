@@ -201,6 +201,7 @@ PAGES['get-your-data.html'] = ('How to get your half-hourly electricity data',
 <div class="note"><strong>Example request</strong><br>Please send the half-hourly consumption data (kWh) for meter [MPAN], from [date] to [date], as an Excel or CSV file with one row per day and 48 half-hourly columns.</div>
 <ul><li><strong>One file per meter.</strong> Name each file after the site; the name becomes the site name in the analyser.</li><li><strong>At least 12 months</strong>, so annual figures and seasonal patterns are reliable. Up to three years is useful for trends.</li><li><strong>kWh per half hour</strong> is ideal. kW files also work; the analyser tells you which it found.</li></ul>
 <p>Your meter's MPAN (the 13-digit supply number) is on your electricity bill.</p>
+<p><a href="downloads/half-hourly-data-request.docx" download><strong>Download a letter template</strong></a> (Word): a ready-to-edit request listing what to ask for, with spaces for your MPANs and dates.</p>
 
 <h2 id="formats">Formats the analyser reads</h2>
 <div class="table-wrap"><table><thead><tr><th>Layout</th><th>Looks like</th></tr></thead><tbody>

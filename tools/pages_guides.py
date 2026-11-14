@@ -7,7 +7,7 @@ Figures in the worked example come from the analyser run on
 site/samples/example-office.csv (made-up data). Re-check them if that file
 or the engine changes.
 """
-from kit import (NAV_PARENT, SOLAR_URL, Page, cta, faq_section, guide, page_hero, related, toc,
+from kit import (NAV_PARENT, SOLAR_URL, Page, cta, faq_section, guide, page_hero, related, sources, strip_tags, toc,
                  updated_line)
 
 HOME = ('Home', 'index.html')
@@ -182,6 +182,211 @@ PAGES.append(guide_page(
    ('how-it-works.html', 'How the analyser works', 'Including how headroom is worked out.')],
   'Agreed supply capacity in kVA, kW to kVA via power factor, headroom from half-hourly peaks with a safety margin, and screening heat pumps and EV charging.'))
 
+# ── WORKED EXAMPLE: SCHOOL ──────────────────────────────────────────────
+PAGES.append(guide_page(
+  'example-school-analysis.html',
+  'Worked example: a primary school\'s half-hourly data',
+  'Worked example: one primary school',
+  'A year of half-hourly data from a primary school, set up with its term dates and run through the analyser. The school is made up; every figure is what the analyser reports.',
+  'A primary school\'s year of half-hourly data: heating left on through half term, evening lettings, and what the analyser found once term dates were entered.',
+  '''
+<p class="answer">Once its term dates were entered, this school used 31% of its electricity while shut: about £1,260 a year above what never switches off, at 25p/kWh. The biggest single problem was October half term, when demand was more than double what it should have been for an empty building.</p>
+
+<div class="note"><strong>Made-up data.</strong> <a href="samples/example-school.csv" download>Download the file</a> and load it into the <a href="analyser/">analyser</a> to follow along. Set the building type to School and add the term dates below as closures.</div>
+
+<h2 id="setup">Setting it up</h2>
+<p>School holidays are never assumed: the analyser asks you to enter them. For this school:</p>
+<ul><li>Building type: School (open 07:00 to 17:30 on weekdays)</li><li>Six closures: Easter, May half term, summer, October half term, Christmas and February half term</li><li>Hours ticked as confirmed</li></ul>
+<p>Without the term dates, holiday weeks would count as normal school days, and a heating fault in a holiday would hide as normal use.</p>
+
+<h2 id="headline">The headline figures</h2>
+<div class="table-wrap"><table><thead><tr><th>Measure</th><th class="num">Value</th></tr></thead><tbody>
+<tr><td>Electricity a year</td><td class="num">57,753 kWh</td></tr><tr><td>Energy cost a year (25p/kWh)</td><td class="num">£14,438</td></tr>
+<tr><td>Base load</td><td class="num">1.9 kW</td></tr><tr><td>Highest half hour</td><td class="num">30.1 kW</td></tr>
+<tr><td>Use while shut</td><td class="num">31%</td></tr><tr><td>Out-of-hours excess</td><td class="num">£1,261 a year</td></tr></tbody></table></div>
+
+<h2 id="heatmap">The year at a glance</h2>
+<figure class="figure"><img src="images/heatmap-school.png" width="2464" height="896" alt="Heatmap of a school year: dark blocks in term time, blank holidays, a pale block across October half term and thin stripes on Tuesday and Thursday evenings" loading="lazy"><figcaption>One column per day, one row per half hour. Term weeks are dark; holidays should be blank. October half term isn't.</figcaption></figure>
+<p>Two things stand out: a pale block across the whole of October half term, and thin stripes after 18:00 on two evenings a week in term. <a href="reading-a-heatmap.html">How to read a heatmap</a>.</p>
+
+<h2 id="findings">What the analyser found</h2>
+<h3>1. Heating plant on through October half term</h3>
+<p>The three largest out-of-hours days of the year were all in half term, about 100 kWh each above base load. The analyser flagged a lasting change: demand from 25 October was at least 15% above its expected level on five of nine days, on average more than double. The pattern (07:00 to 17:00 on weekdays, nobody in) points to plant running to its term-time schedule.</p>
+<h3>2. Evening lettings</h3>
+<p>Weekday evenings account for the largest share of the out-of-hours excess: 2,765 kWh above base load. The stripes on Tuesday and Thursday evenings are a regular hall letting. Lettings are fine, but they should be in the calendar as open hours, and it's worth checking whether a hall booking is lighting and heating more of the building than it needs.</p>
+<h3>3. Holidays and weekends</h3>
+<p>The holidays themselves added 1,157 kWh above base load, most of it in October. Saturdays and Sundays were close to base load (556 kWh and 526 kWh above it across the year), which is what you'd hope for.</p>
+
+<h2 id="next-steps">What we'd do next</h2>
+<ol><li><strong>Add the holiday calendar to the building management system</strong>, so heating and ventilation switch off for half terms as well as the long holidays.</li><li><strong>Add the lettings to the analyser's calendar</strong>, then look at what the hall booking switches on.</li><li><strong>Check the next half term</strong> with the analyser's before-and-after comparison to see whether the fix worked.</li></ol>
+''',
+  [('setup', 'Setting it up'), ('headline', 'The headline figures'), ('heatmap', 'The year at a glance'), ('findings', 'What the analyser found'), ('next-steps', "What we'd do next")],
+  [('Do I have to enter term dates?', 'Yes. The analyser never assumes them, because they vary by school and by year. Paste them in as closures; without them, holiday weeks count as normal school days.'),
+   ('Should a school use nothing in the holidays?', 'No. The base load continues (IT, fridges, security). Holiday use above the base load is what to look at.'),
+   ('Is this real data?', 'No. The school and its readings are made up, so the method can be shown without anyone\'s real data.')],
+  [('reading-a-heatmap.html', 'Reading a heatmap', 'How to spot patterns like half term at a glance.'),
+   ('schools-electricity.html', 'Schools and colleges', 'What to check first in education buildings.'),
+   ('proving-savings.html', 'Proving a saving', 'Checking whether the half-term fix worked.')],
+  'A primary school with term dates entered: 31% of use while shut, £1,261 a year above base load; heating plant on through October half term (demand more than double); evening lettings.',
+  crumbs=[HOME, GUIDES, ('Worked example: school', 'example-school-analysis.html')]))
+
+# ── READING A HEATMAP ───────────────────────────────────────────────────
+PAGES.append(guide_page(
+  'reading-a-heatmap.html',
+  'How to read a half-hourly electricity heatmap',
+  'How to read a half-hourly heatmap',
+  'A heatmap shows every half hour of a year in one picture. Once you know what to look for, the problems jump out.',
+  'How to read a half-hourly electricity heatmap: what the axes and colours mean, what normal looks like, and the patterns that point to waste.',
+  '''
+<p class="answer">A half-hourly heatmap has one column per day and one row per half hour, with darker colour for higher demand. Normal use shows as a dark band during opening hours; anything dark outside that band, such as nights, weekends and holidays, is use worth checking.</p>
+
+<h2 id="axes">What you're looking at</h2>
+<ul><li><strong>Across:</strong> days, from the start of the period to the end.</li><li><strong>Down:</strong> time of day, from midnight at the top to midnight at the bottom.</li><li><strong>Colour:</strong> demand in that half hour, from pale (low) to dark (high).</li></ul>
+<p>A year is about 17,500 half hours. A table of that many numbers is unreadable; the heatmap shows all of them at once.</p>
+
+<figure class="figure"><img src="images/heatmap-office.png" width="2464" height="896" alt="Heatmap of an office year: a dark weekday band, pale nights, and weekends that are sometimes busy" loading="lazy"><figcaption>An office (made-up data). The weekday band is clear, and some Saturdays are as busy as weekdays.</figcaption></figure>
+
+<h2 id="normal">What normal looks like</h2>
+<p>For a building used on weekdays: a dark horizontal band during working hours, regular pale gaps for weekends, and pale nights. Winter is often a little darker than summer. The edges of the band show when the building really starts and stops.</p>
+
+<h2 id="patterns">Patterns worth checking</h2>
+<div class="table-wrap"><table><thead><tr><th>What you see</th><th>What it usually means</th></tr></thead><tbody>
+<tr><td>A pale block where it should be blank (a holiday week)</td><td>Plant running to its normal schedule with nobody in</td></tr>
+<tr><td>Thin stripes in the evening on the same weekdays</td><td>Regular evening use, such as lettings, classes or cleaning</td></tr>
+<tr><td>Dark band starting well before opening</td><td>Heating or ventilation start times set too early</td></tr>
+<tr><td>Nights that get darker from a certain date</td><td>New equipment, or something left on: base load has risen</td></tr>
+<tr><td>A single dark column</td><td>One unusual day: an event, a fault, or a reading error</td></tr>
+<tr><td>Grey or striped gaps</td><td>Missing data, not zero use</td></tr></tbody></table></div>
+
+<figure class="figure"><img src="images/heatmap-school.png" width="2464" height="896" alt="Heatmap of a school year showing term blocks, holidays, a pale half-term block and evening stripes" loading="lazy"><figcaption>A primary school (made-up data). The pale block in late October is heating left on through half term; the stripes after 18:00 are evening lettings. See the <a href="example-school-analysis.html">worked example</a>.</figcaption></figure>
+
+<h2 id="next">From picture to figure</h2>
+<p>The heatmap shows where to look; the figures say how much it matters. In the analyser, click any day to see its half hours against a typical day, then use the out-of-hours and unusual-day findings to put a cost on what you've spotted.</p>
+''',
+  [('axes', "What you're looking at"), ('normal', 'What normal looks like'), ('patterns', 'Patterns worth checking'), ('next', 'From picture to figure')],
+  [('What is a carpet plot?', 'Another name for the same chart: one column per day, one row per half hour, coloured by demand.'),
+   ('Why are some days grey?', 'No valid readings. Missing data is shown as missing, not as zero, so gaps don\'t look like the building was switched off.'),
+   ('Can I see one day in detail?', 'Yes. In the analyser, click any day on the heatmap to see its half hours against a typical day of the same kind.')],
+  [('example-school-analysis.html', 'Worked example: school', 'The school heatmap, explained finding by finding.'),
+   ('out-of-hours-electricity.html', 'Out-of-hours use', 'Putting a cost on what the heatmap shows.'),
+   ('glossary.html', 'Glossary', 'The terms used in these guides.')],
+  'How to read a half-hourly heatmap (days across, time of day down, colour for demand) and the patterns that point to waste.'))
+
+# ── PROVING A SAVING ────────────────────────────────────────────────────
+PAGES.append(guide_page(
+  'proving-savings.html',
+  'How to prove an energy saving worked, with half-hourly data',
+  'Proving a saving worked',
+  'You changed a setting or replaced some equipment. Half-hourly data can show whether it made a difference, if you compare like with like.',
+  'How to use half-hourly data to show whether a change saved energy: matched before-and-after periods, the right measure, and what can mislead.',
+  '''
+<p class="answer">Compare matched periods before and after the change: the same days of the week, the same kind of day (open, closed, holiday), and enough weeks to smooth out noise. Look at the part of demand the change should affect, such as base load or out-of-hours use, rather than the total bill.</p>
+
+<h2 id="match">Compare like with like</h2>
+<ul><li><strong>Same kind of day.</strong> Compare weekdays with weekdays and holidays with holidays. A before period full of bank holidays will flatter the after period, or the reverse.</li><li><strong>Long enough.</strong> Four to eight weeks either side is usually enough to see a real change in half-hourly data. A single week can be swayed by one unusual day.</li><li><strong>Close in time.</strong> The nearer the two periods, the less the weather and the seasons get in the way.</li><li><strong>Leave out the change itself.</strong> Skip the days when the work was being done.</li></ul>
+
+<h2 id="measure">Measure the right thing</h2>
+<p>Pick the measure the change should move:</p>
+<div class="table-wrap"><table><thead><tr><th>Change</th><th>Look at</th></tr></thead><tbody>
+<tr><td>Heating or ventilation schedules</td><td>Out-of-hours use, and demand around opening and closing</td></tr>
+<tr><td>Switching off equipment overnight</td><td>Base load</td></tr>
+<tr><td>LED lighting</td><td>Open-hours demand</td></tr>
+<tr><td>Holiday settings in the building controls</td><td>Use during closures</td></tr></tbody></table></div>
+<p>Total consumption mixes the change with everything else that happened, such as occupancy, weather and new equipment, so a real saving can disappear in it.</p>
+
+<h2 id="weather">Weather and seasons</h2>
+<p>Electric heating and cooling follow the weather. If the before period was colder than the after period, some of the drop is weather, not the change. For heating-related changes, compare the same weeks a year apart as a cross-check, or normalise with degree days if you have them.</p>
+
+<h2 id="analyser">In the analyser</h2>
+<ul><li><strong>Did a change make a difference?</strong> on the Base load tab compares matched weeks either side of a date you choose.</li><li><strong>Compare periods</strong> on the Heatmap tab compares any two periods side by side.</li><li><strong>Persistent changes</strong> on the Unusual days tab flags lasting shifts on its own, so you can check whether a change shows up when you'd expect.</li></ul>
+<p>For formal measurement and verification of savings, the International Performance Measurement and Verification Protocol (IPMVP) sets out recognised methods.</p>
+''',
+  [('match', 'Compare like with like'), ('measure', 'Measure the right thing'), ('weather', 'Weather and seasons'), ('analyser', 'In the analyser')],
+  [('How long should I wait before checking?', 'Four to eight weeks of data after the change, compared with the same length of time before it, is usually enough to see a real change.'),
+   ('Why has our bill not gone down?', 'A saving in one place can be hidden by changes elsewhere: occupancy, weather, prices or new equipment. Compare the specific measure the change should affect.'),
+   ('Can this replace a formal M&amp;V report?', 'It is a good check, but formal measurement and verification (for example under IPMVP) sets a baseline, adjustments and reporting up front.')],
+  [('base-load.html', 'Base load', 'The measure most switch-off changes move.'),
+   ('out-of-hours-electricity.html', 'Out-of-hours use', 'The measure schedule changes move.'),
+   ('example-school-analysis.html', 'Worked example: school', 'A half-term fix worth checking.')],
+  'Proving a saving with half-hourly data: matched before-and-after periods, the right measure for the change, weather effects, and the analyser tools.'))
+
+# ── MHHS ────────────────────────────────────────────────────────────────
+PAGES.append(guide_page(
+  'half-hourly-settlement.html',
+  'Market-wide half-hourly settlement (MHHS) explained',
+  'Market-wide half-hourly settlement explained',
+  'Britain is moving every electricity meter onto half-hourly settlement. Here is what that means for businesses and public bodies, and why it makes half-hourly data more useful.',
+  'What market-wide half-hourly settlement (MHHS) is, the timetable to 2027, who runs it, and what it means for business and public sector electricity customers.',
+  '''
+<p class="answer">Market-wide half-hourly settlement (MHHS) means suppliers will be charged for the electricity their customers use in each half hour, rather than from estimated profiles. Migration began in October 2025 and is due to be complete in May 2027. For organisations with smart or advanced meters, it means half-hourly readings are part of how electricity is settled, so it's worth asking your supplier for them.</p>
+
+<h2 id="what">What it is</h2>
+<p>Large sites have been settled half-hourly for years. Smaller sites have mostly been settled using standard profiles: estimates of when a typical customer uses electricity. MHHS replaces those estimates with actual half-hourly readings wherever a meter can provide them.<sup><a href="#sources">1</a></sup></p>
+<p>The programme's stated objective is "to maximise the opportunities provided by smart metering by developing and implementing an enduring process for MHHS, that delivers benefits for consumers and enables a smart, flexible energy system."<sup><a href="#sources">2</a></sup></p>
+
+<h2 id="who">Who runs it</h2>
+<p>Ofgem decided to proceed with MHHS on 20 April 2021.<sup><a href="#sources">1</a></sup> Ofgem is the programme sponsor and appointed Elexon as Senior Responsible Owner and Implementation Manager; delivery is led by the industry.<sup><a href="#sources">2</a></sup></p>
+
+<h2 id="timeline">The timetable</h2>
+<div class="table-wrap"><table><thead><tr><th>Date</th><th>Milestone</th></tr></thead><tbody>
+<tr><td>20 April 2021</td><td>Ofgem decision to introduce MHHS (originally planned to complete in October 2025)</td></tr>
+<tr><td>21 October 2025</td><td>Migration to the new arrangements began, for all meter types</td></tr>
+<tr><td>7 May 2027</td><td>Migration due to be complete, with all energy settled under the new arrangements</td></tr>
+<tr><td>2 July 2027</td><td>Settlement moves from a 14-month to a four-month timetable</td></tr></tbody></table></div>
+<p>Dates as published by Ofgem and the MHHS programme in November 2026; check the programme's milestone page for the latest.<sup><a href="#sources">1, 3</a></sup></p>
+
+<h2 id="you">What it means for your organisation</h2>
+<ul><li><strong>You don't have to do anything to be migrated:</strong> your supplier handles it.</li><li><strong>Microbusinesses can't opt out.</strong> Ofgem's decision says half-hourly data will be processed for settlement for domestic customers unless they opt out, and that microbusiness customers will not be able to opt out.<sup><a href="#sources">1</a></sup></li><li><strong>Tariffs may change.</strong> Ofgem expects MHHS to encourage suppliers to offer tariffs that reward using electricity at cheaper times, such as time-of-use tariffs.<sup><a href="#sources">1</a></sup></li><li><strong>Half-hourly data becomes the norm.</strong> If your meter records half-hourly readings, your supplier uses them; ask for them, and you can see exactly when your sites use electricity.</li></ul>
+<p>When electricity is used will matter more under half-hourly settlement and time-of-use tariffs. Knowing your half-hourly pattern now, including what runs overnight and at weekends, puts you in a better position to choose a tariff and cut costs.</p>
+''' + sources([
+    ('Ofgem: Electricity Retail Market-wide Half-hourly Settlement: Decision and Full Business Case (20 April 2021)', 'https://www.ofgem.gov.uk/decision/electricity-retail-market-wide-half-hourly-settlement-decision-and-full-business-case'),
+    ('MHHS Programme: Programme overview', 'https://www.mhhsprogramme.co.uk/programme-information/programme-overview'),
+    ('MHHS Programme: Key programme milestones', 'https://www.mhhsprogramme.co.uk/programme-information/key-programme-milestones')]),
+  [('what', 'What it is'), ('who', 'Who runs it'), ('timeline', 'The timetable'), ('you', 'What it means for your organisation')],
+  [('When does market-wide half-hourly settlement finish?', 'Migration is due to be complete on 7 May 2027, with the move to a four-month settlement timetable on 2 July 2027, according to the MHHS programme\'s published milestones.'),
+   ('Do I need to do anything?', 'No. Your supplier migrates your meters. It is worth asking them for your half-hourly data, so you can see when your sites use electricity.'),
+   ('Can a business opt out of half-hourly data collection?', 'Ofgem\'s 2021 decision says microbusiness customers will not be able to opt out of their half-hourly data being processed for settlement. Domestic customers can opt out.')],
+  [('get-your-data.html', 'Getting your data', 'What to ask your supplier for.'),
+   ('glossary.html', 'Glossary', 'Settlement, MPAN, kVA and other terms.'),
+   ('out-of-hours-electricity.html', 'Out-of-hours use', 'The first thing to look at in your data.')],
+  'Market-wide half-hourly settlement: Ofgem decision 20 April 2021; migration began 21 October 2025, due complete 7 May 2027; four-month settlement timetable from 2 July 2027; microbusinesses cannot opt out.'))
+
+# ── GLOSSARY ────────────────────────────────────────────────────────────
+GLOSSARY = [
+  ('Agreed supply capacity', 'The maximum demand, in kVA, a connection is set up for, shown on larger electricity bills. Also called authorised or available capacity. <a href="supply-capacity.html">More</a>.'),
+  ('Annualised figure', 'A yearly figure scaled up from the valid readings available, used when the data covers less than a full year or has gaps.'),
+  ('Base load', 'The level of demand a building rarely drops below, measured as the 5th percentile of half-hourly demand. It is what never switches off. <a href="base-load.html">More</a>.'),
+  ('Closed-hours excess', 'Electricity used while a building should be shut, above its base load. The analyser ranks sites by it. <a href="out-of-hours-electricity.html">More</a>.'),
+  ('Coverage', 'The share of expected half-hourly readings that are present and valid.'),
+  ('Degree days', 'A measure of how cold (heating degree days) or warm (cooling degree days) a period was, used to compare energy use across different weather.'),
+  ('DNO', 'Distribution network operator: the company that runs the local electricity network and the connection to your site.'),
+  ('Half-hourly (HH) data', 'Electricity consumption recorded for every half hour: 48 readings a day.'),
+  ('Heatmap', 'A chart of every half hour in a period: one column per day, one row per half hour, coloured by demand. Also called a carpet plot. <a href="reading-a-heatmap.html">More</a>.'),
+  ('kVA', 'Kilovolt-ampere: apparent power, the unit supply capacity is set in. kVA = kW ÷ power factor.'),
+  ('kW', 'Kilowatt: power, the rate of use at a moment. A half-hourly reading in kWh divided by 0.5 hours gives the average kW for that half hour.'),
+  ('kWh', 'Kilowatt-hour: energy, what you are billed for. 1 kW for one hour is 1 kWh.'),
+  ('Load factor', 'Average demand divided by peak demand. A low load factor means short, high peaks.'),
+  ('Market-wide half-hourly settlement (MHHS)', 'The move to settle every electricity meter in Great Britain using half-hourly data. <a href="half-hourly-settlement.html">More</a>.'),
+  ('MPAN', 'Meter point administration number: the 13-digit supply number on an electricity bill that identifies a meter point.'),
+  ('Peak demand', 'The highest half-hourly average demand in a period, usually in kW or kVA.'),
+  ('Power factor', 'The ratio of real power (kW) to apparent power (kVA), between 0 and 1. Equipment such as motors lowers it.'),
+  ('Settlement', 'The process that works out how much electricity each supplier\'s customers used, and when, so suppliers pay the right amount for it.'),
+  ('Time-of-use tariff', 'A tariff with different unit rates at different times of day, such as day and night rates.'),
+]
+NAV_PARENT['glossary.html'] = 'guides.html'
+PAGES.append(Page(
+  'glossary.html', 'Glossary of half-hourly electricity terms',
+  'Plain-English definitions of half-hourly electricity terms: base load, kW, kWh, kVA, power factor, MPAN, agreed supply capacity, settlement and more.',
+  page_hero('Guide', 'Glossary', 'Plain-English definitions of the terms used in half-hourly electricity data and on this site.',
+            crumbs=[HOME, GUIDES, ('Glossary', 'glossary.html')])
+  + guide(updated_line() + '<dl class="glossary">' + ''.join(
+      f'<div id="{t.lower().split(" (")[0].replace(" ", "-")}"><dt>{t}</dt><dd>{d}</dd></div>' for t, d in GLOSSARY) + '</dl>')
+  + cta('See the terms in your own data', 'Free, no sign-up, and nothing is uploaded.'),
+  crumbs=[HOME, GUIDES, ('Glossary', 'glossary.html')], article=True, section='Guides',
+  summary='Definitions: base load, closed-hours excess, kW, kWh, kVA, power factor, MPAN, agreed supply capacity, settlement, MHHS, heatmap, load factor and more.',
+  schema=[{'@type': 'DefinedTermSet', 'name': 'Half-hourly electricity glossary', 'hasDefinedTerm': [
+      {'@type': 'DefinedTerm', 'name': t, 'description': strip_tags(d).replace(' More.', '')} for t, d in GLOSSARY]}]))
+
 # ── SECTORS ─────────────────────────────────────────────────────────────
 SECTOR_DATA = [
   ('schools-electricity.html', 'Schools and colleges', 'Electricity use in schools and colleges',
@@ -262,11 +467,16 @@ PAGES.append(Page(
   crumbs=[HOME, SECTORS], section='Sectors', summary='Index of sector pages.'))
 
 GUIDE_LIST = [
-    ('get-your-data.html', 'Getting your half-hourly data', 'Who has it, what to ask for, and the formats the analyser reads.'),
+    ('get-your-data.html', 'Getting your half-hourly data', 'Who has it, what to ask for, a letter template, and the formats the analyser reads.'),
     ('example-office-analysis.html', 'Worked example: one office, one year', 'What the analyser found in a year of data from a small office.'),
+    ('example-school-analysis.html', 'Worked example: a primary school', 'Heating left on through half term, evening lettings, and term dates.'),
+    ('reading-a-heatmap.html', 'How to read a heatmap', 'Every half hour of a year in one picture, and the patterns to spot.'),
     ('out-of-hours-electricity.html', 'Out-of-hours electricity use', 'How to find use while the building is shut, and cut it.'),
     ('base-load.html', 'Base load', 'What never switches off, how to measure it and how to reduce it.'),
     ('supply-capacity.html', 'Supply capacity and kVA', 'Headroom for heat pumps, EV charging and new plant.'),
+    ('proving-savings.html', 'Proving a saving worked', 'Before-and-after comparisons that stand up.'),
+    ('half-hourly-settlement.html', 'Half-hourly settlement (MHHS) explained', 'What the move to half-hourly settlement means, and the timetable to 2027.'),
+    ('glossary.html', 'Glossary', 'kW, kWh, kVA, base load, MPAN and other terms.'),
     ('how-it-works.html', 'How the analyser works', 'Every step, from reading the file to the report.'),
 ]
 NAV_PARENT['get-your-data.html'] = 'guides.html'

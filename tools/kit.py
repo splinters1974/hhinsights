@@ -244,7 +244,7 @@ def layout(page):
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Guides</div>
-        <ul><li><a href="get-your-data.html">Getting your half-hourly data</a></li><li><a href="out-of-hours-electricity.html">Out-of-hours electricity use</a></li><li><a href="base-load.html">Base load</a></li><li><a href="supply-capacity.html">Supply capacity and kVA</a></li><li><a href="sectors.html">By sector</a></li></ul>
+        <ul><li><a href="get-your-data.html">Getting your half-hourly data</a></li><li><a href="out-of-hours-electricity.html">Out-of-hours electricity use</a></li><li><a href="base-load.html">Base load</a></li><li><a href="supply-capacity.html">Supply capacity and kVA</a></li><li><a href="reading-a-heatmap.html">Reading a heatmap</a></li><li><a href="glossary.html">Glossary</a></li><li><a href="guides.html">All guides</a></li></ul>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">About</div>
@@ -267,3 +267,9 @@ def layout(page):
 </body>
 </html>
 '''
+
+
+def sources(items):
+    """Numbered source list at the end of a guide: [(title, url)]."""
+    return ('<div class="sources"><h2 id="sources">Sources</h2><ol>'
+            + ''.join(f'<li><a href="{u}">{t}</a></li>' for t, u in items) + '</ol></div>')
