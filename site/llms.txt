@@ -14,7 +14,7 @@ Method in brief: base load is the 5th percentile of valid half-hourly demand; ou
 
 ## Core pages
 
-- [Half Hourly Insights: free half-hourly electricity analysis](index.html): What the analyser shows, the three steps, and the privacy model (analysis runs in the browser).
+- [Half Hourly Insights: free business electricity data analysis](index.html): What the analyser shows, the three steps, and the privacy model (analysis runs in the browser).
 - [How it works](how-it-works.html): The method in full: reading files, data checks, opening hours, base load (5th percentile), closed-hours excess, costs, annualisation, findings, capacity, and limits.
 - [Questions and answers](faq.html): Cost, privacy, the data needed and what the results mean.
 - [Contact](contact.html): Enquiries to Kinetic Energy Consulting, which runs the site.
