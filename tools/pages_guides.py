@@ -369,7 +369,7 @@ GLOSSARY = [
   ('Closed-hours excess', 'Electricity used while a building should be closed, above its base load. The analyser ranks sites by it. <a href="out-of-hours-electricity.html">More</a>.'),
   ('Coverage', 'The share of expected half-hourly readings that are present and valid.'),
   ('Degree days', 'A measure of how cold (heating degree days) or warm (cooling degree days) a period was. Used to compare energy use across periods with different weather.'),
-  ('DNO', "Distribution network operator. The company that runs the local electricity network and your site's connection to it."),
+  ('DNO', "Distribution network operator. The company that runs the local electricity network and your site's connection to it. The first two digits of your MPAN show which one. <a href=\"mpan-profile-class.html#bottom\">More</a>."),
   ('Half-hourly (HH) data', 'A record of the electricity used in every half hour: 48 readings a day.'),
   ('Heatmap', 'A chart of every half hour in a period, with one column per day and one row per half hour, coloured by demand. Also called a carpet plot. <a href="reading-a-heatmap.html">More</a>.'),
   ('kVA', 'Kilovolt-ampere. A measure of apparent power, and the unit supply capacity is set in. kVA = kW ÷ power factor.'),
@@ -377,9 +377,10 @@ GLOSSARY = [
   ('kWh', 'Kilowatt-hour. A measure of energy, and what you are billed for. Using 1 kW for one hour is 1 kWh.'),
   ('Load factor', 'Average demand divided by peak demand. A low load factor means demand has short, high peaks.'),
   ('Market-wide half-hourly settlement (MHHS)', 'The move to settle every electricity meter in Great Britain using half-hourly data. <a href="half-hourly-settlement.html">More</a>.'),
-  ('MPAN', 'Meter point administration number. The 13-digit supply number on an electricity bill that identifies a meter.'),
+  ('MPAN', 'Meter point administration number. The 13-digit number on the bottom line of the supply number on an electricity bill. It identifies the supply point. <a href="mpan-profile-class.html">More</a>.'),
   ('Peak demand', 'The highest half-hourly average demand in a period, usually in kW or kVA.'),
   ('Power factor', 'The ratio of real power (kW) to apparent power (kVA), between 0 and 1. Equipment such as motors lowers it.'),
+  ('Profile class', 'The first two digits of the top line of the supply number. 00 means the supply is settled half-hourly; 01 to 08 mean use is estimated from standard profiles. <a href="mpan-profile-class.html#top">More</a>.'),
   ('Settlement', "The process that works out how much electricity each supplier's customers used, and when, so suppliers pay the right amount for it."),
   ('Time-of-use tariff', 'A tariff with different unit rates at different times of day, such as day and night rates.'),
 ]
@@ -389,7 +390,8 @@ PAGES.append(Page(
   'Simple definitions of half-hourly electricity terms: base load, kW, kWh, kVA, power factor, MPAN, agreed supply capacity, settlement and more.',
   page_hero('Guide', 'Glossary', 'Simple definitions of the terms used in half-hourly electricity data and on this site.',
             crumbs=[HOME, GUIDES, ('Glossary', 'glossary.html')])
-  + guide(updated_line() + '<dl class="glossary">' + ''.join(
+  + guide(updated_line() + '<p class="answer">Half-hourly (HH) data is a record of the electricity a meter measures in every half hour: 48 readings a day, usually in kWh. The terms you will meet most often are kWh (energy, what you are billed for), kW (how fast electricity is being used at a given moment), base load (the demand that never switches off) and kVA (the unit your supply capacity is set in).</p>'
+          + '<dl class="glossary">' + ''.join(
       f'<div id="{t.lower().split(" (")[0].replace(" ", "-")}"><dt>{t}</dt><dd>{d}</dd></div>' for t, d in GLOSSARY) + '</dl>')
   + cta('See the terms in your own data', "It's free, there's no sign-up, and nothing is uploaded."),
   crumbs=[HOME, GUIDES, ('Glossary', 'glossary.html')], article=True, section='Guides',
@@ -478,7 +480,7 @@ PAGES.append(Page(
   'sectors.html', 'What to look for by sector | Half Hourly Insights',
   'What half-hourly electricity data shows in schools, offices and council buildings, leisure centres, healthcare, industrial sites and retail.',
   page_hero('Sectors', 'What to look for in your sector', 'Each type of building uses electricity differently. Choose yours to see what normal looks like and what to check first.',
-            crumbs=[HOME, SECTORS]) +
+            crumbs=[HOME, SECTORS], image='sectors') +
   '<section class="section"><div class="section-inner">' +
   photo('estate-town', 'Illustration of a town with offices, a town hall, a school, a leisure centre, housing and an energy centre', cls='figure figure-wide', lazy=False) +
   '<div class="link-grid">' +
@@ -496,6 +498,12 @@ GUIDE_LIST = [
     ('supply-capacity.html', 'Supply capacity and kVA', 'Room for heat pumps, EV charging and other new equipment.'),
     ('proving-savings.html', 'Proving a saving worked', 'How to compare before and after fairly.'),
     ('half-hourly-settlement.html', 'Half-hourly settlement (MHHS) explained', 'What the move to half-hourly settlement means, and the timetable to 2027.'),
+    ('mpan-profile-class.html', 'Reading your MPAN', 'Profile class, network region and what half-hourly settlement changes.'),
+    ('electricity-benchmarks.html', 'Electricity benchmarks by sector', 'Typical kWh per m² for offices, shops, schools and more.'),
+    ('business-electricity-price.html', "What's in a business electricity price", 'Wholesale, network, policy, tax and supplier costs, with a worked example.'),
+    ('non-energy-charges.html', 'Non-energy charges explained', 'TNUoS, DUoS, BSUoS, levies and taxes, with 2026/27 rates.'),
+    ('electricity-prices-ten-years.html', 'Ten years of business electricity prices', 'What businesses paid from 2015 to 2026, and why.'),
+    ('non-energy-costs-outlook.html', 'Where non-energy costs are heading', 'Published forecasts and decisions for 2027 and beyond.'),
     ('glossary.html', 'Glossary', 'kW, kWh, kVA, base load, MPAN and other terms.'),
     ('how-it-works.html', 'How the analyser works', 'Each step, from reading your file to the report.'),
 ]
@@ -504,7 +512,7 @@ PAGES.append(Page(
   'guides.html', 'Guides to half-hourly electricity data | Half Hourly Insights',
   'Simple guides to half-hourly electricity data: getting it, out-of-hours use, base load, supply capacity and worked examples.',
   page_hero('Guides', 'Guides to half-hourly data', 'Clear answers to the questions people ask when they first look at half-hourly electricity data.',
-            crumbs=[HOME, GUIDES]) +
+            crumbs=[HOME, GUIDES], image='guides') +
   '<section class="section"><div class="section-inner"><div class="link-grid">' +
   ''.join(link_card(f, t, d) for f, t, d in GUIDE_LIST) +
   '</div><p class="note" style="margin-top:32px">Looking for your sector? See <a href="sectors.html" style="color:var(--blue);text-decoration:underline">what to look for by sector</a>.</p></div></section>'

@@ -1,0 +1,187 @@
+{
+ "404.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "4a9a4c5fc6af857e"
+ },
+ "base-load.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "538538767cd03d99"
+ },
+ "business-electricity-price.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "6a16f44821b03a68"
+ },
+ "contact.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "1a105343602cf53e"
+ },
+ "electricity-benchmarks.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "7559a2478a6fbf06"
+ },
+ "electricity-prices-ten-years.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "9e4963508490c5da"
+ },
+ "example-office-analysis.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "436a94ac21e145af"
+ },
+ "example-school-analysis.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "b531a13c172dc165"
+ },
+ "faq.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "c3e485a842a41b13"
+ },
+ "get-your-data.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "9f3946e13ec8dff1"
+ },
+ "glossary.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "490aea06ebda0db9"
+ },
+ "guides.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "1579bac40f298e02"
+ },
+ "half-hourly-data-british-gas.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "cb97e7c12dbe0aa4"
+ },
+ "half-hourly-data-edf.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "7b43b563de4099df"
+ },
+ "half-hourly-data-eon-next.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "6b441f60bfeb8c62"
+ },
+ "half-hourly-data-npower-business-solutions.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "8bcfb454db4ca54a"
+ },
+ "half-hourly-data-totalenergies.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "0992b7be79227dd2"
+ },
+ "half-hourly-settlement.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "549c6b8427f86b05"
+ },
+ "healthcare-electricity.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "f51b5a985c37b43c"
+ },
+ "how-it-works.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "b230d92b54c2a267"
+ },
+ "index.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "009bc36ae4d42291"
+ },
+ "industrial-warehouses.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "1883b3f4619a790a"
+ },
+ "leisure-centres.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "d56cad59c091af0e"
+ },
+ "mpan-profile-class.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "a59162ecdcf901ef"
+ },
+ "non-energy-charges.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "d553476e431be95c"
+ },
+ "non-energy-costs-outlook.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "09520aaca21e8dca"
+ },
+ "offices-council-buildings.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "d22b840d45e6cb69"
+ },
+ "out-of-hours-electricity.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "c96ed23c9006232b"
+ },
+ "privacy.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "47112f35dcbbaae3"
+ },
+ "proving-savings.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "0e2b63c3357d25a5"
+ },
+ "reading-a-heatmap.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "c350fdd652434d6d"
+ },
+ "retail-hospitality.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "ece37dec2c81048b"
+ },
+ "sample-report.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "ae828b3b3b1aee53"
+ },
+ "schools-electricity.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "01d886ca5e788e70"
+ },
+ "sectors.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "48da371dda8305ff"
+ },
+ "supply-capacity.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "d65211726b64358a"
+ },
+ "thanks.html": {
+  "published": "2026-11-14",
+  "modified": "2026-11-14",
+  "fingerprint": "ae94354887c607e7"
+ }
+}

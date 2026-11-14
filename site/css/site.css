@@ -629,3 +629,43 @@ button, input, select, textarea { font-family: inherit; }
 .sample-steps li { margin-bottom: 8px; line-height: 1.6; }
 .sample-cta { display: flex; flex-wrap: wrap; gap: 14px; margin: 28px 0 18px; }
 .sample p a:not(.btn), .sample li a:not(.btn) { color: var(--blue); text-decoration: underline; text-underline-offset: 2px; }
+
+/* Tab landing pages with a photo header: the same slow pan and zoom as the home
+   page (hero-drift), held still for visitors who prefer reduced motion. The
+   photos are dark on the left; the overlay keeps the heading readable on any crop. */
+.page-hero-photo { position: relative; overflow: hidden; isolation: isolate; background: var(--ink-deep); border-bottom: 0; padding: 96px 24px 88px; }
+.page-hero-photo .hero-media img { opacity: 1; object-position: 70% 50%; }
+.page-hero-photo::before { content: ''; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(90deg, rgba(4,42,60,0.92) 0%, rgba(4,42,60,0.80) 40%, rgba(4,42,60,0.35) 75%, rgba(4,42,60,0.15) 100%); }
+.page-hero-photo .page-hero-title { color: #fff; }
+.page-hero-photo .page-hero-kicker, .page-hero-photo .page-hero-lead { color: #D6E4EC; }
+.page-hero-photo .page-hero-lead a, .page-hero-photo .breadcrumb a { color: #fff; text-decoration: underline; }
+.page-hero-photo .breadcrumb, .page-hero-photo .breadcrumb span { color: #C9D9E2; }
+@media (max-width: 700px) {
+  .page-hero-photo { padding: 64px 16px 56px; }
+  .page-hero-photo::before { background: linear-gradient(180deg, rgba(4,42,60,0.88) 0%, rgba(4,42,60,0.82) 100%); }
+}
+
+/* Energy price section: the five-part diagram and simple charts */
+.price-parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin: 20px 0 8px; }
+.price-part { background: var(--mist); border-top: 4px solid var(--ink); border-radius: 8px; padding: 16px 18px; }
+.price-part:first-child { border-top-color: var(--blue); }
+.price-part h3 { font-size: 18px; margin: 0 0 8px; }
+.price-part p, .price-part li { font-size: 15px; line-height: 1.5; margin: 0; }
+.price-part ul { margin: 0; padding-left: 18px; }
+.hbars { margin: 24px 0; display: grid; gap: 10px; }
+.hbar { display: grid; grid-template-columns: minmax(120px, 34%) 1fr; gap: 12px; align-items: center; }
+.hbar-label { font-size: 15px; color: var(--text-2); text-align: right; line-height: 1.3; }
+.hbar-track { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.hbar-fill { display: block; height: 22px; background: var(--blue); border-radius: 0 4px 4px 0; min-width: 2px; flex: none; }
+.hbar-value { font-size: 14px; font-weight: 600; color: var(--ink); white-space: nowrap; }
+.hbar-track .hbar-fill { max-width: calc(100% - 92px); }
+.cols { margin: 24px 0; }
+.cols-plot { display: flex; align-items: flex-end; gap: 6px; height: 260px; border-bottom: 1px solid var(--rule); padding-top: 24px; }
+.col { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; height: 100%; position: relative; min-width: 0; }
+.col-bar { display: block; width: 100%; max-width: 46px; background: var(--blue); border-radius: 4px 4px 0 0; }
+.col-hi .col-bar { background: var(--ink); }
+.col-value { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+.col-year { position: absolute; bottom: -24px; font-size: 13px; color: var(--grey); }
+.cols figcaption { margin-top: 34px; font-size: 14px; color: var(--grey); line-height: 1.5; }
+@media (max-width: 700px) { .hbar { grid-template-columns: 1fr; gap: 4px; } .hbar-label { text-align: left; } .col-value { font-size: 11px; } .cols-plot { gap: 3px; } }

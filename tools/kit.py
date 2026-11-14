@@ -9,9 +9,24 @@ from html import escape
 
 NAME = 'Half Hourly Insights'
 YEAR = 2026
-# Date the guides were last reviewed; shown on each guide and in its schema.
+# Each page's own dates (first published, last changed) live in
+# tools/page_dates.json. build_pages.py keeps them current: a page whose
+# wording changes gets today's date as "last updated"; a layout-only rebuild
+# leaves its date alone. UPDATED is only the fallback for a page not yet built.
 UPDATED = '2026-11-14'
-UPDATED_TEXT = '14 November 2026'
+PAGE_DATES = {}   # file -> {'published': 'YYYY-MM-DD', 'modified': 'YYYY-MM-DD'}
+UPDATED_MARK = '<!--last-updated-->'
+
+
+def page_dates(file):
+    d = PAGE_DATES.get(file, {})
+    return d.get('published', UPDATED), d.get('modified', UPDATED)
+
+
+def long_date(iso):
+    import datetime as _dt
+    d = _dt.date.fromisoformat(iso)
+    return f'{d.day} {d:%B %Y}'
 # The site's public address, no trailing slash. Every page's canonical and
 # share links, robots.txt and sitemap.xml are built from it, so moving to a
 # custom domain (for example https://hhinsights.co.uk) is this one change plus
@@ -112,7 +127,7 @@ def jsonld(page):
     if page.article:
         graph.append({'@type': 'Article', 'headline': page.title.split(' | ')[0], 'description': page.description,
                       **({'image': url(guide_card(page.file))} if guide_card(page.file) else {}),
-                      'inLanguage': 'en-GB', 'datePublished': UPDATED, 'dateModified': UPDATED,
+                      'inLanguage': 'en-GB', 'datePublished': page_dates(page.file)[0], 'dateModified': page_dates(page.file)[1],
                       'author': {'@id': ORG_ID}, 'publisher': {'@id': ORG_ID},
                       'isPartOf': {'@id': WEBSITE['@id']}, **({'mainEntityOfPage': url(page.file)} if SITE_URL else {})})
     if page.faqs:
@@ -125,14 +140,35 @@ def jsonld(page):
 
 
 # ── Building blocks ────────────────────────────────────────────────────
-def page_hero(kicker, title, lead, extra='', crumbs=None):
+# Photo headers for the main tab pages, in site/images/heroes/<name>.jpg (wide,
+# dark on the left so the heading stays readable) plus <name>-900.jpg for
+# phones. A page only shows its photo once the file exists.
+HERO_DIR = os.path.join(os.path.dirname(__file__), '..', 'site', 'images', 'heroes')
+
+
+def hero_photo(name):
+    big = os.path.join(HERO_DIR, f'{name}.jpg')
+    if not name or not os.path.exists(big):
+        return ''
+    from PIL import Image
+    with Image.open(big) as im:
+        w, h = im.size
+    small = f'images/heroes/{name}-900.jpg'
+    srcset = (f' srcset="{small} 900w, images/heroes/{name}.jpg {w}w" sizes="100vw"'
+              if os.path.exists(os.path.join(HERO_DIR, f'{name}-900.jpg')) else '')
+    return (f'<div class="hero-media" aria-hidden="true"><img src="images/heroes/{name}.jpg"{srcset} '
+            f'width="{w}" height="{h}" alt="" fetchpriority="high"></div>\n  ')
+
+
+def page_hero(kicker, title, lead, extra='', crumbs=None, image=None):
+    media = hero_photo(image)
     trail = ''
     if crumbs:
         trail = '<nav class="breadcrumb" aria-label="Breadcrumb">' + ' <span aria-hidden="true">/</span> '.join(
             f'<a href="{href}">{escape(label)}</a>' if i < len(crumbs) - 1 else f'<span aria-current="page">{escape(label)}</span>'
             for i, (label, href) in enumerate(crumbs)) + '</nav>\n    '
-    return f'''<section class="page-hero">
-  <div class="page-hero-inner">
+    return f'''<section class="page-hero{' page-hero-photo' if media else ''}">
+  {media}<div class="page-hero-inner">
     {trail}<span class="page-hero-kicker">{kicker}</span>
     <h1 class="page-hero-title">{title}</h1>
     <p class="page-hero-lead">{lead}</p>{extra}
@@ -221,7 +257,9 @@ def related(links):
 
 
 def updated_line():
-    return f'<p class="byline">Last updated <time datetime="{UPDATED}">{UPDATED_TEXT}</time></p>'
+    # Filled in by layout() with the page's own date, so the date itself is not
+    # part of the content fingerprint that decides when the date changes.
+    return f'<p class="byline">Last updated {UPDATED_MARK}</p>'
 
 
 def toc(items):
@@ -259,6 +297,8 @@ def layout(page):
     links = ''.join(f'<li><a href="{href}"{active if href == current else ""}>{label}</a></li>' for href, label in NAV)
     canonical = f'  <link rel="canonical" href="{url(page.file)}">\n  <meta property="og:url" content="{url(page.file)}">\n' if SITE_URL and not page.noindex else ''
     robots = '  <meta name="robots" content="noindex">\n' if page.noindex else ''
+    modified = page_dates(page.file)[1]
+    body = page.body.replace(UPDATED_MARK, f'<time datetime="{modified}">{long_date(modified)}</time>')
     return f'''<!DOCTYPE html>
 <html lang="en-GB">
 <head>
@@ -295,7 +335,7 @@ def layout(page):
   </div>
 </nav>
 <main id="main">
-{page.body}
+{body}
 </main>
 <footer class="site-footer">
   <div class="footer-inner">

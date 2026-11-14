@@ -7,7 +7,8 @@ Written for a general business reader, in the voice of the team that runs the
 site ("we"). Explain terms on first use; write as much as the reader needs.
 """
 from kit import (CONTACT_EMAIL, CONTACT_NAME, OPERATOR, OPERATOR_URL, SOLAR_URL, APP, Page,
-                 cta, photo, faq_section, guide, page_hero, related, updated_line, GUIDE_PDF, guide_download)
+                 cta, photo, faq_section, guide, page_hero, related, updated_line, GUIDE_PDF, guide_download, sources)
+from pages_data import GOV_OFFER, SUPPLIERS
 
 FORM_ENDPOINT = 'https://formspree.io/f/xeagedqj'  # Half Hourly Insights enquiries form in Formspree
 
@@ -157,7 +158,7 @@ PAGES['how-it-works.html'] = ('How it works | Half Hourly Insights',
   'What the analyser does with your half-hourly data: how it reads files, checks quality, sets the base load, prices use while closed and builds findings.',
   page_hero('How it works', 'What the analyser does with your data',
             'A step-by-step explanation, from reading your file to the figures in the report. In the analyser, each finding also has a "show calculation and evidence" link with the full working.',
-            crumbs=[HOME, ('How it works', 'how-it-works.html')]) +
+            crumbs=[HOME, ('How it works', 'how-it-works.html')], image='how-it-works') +
   guide(updated_line() + '''
 <p class="answer">The analyser checks every half-hourly reading, works out how much electricity the site uses when it's open and when it's closed, and prices the difference at your rates. It tells you where to look. Someone who knows the building then decides what to change.</p>
 ''' + photo('switchroom-tablet', 'Three people in a switch room looking at data on a tablet beside open electrical panels', 'The findings tell you where to look. A walk round the building tells you why.') + guide_download('Want the practical steps?') + '''
@@ -222,8 +223,15 @@ PAGES['get-your-data.html'] = ('How to get your half-hourly electricity data',
 <p>A request like this works:</p>
 <div class="note"><strong>Example request</strong><br>Please send the half-hourly consumption data (kWh) for meter [MPAN], from [date] to [date], as an Excel or CSV file with one row per day and 48 half-hourly columns.</div>
 <ul><li><strong>One file per meter.</strong> Name each file after the site, because the analyser uses the file name as the site name.</li><li><strong>At least 12 months of data</strong>, so annual figures and seasonal patterns are reliable. Up to three years helps show longer-term trends.</li><li><strong>Readings in kWh for each half hour</strong> are best. Files in kW also work, and the analyser tells you which it found.</li></ul>
-<p>Your meter's MPAN (the 13-digit supply number) is on your electricity bill.</p>
+<p>Your meter's MPAN (the 13-digit number on the bottom line of the supply number) is on your electricity bill. <a href="mpan-profile-class.html">How to read it</a>.</p>
 <p><a href="downloads/half-hourly-data-request.docx" download><strong>Download a letter template</strong></a> (Word). It lists what to ask for, with spaces for your MPANs and dates.</p>
+
+<h2 id="right">Your right to the data</h2>
+<p>Since 1 December 2022, business customers with a smart or advanced (AMR) meter, and anyone they nominate, can ask their supplier for up to 12 months of their historic smart meter data, free of charge and in a machine-readable format. The supplier must reply within 10 working days.<sup><a href="#sources">1</a></sup></p>
+
+<h2 id="suppliers">Supplier by supplier</h2>
+<p>Where to find half-hourly data with some of the larger business suppliers, from their own published guidance:</p>
+<ul>''' + ''.join(f'<li><a href="{f}">{n}</a></li>' for f, n in SUPPLIERS) + '''</ul>
 
 <h2 id="formats">File formats the analyser reads</h2>
 <div class="table-wrap"><table><thead><tr><th>Layout</th><th>Looks like</th></tr></thead><tbody>
@@ -236,10 +244,10 @@ PAGES['get-your-data.html'] = ('How to get your half-hourly electricity data',
 
 <h2 id="no-data">If your supplier can't provide it</h2>
 <p>If your supplier says the meter doesn't record half-hourly readings, ask whether it can be replaced with a smart or advanced meter that does. In the meantime, check whether a building management or monitoring system on site keeps its own records. Monthly meter readings will show how use changes through the year, but they can't show the daily and overnight patterns this analyser looks for.</p>
-''' + faq_section(GET_DATA_FAQS) + related([
+''' + sources([GOV_OFFER]) + faq_section(GET_DATA_FAQS) + related([
     ('example-office-analysis.html', 'Worked example', 'What a year of data shows about one office.'),
     ('out-of-hours-electricity.html', 'Out-of-hours use', 'The first thing to look at once you have the data.'),
-    ('how-it-works.html', 'How the analyser works', 'What it does with your file, step by step.')]), '''    <nav class="toc" aria-label="On this page"><div class="toc-title">On this page</div><ol><li><a href="#who">Who has it</a></li><li><a href="#ask">What to ask for</a></li><li><a href="#formats">File formats the analyser reads</a></li><li><a href="#no-data">If your supplier can't provide it</a></li></ol></nav>''')
+    ('how-it-works.html', 'How the analyser works', 'What it does with your file, step by step.')]), '''    <nav class="toc" aria-label="On this page"><div class="toc-title">On this page</div><ol><li><a href="#who">Who has it</a></li><li><a href="#ask">What to ask for</a></li><li><a href="#right">Your right to the data</a></li><li><a href="#suppliers">Supplier by supplier</a></li><li><a href="#formats">File formats the analyser reads</a></li><li><a href="#no-data">If your supplier can't provide it</a></li></ol></nav>''')
   + cta('Got your file?', 'Load it now. It takes about a minute and the data stays on your computer.'))
 
 # ── FAQ ─────────────────────────────────────────────────────────────────
@@ -266,8 +274,10 @@ FAQ = [
 ]
 PAGES['faq.html'] = ('Questions and answers | Half Hourly Insights',
   'Common questions about the free half-hourly electricity analyser: cost, privacy, the data you need and what the results mean.',
-  page_hero('FAQ', 'Questions and answers', 'If your question isn\'t answered here, <a href="contact.html" style="color:var(--blue);text-decoration:underline">ask us</a>.') +
-  '<section class="section"><div class="section-inner" style="max-width:820px">' +
+  page_hero('FAQ', 'Questions and answers', 'If your question isn\'t answered here, <a href="contact.html">ask us</a>.', image='faq') +
+  '<section class="section"><div class="section-inner" style="max-width:820px">'
+  '<p class="answer">Half Hourly Insights is a free tool for UK businesses and public sector organisations that have half-hourly electricity data. '
+  'It runs in your web browser, so your meter files are never uploaded. You need one Excel or CSV file per meter, ideally covering 12 months.</p>' +
   ''.join(f'<h2 class="faq-group">{g}</h2><div class="faq">' + ''.join(
       f'<details><summary>{q}</summary><div class="faq-a"><p>{a}</p></div></details>' for q, a in items) + '</div>'
           for g, items in FAQ) +
@@ -277,7 +287,8 @@ PAGES['faq.html'] = ('Questions and answers | Half Hourly Insights',
 PAGES['contact.html'] = ('Contact | Half Hourly Insights',
   'Talk to an energy expert about your half-hourly results, a full energy audit or help reducing out-of-hours use across your sites.',
   page_hero('Contact', 'Talk to an expert',
-            "The analyser shows you where to look. If you'd like help turning the findings into savings, tell us about your sites and we'll be in touch. There's no obligation.") +
+            "The analyser shows you where to look. If you'd like help turning the findings into savings, tell us about your sites and we'll be in touch. There's no obligation.",
+            image='contact') +
   f'''<section class="section"><div class="section-inner contact-grid">
 <div class="contact-info">
   <a href="{OPERATOR_URL}" target="_blank" rel="noopener noreferrer" class="kec-logo-link">
@@ -372,6 +383,8 @@ PAGES['sample-report.html'] = ('Sample electricity report for an office | Half H
             crumbs=[HOME, ('Sample report', 'sample-report.html')]) +
   f'''<section class="section"><div class="section-inner sample">
 <div class="note"><strong>Made-up example.</strong> The office and its meter readings are invented, so nothing here is a real customer's result. Every figure is what the analyser reports for our example file, at an illustrative 25p/kWh.</div>
+
+<p class="answer">This made-up office used 79,191 kWh of electricity in a year, costing about £19,798 at 25p/kWh. A third of it (33%) was used while the office was closed. Use above the base load during those closed hours costs about £2,776 a year, almost half of it on Saturdays.</p>
 
 <h2 class="section-title">The year at a glance</h2>
 <p class="section-lead">A small office, open 07:00 to 19:00 on weekdays, with 363 days of valid readings.</p>
