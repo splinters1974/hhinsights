@@ -23,6 +23,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Install page builder packages
+        run: pip install "Pillow>=10"
       - name: Published HTML matches the page builder
         run: |
           python3 tools/build_pages.py
