@@ -16,7 +16,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="preload" href="fonts/schibsted-grotesk-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/site.css?v=7cf8485c">
+  <link rel="stylesheet" href="css/site.css?v=384942bb">
   <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -111,9 +111,10 @@
     <div><dt>Coverage</dt><dd>Across the UK</dd></div>
   </dl>
 </div>
-<form class="form" name="enquiry" method="POST" action="thanks.html" data-netlify="true" netlify-honeypot="company_url">
-  <input type="hidden" name="form-name" value="enquiry">
-  <p class="hp"><label>Leave this empty <input name="company_url" tabindex="-1" autocomplete="off"></label></p>
+<form class="form" id="enquiry" method="POST" action="https://formspree.io/f/mvzvpjbe">
+  <input type="hidden" name="_subject" value="New Half Hourly Insights enquiry">
+  <input type="hidden" name="site" value="Half Hourly Insights">
+  <p class="hp"><label>Leave this empty <input name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
   <div class="form-row">
     <div><label for="name">Name <span class="req">*</span></label><input id="name" name="name" autocomplete="name" required></div>
     <div><label for="email">Email <span class="req">*</span></label><input id="email" name="email" type="email" autocomplete="email" required></div>
@@ -129,9 +130,28 @@
   <div><label for="message">How can we help? <span class="req">*</span></label><textarea id="message" name="message" required placeholder="For example: we ran our 12 schools through the analyser and would like help with the out-of-hours findings."></textarea>
   <p class="help">Please don't paste meter data here. If we need it, we'll agree a secure way to share it.</p></div>
   <label class="check"><input type="checkbox" name="consent" value="yes" required> <span>I agree to you storing these details to reply to my enquiry, as set out in the <a href="privacy.html" style="color:var(--blue);text-decoration:underline">privacy notice</a>. <span class="req">*</span></span></label>
+  <p class="form-error" role="alert" hidden></p>
   <div><button class="btn btn-gold btn-lg" type="submit">Send enquiry</button></div>
 </form>
 </div></section>
+<script>
+// Send the enquiry to Formspree, then show our own thank-you page.
+// Without JavaScript the form posts to Formspree directly.
+document.getElementById('enquiry').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const form = e.target, btn = form.querySelector('button[type=submit]'), err = form.querySelector('.form-error');
+  btn.disabled = true; btn.textContent = 'Sending…'; err.hidden = true;
+  try {
+    const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+    if (res.ok) { window.location.href = 'thanks.html'; return; }
+    const data = await res.json().catch(() => ({}));
+    err.textContent = (data.errors || []).map((x) => x.message).join(' ') || 'Something went wrong. Please try again, or email us instead.';
+  } catch {
+    err.textContent = 'We could not send your enquiry. Please check your connection and try again, or email us instead.';
+  }
+  err.hidden = false; btn.disabled = false; btn.textContent = 'Send enquiry';
+});
+</script>
 </main>
 <footer class="site-footer">
   <div class="footer-inner">

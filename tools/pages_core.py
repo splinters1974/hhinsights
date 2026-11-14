@@ -9,6 +9,8 @@ site ("we"). Explain terms on first use; write as much as the reader needs.
 from kit import (CONTACT_EMAIL, CONTACT_NAME, OPERATOR, OPERATOR_URL, SOLAR_URL, APP, Page,
                  cta, photo, faq_section, guide, page_hero, related, updated_line, GUIDE_PDF, guide_download)
 
+FORM_ENDPOINT = 'https://formspree.io/f/mvzvpjbe'  # same Formspree form as the UK Solar Calculator
+
 HOME = ('Home', 'index.html')
 GUIDES = ('Guides', 'guides.html')
 
@@ -290,9 +292,10 @@ PAGES['contact.html'] = ('Contact | Half Hourly Insights',
     <div><dt>Coverage</dt><dd>Across the UK</dd></div>
   </dl>
 </div>
-<form class="form" name="enquiry" method="POST" action="thanks.html" data-netlify="true" netlify-honeypot="company_url">
-  <input type="hidden" name="form-name" value="enquiry">
-  <p class="hp"><label>Leave this empty <input name="company_url" tabindex="-1" autocomplete="off"></label></p>
+<form class="form" id="enquiry" method="POST" action="{FORM_ENDPOINT}">
+  <input type="hidden" name="_subject" value="New Half Hourly Insights enquiry">
+  <input type="hidden" name="site" value="Half Hourly Insights">
+  <p class="hp"><label>Leave this empty <input name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
   <div class="form-row">
     <div><label for="name">Name <span class="req">*</span></label><input id="name" name="name" autocomplete="name" required></div>
     <div><label for="email">Email <span class="req">*</span></label><input id="email" name="email" type="email" autocomplete="email" required></div>
@@ -308,9 +311,28 @@ PAGES['contact.html'] = ('Contact | Half Hourly Insights',
   <div><label for="message">How can we help? <span class="req">*</span></label><textarea id="message" name="message" required placeholder="For example: we ran our 12 schools through the analyser and would like help with the out-of-hours findings."></textarea>
   <p class="help">Please don't paste meter data here. If we need it, we'll agree a secure way to share it.</p></div>
   <label class="check"><input type="checkbox" name="consent" value="yes" required> <span>I agree to you storing these details to reply to my enquiry, as set out in the <a href="privacy.html" style="color:var(--blue);text-decoration:underline">privacy notice</a>. <span class="req">*</span></span></label>
+  <p class="form-error" role="alert" hidden></p>
   <div><button class="btn btn-gold btn-lg" type="submit">Send enquiry</button></div>
 </form>
-</div></section>''')
+</div></section>
+<script>
+// Send the enquiry to Formspree, then show our own thank-you page.
+// Without JavaScript the form posts to Formspree directly.
+document.getElementById('enquiry').addEventListener('submit', async (e) => {{
+  e.preventDefault();
+  const form = e.target, btn = form.querySelector('button[type=submit]'), err = form.querySelector('.form-error');
+  btn.disabled = true; btn.textContent = 'Sending…'; err.hidden = true;
+  try {{
+    const res = await fetch(form.action, {{ method: 'POST', body: new FormData(form), headers: {{ Accept: 'application/json' }} }});
+    if (res.ok) {{ window.location.href = 'thanks.html'; return; }}
+    const data = await res.json().catch(() => ({{}}));
+    err.textContent = (data.errors || []).map((x) => x.message).join(' ') || 'Something went wrong. Please try again, or email us instead.';
+  }} catch {{
+    err.textContent = 'We could not send your enquiry. Please check your connection and try again, or email us instead.';
+  }}
+  err.hidden = false; btn.disabled = false; btn.textContent = 'Send enquiry';
+}});
+</script>''')
 
 PAGES['thanks.html'] = ('Thank you | Half Hourly Insights', 'Your enquiry has been sent.',
   page_hero('Contact', 'Thank you', 'Your enquiry has been sent. We\'ll reply by email, usually within one working day.',
@@ -328,7 +350,7 @@ PAGES['privacy.html'] = ('Privacy | Half Hourly Insights',
 
 <h2 id="enquiries">Enquiries</h2>
 <p>If you send the contact form, we receive the details you enter: your name, email, organisation, phone, sector, number of sites and message. We only use them to reply to your enquiry and any follow-up you ask for. We don't sell them or add you to a mailing list.</p>
-<p>{OPERATOR} is responsible for the details you send (the data controller). The form is processed by our website host, Netlify, which stores submissions on our behalf. [Retention period to be confirmed.]</p>
+<p>{OPERATOR} is responsible for the details you send (the data controller). The form is sent through Formspree, a form-handling service, which emails it to us and keeps a copy on our behalf. [Retention period to be confirmed.]</p>
 
 <h2 id="cookies">Cookies and tracking</h2>
 <p>This site sets no cookies and runs no advertising or tracking scripts. Fonts are served from this site rather than a third party.</p>
