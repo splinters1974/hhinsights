@@ -37,13 +37,14 @@ PAGES['index.html'] = ('Half Hourly Insights: free business electricity data ana
   <div class="start-card">
     <h2>Start with your HH meter file</h2>
     <p>An Excel or CSV file for each meter. All the common supplier layouts work.</p>
-    <a href="analyser/" class="btn btn-gold btn-lg">Open the analyser</a>
+    <a href="analyser/" class="btn btn-gold btn-lg">Analyse my data</a>
+    <p class="start-sample"><a href="sample-report.html">Or see a sample report first</a></p>
     <div class="start-result">
       <div class="k">From the example file (a made-up office)</div>
       <div class="big">33%</div>
       <div class="small">of its electricity was used while the building was closed</div>
     </div>
-    <p class="or">No data to hand? <a href="samples/example-office.csv" download>Download our example file</a> and load that, or <a href="example-office-analysis.html">read the worked example</a>.</p>
+    <p class="or">No data to hand? <a href="sample-report.html">See a sample report</a>, or <a href="samples/example-office.csv" download>download our example file</a> and load it into the analyser.</p>
   </div>
 </section>
 </div>
@@ -313,6 +314,7 @@ PAGES['contact.html'] = ('Contact | Half Hourly Insights',
   <label class="check"><input type="checkbox" name="consent" value="yes" required> <span>I agree to you storing these details to reply to my enquiry, as set out in the <a href="privacy.html" style="color:var(--blue);text-decoration:underline">privacy notice</a>. <span class="req">*</span></span></label>
   <p class="form-error" role="alert" hidden></p>
   <div><button class="btn btn-gold btn-lg" type="submit">Send enquiry</button></div>
+  <p class="help">If the form doesn't work for you, email <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a> instead. Please don't attach meter files.</p>
 </form>
 </div></section>
 <script>
@@ -350,7 +352,8 @@ PAGES['privacy.html'] = ('Privacy | Half Hourly Insights',
 
 <h2 id="enquiries">Enquiries</h2>
 <p>If you send the contact form, we receive the details you enter: your name, email, organisation, phone, sector, number of sites and message. We only use them to reply to your enquiry and any follow-up you ask for. We don't sell them or add you to a mailing list.</p>
-<p>{OPERATOR} is responsible for the details you send (the data controller). The form is sent through Formspree, a form-handling service, which emails it to us and keeps a copy on our behalf. [Retention period to be confirmed.]</p>
+<p>{OPERATOR} is responsible for the details you send (the data controller). The form is sent through Formspree, a form-handling service, which emails your enquiry to us and keeps a copy in our Formspree account on our behalf. Formspree may process data outside the UK; its own privacy policy explains how.</p>
+<p>We keep enquiry details only for as long as we need them to deal with your enquiry and any follow-up you ask for. We then delete them, from our email and from Formspree, unless we have to keep them for a legal reason. You can ask us to delete them sooner at any time.</p>
 
 <h2 id="cookies">Cookies and tracking</h2>
 <p>This site sets no cookies and runs no advertising or tracking scripts. Fonts are served from this site rather than a third party.</p>
@@ -358,6 +361,72 @@ PAGES['privacy.html'] = ('Privacy | Half Hourly Insights',
 <h2 id="rights">Your rights</h2>
 <p>You can ask what we hold about you, and ask us to correct or delete it, by emailing <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a>. You can also complain to the Information Commissioner's Office (ico.org.uk).</p>
 '''))
+
+# ── SAMPLE REPORT ───────────────────────────────────────────────────────
+# Figures are the office worked example (site/samples/example-office.csv) as
+# the analyser reports them. Keep the two pages in step.
+PAGES['sample-report.html'] = ('Sample electricity report for an office | Half Hourly Insights',
+  'A sample half-hourly electricity report for a made-up UK office: use while closed, base load, findings and what could be saved.',
+  page_hero('Sample report', 'What a report looks like',
+            'See the kind of results the analyser produces before you find your own meter data. This is a made-up office with made-up readings.',
+            crumbs=[HOME, ('Sample report', 'sample-report.html')]) +
+  f'''<section class="section"><div class="section-inner sample">
+<div class="note"><strong>Made-up example.</strong> The office and its meter readings are invented, so nothing here is a real customer's result. Every figure is what the analyser reports for our example file, at an illustrative 25p/kWh.</div>
+
+<h2 class="section-title">The year at a glance</h2>
+<p class="section-lead">A small office, open 07:00 to 19:00 on weekdays, with 363 days of valid readings.</p>
+<div class="stat-grid">
+  <div><strong>79,191 kWh</strong><span>electricity used in the year, costing about £19,798</span></div>
+  <div><strong>33%</strong><span>of it used while the office was closed</span></div>
+  <div><strong>2.6 kW</strong><span>base load: what never switches off</span></div>
+  <div><strong>£2,776</strong><span>a year spent on use while closed, above the base load</span></div>
+</div>
+
+<figure class="figure"><img src="images/heatmap-office.png" width="2464" height="896" alt="Heatmap of the office year: a dark weekday band, pale nights, and some busy Saturdays" loading="lazy"><figcaption>Every half hour of the year on one chart: one column per day, darker for higher demand. The weekday band is clear, and some Saturdays are as busy as weekdays.</figcaption></figure>
+
+<h2 class="section-title">What the analyser found</h2>
+<div class="finding-grid">
+  <article class="finding">
+    <span class="finding-tag high">High impact</span>
+    <h3>Use while closed</h3>
+    <p class="finding-value">£2,776 a year</p>
+    <p>11,035 kWh used outside opening hours, above the base load. Almost half of it (5,155 kWh) is on Saturdays; weekday evenings and nights add 3,750 kWh.</p>
+    <p><strong>What to check:</strong> whether the office is used on Saturdays, and the heating and ventilation schedules.</p>
+  </article>
+  <article class="finding">
+    <span class="finding-tag medium">Medium impact</span>
+    <h3>Bank holidays like working days</h3>
+    <p class="finding-value">7 bank holidays</p>
+    <p>Seven bank holidays, including Christmas Day, used at least 80% of a normal weekday's electricity (1,408 kWh above base load in all).</p>
+    <p><strong>What to check:</strong> whether the building controls know about bank holidays.</p>
+    <p class="finding-note">Already included in the £2,776.</p>
+  </article>
+  <article class="finding">
+    <span class="finding-tag low">Low impact</span>
+    <h3>Early starts and late finishes</h3>
+    <p class="finding-value">£629 a year</p>
+    <p>About 1,250 kWh above base load in the two hours before opening, and the same again in the two hours after closing.</p>
+    <p><strong>What to check:</strong> timer and heating start-up settings.</p>
+    <p class="finding-note">Already included in the £2,776.</p>
+  </article>
+</div>
+<p>The smaller findings are parts of the £2,776, not extra to it, so don't add them up. The base load is separate: 2.6 kW running all year costs about £5,700.</p>
+
+<h2 class="section-title">What could actually be saved?</h2>
+<p>The figures above are what each pattern costs now. They are not a promised saving. What you save depends on what you change, and some of that closed-hours use may turn out to be needed, such as a regular Saturday team. The way to find out is to:</p>
+<ol class="sample-steps">
+  <li><strong>Confirm the opening hours.</strong> If Saturdays are planned working days, much of the £2,776 is normal use.</li>
+  <li><strong>Walk round the building</strong> on a Saturday and after closing time, and note what's switched on.</li>
+  <li><strong>Change one setting at a time</strong>, such as the heating schedule or bank holiday calendar.</li>
+  <li><strong>Compare the weeks before and after</strong> with the analyser's before-and-after view. That gives you a measured saving rather than an estimate.</li>
+</ol>
+
+<div class="sample-cta">
+  <a class="btn btn-gold btn-lg" href="analyser/">Analyse my own data</a>
+  <a class="btn btn-outline btn-lg" href="samples/example-office.csv" download>Download the example file</a>
+</div>
+<p>For the full method, figure by figure, read the <a href="example-office-analysis.html">worked example</a>. To understand your own figures, see <a href="how-it-works.html">how the analyser works</a>.</p>
+</div></section>''' + cta('Ready to see your own results?', 'Load your half-hourly meter file. It takes about a minute and your data stays on your computer.'))
 
 PAGES['404.html'] = ('Page not found | Half Hourly Insights', 'This page does not exist.',
   page_hero('404', 'Page not found', 'That page doesn\'t exist. Try the home page or open the analyser.',
@@ -384,6 +453,8 @@ def core_pages():
                              summary=f'Enquiries to {OPERATOR}, which runs the site.'),
         'thanks.html': dict(noindex=True),
         'privacy.html': dict(crumbs=[home, ('Privacy', 'privacy.html')]),
+        'sample-report.html': dict(crumbs=[home, ('Sample report', 'sample-report.html')], section='Core pages',
+                                   summary='A sample report for a made-up office: 33% of use while closed, £2,776 a year above base load, base load 2.6 kW, findings and what could be saved.'),
         '404.html': dict(noindex=True),
     }
     out = []

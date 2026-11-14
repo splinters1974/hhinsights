@@ -12,10 +12,11 @@ YEAR = 2026
 # Date the guides were last reviewed; shown on each guide and in its schema.
 UPDATED = '2026-11-14'
 UPDATED_TEXT = '14 November 2026'
-# Domain to be confirmed. Leave empty until then: once set (e.g.
-# 'https://www.example.co.uk', no trailing slash) every page gains canonical and
-# absolute share links, robots.txt points at the sitemap, and sitemap.xml is written.
-SITE_URL = ''
+# The site's public address, no trailing slash. Every page's canonical and
+# share links, robots.txt and sitemap.xml are built from it, so moving to a
+# custom domain (for example https://hhinsights.co.uk) is this one change plus
+# a rebuild. Empty disables canonical links and the sitemap.
+SITE_URL = 'https://halfhourlyinsights.netlify.app'
 
 # Run by Kinetic Energy Consulting, as with the UK Solar Calculator.
 OPERATOR = 'Kinetic Energy Consulting'
@@ -256,7 +257,7 @@ def layout(page):
     current = NAV_PARENT.get(page.file, page.file)
     active = ' class="active" aria-current="page"'
     links = ''.join(f'<li><a href="{href}"{active if href == current else ""}>{label}</a></li>' for href, label in NAV)
-    canonical = f'  <link rel="canonical" href="{url(page.file)}">\n  <meta property="og:url" content="{url(page.file)}">\n' if SITE_URL else ''
+    canonical = f'  <link rel="canonical" href="{url(page.file)}">\n  <meta property="og:url" content="{url(page.file)}">\n' if SITE_URL and not page.noindex else ''
     robots = '  <meta name="robots" content="noindex">\n' if page.noindex else ''
     return f'''<!DOCTYPE html>
 <html lang="en-GB">
@@ -306,7 +307,7 @@ def layout(page):
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Analyser</div>
-        <ul><li><a href="analyser/">Open the analyser</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="example-office-analysis.html">Worked example</a></li><li><a href="samples/example-office.csv" download>Example data file</a></li><li><a href="{GUIDE_PDF}" download>User guide (PDF)</a></li><li><a href="faq.html">FAQ</a></li></ul>
+        <ul><li><a href="analyser/">Open the analyser</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="example-office-analysis.html">Worked example</a></li><li><a href="sample-report.html">Sample report</a></li><li><a href="samples/example-office.csv" download>Example data file</a></li><li><a href="{GUIDE_PDF}" download>User guide (PDF)</a></li><li><a href="faq.html">FAQ</a></li></ul>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Guides</div>

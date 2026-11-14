@@ -52,7 +52,7 @@ function Uploader({ onFiles, busy, compact = false }: { onFiles: (f: File[]) => 
         isDragActive ? 'border-[var(--brand)] bg-[var(--brand-tint)]' : 'border-slate-300 hover:border-[var(--brand)] bg-white'
       } ${busy ? 'opacity-60 cursor-wait' : ''}`}
     >
-      <input {...getInputProps()} />
+      <input {...getInputProps()} aria-label="Choose half-hourly meter files" />
       <p className={`text-slate-900 font-semibold ${compact ? 'text-sm' : ''}`}>
         {busy ?? (isDragActive ? 'Drop the meter files here' : compact ? '+ Add more meter files (drag and drop or click)' : 'Drag and drop HH meter files here')}
       </p>

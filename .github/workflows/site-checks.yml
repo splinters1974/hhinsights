@@ -1,0 +1,84 @@
+# Checks the website on every pull request and on pushes to the development
+# branch. Read-only: it never deploys or commits.
+name: Site checks
+
+on:
+  pull_request:
+  push:
+    branches:
+      - planning/phase-1-site-improvements-2026-11
+
+permissions:
+  contents: read
+
+jobs:
+  static:
+    name: Pages, links, images and SEO
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install page builder packages
+        run: pip install "Pillow>=10"
+      - name: Published HTML matches the page builder
+        run: |
+          python3 tools/build_pages.py
+          git diff --exit-code --stat -- site/ || { echo "site/ differs from tools/build_pages.py output: edit tools/*.py and rebuild, not the HTML"; exit 1; }
+      - name: Static checks
+        run: node scripts/check-static-site.mjs
+
+  browser:
+    name: Browser tests (site and analyser, desktop and mobile)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: analyser/package-lock.json
+      - name: Install analyser packages (to read the Excel exports)
+        run: npm ci
+        working-directory: analyser
+      - name: Install Playwright and Chromium
+        run: |
+          npm install --no-save --no-package-lock playwright@1.48.2
+          npx playwright install --with-deps chromium
+      - name: Site smoke tests
+        run: node scripts/smoke-site.mjs
+      - name: Analyser end-to-end (uploads, exports, no network requests)
+        if: always()
+        run: node scripts/e2e-analyser.mjs
+      - name: Save screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-screenshots
+          path: site-screenshots/
+          if-no-files-found: ignore
+
+  analyser:
+    name: Analyser unit tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: analyser
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: analyser/package-lock.json
+      - run: npm ci
+      - run: npm test
+      - name: Published analyser matches its source
+        run: |
+          npm run build
+          git diff --exit-code --stat -- ../site/analyser/ || { echo "site/analyser differs from the analyser build: run npm run build in analyser/ and commit"; exit 1; }
