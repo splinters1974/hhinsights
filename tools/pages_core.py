@@ -114,7 +114,7 @@ PAGES['index.html'] = ('Half Hourly Insights: free half-hourly electricity analy
       <p class="section-lead">Any building with a half-hourly meter. Every building type has its own normal, so the analyser compares each site with its own opening hours, not a benchmark.</p>
       <p style="margin-top:24px"><a href="sectors.html" class="btn btn-outline">What to look for in your sector</a></p>
     </div>
-    <div>{photo('town-street', 'A town street with an energy centre, offices, a civic building, an electric bus and a car charging at a roadside charger')}</div>
+    <div>{photo('town-street', 'A town high street with an electric bus, a civic building and a car charging at a roadside charger')}</div>
   </div>
 </section>
 
@@ -125,10 +125,10 @@ PAGES['index.html'] = ('Half Hourly Insights: free half-hourly electricity analy
       <p>Plain-English answers to the questions that come up when you first look at half-hourly data.</p>
     </div>
     <div class="link-grid" style="margin-top:36px">
-      <a class="link-card" href="example-office-analysis.html"><h3>Worked example</h3><p>One office, one year of data, and what the analyser found.</p><span class="more">Read the example</span></a>
-      <a class="link-card" href="out-of-hours-electricity.html"><h3>Out-of-hours use</h3><p>How to find electricity used when the building is shut, and cut it.</p><span class="more">Read the guide</span></a>
-      <a class="link-card" href="base-load.html"><h3>Base load</h3><p>What never switches off, why it matters and how to bring it down.</p><span class="more">Read the guide</span></a>
-      <a class="link-card" href="supply-capacity.html"><h3>Supply capacity</h3><p>kVA, your agreed capacity, and room for heat pumps and EV charging.</p><span class="more">Read the guide</span></a>
+      <a class="link-card has-thumb" href="example-office-analysis.html"><img class="card-thumb" src="images/guides/example-office-analysis.jpg" srcset="images/guides/example-office-analysis-600.jpg 600w, images/guides/example-office-analysis.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"><h3>Worked example</h3><p>One office, one year of data, and what the analyser found.</p><span class="more">Read the example</span></a>
+      <a class="link-card has-thumb" href="out-of-hours-electricity.html"><img class="card-thumb" src="images/guides/out-of-hours-electricity.jpg" srcset="images/guides/out-of-hours-electricity-600.jpg 600w, images/guides/out-of-hours-electricity.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"><h3>Out-of-hours use</h3><p>How to find electricity used when the building is shut, and cut it.</p><span class="more">Read the guide</span></a>
+      <a class="link-card has-thumb" href="base-load.html"><img class="card-thumb" src="images/guides/base-load.jpg" srcset="images/guides/base-load-600.jpg 600w, images/guides/base-load.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"><h3>Base load</h3><p>What never switches off, why it matters and how to bring it down.</p><span class="more">Read the guide</span></a>
+      <a class="link-card has-thumb" href="supply-capacity.html"><img class="card-thumb" src="images/guides/supply-capacity.jpg" srcset="images/guides/supply-capacity-600.jpg 600w, images/guides/supply-capacity.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"><h3>Supply capacity</h3><p>kVA, your agreed capacity, and room for heat pumps and EV charging.</p><span class="more">Read the guide</span></a>
     </div>
   </div>
 </section>
@@ -270,7 +270,7 @@ PAGES['contact.html'] = ('Contact | Half Hourly Insights',
     <span class="kec-sponsored-by">Sponsored by</span>
     <img src="images/kec-logo.svg" alt="{OPERATOR}" class="kec-logo-img" width="220" height="105">
   </a>
-  {photo('team-planning', 'Four people around a table with drawings, a laptop and a model of a site, with a dashboard on the wall behind')}
+  {photo('contact-photo', 'A laptop showing an electricity demand chart on a desk, beside a printed report and a notebook')}
   <h2>{CONTACT_NAME}</h2>
   <p>Get in touch to talk through your results, or about help reducing out-of-hours use across your sites. Enquiries are typically responded to within one working day.</p>
   <dl class="contact-details">

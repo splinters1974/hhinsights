@@ -582,3 +582,8 @@ button, input, select, textarea { font-family: inherit; }
 .glossary dt { font-size: 19px; font-weight: 700; color: var(--ink); }
 .glossary dd { margin-top: 4px; font-size: 17px; line-height: 1.6; color: var(--text-2); }
 .prose sup a { text-decoration: none; font-size: 12px; }
+
+/* Guide title cards on link cards */
+.link-card.has-thumb { padding: 0 0 24px; overflow: hidden; }
+.link-card.has-thumb > :not(.card-thumb) { padding: 0 24px; }
+.link-card .card-thumb { display: block; width: 100%; height: auto; aspect-ratio: 2 / 1; object-fit: cover; margin-bottom: 8px; border-bottom: 1px solid var(--rule); }

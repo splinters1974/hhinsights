@@ -7,7 +7,7 @@ Figures in the worked example come from the analyser run on
 site/samples/example-office.csv (made-up data). Re-check them if that file
 or the engine changes.
 """
-from kit import (NAV_PARENT, SOLAR_URL, Page, cta, faq_section, guide, page_hero, photo, related, sources, strip_tags, toc,
+from kit import (NAV_PARENT, SOLAR_URL, Page, cta, link_card, faq_section, guide, page_hero, photo, related, sources, strip_tags, toc,
                  updated_line)
 
 HOME = ('Home', 'index.html')
@@ -438,7 +438,7 @@ SECTOR_DATA = [
 
 SECTOR_PHOTOS = {
     'schools-electricity.html': ('town-school-leisure', 'Illustration of a town with a school, a sports pitch and a swimming pool among streets of houses'),
-    'offices-council-buildings.html': ('estate-town', 'Illustration of a town centre with offices, civic buildings, a school, housing and an energy centre'),
+    'offices-council-buildings.html': ('estate-town', 'Illustration of a town with offices, a town hall, a school, a leisure centre, housing and an energy centre'),
     'leisure-centres.html': ('town-school-leisure', 'Illustration of a leisure centre with an outdoor pool next to a school and sports pitch'),
     'healthcare-electricity.html': ('estate-hospital', 'Illustration of a hospital estate with clinical buildings, a multi-storey car park, plant compounds and a substation'),
     'industrial-warehouses.html': ('estate-business-park', 'Illustration of a business park with warehouses, a plant compound, battery storage, a substation and ground-mounted solar'),
@@ -475,8 +475,7 @@ PAGES.append(Page(
   '<section class="section"><div class="section-inner">' +
   photo('estate-town', 'Illustration of a town with offices, civic buildings, a school, a leisure centre, housing and an energy centre', cls='figure figure-wide', lazy=False) +
   '<div class="link-grid">' +
-  ''.join(f'<a class="link-card" href="{f}"><h3>{s}</h3><p>{lead}</p><span class="more">Read more</span></a>'
-          for f, s, _, lead, *_ in SECTOR_DATA) +
+  ''.join(link_card(f, s, lead, 'Read more') for f, s, _, lead, *_ in SECTOR_DATA) +
   '</div></div></section>' + cta('Check your own sites', 'Load several meters at once and the analyser ranks them, so you know where to start.'),
   crumbs=[HOME, SECTORS], section='Sectors', summary='Index of sector pages.'))
 
@@ -500,7 +499,7 @@ PAGES.append(Page(
   page_hero('Guides', 'Guides to half-hourly data', 'Plain-English answers to the questions that come up when you first look at half-hourly electricity data.',
             crumbs=[HOME, GUIDES]) +
   '<section class="section"><div class="section-inner"><div class="link-grid">' +
-  ''.join(f'<a class="link-card" href="{f}"><h3>{t}</h3><p>{d}</p><span class="more">Read the guide</span></a>' for f, t, d in GUIDE_LIST) +
+  ''.join(link_card(f, t, d) for f, t, d in GUIDE_LIST) +
   '</div><p class="note" style="margin-top:32px">Looking for your sector? See <a href="sectors.html" style="color:var(--blue);text-decoration:underline">what to look for by sector</a>.</p></div></section>'
   + cta('Ready to look at your own data?', 'Free, no sign-up, and nothing is uploaded.'),
   crumbs=[HOME, GUIDES], section='Guides', summary='Index of guides.'))
