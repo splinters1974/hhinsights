@@ -32,11 +32,18 @@ def your_right(n):
 '''
 
 
-def ask_and_load():
+SUPPLIER_LINKS = [
+    ('half-hourly-data-british-gas.html', 'British Gas Business'), ('half-hourly-data-edf.html', 'EDF'),
+    ('half-hourly-data-eon-next.html', 'E.ON Next'), ('half-hourly-data-npower-business-solutions.html', 'npower Business Solutions'),
+    ('half-hourly-data-totalenergies.html', 'TotalEnergies Gas & Power')]
+
+
+def ask_and_load(this=''):
     return '''
 <h2 id="ask">What to ask for</h2>
 <p>Ask for the half-hourly consumption data (kWh) for each meter, covering the last 12 months, as an Excel or CSV file. Quote each meter's MPAN, the supply number on your bill. Our <a href="get-your-data.html#ask">guide to getting your data</a> has a wording you can copy and a <a href="downloads/half-hourly-data-request.docx" download>letter template</a> (Word).</p>
 <p>Check that the file has 48 readings for each day. A file of daily or monthly totals can't show the overnight and weekend patterns the <a href="analyser/">analyser</a> looks for.</p>
+<p>Guides for other suppliers: ''' + ', '.join(f'<a href="{f}">{n}</a>' for f, n in SUPPLIER_LINKS if f != this) + '''.</p>
 '''
 
 
@@ -56,7 +63,7 @@ PAGES = []
 # ── BRITISH GAS ─────────────────────────────────────────────────────────
 PAGES.append(guide_page(
   'half-hourly-data-british-gas.html',
-  'How to get half-hourly electricity data from British Gas Business',
+  'Half-hourly electricity data from British Gas Business',
   'Half-hourly data from British Gas Business',
   'Where British Gas business customers find their half-hourly electricity data, how to get access, and what to do if the portal doesn\'t give you a file you can use.',
   'How British Gas business customers get half-hourly electricity data: Energy360 DataView, how to request access, brokers, and the free 12-month data offer.',
@@ -78,7 +85,7 @@ PAGES.append(guide_page(
 <p>A broker or other third party can request your half-hourly data for you, as long as they have the right authorisation on your account.{ref(1)}</p>
 {your_right(3)}
 <p>British Gas explained these rules to its business customers in March 2023, including that it would respond to data requests within 10 working days.{ref(2)}</p>
-{ask_and_load()}
+{ask_and_load('half-hourly-data-british-gas.html')}
 ''' + sources([
     ('British Gas: Energy360 DataView', 'https://www.britishgas.co.uk/business/gas-and-electricity/energy360'),
     ('British Gas business blog: The way businesses can request smart meter data is changing (31 March 2023)',
@@ -95,7 +102,7 @@ PAGES.append(guide_page(
 # ── EDF ─────────────────────────────────────────────────────────────────
 PAGES.append(guide_page(
   'half-hourly-data-edf.html',
-  'How to get half-hourly electricity data from EDF (business)',
+  'Half-hourly electricity data from EDF (business)',
   'Half-hourly data from EDF',
   'EDF has different online routes for larger and smaller business customers. Here is what each one offers and how to get a file of half-hourly readings.',
   'How EDF business customers get half-hourly electricity data: MyBusiness Data Analysis and Data Export, Energy Hub and the smart meter data preference.',
@@ -113,7 +120,7 @@ PAGES.append(guide_page(
 <p>You can check or change the preference in MyAccount under "smart meter data preference", or by calling, emailing or texting EDF.{ref(2)} With the preference set to half-hourly, Energy Hub, a dashboard in MyAccount, shows your consumption in more detail.{ref(2, 3)}</p>
 <p>EDF's public pages don't say whether Energy Hub lets you download half-hourly readings as a file. If it doesn't, ask EDF for the file under the rules below.</p>
 {your_right(4)}
-{ask_and_load()}
+{ask_and_load('half-hourly-data-edf.html')}
 ''' + sources([
     ('EDF: Smart meter data for large business customers', 'https://www.edfenergy.com/large-business/customers/smart/smartdata'),
     ('EDF: Data is power: unlocking the power of half-hourly smart energy data (2 January 2025)',
@@ -131,10 +138,10 @@ PAGES.append(guide_page(
 # ── E.ON NEXT ───────────────────────────────────────────────────────────
 PAGES.append(guide_page(
   'half-hourly-data-eon-next.html',
-  'How to get half-hourly electricity data from E.ON Next (business)',
+  'Half-hourly electricity data from E.ON Next',
   'Half-hourly data from E.ON Next',
   'E.ON Next\'s public pages explain half-hourly meters and its metering services, but not a self-service download. Here is what it does say, and how to get the file.',
-  'How E.ON Next business customers get half-hourly electricity data: checking for a half-hourly meter, the Optimum tool, data collectors and the free 12-month data offer.',
+  'How E.ON Next business customers get half-hourly data: checking the meter, the Optimum tool, data collectors and the free 12-month data offer.',
   f'''
 <p class="answer">E.ON Next doesn't describe a self-service download of half-hourly data for business customers on its public website. The simplest route is to ask for the file: if you have a smart or advanced meter, you're entitled to up to 12 months of data free of charge, with a reply within 10 working days.{ref(2)}</p>
 {not_connected('E.ON Next')}
@@ -146,7 +153,7 @@ PAGES.append(guide_page(
 <p>E.ON Next explains that the data collector collects your half-hourly data using a remote link, and the data aggregator validates it for billing and settlement. They can be different companies.{ref(1)} It may also be worth asking your data collector for the readings.</p>
 <p>If E.ON is your data collector, E.ON Next says an entry-level version of its visualisation tool, Optimum, is included with the service, with upgrades available.{ref(1)} Ask whether your version can export half-hourly readings.</p>
 {your_right(2)}
-{ask_and_load()}
+{ask_and_load('half-hourly-data-eon-next.html')}
 ''' + sources([
     ('E.ON Next: Half hourly meters', 'https://www.eonnext.com/business/half-hourly-meters'),
     GOV_OFFER]),
@@ -160,7 +167,7 @@ PAGES.append(guide_page(
 # ── NPOWER BUSINESS SOLUTIONS ───────────────────────────────────────────
 PAGES.append(guide_page(
   'half-hourly-data-npower-business-solutions.html',
-  'How to get half-hourly electricity data from npower Business Solutions',
+  'Half-hourly data from npower Business Solutions',
   'Half-hourly data from npower Business Solutions',
   'npower Business Solutions customers can download a year of half-hourly data from their online account, or ask the Metering Team by email.',
   'How npower Business Solutions customers get half-hourly electricity data: the Dashboard Meters section (last 12 months) and email requests to the Metering Team.',
@@ -175,7 +182,7 @@ PAGES.append(guide_page(
 <h2 id="email">Asking by email</h2>
 <p>npower Business Solutions' metering page says you can request half-hourly data for your meter from the company that supplies you, and that its own customers should email the Metering Team at nbssmart@npower.com.{ref(1)}</p>
 {your_right(3)}
-{ask_and_load()}
+{ask_and_load('half-hourly-data-npower-business-solutions.html')}
 ''' + sources([
     ('npower Business Solutions: Metering', 'https://npowerbusinesssolutions.com/my-account/metering'),
     ('npower Business Solutions: Dashboard quickstart guide (PDF)', 'https://npowerbusinesssolutions.com/hubfs/Dashboard-Quickstart-Guide.pdf'),
@@ -189,10 +196,10 @@ PAGES.append(guide_page(
 # ── TOTALENERGIES ───────────────────────────────────────────────────────
 PAGES.append(guide_page(
   'half-hourly-data-totalenergies.html',
-  'How to get half-hourly electricity data from TotalEnergies Gas & Power',
+  'Half-hourly electricity data from TotalEnergies',
   'Half-hourly data from TotalEnergies',
   'TotalEnergies Gas & Power has an online portal for half-hourly data from smart and AMR meters. Here is what it covers, how to get access, and what to do if your site isn\'t included.',
-  'How TotalEnergies Gas & Power business customers get half-hourly electricity data: TotalEnergies Insights, the request form, which meters it covers and the free data offer.',
+  'How TotalEnergies Gas & Power business customers get half-hourly data: the Insights portal, the request form, which meters it covers and the free offer.',
   f'''
 <p class="answer">TotalEnergies Gas & Power business customers with a smart or AMR meter can view and download half-hourly data in TotalEnergies Insights, an online portal launched on 1 October 2024, with up to 12 months of history. You get access by completing its Half-Hourly Data Request Form.{ref(1)}</p>
 {not_connected('TotalEnergies Gas & Power')}
@@ -208,7 +215,7 @@ PAGES.append(guide_page(
 <h2 id="access">How to get access</h2>
 <p>TotalEnergies says customers who already use its online services are enrolled automatically, and others should complete the Half-Hourly Data Request Form linked from its half-hourly data page. To give a third party such as a broker access, contact its customer service team.{ref(1)}</p>
 {your_right(2)}
-{ask_and_load()}
+{ask_and_load('half-hourly-data-totalenergies.html')}
 ''' + sources([
     ('TotalEnergies Gas & Power: Half-hourly consumption data',
      'https://business.totalenergies.uk/information-centre/energy-essentials/smart-and-amr-meters-business/half-hourly-energy-consumption'),
@@ -260,10 +267,10 @@ PROFILE_CLASSES = [
 
 PAGES.append(guide_page(
   'mpan-profile-class.html',
-  'Reading your MPAN: profile class, network region and half-hourly data',
+  'Reading your MPAN: profile class and network region',
   'Reading your MPAN',
   'The supply number on your electricity bill tells you more than most people realise: your network region, how your meter is settled and, for now, whether it is half-hourly.',
-  'What the MPAN supply number on a business electricity bill means: the 13-digit core, distributor IDs 10 to 23, profile classes 00 to 08, and what half-hourly settlement changes.',
+  'What the MPAN on a business electricity bill means: the 13-digit core, network region IDs, profile classes 00 to 08, and what half-hourly settlement changes.',
   f'''
 <p class="answer">Your MPAN is the supply number on every electricity bill. The bottom line is the 13-digit MPAN itself, and its first two digits identify your network region. The top line starts with the profile class: 00 has meant a half-hourly metered supply, and 01 to 08 mean your use is estimated from standard profiles. As meters move to market-wide half-hourly settlement, smart meters are being given 00 too, so 00 no longer tells you which kind of meter you have.{ref(1, 2, 3)}</p>
 
@@ -345,10 +352,10 @@ def bees_table(rows, label):
 
 PAGES.append(guide_page(
   'electricity-benchmarks.html',
-  'How much electricity should a building use? UK benchmarks by sector',
+  'Electricity benchmarks by sector: kWh per m² a year',
   'Electricity benchmarks by sector',
   'Is your building\'s electricity use normal? Government survey figures give the typical range for offices, shops, schools and other non-domestic buildings.',
-  'Typical electricity use per square metre for UK non-domestic buildings by sector, from the government\'s Building Energy Efficiency Survey, plus how DEC benchmarks work.',
+  'Typical electricity use per square metre for UK non-domestic buildings by sector, from government survey data, and how DEC benchmarks work.',
   f'''
 <p class="answer">A typical office in England and Wales that also uses gas or another fuel uses about 88 kWh of electricity per square metre of floor area a year, according to the government's Building Energy Efficiency Survey. Half of such offices use between about 57 and 137 kWh/m². Compare your building with the range for its sector, not a single number, and compare like with like: all-electric buildings use much more electricity.{ref(1, 2)}</p>
 
@@ -365,6 +372,8 @@ PAGES.append(guide_page(
 
 <h2 id="limits">What these figures can and can't tell you</h2>
 <ul><li><strong>They are from 2014 to 2015.</strong> Many buildings have changed since, for example through LED lighting or electric heating. Treat the figures as a broad guide, not a target.</li><li><strong>Sectors are broad.</strong> "Hospitality" covers everything from a café to a hotel with a pool, which is why its range is so wide.</li><li><strong>A high figure isn't proof of waste.</strong> Long opening hours, a server room or a commercial kitchen can push use up for good reasons. Half-hourly data shows <em>when</em> the electricity is used, which is the next question to ask.</li></ul>
+
+<p>For what normal half-hourly use looks like in each type of building, see our sector guides: <a href="schools-electricity.html">schools</a>, <a href="offices-council-buildings.html">offices and council buildings</a>, <a href="leisure-centres.html">leisure centres</a>, <a href="healthcare-electricity.html">healthcare</a>, <a href="industrial-warehouses.html">industrial and warehouses</a> and <a href="retail-hospitality.html">retail and hospitality</a>.</p>
 
 <h2 id="dec">Display Energy Certificates and CIBSE benchmarks</h2>
 <p>Public authority buildings over 250 m² that the public often visits must display a Display Energy Certificate (DEC). For buildings over 1,000 m², it is renewed every year.{ref(4)}</p>

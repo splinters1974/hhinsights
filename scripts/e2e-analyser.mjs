@@ -42,7 +42,7 @@ const junk = path.join(tmp, 'notes.csv');
 fs.writeFileSync(junk, 'Meeting notes\nNothing to see here,really\n');
 
 fs.mkdirSync(shots, { recursive: true });
-const server = spawn('python3', ['-m', 'http.server', String(PORT), '--bind', '127.0.0.1', '--directory', 'site'], { stdio: 'ignore' });
+const server = spawn('python3', ['scripts/serve.py', String(PORT)], { stdio: 'ignore' });
 async function waitForServer() {
   for (let i = 0; i < 50; i++) { try { if ((await fetch(base)).ok) return; } catch {} await delay(200); }
   throw new Error('local server did not start');

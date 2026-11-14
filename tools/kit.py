@@ -39,6 +39,10 @@ OPERATOR_URL = 'https://www.kinetic-energy.co.uk'
 CONTACT_NAME = 'Paul Johnston'
 CONTACT_EMAIL = 'pjohnston663@gmail.com'
 SOLAR_URL = 'https://uksolarcalculator.co.uk/'
+# Named author for the guides (byline and Article schema). Biography on about.html.
+AUTHOR_NAME = 'Paul Johnston'
+AUTHOR_ROLE = 'Managing Director, Kinetic Energy Consulting'
+AUTHOR_PHOTO = 'images/people/paul-johnston.jpg'
 
 MARK = ('<svg viewBox="0 0 34 34" aria-hidden="true">'
         '<rect x="3" y="15" width="5" height="10" rx="1" fill="#0065A4"/>'
@@ -59,11 +63,25 @@ NAV = [
 NAV_PARENT = {}
 
 
+def clean(path):
+    """Public address of a page: no .html (the host serves /base-load from base-load.html)."""
+    if path == 'index.html':
+        return ''
+    return path[:-5] if path.endswith('.html') else path
+
+
 def url(path):
     """Absolute URL once the domain is set, otherwise the relative path."""
     if not SITE_URL:
-        return path
-    return f'{SITE_URL}/' if path == 'index.html' else f'{SITE_URL}/{path}'
+        return clean(path) or './'
+    return f'{SITE_URL}/{clean(path)}'
+
+
+def clean_links(html):
+    """Point internal page links at clean addresses: href="base-load.html#x" -> href="base-load#x"."""
+    import re
+    html = re.sub(r'href="index\.html(#[^"]*)?"', lambda m: f'href="./{m.group(1) or ""}"', html)
+    return re.sub(r'href="([a-z0-9-]+)\.html(#[^"]*)?"', lambda m: f'href="{m.group(1)}{m.group(2) or ""}"', html)
 
 
 @dataclass
@@ -108,6 +126,11 @@ APP = {
                     'PDF and Excel reports', 'Password-protected customer dashboards'],
     'provider': {'@id': ORG_ID},
 }
+PERSON_ID = f'{url("about.html")}#paul-johnston'
+PERSON = {
+    '@type': 'Person', '@id': PERSON_ID, 'name': AUTHOR_NAME, 'jobTitle': 'Managing Director',
+    'worksFor': {'@id': ORG_ID}, 'url': url('about.html'), 'image': url(AUTHOR_PHOTO),
+}
 if SITE_URL:
     WEBSITE['url'] = url('index.html')
     WEBSITE['@id'] = f'{SITE_URL}/#website'
@@ -124,11 +147,13 @@ def jsonld(page):
         graph.append({'@type': 'BreadcrumbList', 'itemListElement': [
             {'@type': 'ListItem', 'position': i + 1, 'name': label, 'item': url(href)}
             for i, (label, href) in enumerate(page.crumbs)]})
+    if page.article or page.file == 'about.html':
+        graph.append(PERSON)
     if page.article:
         graph.append({'@type': 'Article', 'headline': page.title.split(' | ')[0], 'description': page.description,
                       **({'image': url(guide_card(page.file))} if guide_card(page.file) else {}),
                       'inLanguage': 'en-GB', 'datePublished': page_dates(page.file)[0], 'dateModified': page_dates(page.file)[1],
-                      'author': {'@id': ORG_ID}, 'publisher': {'@id': ORG_ID},
+                      'author': {'@id': PERSON_ID}, 'publisher': {'@id': ORG_ID},
                       'isPartOf': {'@id': WEBSITE['@id']}, **({'mainEntityOfPage': url(page.file)} if SITE_URL else {})})
     if page.faqs:
         graph.append({'@type': 'FAQPage', 'mainEntity': [
@@ -259,7 +284,8 @@ def related(links):
 def updated_line():
     # Filled in by layout() with the page's own date, so the date itself is not
     # part of the content fingerprint that decides when the date changes.
-    return f'<p class="byline">Last updated {UPDATED_MARK}</p>'
+    return (f'<p class="byline">By <a href="about.html">{AUTHOR_NAME}</a>, {AUTHOR_ROLE}'
+            f' <span aria-hidden="true">·</span> Last updated {UPDATED_MARK}</p>')
 
 
 def toc(items):
@@ -297,13 +323,15 @@ def layout(page):
     links = ''.join(f'<li><a href="{href}"{active if href == current else ""}>{label}</a></li>' for href, label in NAV)
     canonical = f'  <link rel="canonical" href="{url(page.file)}">\n  <meta property="og:url" content="{url(page.file)}">\n' if SITE_URL and not page.noindex else ''
     robots = '  <meta name="robots" content="noindex">\n' if page.noindex else ''
+    # The 404 page is served at any missing address, so anchor its relative links to the site root.
+    base = '  <base href="/">\n' if page.file == '404.html' else ''
     modified = page_dates(page.file)[1]
     body = page.body.replace(UPDATED_MARK, f'<time datetime="{modified}">{long_date(modified)}</time>')
-    return f'''<!DOCTYPE html>
+    return clean_links(f'''<!DOCTYPE html>
 <html lang="en-GB">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{base}  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{page.title}</title>
   <meta name="description" content="{escape(page.description)}">
 {canonical}{robots}  <meta property="og:type" content="{'article' if page.article else 'website'}">
@@ -355,7 +383,7 @@ def layout(page):
       </div>
       <div class="footer-col">
         <div class="footer-col-title">About</div>
-        <ul><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="{SOLAR_URL}">UK Solar Calculator</a>, our sister site</li></ul>
+        <ul><li><a href="about.html">About us</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="{SOLAR_URL}">UK Solar Calculator</a>, our sister site</li></ul>
       </div>
     </div>
     <div class="footer-bottom">
@@ -373,7 +401,7 @@ def layout(page):
 </script>
 </body>
 </html>
-'''
+''')
 
 
 def sources(items):

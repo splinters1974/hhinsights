@@ -18,7 +18,7 @@ GUIDES = ('Guides', 'guides.html')
 PAGES = {}
 
 # ── HOME ────────────────────────────────────────────────────────────────
-PAGES['index.html'] = ('Half Hourly Insights: free business electricity data analysis',
+PAGES['index.html'] = ('Free business electricity analysis | Half Hourly Insights',
   'Free analysis of half-hourly (HH) electricity data for UK businesses and public sector sites: use while closed, base load, peaks and unusual days.',
   f'''<div class="hero-wrap">
 <div class="hero-media" aria-hidden="true"><img src="images/hero-town.jpg" srcset="images/hero-town-900.jpg 800w, images/hero-town.jpg 1440w" sizes="100vw" width="1440" height="1080" alt="" fetchpriority="high"></div>
@@ -139,6 +139,12 @@ PAGES['index.html'] = ('Half Hourly Insights: free business electricity data ana
       <a class="link-card has-thumb" href="base-load.html"><div class="card-thumb"><img src="images/guides/base-load.jpg" srcset="images/guides/base-load-600.jpg 600w, images/guides/base-load.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Base load</h3><p>What always runs, why it matters and how to reduce it.</p><span class="more">Read the guide</span></a>
       <a class="link-card has-thumb" href="supply-capacity.html"><div class="card-thumb"><img src="images/guides/supply-capacity.jpg" srcset="images/guides/supply-capacity-600.jpg 600w, images/guides/supply-capacity.jpg 1200w" sizes="(max-width: 700px) 100vw, 400px" width="1200" height="630" alt="" loading="lazy"></div><h3>Supply capacity</h3><p>Your supply limit, and whether there's room for heat pumps and EV charging.</p><span class="more">Read the guide</span></a>
     </div>
+      <div class="home-more">
+      <div><h3>Understanding your bill</h3><ul><li><a href="business-electricity-price.html">What's in a business electricity price</a></li><li><a href="non-energy-charges.html">Non-energy charges explained</a></li><li><a href="electricity-prices-ten-years.html">Ten years of business electricity prices</a></li><li><a href="non-energy-costs-outlook.html">Where non-energy costs are heading</a></li></ul></div>
+      <div><h3>Getting and reading your data</h3><ul><li><a href="get-your-data.html">How to get your half-hourly data</a></li><li><a href="mpan-profile-class.html">Reading your MPAN</a></li><li><a href="electricity-benchmarks.html">Electricity benchmarks by sector</a></li><li><a href="sample-report.html">A sample report</a></li></ul></div>
+      <div><h3>By supplier</h3><ul><li><a href="half-hourly-data-british-gas.html">British Gas Business</a></li><li><a href="half-hourly-data-edf.html">EDF</a></li><li><a href="half-hourly-data-eon-next.html">E.ON Next</a></li><li><a href="half-hourly-data-npower-business-solutions.html">npower Business Solutions</a></li><li><a href="half-hourly-data-totalenergies.html">TotalEnergies</a></li></ul></div>
+    </div>
+    <p style="margin-top:24px"><a href="guides.html" class="btn btn-outline">All guides</a></p>
   </div>
 </section>
 
@@ -239,7 +245,7 @@ PAGES['get-your-data.html'] = ('How to get your half-hourly electricity data',
 <tr><td>Day per column</td><td>Dates across the top, 48 rows of readings</td></tr>
 <tr><td>Timestamped</td><td>One row per reading, with its date and time</td></tr></tbody></table></div>
 <p>Excel (.xlsx, .xls) and CSV files both work. Extra columns, such as meter references, are ignored. If a file can't be read, the analyser explains why.</p>
-<p>Not sure what your file should look like? <a href="samples/example-office.csv" download>Download our example file</a> and compare.</p>
+<p>Once you have the file, our <a href="guides.html">guides</a> explain what to look for. Not sure what your file should look like? <a href="samples/example-office.csv" download>Download our example file</a> and compare.</p>
 ''' + guide_download('Got your file?') + '''
 
 <h2 id="no-data">If your supplier can't provide it</h2>
@@ -262,7 +268,7 @@ FAQ = [
     ('Can I share results with a client or colleague?', "Yes. You can download a PDF report for one site or your whole portfolio, export to Excel, or create a customer dashboard. That's a password-protected copy of the analyser containing only their sites."),
   ]),
   ('Your data', [
-    ('Is my data uploaded anywhere?', 'No. The analysis runs entirely in your web browser. Your meter files are read on your own computer and nothing is sent to us or anyone else. Once the page has loaded you can even disconnect from the internet and keep working.'),
+    ('Is my data uploaded anywhere?', 'No. The analysis runs entirely in your web browser. Your meter files are read on your own computer and nothing is sent to us or anyone else. Once the page has loaded you can even disconnect from the internet and keep working. Our <a href="privacy.html">privacy notice</a> has the details.'),
     ('What data do I need?', 'Half-hourly electricity readings for each meter, ideally covering 12 months or more. <a href="get-your-data.html">Here is how to get them.</a>'),
     ('What if my file has gaps or errors?', 'The analyser finds them before showing any figures. Missing readings are left out rather than counted as zero, and days with zero readings or clock changes are flagged for you to decide on.'),
   ]),
@@ -297,6 +303,7 @@ PAGES['contact.html'] = ('Contact | Half Hourly Insights',
   </a>
   {photo('contact-photo', 'A laptop showing an electricity demand chart on a desk, beside a printed report and a notebook')}
   <h2>{CONTACT_NAME}</h2>
+  <p>Managing Director of {OPERATOR}. <a href="about.html">About Paul, and why the analyser is free</a>.</p>
   <p>Get in touch to talk through your results, or for help reducing out-of-hours use across your sites. We aim to reply within one working day.</p>
   <dl class="contact-details">
     <div><dt>Email</dt><dd><a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a></dd></div>
@@ -376,7 +383,7 @@ PAGES['privacy.html'] = ('Privacy | Half Hourly Insights',
 # ── SAMPLE REPORT ───────────────────────────────────────────────────────
 # Figures are the office worked example (site/samples/example-office.csv) as
 # the analyser reports them. Keep the two pages in step.
-PAGES['sample-report.html'] = ('Sample electricity report for an office | Half Hourly Insights',
+PAGES['sample-report.html'] = ('Sample half-hourly electricity report for an office',
   'A sample half-hourly electricity report for a made-up UK office: use while closed, base load, findings and what could be saved.',
   page_hero('Sample report', 'What a report looks like',
             'See the kind of results the analyser produces before you find your own meter data. This is a made-up office with made-up readings.',
@@ -449,6 +456,44 @@ PAGES['404.html'] = ('Page not found | Half Hourly Insights', 'This page does no
 
 
 
+
+# ── ABOUT ───────────────────────────────────────────────────────────────
+PAGES['about.html'] = ('About Half Hourly Insights and Paul Johnston',
+  'Who runs Half Hourly Insights, the experience behind it, why the analyser is free, and how we write and check our guides.',
+  page_hero('About', 'About Half Hourly Insights',
+            f'Half Hourly Insights is run by {OPERATOR}. Here is who we are, why the analyser is free, and how we keep the guides accurate.',
+            crumbs=[HOME, ('About', 'about.html')]) +
+  f'''<section class="section"><div class="section-inner about">
+<p class="answer">Half Hourly Insights is a free tool and set of guides for UK businesses and public sector organisations that want to understand their half-hourly electricity data. It is run by {OPERATOR}, whose Managing Director is Paul Johnston.</p>
+
+<div class="about-person" id="paul-johnston">
+  <img src="images/people/paul-johnston.jpg" width="480" height="600" alt="Paul Johnston, Managing Director of {OPERATOR}" loading="lazy">
+  <div>
+    <h2>Paul Johnston</h2>
+    <p class="about-role">Managing Director, {OPERATOR}</p>
+    <p>Paul has spent his career in the UK energy market. He has worked for some of the largest energy suppliers in the country and with private-equity-backed start-ups building new energy businesses.</p>
+    <p>Working at that scale showed him how much useful information the industry collects about how businesses use electricity, and how little of it reaches the people who could act on it. Working with start-ups showed him how much can change when that information is put in front of the right person in a form they can use.</p>
+    <p>He set up Half Hourly Insights to close that gap, and writes and reviews the guides on this site.</p>
+    <p><a href="contact.html">Contact Paul</a></p>
+  </div>
+</div>
+
+<h2 id="free">Why the analyser is free</h2>
+<p>Most organisations already have half-hourly electricity data. Their supplier records it every half hour, and it is used for billing. It rarely reaches the facilities manager, the bursar or the finance director, who are the people who could use it to cut waste.</p>
+<p>We built the analyser so anyone can load that data and, within a minute, see when their buildings use electricity, what runs while they are closed and what that costs. Often the first changes cost nothing: a timer, a heating schedule, a holiday calendar.</p>
+<p>It is free because that is the most useful way to start. Some organisations will act on the results themselves, and that is fine. Others will want help going further, and that is the work {OPERATOR} does. There is no sign-up and no obligation. Because the analysis runs in your web browser, we never see your data unless you choose to send it to us.</p>
+
+<h2 id="how">How we write the guides</h2>
+<ul>
+<li><strong>Every figure has a source.</strong> Guides cite the primary source, such as Ofgem, the government, the National Energy System Operator or the supplier concerned, with a date.</li>
+<li><strong>Examples are labelled.</strong> Our worked examples use made-up buildings and say so. Every figure in them is what the analyser actually reports.</li>
+<li><strong>Costs are not savings.</strong> We show the cost of a pattern of use, not a promised saving, and say when findings overlap.</li>
+<li><strong>Pages are dated.</strong> Each guide shows when it was last updated. Rates and prices are reviewed every April.</li>
+<li><strong>Corrections are welcome.</strong> If something is wrong or out of date, <a href="contact.html">tell us</a> and we will fix it.</li>
+</ul>
+</div></section>''' + cta('See what your data shows', "It's free, there's no sign-up, and your file stays on your computer."))
+
+
 def core_pages():
     """The pages above, with breadcrumbs, schema and llms.txt lines."""
     home = ('Home', 'index.html')
@@ -469,6 +514,8 @@ def core_pages():
         'sample-report.html': dict(crumbs=[home, ('Sample report', 'sample-report.html')], section='Core pages',
                                    summary='A sample report for a made-up office: 33% of use while closed, £2,776 a year above base load, base load 2.6 kW, findings and what could be saved.'),
         '404.html': dict(noindex=True),
+        'about.html': dict(crumbs=[home, ('About', 'about.html')], section='Core pages',
+                           summary=f'Who runs the site ({OPERATOR}, Managing Director Paul Johnston), why the analyser is free, and how the guides are sourced and checked.'),
     }
     out = []
     for file, (title, desc, body, *extra) in PAGES.items():

@@ -58,7 +58,7 @@ for (const name of pages) {
     if (canonical) err(`${name}: noindex page should not declare a canonical URL`);
   } else {
     indexable.push(name);
-    const expected = name === 'index.html' ? `${origin}/` : `${origin}/${name}`;
+    const expected = name === 'index.html' ? `${origin}/` : `${origin}/${name.replace(/\.html$/, '')}`;
     if (canonical !== expected) err(`${name}: canonical is ${canonical}, expected ${expected}`);
     if (!/<meta property="og:url" content="https:\/\//.test(html)) err(`${name}: og:url missing or not absolute`);
     if (!ogImage || !ogImage.startsWith(`${origin}/`)) err(`${name}: og:image missing or not on ${origin}`);
@@ -82,9 +82,10 @@ for (const name of pages) {
     const t = localTarget(name, ref);
     if (!t) continue;
     if (!t.startsWith(root)) { err(`${name}: link leaves the site: ${ref}`); continue; }
-    const exists = fs.existsSync(t) && (fs.statSync(t).isFile() || fs.existsSync(path.join(t, 'index.html')));
+    // Clean addresses: /base-load is served from base-load.html, ./ from index.html.
+    const exists = (fs.existsSync(t) && (fs.statSync(t).isFile() || fs.existsSync(path.join(t, 'index.html')))) || fs.existsSync(t + '.html');
     if (!exists) err(`${name}: broken reference ${ref}`);
-    else referenced.add(path.relative(root, t));
+    else referenced.add(path.relative(root, fs.existsSync(t + '.html') && !fs.existsSync(t) ? t + '.html' : t));
   }
   for (const [tag] of html.matchAll(/<img\b[^>]*>/g)) {
     if (!/\salt="/.test(tag)) err(`${name}: <img> without alt: ${tag.slice(0, 80)}`);
@@ -100,12 +101,12 @@ for (const rel of approved) if (!referenced.has(rel)) err(`approved image not us
 const sitemap = fs.existsSync(path.join(root, 'sitemap.xml')) ? fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8') : '';
 const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
 for (const name of indexable) {
-  const u = name === 'index.html' ? `${origin}/` : `${origin}/${name}`;
+  const u = name === 'index.html' ? `${origin}/` : `${origin}/${name.replace(/\.html$/, '')}`;
   if (!locs.includes(u)) err(`sitemap missing ${u}`);
 }
 for (const u of locs) {
   if (!u.startsWith(`${origin}/`)) err(`sitemap URL on the wrong host: ${u}`);
-  if (/thanks\.html|404\.html/.test(u)) err(`sitemap lists a noindex page: ${u}`);
+  if (/\/(thanks|404)(\.html)?$/.test(u)) err(`sitemap lists a noindex page: ${u}`);
 }
 const robots = fs.readFileSync(path.join(root, 'robots.txt'), 'utf8');
 if (!robots.includes(`Sitemap: ${origin}/sitemap.xml`)) err('robots.txt does not point at the sitemap');
@@ -113,7 +114,7 @@ if (/Disallow:\s*\/\s*$/m.test(robots)) err('robots.txt blocks the whole site');
 
 // Content safeguards.
 const read = (n) => fs.readFileSync(path.join(root, n), 'utf8');
-if (!read('index.html').includes('href="sample-report.html"')) err('home page does not link to the sample report');
+if (!read('index.html').includes('href="sample-report"')) err('home page does not link to the sample report');
 if (!/Made-up example/.test(read('sample-report.html'))) err('sample report is not labelled as made-up');
 if (!/not a promised saving/.test(read('sample-report.html'))) err('sample report does not separate cost from saving');
 const contact = read('contact.html');
