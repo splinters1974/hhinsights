@@ -186,9 +186,21 @@ def guide_card(file):
     return f'images/guides/{name}' if os.path.exists(os.path.join(GUIDE_CARD_DIR, name)) else None
 
 
+def card_size(src):
+    from PIL import Image
+    with Image.open(os.path.join(GUIDE_CARD_DIR, '..', '..', src)) as im:
+        return im.size
+
+
 def link_card(f, t, d, more='Read the guide'):
     img = guide_card(f)
-    thumb = f'<img class="card-thumb" src="{img}" width="512" height="256" alt="" loading="lazy">' if img else ''
+    thumb = ''
+    if img:
+        w, h = card_size(img)
+        small = img.replace('.jpg', '-600.jpg')
+        srcset = (f' srcset="{small} 600w, {img} {w}w" sizes="(max-width: 700px) 100vw, 400px"'
+                  if os.path.exists(os.path.join(GUIDE_CARD_DIR, os.path.basename(small))) else '')
+        thumb = f'<img class="card-thumb" src="{img}"{srcset} width="{w}" height="{h}" alt="" loading="lazy">'
     return f'<a class="link-card{" has-thumb" if img else ""}" href="{f}">{thumb}<h3>{t}</h3><p>{d}</p><span class="more">{more}</span></a>'
 
 
@@ -221,7 +233,7 @@ def guide(main, side=''):
 
 def og_image(page):
     card = guide_card(page.file)
-    src, w, h = (card, 512, 256) if card else ('images/og-image.png', 1200, 630)
+    src, (w, h) = (card, card_size(card)) if card else ('images/og-image.png', (1200, 630))
     return (f'  <meta property="og:image" content="{url(src)}">\n  <meta property="og:image:width" content="{w}">\n'
             f'  <meta property="og:image:height" content="{h}">')
 
