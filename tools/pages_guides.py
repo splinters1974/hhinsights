@@ -438,7 +438,7 @@ SECTOR_DATA = [
 
 SECTOR_PHOTOS = {
     'schools-electricity.html': ('town-school-leisure', 'Illustration of a town with a school, a sports pitch and a swimming pool among streets of houses'),
-    'offices-council-buildings.html': ('estate-town', 'Illustration of a town centre with offices, civic buildings, a school, housing and an energy centre'),
+    'offices-council-buildings.html': ('estate-town', 'Illustration of a town with offices, a town hall, a school, a leisure centre, housing and an energy centre'),
     'leisure-centres.html': ('town-school-leisure', 'Illustration of a leisure centre with an outdoor pool next to a school and sports pitch'),
     'healthcare-electricity.html': ('estate-hospital', 'Illustration of a hospital estate with clinical buildings, a multi-storey car park, plant compounds and a substation'),
     'industrial-warehouses.html': ('estate-business-park', 'Illustration of a business park with warehouses, a plant compound, battery storage, a substation and ground-mounted solar'),

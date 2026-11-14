@@ -114,7 +114,7 @@ PAGES['index.html'] = ('Half Hourly Insights: free half-hourly electricity analy
       <p class="section-lead">Any building with a half-hourly meter. Every building type has its own normal, so the analyser compares each site with its own opening hours, not a benchmark.</p>
       <p style="margin-top:24px"><a href="sectors.html" class="btn btn-outline">What to look for in your sector</a></p>
     </div>
-    <div>{photo('town-street', 'A town street with an energy centre, offices, a civic building, an electric bus and a car charging at a roadside charger')}</div>
+    <div>{photo('town-street', 'A town high street with an electric bus, a civic building and a car charging at a roadside charger')}</div>
   </div>
 </section>
 
@@ -270,7 +270,7 @@ PAGES['contact.html'] = ('Contact | Half Hourly Insights',
     <span class="kec-sponsored-by">Sponsored by</span>
     <img src="images/kec-logo.svg" alt="{OPERATOR}" class="kec-logo-img" width="220" height="105">
   </a>
-  {photo('team-planning', 'Four people around a table with drawings, a laptop and a model of a site, with a dashboard on the wall behind')}
+  {photo('contact-photo', 'A laptop showing an electricity demand chart on a desk, beside a printed report and a notebook')}
   <h2>{CONTACT_NAME}</h2>
   <p>Get in touch to talk through your results, or about help reducing out-of-hours use across your sites. Enquiries are typically responded to within one working day.</p>
   <dl class="contact-details">

@@ -160,10 +160,10 @@ def faq_section(faqs, title='Questions people ask'):
 
 # Illustrations and photos in site/images/photos, each saved at 1600 px and 800 px wide.
 PHOTO_SIZES = {
-    'estate-hospital': (1448, 1086), 'estate-business-park': (1448, 1086), 'estate-town': (1448, 1086),
-    'town-school-leisure': (888, 370), 'town-street': (1600, 900), 'plant-outside': (1600, 900), 'solar-private-wire': (1600, 900),
+    'estate-hospital': (1448, 1086), 'estate-business-park': (1448, 1086), 'estate-town': (1600, 1200),
+    'town-school-leisure': (1120, 820), 'town-street': (1600, 900), 'plant-outside': (1600, 900), 'solar-private-wire': (1600, 900),
     'switchroom-tablet': (1448, 1086), 'board-review': (1448, 1086), 'site-plans-substation': (1448, 1086),
-    'team-planning': (1448, 1086),
+    'contact-photo': (1200, 900),
 }
 
 
