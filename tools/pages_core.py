@@ -15,7 +15,7 @@ PAGES = {}
 PAGES['index.html'] = ('Half Hourly Insights: free half-hourly electricity analysis',
   'Free analysis of UK half-hourly electricity data: out-of-hours use, base load, peaks against capacity and unusual days. Runs in your browser.',
   f'''<div class="hero-wrap">
-<div class="hero-media" aria-hidden="true"><img src="images/hero-heatmap.jpg" width="1600" height="900" alt="" fetchpriority="high"></div>
+<div class="hero-media" aria-hidden="true"><img src="images/hero-town.jpg" srcset="images/hero-town-900.jpg 800w, images/hero-town.jpg 1440w" sizes="100vw" width="1440" height="1080" alt="" fetchpriority="high"></div>
 <section class="hero" aria-labelledby="hero-h">
   <div class="hero-copy">
     <p class="hero-pre">Free for UK businesses and public bodies. No sign-up.</p>

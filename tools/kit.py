@@ -231,6 +231,11 @@ def guide(main, side=''):
 </div>'''
 
 
+# Fingerprint of the stylesheet, added to its link so browsers fetch a new copy after every change.
+import hashlib
+CSS_VERSION = hashlib.sha1(open(os.path.join(os.path.dirname(__file__), '..', 'site', 'css', 'site.css'), 'rb').read()).hexdigest()[:8]
+
+
 def og_image(page):
     card = guide_card(page.file)
     src, (w, h) = (card, card_size(card)) if card else ('images/og-image.png', (1200, 630))
@@ -260,7 +265,7 @@ def layout(page):
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="preload" href="fonts/schibsted-grotesk-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/site.css?v={CSS_VERSION}">
 {jsonld(page)}{page.extra_head}</head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
