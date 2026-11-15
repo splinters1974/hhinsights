@@ -1,3 +1,5 @@
+import { fileURLToPath } from 'node:url'
+import { readFileSync } from 'node:fs'
 import path from 'node:path'
 import { defineConfig, type Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
@@ -22,15 +24,16 @@ function localApi(): Plugin {
 }
 
 /**
- * The page has no favicon.svg beside it: inline the bar mark instead, and
- * give the tab the product name.
+ * Embed the 32 px icon so the page, and customer dashboards saved from it as
+ * a single file, carry their own tab icon. Larger icons (192 px, apple touch)
+ * point at the website's files beside /analyser/. Also names the tab.
  */
 function inlineIcon(): Plugin {
-  const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'><rect x='3' y='15' width='5' height='10' rx='1' fill='%230065A4'/><rect x='10' y='9' width='5' height='16' rx='1' fill='%230065A4'/><rect x='17' y='3' width='5' height='22' rx='1' fill='%23F8C05D'/><rect x='24' y='12' width='5' height='13' rx='1' fill='%230065A4'/><rect x='1' y='26' width='32' height='3' rx='1.5' fill='%23063C55'/></svg>`
+  const png = readFileSync(fileURLToPath(new URL('../site/images/brand/favicon-32.png', import.meta.url))).toString('base64')
   return {
     name: 'inline-icon',
     transformIndexHtml: (html) => html
-      .replace(/<link rel="icon"[^>]*>/, `<link rel="icon" href="data:image/svg+xml,${svg}" />`)
+      .replace(/<link rel="icon" type="image\/png" sizes="32x32"[^>]*>/, `<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,${png}" />`)
       .replace(/<title>[^<]*<\/title>/, '<title>Half-hourly electricity analyser | Half Hourly Insights</title>'),
   }
 }
