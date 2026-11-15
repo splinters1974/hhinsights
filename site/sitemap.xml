@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://halfhourlyinsights.netlify.app/</loc><lastmod>2026-11-14</lastmod></url>
+  <url><loc>https://halfhourlyinsights.netlify.app/</loc><lastmod>2026-11-15</lastmod></url>
   <url><loc>https://halfhourlyinsights.netlify.app/how-it-works</loc><lastmod>2026-11-14</lastmod></url>
   <url><loc>https://halfhourlyinsights.netlify.app/get-your-data</loc><lastmod>2026-11-14</lastmod></url>
   <url><loc>https://halfhourlyinsights.netlify.app/faq</loc><lastmod>2026-11-14</lastmod></url>
@@ -8,21 +8,21 @@
   <url><loc>https://halfhourlyinsights.netlify.app/privacy</loc><lastmod>2026-11-14</lastmod></url>
   <url><loc>https://halfhourlyinsights.netlify.app/sample-report</loc><lastmod>2026-11-14</lastmod></url>
   <url><loc>https://halfhourlyinsights.netlify.app/about</loc><lastmod>2026-11-14</lastmod></url>
-  <url><loc>https://halfhourlyinsights.netlify.app/example-office-analysis</loc><lastmod>2026-11-14</lastmod></url>
+  <url><loc>https://halfhourlyinsights.netlify.app/example-office-analysis</loc><lastmod>2026-11-15</lastmod></url>
   <url><loc>https://halfhourlyinsights.netlify.app/out-of-hours-electricity</loc><lastmod>2026-11-14</lastmod></url>
-  <url><loc>https://halfhourlyinsights.netlify.app/base-load</loc><lastmod>2026-11-14</lastmod></url>
-  <url><loc>https://halfhourlyinsights.netlify.app/supply-capacity</loc><lastmod>2026-11-14</lastmod></url>
+  <url><loc>https://halfhourlyinsights.netlify.app/base-load</loc><lastmod>2026-11-15</lastmod></url>
+  <url><loc>https://halfhourlyinsights.netlify.app/supply-capacity</loc><lastmod>2026-11-15</lastmod></url>
   <url><loc>https://halfhourlyinsights.netlify.app/example-school-analysis</loc><lastmod>2026-11-14</lastmod></url>
   <url><loc>https://halfhourlyinsights.netlify.app/reading-a-heatmap</loc><lastmod>2026-11-14</lastmod></url>
   <url><loc>https://halfhourlyinsights.netlify.app/proving-savings</loc><lastmod>2026-11-14</lastmod></url>
   <url><loc>https://halfhourlyinsights.netlify.app/half-hourly-settlement</loc><lastmod>2026-11-14</lastmod></url>
   <url><loc>https://halfhourlyinsights.netlify.app/glossary</loc><lastmod>2026-11-14</lastmod></url>
-  <url><loc>https://halfhourlyinsights.netlify.app/schools-electricity</loc><lastmod>2026-11-14</lastmod></url>
-  <url><loc>https://halfhourlyinsights.netlify.app/offices-council-buildings</loc><lastmod>2026-11-14</lastmod></url>
-  <url><loc>https://halfhourlyinsights.netlify.app/leisure-centres</loc><lastmod>2026-11-14</lastmod></url>
-  <url><loc>https://halfhourlyinsights.netlify.app/healthcare-electricity</loc><lastmod>2026-11-14</lastmod></url>
-  <url><loc>https://halfhourlyinsights.netlify.app/industrial-warehouses</loc><lastmod>2026-11-14</lastmod></url>
-  <url><loc>https://halfhourlyinsights.netlify.app/retail-hospitality</loc><lastmod>2026-11-14</lastmod></url>
+  <url><loc>https://halfhourlyinsights.netlify.app/schools-electricity</loc><lastmod>2026-11-15</lastmod></url>
+  <url><loc>https://halfhourlyinsights.netlify.app/offices-council-buildings</loc><lastmod>2026-11-15</lastmod></url>
+  <url><loc>https://halfhourlyinsights.netlify.app/leisure-centres</loc><lastmod>2026-11-15</lastmod></url>
+  <url><loc>https://halfhourlyinsights.netlify.app/healthcare-electricity</loc><lastmod>2026-11-15</lastmod></url>
+  <url><loc>https://halfhourlyinsights.netlify.app/industrial-warehouses</loc><lastmod>2026-11-15</lastmod></url>
+  <url><loc>https://halfhourlyinsights.netlify.app/retail-hospitality</loc><lastmod>2026-11-15</lastmod></url>
   <url><loc>https://halfhourlyinsights.netlify.app/sectors</loc><lastmod>2026-11-14</lastmod></url>
   <url><loc>https://halfhourlyinsights.netlify.app/guides</loc><lastmod>2026-11-14</lastmod></url>
   <url><loc>https://halfhourlyinsights.netlify.app/half-hourly-data-british-gas</loc><lastmod>2026-11-14</lastmod></url>
@@ -36,5 +36,6 @@
   <url><loc>https://halfhourlyinsights.netlify.app/non-energy-charges</loc><lastmod>2026-11-14</lastmod></url>
   <url><loc>https://halfhourlyinsights.netlify.app/electricity-prices-ten-years</loc><lastmod>2026-11-14</lastmod></url>
   <url><loc>https://halfhourlyinsights.netlify.app/non-energy-costs-outlook</loc><lastmod>2026-11-14</lastmod></url>
-  <url><loc>https://halfhourlyinsights.netlify.app/analyser/</loc><lastmod>2026-11-14</lastmod></url>
+  <url><loc>https://halfhourlyinsights.netlify.app/solar</loc><lastmod>2026-11-15</lastmod></url>
+  <url><loc>https://halfhourlyinsights.netlify.app/analyser/</loc><lastmod>2026-11-15</lastmod></url>
 </urlset>

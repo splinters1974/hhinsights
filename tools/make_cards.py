@@ -27,6 +27,7 @@ CARDS = {
     'non-energy-charges': 'Non-energy charges explained',
     'electricity-prices-ten-years': 'Ten years of business electricity prices',
     'non-energy-costs-outlook': 'Where non-energy costs are heading',
+    'solar': 'Size solar from your half-hourly data',
 }
 
 TEAL, LIME, WHITE = (3, 52, 59), (181, 247, 53), (255, 255, 255)

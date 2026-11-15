@@ -60,7 +60,8 @@ export default function SolarPanel({ site }: { site: SiteSummary }) {
         </a>
         <span className="text-xs text-slate-500 max-w-xl">
           Opens our sister site in a new tab with the figures above already filled in. Only this site's annual use and the share used
-          on site at each size are passed, after the # in the web address, which browsers don't send to any server. The readings stay here.
+          on site at each size are passed, after the # in the web address, which browsers don't send to any server. The readings stay here.{' '}
+          <a className="underline" href="../solar" target="_blank" rel="noopener">How to use these figures</a>.
         </span>
       </div>
     </Card>
