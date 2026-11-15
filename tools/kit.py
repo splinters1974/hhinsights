@@ -61,6 +61,7 @@ NAV = [
     ('how-it-works.html', 'How it works'),
     ('guides.html', 'Guides'),
     ('sectors.html', 'Sectors'),
+    ('solar.html', 'Solar'),
     ('faq.html', 'FAQ'),
     ('contact.html', 'Contact'),
 ]

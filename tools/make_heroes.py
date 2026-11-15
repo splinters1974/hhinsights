@@ -12,7 +12,7 @@ import sys
 from PIL import Image
 
 OUT = os.path.join(os.path.dirname(__file__), '..', 'site', 'images', 'heroes')
-NAMES = {'how-it-works', 'guides', 'sectors', 'faq', 'contact'}
+NAMES = {'how-it-works', 'guides', 'sectors', 'solar', 'faq', 'contact'}
 
 
 def save(src, name):

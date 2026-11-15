@@ -20,6 +20,7 @@ Method in brief: base load is the 5th percentile of valid half-hourly demand; ou
 - [Contact](https://halfhourlyinsights.netlify.app/contact): Enquiries to Kinetic Energy Consulting, which runs the site.
 - [Sample half-hourly electricity report for an office](https://halfhourlyinsights.netlify.app/sample-report): A sample report for a made-up office: 33% of use while closed, £2,776 a year above base load, base load 2.6 kW, findings and what could be saved.
 - [About Half Hourly Insights and Paul Johnston](https://halfhourlyinsights.netlify.app/about): Who runs the site (Kinetic Energy Consulting, Managing Director Paul Johnston), why the analyser is free, and how the guides are sourced and checked.
+- [Solar sizing from half-hourly data](https://halfhourlyinsights.netlify.app/solar): How half-hourly data shows how much solar a site would use, and how to take that to the UK Solar Calculator to size the system.
 
 ## Guides
 

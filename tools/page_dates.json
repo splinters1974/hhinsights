@@ -11,8 +11,8 @@
  },
  "base-load.html": {
   "published": "2026-11-14",
-  "modified": "2026-11-14",
-  "fingerprint": "0aa6239b60c3de10"
+  "modified": "2026-11-15",
+  "fingerprint": "d6b31a871474d619"
  },
  "business-electricity-price.html": {
   "published": "2026-11-14",
@@ -36,8 +36,8 @@
  },
  "example-office-analysis.html": {
   "published": "2026-11-14",
-  "modified": "2026-11-14",
-  "fingerprint": "af6782a97c21ad0e"
+  "modified": "2026-11-15",
+  "fingerprint": "3c7405c132019a9e"
  },
  "example-school-analysis.html": {
   "published": "2026-11-14",
@@ -96,8 +96,8 @@
  },
  "healthcare-electricity.html": {
   "published": "2026-11-14",
-  "modified": "2026-11-14",
-  "fingerprint": "dcb3cbe06371a29f"
+  "modified": "2026-11-15",
+  "fingerprint": "eb4c9fcd2e928943"
  },
  "how-it-works.html": {
   "published": "2026-11-14",
@@ -106,18 +106,18 @@
  },
  "index.html": {
   "published": "2026-11-14",
-  "modified": "2026-11-14",
-  "fingerprint": "2b11428d0eeafc81"
+  "modified": "2026-11-15",
+  "fingerprint": "c75b66380d752f7c"
  },
  "industrial-warehouses.html": {
   "published": "2026-11-14",
-  "modified": "2026-11-14",
-  "fingerprint": "a2c82795853f05e4"
+  "modified": "2026-11-15",
+  "fingerprint": "291df42ae4be884f"
  },
  "leisure-centres.html": {
   "published": "2026-11-14",
-  "modified": "2026-11-14",
-  "fingerprint": "d2eb4cd57ec0146a"
+  "modified": "2026-11-15",
+  "fingerprint": "898979aced185f8c"
  },
  "mpan-profile-class.html": {
   "published": "2026-11-14",
@@ -136,8 +136,8 @@
  },
  "offices-council-buildings.html": {
   "published": "2026-11-14",
-  "modified": "2026-11-14",
-  "fingerprint": "df2eb52aa81726b2"
+  "modified": "2026-11-15",
+  "fingerprint": "a97597d4c7a2717c"
  },
  "out-of-hours-electricity.html": {
   "published": "2026-11-14",
@@ -161,8 +161,8 @@
  },
  "retail-hospitality.html": {
   "published": "2026-11-14",
-  "modified": "2026-11-14",
-  "fingerprint": "f5f8b21395f20e7e"
+  "modified": "2026-11-15",
+  "fingerprint": "12c4196bed39a43c"
  },
  "sample-report.html": {
   "published": "2026-11-14",
@@ -171,18 +171,23 @@
  },
  "schools-electricity.html": {
   "published": "2026-11-14",
-  "modified": "2026-11-14",
-  "fingerprint": "30257e11c3f9b5d0"
+  "modified": "2026-11-15",
+  "fingerprint": "0aaa718bca22c4fa"
  },
  "sectors.html": {
   "published": "2026-11-14",
   "modified": "2026-11-14",
   "fingerprint": "af7b42a8ff9e6b44"
  },
+ "solar.html": {
+  "published": "2026-11-15",
+  "modified": "2026-11-15",
+  "fingerprint": "4235a247aebfe61f"
+ },
  "supply-capacity.html": {
   "published": "2026-11-14",
-  "modified": "2026-11-14",
-  "fingerprint": "36bdb797fa73cb56"
+  "modified": "2026-11-15",
+  "fingerprint": "4740643bbacd1ed5"
  },
  "thanks.html": {
   "published": "2026-11-14",

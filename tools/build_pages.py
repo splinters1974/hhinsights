@@ -19,6 +19,7 @@ from pages_core import core_pages
 from pages_guides import PAGES as GUIDE_PAGES
 from pages_data import PAGES as DATA_PAGES
 from pages_prices import PAGES as PRICE_PAGES
+from pages_solar import PAGES as SOLAR_PAGES
 
 SITE = Path(__file__).resolve().parent.parent / 'site'
 DATES_FILE = Path(__file__).resolve().parent / 'page_dates.json'
@@ -95,7 +96,7 @@ def sitemap(pages):
 
 
 def main():
-    pages = core_pages() + GUIDE_PAGES + DATA_PAGES + PRICE_PAGES
+    pages = core_pages() + GUIDE_PAGES + DATA_PAGES + PRICE_PAGES + SOLAR_PAGES
     update_dates(pages)
     for p in pages:
         (SITE / p.file).write_text(layout(p), encoding='utf-8')

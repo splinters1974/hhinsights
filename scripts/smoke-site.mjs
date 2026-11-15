@@ -18,7 +18,7 @@ const PORT = 8765;
 const base = `http://127.0.0.1:${PORT}/`;
 const out = 'site-screenshots';
 // Clean addresses, as the live host serves them (/guides serves guides.html).
-const pages = ['', 'guides', 'sectors', 'sample-report', 'contact', 'how-it-works', 'about', 'business-electricity-price', 'analyser/'];
+const pages = ['', 'guides', 'sectors', 'sample-report', 'contact', 'how-it-works', 'about', 'business-electricity-price', 'solar', 'analyser/'];
 const views = [{ label: 'desktop', width: 1366, height: 900 }, { label: 'mobile', width: 390, height: 844, mobile: true }];
 const errors = [];
 const passed = [];
