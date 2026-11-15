@@ -149,7 +149,7 @@ export default function SiteView({ site, rate, locked, showNotes, refresh, onBac
       {tab === 'anomalies' && <AnomaliesTab site={site} goTo={goTo} />}
       {tab === 'scenarios' && scenarioRun && <ScenariosTab site={site} run={scenarioRun} onChange={onScenarios} locked={false} />}
       {tab === 'capacity' && <CapacityTab site={site} onChange={onSettings} locked={false} goTo={goTo} />}
-      {tab === 'solar' && <SolarPanel site={site} />}
+      {tab === 'solar' && <SolarPanel key={site.id} site={site} onChange={locked ? undefined : onSettings} />}
       {tab === 'charts' && (
         <div className="space-y-4">
           <Note>

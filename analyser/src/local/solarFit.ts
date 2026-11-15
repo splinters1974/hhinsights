@@ -16,6 +16,7 @@
  * against PVGIS hourly data.
  */
 import type { Frame } from './frame';
+import { cleanPostcode } from './sapRegions';
 
 export const SOLAR_CALCULATOR_URL = 'https://uksolarcalculator.co.uk/calculator.html';
 
@@ -157,10 +158,12 @@ export function selfConsumptionAt(fit: SolarFit, kwp: number): number {
  * Link that opens the UK Solar Calculator with this site's curve. The data
  * goes after "#", which browsers never send to a server; it holds only the
  * annual use and the share used on site at each size, not the readings.
- * Format: #hhi=1&y=<kWh/kWp>&use=<kWh a year>&sc=<kWp>:<percent>,...
+ * Format: #hhi=1&y=<kWh/kWp>&use=<kWh a year>&sc=<kWp>:<percent>,...[&pc=<postcode>]
+ * The postcode is added only if the user entered one.
  */
-export function solarCalculatorLink(fit: SolarFit): string {
+export function solarCalculatorLink(fit: SolarFit, postcode = ''): string {
   const annualUse = Math.round((fit.consumption * 365) / fit.days);
   const sc = fit.points.map((p) => `${p.kwp}:${Math.round(p.selfConsumption * 100)}`).join(',');
-  return `${SOLAR_CALCULATOR_URL}#hhi=1&y=${fit.specificYield}&use=${annualUse}&sc=${sc}`;
+  const pc = cleanPostcode(postcode);
+  return `${SOLAR_CALCULATOR_URL}#hhi=1&y=${fit.specificYield}&use=${annualUse}&sc=${sc}${pc ? `&pc=${encodeURIComponent(pc)}` : ''}`;
 }
