@@ -150,6 +150,11 @@ try {
     const t = await text(page);
     check(/example-office-copy/.test(t) && /£2,776/.test(t) && /79,191/.test(t), 'Excel copy of the office file: same £2,776 and 79,191 kWh as the CSV');
     check(/example-school/.test(t) && /2 meters/.test(t), 'school CSV loads alongside as a second meter');
+    check(await page.getByRole('button', { name: 'Solar for example-school →' }).count() === 1
+      && await page.getByRole('button', { name: 'Solar for example-office-copy →' }).count() === 1, 'solar pointer offers every site');
+    await page.getByRole('button', { name: 'Solar for example-school →' }).click();
+    await page.getByText('Solar: how much would you use?').waitFor({ timeout: 10000 });
+    check(/example-school/.test(await page.locator('h1').first().innerText()), "a site's solar button opens that site's Solar tab");
     await context.close();
   }
 
