@@ -238,6 +238,8 @@ PHOTO_SIZES = {
     'town-school-leisure': (1120, 820), 'town-street': (1600, 900), 'plant-outside': (1600, 900), 'solar-private-wire': (1600, 900),
     'switchroom-tablet': (1448, 1086), 'board-review': (1448, 1086), 'site-plans-substation': (1448, 1086),
     'contact-photo': (1200, 900),
+    'solar-carport-depot': (1600, 900), 'solar-canopy-hospital': (1600, 900), 'solar-ground-campus': (1600, 900),
+    'solar-site-team': (1600, 900),
 }
 
 

@@ -12,7 +12,7 @@ Calculator's default unit price (25p/kWh) and export rate (5p/kWh).
 REVIEW EACH APRIL with the price pages: the Ofgem SEG scope, the capital
 allowance and business rates references, and the calculator's assumptions.
 """
-from kit import (NAV_PARENT, Page, SOLAR_URL, guide, page_hero, faq_section, sources,
+from kit import (NAV_PARENT, Page, photo, SOLAR_URL, guide, page_hero, faq_section, sources,
                  toc, updated_line)
 from pages_guides import HOME
 
@@ -116,6 +116,7 @@ MAIN = f'''{updated_line()}
 <li><strong>There is tax and rates help.</strong> Plant used to generate renewable power on site has been exempt from business rates in England since April 2022,{ref(4)} and companies can claim full expensing on qualifying plant and machinery.{ref(5)} Check how they apply to you with your adviser.</li>
 <li><strong>You don't have to buy it.</strong> Under a Power Purchase Agreement, a funder pays for and owns the system and you buy its electricity at an agreed rate.{ref(1)}</li>
 </ul>
+{photo('solar-ground-campus', 'Ground-mounted solar panels beside an energy centre and office campus at sunset', 'Roofs are the usual place to start, but car parks and spare land can carry panels too.')}
 <p>Most UK commercial rooftop systems pay back in roughly four to eight years on the UK Solar Calculator's own worked figures.{ref(6)} Where yours falls depends mostly on one number.</p>
 
 <h2 id="share">The figure that matters most: how much you use yourself</h2>
@@ -131,6 +132,7 @@ MAIN = f'''{updated_line()}
 <tr><td>Evening use on sunny days</td><td>The most a battery could shift from midday to evening.</td><td>Day profile</td></tr>
 <tr><td>Out-of-hours waste</td><td>Fix it first. Cutting waste lowers the demand solar has to match, so size the system on the building you'll have afterwards.</td><td><a href="out-of-hours-electricity.html">Out-of-hours use</a></td></tr>
 </tbody></table></div>
+{photo('solar-canopy-hospital', 'Solar canopies over a hospital car park at dusk, beside a fenced energy compound with battery units', 'After sunset, solar stops. Your evening demand on sunny days is the most a battery could ever move.')}
 
 <h2 id="example">A worked example: the sample office</h2>
 <p>Our <a href="example-office-analysis.html">example office</a> uses about {USE:,} kWh a year and is quiet on Sundays and busy only on some Saturdays. Here is what the analyser estimates at three system sizes, at UK average output (905 kWh per kWp). Values are for the first year at 25p/kWh for solar used on site and 5p/kWh for export, before price rises and panel ageing. "Covers" is the share of the site's electricity solar would supply. "Value" uses the measured share used on site; "At 80%" is the same system if you had guessed 80%.</p>
@@ -156,10 +158,12 @@ MAIN = f'''{updated_line()}
 <li><strong>Compares buying outright with a PPA</strong>, with payback, return and net benefit over 25 years.{ref(1)}</li>
 <li><strong>Models a battery</strong> if you want one, and produces a 25-year PDF report you can share.{ref(1)}</li>
 </ul>
+{photo('solar-carport-depot', 'Solar carports over electric buses at a depot, with a battery container in the foreground', 'The calculator covers pitched and flat roofs, ground mounts and carports, each costed separately.')}
 <p>It's free and run by the same team, <a href="about.html">Kinetic Energy Consulting</a>. If you want help turning an estimate into a project, <a href="{SOLAR_CONTACT}">ask the solar team</a>.</p>
 
 <h2 id="limits">What this can and cannot tell you</h2>
 <p>The analyser's estimate uses a typical UK solar day, scaled to your region's annual output and to the UK's actual seasonal pattern. It doesn't know about cloudy weeks, shading, the direction your roof faces or what you'll change in future, so treat it as a planning figure, not a guarantee. The calculator's results are estimates, not a quotation. A site survey, a structural check and a network operator's offer come before any firm price.{ref(1,3)}</p>
+{photo('solar-site-team', 'Two engineers on a plant room roof looking across an energy centre and a factory roof covered in solar panels', 'An estimate tells you whether to take the next step. A survey and a network offer tell you the real cost.')}
 {faq_section(FAQS)}
 {sources(SRC)}'''
 
