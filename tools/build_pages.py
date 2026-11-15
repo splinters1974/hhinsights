@@ -10,6 +10,7 @@ Guides and sector pages: tools/pages_guides.py
 """
 import datetime as dt
 import hashlib
+import re
 import json
 from pathlib import Path
 
@@ -67,8 +68,11 @@ def llms(pages):
 
 
 def fingerprint(p):
-    """What a reader sees: title, description and body (not the layout around it)."""
-    return hashlib.sha256('\n'.join([p.title, p.description, p.body]).encode()).hexdigest()[:16]
+    """What a reader sees: title, description and body (not the layout around it).
+    The decorative header photo is left out: swapping a picture is not a content update."""
+    body = re.sub(r'<div class="hero-media" aria-hidden="true">.*?</picture></div>\n  ', '', p.body, flags=re.S)
+    body = body.replace(' page-hero-photo', '')
+    return hashlib.sha256('\n'.join([p.title, p.description, body]).encode()).hexdigest()[:16]
 
 
 def update_dates(pages):

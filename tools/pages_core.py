@@ -217,7 +217,7 @@ PAGES['get-your-data.html'] = ('How to get your half-hourly electricity data',
   'Where to find your half-hourly (HH) electricity data, who to ask, what to ask for and which file formats the analyser reads.',
   page_hero('Guide', 'How to get your half-hourly data',
             "Most organisations already have this data. It just isn't shown on the bill. Here's where to find it and what to ask for.",
-            crumbs=[HOME, GUIDES, ('Getting your half-hourly data', 'get-your-data.html')]) +
+            crumbs=[HOME, GUIDES, ('Getting your half-hourly data', 'get-your-data.html')], image='get-your-data') +
   guide(updated_line() + '''
 <p class="answer">Ask your electricity supplier for the half-hourly consumption data for each of your meters, covering at least the last 12 months, as a spreadsheet. Many suppliers also let you download it from your online account.</p>
 
