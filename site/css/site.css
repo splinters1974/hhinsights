@@ -690,3 +690,4 @@ button, input, select, textarea { font-family: inherit; }
 .about p { margin: 0 0 16px; line-height: 1.65; }
 .about h2 { margin: 40px 0 16px; }
 .about-person h2 { margin: 0 0 4px; }
+.hero-media picture { display: contents; }

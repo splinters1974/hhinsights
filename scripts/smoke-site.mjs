@@ -118,6 +118,14 @@ try {
       await page.screenshot({ path: shot });
     }
 
+    // Enquiries record which page on this site the visitor came from.
+    {
+      const p = await context.newPage();
+      await p.goto(base + 'base-load');
+      await p.goto(base + 'contact', { referer: base + 'base-load' });
+      check(await p.locator('#fromPage').inputValue() === '/base-load', `${view.label} contact: records the page the visitor came from`);
+      await p.close();
+    }
     // The contact form must only show success when the service accepts the enquiry.
     // Formspree is stubbed here, so no real enquiry is sent.
     for (const [status, body, expectSuccess] of [[200, { ok: true }, true], [422, { errors: [{ message: 'Please enter a valid email.' }] }, false], [0, null, false]]) {

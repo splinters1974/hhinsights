@@ -18,7 +18,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="preload" href="fonts/schibsted-grotesk-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/site.css?v=77fbdbaf">
+  <link rel="stylesheet" href="css/site.css?v=b3c401ef">
   <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -29,9 +29,7 @@
    "name": "Kinetic Energy Consulting",
    "url": "https://www.kinetic-energy.co.uk",
    "email": "pjohnston663@gmail.com",
-   "sameAs": [
-    "https://www.linkedin.com/company/kinetic-energy-consulting"
-   ],
+   "logo": "https://halfhourlyinsights.netlify.app/images/kec-logo.svg",
    "areaServed": {
     "@type": "Country",
     "name": "United Kingdom"
@@ -94,7 +92,7 @@
 </nav>
 <main id="main">
 <section class="page-hero page-hero-photo">
-  <div class="hero-media" aria-hidden="true"><img src="images/heroes/contact.jpg" srcset="images/heroes/contact-900.jpg 900w, images/heroes/contact.jpg 1600w" sizes="100vw" width="1600" height="763" alt="" fetchpriority="high"></div>
+  <div class="hero-media" aria-hidden="true"><picture><source type="image/webp" srcset="images/heroes/contact-900.webp 900w, images/heroes/contact.webp 1600w" sizes="100vw"><img src="images/heroes/contact.jpg" srcset="images/heroes/contact-900.jpg 900w, images/heroes/contact.jpg 1600w" sizes="100vw" width="1600" height="763" alt="" fetchpriority="high"></picture></div>
   <div class="page-hero-inner">
     <span class="page-hero-kicker">Contact</span>
     <h1 class="page-hero-title">Talk to an expert</h1>
@@ -119,6 +117,7 @@
 <form class="form" id="enquiry" method="POST" action="https://formspree.io/f/xeagedqj">
   <input type="hidden" name="_subject" value="New Half Hourly Insights enquiry">
   <input type="hidden" name="site" value="Half Hourly Insights">
+  <input type="hidden" name="from_page" id="fromPage" value="">
   <p class="hp"><label>Leave this empty <input name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
   <div class="form-row">
     <div><label for="name">Name <span class="req">*</span></label><input id="name" name="name" autocomplete="name" required></div>
@@ -143,6 +142,8 @@
 <script>
 // Send the enquiry to Formspree, then show our own thank-you page.
 // Without JavaScript the form posts to Formspree directly.
+// Record which page on this site the visitor came from, so enquiries can be traced to a guide. Other sites are ignored.
+try { const r = new URL(document.referrer); if (r.origin === location.origin) document.getElementById('fromPage').value = r.pathname; } catch (_) {}
 document.getElementById('enquiry').addEventListener('submit', async (e) => {
   e.preventDefault();
   const form = e.target, btn = form.querySelector('button[type=submit]'), err = form.querySelector('.form-error');

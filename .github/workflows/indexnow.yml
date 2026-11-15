@@ -1,0 +1,27 @@
+# Tell search engines about new or changed pages. Run by hand only, after a
+# release is live on the final domain (see scripts/indexnow.mjs).
+name: Notify search engines (IndexNow)
+
+on:
+  workflow_dispatch:
+    inputs:
+      pages:
+        description: 'Pages to submit, space separated (for example: about faq). Leave empty for every page.'
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/indexnow.mjs $PAGES
+        env:
+          INDEXNOW_ENABLED: '1'
+          PAGES: ${{ github.event.inputs.pages }}

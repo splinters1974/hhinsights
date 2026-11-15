@@ -11,6 +11,8 @@ Figures in the worked examples come from the analyser run on
 site/samples/example-office.csv and example-school.csv (made-up data).
 Re-check them if those files or the engine change.
 """
+import re
+
 from kit import (NAV_PARENT, SOLAR_URL, Page, cta, link_card, faq_section, guide, page_hero, photo, related, sources, strip_tags, toc,
                  updated_line)
 
@@ -144,10 +146,13 @@ PAGES.append(guide_page(
 <h2 id="reduce">How to reduce it</h2>
 <ol><li><strong>Walk round the building at night or at a weekend</strong> and note everything that's switched on. It's often a surprise.</li><li><strong>Sort what you find</strong> into must run, could run less, and shouldn't be on.</li><li><strong>Fix the easy ones first</strong>, such as timers on water heaters and vending machines, switch-off routines and combining servers.</li><li><strong>Check the base load every month.</strong> A step up usually means new equipment has been installed or something has been left on. The analyser flags lasting changes like this.</li></ol>
 
+<h2 id="solar">Base load and solar</h2>
+<p>Base load runs through the day as well as the night, so it is the part of your demand that solar panels can supply most reliably. The analyser's Capacity tab estimates how much of a solar system's output your site would use itself at different sizes, from your own half-hourly readings, and can pass that figure to our sister site, the ''' + SOLAR + ''', to work out costs and payback.</p>
+
 <h2 id="worth">Working out the saving</h2>
 <p>Because base load runs every hour of the year, savings are easy to estimate: multiply the kilowatts you remove by 8,760 hours and by your unit rate. At 25p/kWh, 1 kW is worth about £2,190 a year, and switching off a 0.5 kW water heater that was left on all the time saves about £1,100.</p>
 ''',
-  [('measure', 'How to measure it'), ('what', 'What makes it up'), ('reduce', 'How to reduce it'), ('worth', 'Working out the saving')],
+  [('measure', 'How to measure it'), ('what', 'What makes it up'), ('reduce', 'How to reduce it'), ('solar', 'Base load and solar'), ('worth', 'Working out the saving')],
   [('What is a typical base load?', 'It depends on the building. An office with a lot of IT, or a site with refrigeration, will have a much higher base load than a school. Compare each site with its own history, and with similar buildings in your estate.'),
    ('Why is my base load higher at weekends than overnight on weekdays?', "It shouldn't be. If it is, something is switching on at weekends, such as frost protection on the heating, a scheduled process or a booking. Check the weekend pattern on the heatmap."),
    ('How much does 1 kW of base load cost?', "It runs 8,760 hours a year, so it uses 8,760 kWh. At 25p/kWh that's about £2,190 a year. Multiply 8,760 by your own rate to check.")],
@@ -180,8 +185,10 @@ PAGES.append(guide_page(
 
 <h2 id="new-load">Heat pumps and EV charging</h2>
 <p>A heat pump uses much less electricity than the heat it produces. With a coefficient of performance (COP) of 3, a heat pump producing 150 kW of heat draws about 50 kW of electricity. It works hardest in winter, which is usually when a building's peaks are highest, so the two add together. EV charging is different: if it happens overnight, it falls when most sites are quietest. The analyser lets you test a new load at a chosen time of day and season against your actual half-hourly peaks.</p>
+<h2 id="solar">Solar panels and your connection</h2>
+<p>Solar can reduce the electricity you draw from the grid during the day, but any output you don't use is exported through the same connection. The ''' + SOLAR + ''' has a <a href="https://uksolarcalculator.co.uk/planning-and-grid.html">guide to planning and grid connections</a>, and the analyser's Capacity tab estimates how much of a system's output your site would use itself.</p>
 ''',
-  [('what', 'What agreed supply capacity is'), ('kva', 'kW and kVA'), ('headroom', 'Working out headroom'), ('new-load', 'Heat pumps and EV charging')],
+  [('what', 'What agreed supply capacity is'), ('kva', 'kW and kVA'), ('headroom', 'Working out headroom'), ('new-load', 'Heat pumps and EV charging'), ('solar', 'Solar and your connection')],
   [('Where do I find my agreed supply capacity?', 'On your electricity bill or connection agreement, in kVA. Your supplier can confirm it.'),
    ('What power factor should I use?', "If you don't know it, 0.95 is a reasonable starting assumption. It's probably lower if your bill shows reactive power charges."),
    ('Is half-hourly data enough to plan a new connection?', "It's a good first check, but half-hour averages hide very short peaks. For a significant new load, speak to your network operator before committing.")],
@@ -363,6 +370,17 @@ PAGES.append(guide_page(
 
 # ── GLOSSARY ────────────────────────────────────────────────────────────
 GLOSSARY = [
+  ('Balancing Services Use of System (BSUoS)', 'A charge that covers the National Energy System Operator\'s cost of balancing the electricity system. A fixed rate per MWh, set in advance for six-month periods. <a href="non-energy-charges.html#bsuos">More</a>.'),
+  ('Capacity Market (CM)', 'A scheme that pays providers to keep enough reliable capacity available. Businesses pay for it according to their electricity use between 4pm and 7pm on working days from November to February. <a href="non-energy-charges.html#cm">More</a>.'),
+  ('Climate Change Levy (CCL)', 'A tax on energy used by businesses, charged per kWh. Holders of a climate change agreement pay a reduced rate. <a href="non-energy-charges.html#ccl">More</a>.'),
+  ('Contracts for Difference (CfD)', 'Contracts that give low-carbon generators a fixed price. Suppliers pay a levy that rises when wholesale prices are low and falls, even to zero, when they are high. <a href="non-energy-charges.html#cfd">More</a>.'),
+  ('Distribution Use of System (DUoS)', 'Charges for using the local distribution network, set by your network operator. They combine unit rates that vary by time band, capacity charges and fixed daily charges. <a href="non-energy-charges.html#duos">More</a>.'),
+  ('Non-energy costs', 'Everything in an electricity price apart from the wholesale energy: network charges, policy costs and taxes. <a href="business-electricity-price.html">More</a>.'),
+  ('Nuclear RAB levy', 'A levy on suppliers that funds the building of new nuclear power stations under the Regulated Asset Base model, starting with Sizewell C. <a href="non-energy-charges.html#rab">More</a>.'),
+  ('Red, amber and green bands', 'The time bands most network operators use for distribution unit rates, with a different price in each. Each operator sets its own times. <a href="non-energy-charges.html#duos">More</a>.'),
+  ('Renewables Obligation (RO)', 'A scheme requiring suppliers to present certificates for each MWh they supply, or pay a buy-out price. The cost is passed on per unit. <a href="non-energy-charges.html#ro">More</a>.'),
+  ('Transmission Network Use of System (TNUoS)', 'Charges for using the national high-voltage transmission network. For business sites, mainly a fixed charge per site per day, banded by agreed capacity or consumption. <a href="non-energy-charges.html#tnuos">More</a>.'),
+  ('Wholesale price', 'The price suppliers pay for electricity on the wholesale market, often called the commodity cost. <a href="electricity-prices-ten-years.html#wholesale">More</a>.'),
   ('Agreed supply capacity', 'The maximum demand, in kVA, an electricity connection is set up for. It appears on larger electricity bills and is also called authorised or available capacity. <a href="supply-capacity.html">More</a>.'),
   ('Annualised figure', 'A yearly figure scaled up from the valid readings available. It is used when the data covers less than a full year or has gaps.'),
   ('Base load', 'The level of demand a building rarely drops below: what never switches off. The analyser measures it as the 5th percentile of half-hourly demand. <a href="base-load.html">More</a>.'),
@@ -384,18 +402,19 @@ GLOSSARY = [
   ('Settlement', "The process that works out how much electricity each supplier's customers used, and when, so suppliers pay the right amount for it."),
   ('Time-of-use tariff', 'A tariff with different unit rates at different times of day, such as day and night rates.'),
 ]
+GLOSSARY.sort(key=lambda t: t[0].lower())
 NAV_PARENT['glossary.html'] = 'guides.html'
 PAGES.append(Page(
   'glossary.html', 'Glossary of half-hourly electricity terms',
-  'Simple definitions of half-hourly electricity terms: base load, kW, kWh, kVA, power factor, MPAN, agreed supply capacity, settlement and more.',
+  'Plain definitions of half-hourly electricity and bill terms: base load, kW, kVA, MPAN, DUoS, TNUoS, BSUoS, Capacity Market, CfD and more.',
   page_hero('Guide', 'Glossary', 'Simple definitions of the terms used in half-hourly electricity data and on this site.',
             crumbs=[HOME, GUIDES, ('Glossary', 'glossary.html')])
   + guide(updated_line() + '<p class="answer">Half-hourly (HH) data is a record of the electricity a meter measures in every half hour: 48 readings a day, usually in kWh. The terms you will meet most often are kWh (energy, what you are billed for), kW (how fast electricity is being used at a given moment), base load (the demand that never switches off) and kVA (the unit your supply capacity is set in).</p>'
           + '<dl class="glossary">' + ''.join(
-      f'<div id="{t.lower().split(" (")[0].replace(" ", "-")}"><dt>{t}</dt><dd>{d}</dd></div>' for t, d in GLOSSARY) + '</dl>')
+      f'<div id="{re.sub(r"[^a-z0-9]+", "-", t.lower().split(" (")[0]).strip("-")}"><dt>{t}</dt><dd>{d}</dd></div>' for t, d in GLOSSARY) + '</dl>')
   + cta('See the terms in your own data', "It's free, there's no sign-up, and nothing is uploaded."),
   crumbs=[HOME, GUIDES, ('Glossary', 'glossary.html')], article=True, section='Guides',
-  summary='Definitions: base load, closed-hours excess, kW, kWh, kVA, power factor, MPAN, agreed supply capacity, settlement, MHHS, heatmap, load factor and more.',
+  summary='Definitions: base load, closed-hours excess, kW, kWh, kVA, power factor, MPAN, profile class, agreed supply capacity, settlement, MHHS, DUoS, TNUoS, BSUoS, Renewables Obligation, CfD, Capacity Market, nuclear RAB, CCL, red/amber/green bands and more.',
   schema=[{'@type': 'DefinedTermSet', 'name': 'Half-hourly electricity glossary', 'hasDefinedTerm': [
       {'@type': 'DefinedTerm', 'name': t, 'description': strip_tags(d).replace(' More.', '')} for t, d in GLOSSARY]}]))
 
@@ -470,6 +489,7 @@ for file, short, h1, lead, normal, checks, calendar_tip, faqs in SECTOR_DATA:
 
 <h2 id="compare">How does your building compare?</h2>
 <p>To see whether a site's total use is high for its type, compare its kWh per square metre with the government survey ranges in our <a href="electricity-benchmarks.html">electricity benchmarks by sector</a>. Then use the half-hourly pattern to find out why. Questions about the analyser itself are answered in the <a href="faq.html">FAQ</a>.</p>
+<p>Thinking about solar panels? The analyser's Capacity tab shows how much of a system's output a building like this would use itself, and the {SOLAR} works out the cost and payback.</p>
 ''',
       [('check', 'What to check first'), ('calendar', 'Setting the opening hours'), ('compare', 'How does your building compare?')],
       faqs,

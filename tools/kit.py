@@ -43,6 +43,11 @@ SOLAR_URL = 'https://uksolarcalculator.co.uk/'
 AUTHOR_NAME = 'Paul Johnston'
 AUTHOR_ROLE = 'Managing Director, Kinetic Energy Consulting'
 AUTHOR_PHOTO = 'images/people/paul-johnston.jpg'
+# Verified public profiles, used as schema.org sameAs so search engines and AI
+# tools can connect the site to the real company and person. Add only addresses
+# you have checked, for example 'https://www.linkedin.com/in/...'.
+AUTHOR_SAME_AS = []
+ORG_SAME_AS = []
 
 MARK = ('<svg viewBox="0 0 34 34" aria-hidden="true">'
         '<rect x="3" y="15" width="5" height="10" rx="1" fill="#0065A4"/>'
@@ -104,7 +109,8 @@ class Page:
 ORG_ID = f'{OPERATOR_URL}/#organization'
 ORG = {
     '@type': 'Organization', '@id': ORG_ID, 'name': OPERATOR, 'url': OPERATOR_URL,
-    'email': CONTACT_EMAIL, 'sameAs': ['https://www.linkedin.com/company/kinetic-energy-consulting'],
+    'email': CONTACT_EMAIL, 'logo': url('images/kec-logo.svg'),
+    **({'sameAs': ORG_SAME_AS} if ORG_SAME_AS else {}),
     'areaServed': {'@type': 'Country', 'name': 'United Kingdom'},
     'contactPoint': {'@type': 'ContactPoint', 'contactType': 'Sales', 'email': CONTACT_EMAIL, 'areaServed': 'GB'},
 }
@@ -130,6 +136,7 @@ PERSON_ID = f'{url("about.html")}#paul-johnston'
 PERSON = {
     '@type': 'Person', '@id': PERSON_ID, 'name': AUTHOR_NAME, 'jobTitle': 'Managing Director',
     'worksFor': {'@id': ORG_ID}, 'url': url('about.html'), 'image': url(AUTHOR_PHOTO),
+    **({'sameAs': AUTHOR_SAME_AS} if AUTHOR_SAME_AS else {}),
 }
 if SITE_URL:
     WEBSITE['url'] = url('index.html')
@@ -181,8 +188,12 @@ def hero_photo(name):
     small = f'images/heroes/{name}-900.jpg'
     srcset = (f' srcset="{small} 900w, images/heroes/{name}.jpg {w}w" sizes="100vw"'
               if os.path.exists(os.path.join(HERO_DIR, f'{name}-900.jpg')) else '')
-    return (f'<div class="hero-media" aria-hidden="true"><img src="images/heroes/{name}.jpg"{srcset} '
-            f'width="{w}" height="{h}" alt="" fetchpriority="high"></div>\n  ')
+    webp = ''
+    if os.path.exists(os.path.join(HERO_DIR, f'{name}.webp')):
+        webp = (f'<source type="image/webp" srcset="images/heroes/{name}-900.webp 900w, images/heroes/{name}.webp {w}w" sizes="100vw">'
+                if srcset else f'<source type="image/webp" srcset="images/heroes/{name}.webp">')
+    return (f'<div class="hero-media" aria-hidden="true"><picture>{webp}<img src="images/heroes/{name}.jpg"{srcset} '
+            f'width="{w}" height="{h}" alt="" fetchpriority="high"></picture></div>\n  ')
 
 
 def page_hero(kicker, title, lead, extra='', crumbs=None, image=None):

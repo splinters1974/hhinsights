@@ -4,7 +4,7 @@ Prepare the tab page header photos.
     python3 tools/make_heroes.py how-it-works=path/to/photo.png guides=... sectors=... faq=... contact=...
 
 Writes site/images/heroes/<name>.jpg (1600 px wide) and <name>-900.jpg for
-phones, then rebuild the pages with tools/build_pages.py. Needs Pillow.
+phones, each also as WebP, then rebuild the pages with tools/build_pages.py. Needs Pillow.
 """
 import os
 import sys
@@ -21,8 +21,9 @@ def save(src, name):
         im = im.convert('RGB')
         for width, suffix, q in [(1600, '', 80), (900, '-900', 78)]:
             h = round(im.height * width / im.width)
-            im.resize((width, h), Image.LANCZOS).save(os.path.join(OUT, f'{name}{suffix}.jpg'),
-                                                      quality=q, optimize=True, progressive=True)
+            small = im.resize((width, h), Image.LANCZOS)
+            small.save(os.path.join(OUT, f'{name}{suffix}.jpg'), quality=q, optimize=True, progressive=True)
+            small.save(os.path.join(OUT, f'{name}{suffix}.webp'), quality=q - 2, method=6)  # served first; JPEG is the fallback
 
 
 if __name__ == '__main__':
