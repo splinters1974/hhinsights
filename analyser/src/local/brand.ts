@@ -24,3 +24,13 @@ export const BRAND_GREEN = '#008540';
 /** The logo, and its width / height for placing it without distortion. */
 export const LOGO = HHI_LOGO;
 export const LOGO_ASPECT = HHI_LOGO_ASPECT;
+
+/**
+ * Attribution carried by every download in the public build: PDFs (every
+ * page), Excel (top of every sheet and the file properties), chart images
+ * and customer dashboards. Free use is for the user's own organisation;
+ * producing work for clients needs a licence (see /terms on the website).
+ */
+export const SITE_URL_SHORT = 'hhinsights.co.uk';
+export const ATTRIBUTION = 'Made with Half Hourly Insights · hhinsights.co.uk';
+export const LICENCE_NOTE = 'Free to use for your own organisation. Producing work for clients needs a licence: hhinsights.co.uk/terms';

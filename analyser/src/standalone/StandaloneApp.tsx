@@ -520,7 +520,7 @@ export default function StandaloneApp({ mode = 'internal', customer = '' }: {
                 )}
                 <p className="text-xs text-slate-500">
                   {isCustomer
-                    ? `${PREPARED[0].toUpperCase()}${PREPARED.slice(1)}. Costs are estimated energy cost at the rates shown, associated with patterns of use, not guaranteed savings. Figures change with any settings you adjust.`
+                    ? `${PREPARED[0].toUpperCase()}${PREPARED.slice(1)} (hhinsights.co.uk). Costs are estimated energy cost at the rates shown, associated with patterns of use, not guaranteed savings. Figures change with any settings you adjust.`
                     : 'Every site starts as Office / commercial with unconfirmed preset hours. Check each calendar (or set them all at once above) before relying on closed-hours figures.'}
                 </p>
               </>

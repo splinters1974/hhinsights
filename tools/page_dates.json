@@ -147,7 +147,7 @@
  "privacy.html": {
   "published": "2026-11-14",
   "modified": "2026-11-15",
-  "fingerprint": "341f7e5bdc0221f3"
+  "fingerprint": "a822803deb34614e"
  },
  "proving-savings.html": {
   "published": "2026-11-14",
@@ -188,6 +188,11 @@
   "published": "2026-11-14",
   "modified": "2026-11-15",
   "fingerprint": "835e3d27b434b256"
+ },
+ "terms.html": {
+  "published": "2026-11-15",
+  "modified": "2026-11-15",
+  "fingerprint": "be5187a7a3d63639"
  },
  "thanks.html": {
   "published": "2026-11-14",

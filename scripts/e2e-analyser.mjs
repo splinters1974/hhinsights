@@ -76,12 +76,14 @@ function checkPdf(d, label) {
   const head = d.bytes.subarray(0, 5).toString();
   const pages = (d.bytes.toString('latin1').match(/\/Type\s*\/Page[^s]/g) || []).length;
   check(head === '%PDF-' && d.bytes.length > 20000 && pages >= 1, `${label}: valid PDF (${d.name}, ${Math.round(d.bytes.length / 1024)} KB, ${pages} pages)`);
+  check(/hhinsights\.co\.uk\/terms/.test(d.bytes.toString('latin1')), `${label}: carries the Half Hourly Insights attribution and licence note`);
 }
 function checkXlsx(d, label, mustContain) {
   let wb;
   try { wb = XLSX.read(d.bytes, { type: 'buffer' }); } catch (e) { check(false, `${label}: Excel file opens (${e.message})`); return; }
   const all = wb.SheetNames.map((n) => XLSX.utils.sheet_to_csv(wb.Sheets[n])).join('\n');
   check(wb.SheetNames.length > 0, `${label}: Excel file opens (${d.name}; sheets: ${wb.SheetNames.join(', ')})`);
+  check(wb.SheetNames.every((n) => /^Made with Half Hourly Insights/.test(String(wb.Sheets[n].A1?.v ?? ''))), `${label}: every sheet starts with the Half Hourly Insights attribution`);
   for (const [what, re] of mustContain) check(re.test(all), `${label}: Excel contains ${what}`);
 }
 
@@ -143,6 +145,31 @@ try {
     await page.getByRole('button', { name: 'Open the Solar tab →' }).click();
     await page.getByText('Solar: how much would you use?').waitFor({ timeout: 10000 });
     check(true, 'solar pointer opens the site on its Solar tab');
+    await context.close();
+  }
+
+  // 1c. Customer edition: asks who you are, sends only those details (EmailJS mocked), then builds the file.
+  {
+    const { context, page } = await newPage(browser);
+    let sent = null;
+    await page.route('https://api.emailjs.com/**', (r) => { sent = r.request().postDataJSON(); return r.fulfill({ status: 200, body: 'OK' }); });
+    await upload(page, officeCsv);
+    await page.getByText('£2,776').first().waitFor({ timeout: 30000 });
+    await page.getByRole('button', { name: 'Customer edition…' }).click();
+    const create = page.getByRole('button', { name: 'Create file' });
+    await page.getByPlaceholder('e.g. Compleat Foods').fill('Test Customer');
+    check(await create.isDisabled(), 'customer edition: Create is disabled until your name, organisation and email are given');
+    await page.getByLabel('Your name').fill('Test Consultant');
+    await page.getByLabel('Your organisation').fill('Test Energy Ltd');
+    await page.getByLabel('Work email').fill('test@example.com');
+    const [dl] = await Promise.all([page.waitForEvent('download', { timeout: 60000 }), create.click()]);
+    const html = fs.readFileSync(await dl.path(), 'utf8');
+    const msg = sent?.template_params?.message ?? '';
+    check(/Test Consultant/.test(msg) && /Test Energy Ltd/.test(msg) && /Sites in the edition: 1/.test(msg)
+      && !/example-office|79,?191|2,?776|Test Customer/.test(JSON.stringify(sent)),
+      'customer edition: sends only your name, organisation, email and site count (no site names, customer name or figures)');
+    check(/made with Half Hourly Insights/i.test(html), 'customer edition file carries the Half Hourly Insights attribution');
+    external.splice(0, external.length, ...external.filter((u) => !u.startsWith('https://api.emailjs.com/')));
     await context.close();
   }
 

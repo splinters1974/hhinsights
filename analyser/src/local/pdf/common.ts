@@ -9,7 +9,7 @@
 import { jsPDF } from 'jspdf';
 import { autoTable, type RowInput } from 'jspdf-autotable';
 import { MONTHS_SHORT } from '../dates';
-import { COMPANY, LOGO_ASPECT } from '../brand';
+import { ATTRIBUTION, COMPANY, IS_HHI, LICENCE_NOTE, LOGO_ASPECT } from '../brand';
 import { SCHIBSTED_BOLD, SCHIBSTED_REGULAR } from './fonts';
 
 export type RGB = [number, number, number];
@@ -105,7 +105,8 @@ export class Report {
   constructor(opts: ReportOptions) {
     this.opts = opts;
     this.doc = new jsPDF({ orientation: opts.orientation, unit: 'mm', format: 'a4' });
-    this.doc.setProperties({ title: opts.title, creator: `${COMPANY} Data Analyser` });
+    this.doc.setProperties({ title: opts.title, creator: `${COMPANY} Data Analyser`,
+      ...(IS_HHI ? { author: 'Half Hourly Insights (hhinsights.co.uk)', subject: `${ATTRIBUTION}. ${LICENCE_NOTE}`, keywords: 'Half Hourly Insights' } : {}) });
     addFonts(this.doc);
     this.doc.setFont(FONT, 'normal');
     const pw = this.doc.internal.pageSize.getWidth();
@@ -367,6 +368,11 @@ export class Report {
       this.setColor(MUTED);
       d.text(this.opts.footer, this.left, ph - 9);
       d.text(`Page ${p} of ${pages}`, pw - this.left, ph - 9, { align: 'right' });
+      if (IS_HHI) {
+        // Attribution and licence note on every page, below the footer.
+        d.setFontSize(6.5);
+        d.text(`${ATTRIBUTION}  ·  ${LICENCE_NOTE}`, this.left, ph - 5.5);
+      }
     }
     return d.output('arraybuffer');
   }

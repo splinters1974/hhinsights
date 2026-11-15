@@ -317,3 +317,13 @@ test('exclusions reviewed by hand drop readings and are counted', () => {
   assert.equal(ex.flags?.[3]?.[0], FLAG.EXCLUDED);
   assert.equal(f.flags, undefined, 'raw data untouched');
 });
+
+test('customer edition contact details: email check and message carry no meter data', async () => {
+  const { validEmail, leadMessage } = await import('../src/local/editionLead');
+  assert.ok(validEmail('a.person@company.co.uk'));
+  assert.ok(!validEmail('not an email'));
+  const msg = leadMessage({ name: 'A Person', organisation: 'Org Ltd', email: 'a@b.co', marketing: false, siteCount: 3 }, new Date(2026, 10, 15));
+  assert.match(msg, /Name: A Person/);
+  assert.match(msg, /Sites in the edition: 3/);
+  assert.match(msg, /licences and updates: no/);
+});
