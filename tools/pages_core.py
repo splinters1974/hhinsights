@@ -6,7 +6,7 @@ in core_pages() at the bottom.
 Written for a general business reader, in the voice of the team that runs the
 site ("we"). Explain terms on first use; write as much as the reader needs.
 """
-from kit import (CONTACT_EMAIL, CONTACT_NAME, OPERATOR, OPERATOR_URL, SOLAR_URL, APP, Page,
+from kit import (UPDATED_MARK, CONTACT_EMAIL, CONTACT_NAME, OPERATOR, OPERATOR_URL, SOLAR_URL, APP, Page,
                  cta, photo, faq_section, guide, page_hero, related, updated_line, GUIDE_PDF, guide_download, sources)
 from pages_data import GOV_OFFER, SUPPLIERS
 
@@ -373,16 +373,55 @@ PAGES['privacy.html'] = ('Privacy | Half Hourly Insights',
 <p>If you choose "Size solar for this site" on a site's Solar tab, the analyser opens our sister site, the UK Solar Calculator, in a new tab. It passes only that site's annual use, the estimated share of solar output used on site and, if you entered one on the Solar tab, the site postcode, in the part of the web address after "#", which browsers do not send to any server. Your readings are not passed. The calculator uses the postcode to set the sunshine for your area and to fill in its map search; it is sent to Google Maps only if you then choose to search the map there.</p>
 <p>The analyser stores nothing in your browser between visits. Save a project file if you want to come back to your work.</p>
 
+<h2 id="editions">If you create a customer edition</h2>
+<p>Before the analyser makes a customer edition (a locked dashboard for handing to someone else), it asks for your name, your organisation and your work email, and whether you would like to hear about licences and updates. It sends those details to us by email, with the number of sites in the edition and the date. It does not send the meter data, the site names, any figures or anything else in the file.</p>
+<p>We ask because customer editions are how dashboards are handed to others, and using the analyser to produce work for clients needs a licence under our <a href="terms.html">terms of use</a>. We use the details to know who uses the feature and to contact you about licensing, which is in our legitimate interests. If you tick the box, we will also tell you about licences and updates, with your consent, which you can withdraw at any time by emailing us.</p>
+<p>{OPERATOR} is the data controller. The details are sent through EmailJS, an email-sending service, which passes them to our inbox. EmailJS may process data outside the UK; its own privacy policy explains how. We keep these details for 24 months from our last contact with you and then delete them, unless we have to keep them for a legal reason. You can ask us to delete them sooner at any time.</p>
+
 <h2 id="enquiries">Enquiries</h2>
 <p>If you send the contact form, we receive the details you enter: your name, email, organisation, phone, sector, number of sites and message, plus the page on this site you came to the form from. We only use them to reply to your enquiry and any follow-up you ask for. We don't sell them or add you to a mailing list.</p>
 <p>{OPERATOR} is responsible for the details you send (the data controller). The form is sent through Formspree, a form-handling service, which emails your enquiry to us and keeps a copy in our Formspree account on our behalf. Formspree may process data outside the UK; its own privacy policy explains how.</p>
 <p>We keep enquiry details only for as long as we need them to deal with your enquiry and any follow-up you ask for. We then delete them, from our email and from Formspree, unless we have to keep them for a legal reason. You can ask us to delete them sooner at any time.</p>
 
 <h2 id="cookies">Cookies and tracking</h2>
-<p>This site sets no cookies and runs no advertising or tracking scripts. Fonts are served from this site rather than a third party.</p>
+<p>This site sets no cookies and runs no advertising or tracking scripts. Every download from the analyser (PDFs, spreadsheets, chart images and customer editions) is marked "Made with Half Hourly Insights", but that is printed in the file; it does not track you. Fonts are served from this site rather than a third party.</p>
 
 <h2 id="rights">Your rights</h2>
 <p>You can ask what we hold about you, and ask us to correct or delete it, by emailing <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a>. You can also complain to the Information Commissioner's Office (ico.org.uk).</p>
+'''))
+
+# ── TERMS OF USE ────────────────────────────────────────────────────────
+# Plain-English terms. Have them reviewed by a solicitor before relying on them.
+PAGES['terms.html'] = ('Terms of use | Half Hourly Insights',
+  'Half Hourly Insights is free for your own organisation. Using it to produce reports, dashboards or advice for clients needs a licence.',
+  page_hero('Terms', 'Terms of use', 'Free for your own organisation. If you use it to produce work for clients, you need a licence.') +
+  guide(f'''
+<p class="byline">Last updated {UPDATED_MARK}</p>
+<p class="answer">You can use Half Hourly Insights free of charge to analyse your own organisation's electricity data. If you use it to produce reports, dashboards or advice for other organisations, as part of paid work or to win it, you need a licence from us.</p>
+
+<h2 id="who">Who we are</h2>
+<p>Half Hourly Insights (hhinsights.co.uk) is run by {OPERATOR}. See <a href="about.html">about us</a>. These terms apply to the website, the analyser and everything you download from it.</p>
+
+<h2 id="free">Free use</h2>
+<p>Any organisation can use the analyser, the guides and the downloads free for its own sites and buildings. That includes energy and estates managers, finance teams and facilities staff analysing their own organisation's data, and sharing the reports, spreadsheets and customer editions within their organisation and with its own board, landlord or auditors.</p>
+
+<h2 id="licence">Work for clients needs a licence</h2>
+<p>If you are a consultant, broker, supplier, installer or anyone else using the analyser to produce reports, dashboards, customer editions or advice for another organisation, as part of paid work or to win it, you need a licence. That includes handing a customer edition or a PDF from the analyser to a client. <a href="contact.html">Contact us</a> about a licence.</p>
+
+<h2 id="attribution">Keep our name on what you download</h2>
+<p>Every PDF page, spreadsheet, chart image and customer edition made with the analyser is marked "Made with Half Hourly Insights" with this website's address. Do not remove, hide or change that marking, or present the output as made by another tool, unless your licence allows it.</p>
+
+<h2 id="copying">Copying the site</h2>
+<p>Do not copy the analyser or this website, in whole or in part, to offer a similar service, and do not resell access to it.</p>
+
+<h2 id="estimates">Estimates, not advice</h2>
+<p>Results are estimates from the data you load and the settings you enter. Costs are energy cost at the rates entered, not guaranteed savings, and the guides are general information, not financial, tax or legal advice. Check anything important before you rely on it. We are not responsible for decisions made on the results, but nothing in these terms limits liability that the law does not allow us to limit.</p>
+
+<h2 id="data">Your data</h2>
+<p>Your meter data stays on your computer. The <a href="privacy.html">privacy notice</a> explains the few things we do receive, such as contact form enquiries and the details asked for when you create a customer edition.</p>
+
+<h2 id="changes">Changes and law</h2>
+<p>We may update these terms; the date at the top shows the latest version. These terms are governed by the law of England and Wales.</p>
 '''))
 
 # ── SAMPLE REPORT ───────────────────────────────────────────────────────
@@ -516,6 +555,7 @@ def core_pages():
                              summary=f'Enquiries to {OPERATOR}, which runs the site.'),
         'thanks.html': dict(noindex=True),
         'privacy.html': dict(crumbs=[home, ('Privacy', 'privacy.html')]),
+        'terms.html': dict(crumbs=[home, ('Terms of use', 'terms.html')]),
         'sample-report.html': dict(crumbs=[home, ('Sample report', 'sample-report.html')], section='Core pages',
                                    summary='A sample report for a made-up office: 33% of use while closed, £2,776 a year above base load, base load 2.6 kW, findings and what could be saved.'),
         '404.html': dict(noindex=True),

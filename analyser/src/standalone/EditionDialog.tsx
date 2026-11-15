@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { defaultPassword } from '../local/customerEdition';
 import { downloadCustomerEdition, friendlyError } from '../local/localClient';
+import { IS_HHI } from '../local/brand';
+import { sendEditionLead, validEmail } from '../local/editionLead';
 
 const input = 'w-full border border-slate-300 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--brand)]';
 
@@ -20,12 +22,22 @@ export default function EditionDialog({ initialCustomer, siteCount, onClose }: {
   const [error, setError] = useState<string | null>(null);
   const [done, setDone] = useState(false);
   const [includeNotes, setIncludeNotes] = useState(false);
+  // Who is making it (public build only): name, organisation, email, optional marketing consent.
+  const [me, setMe] = useState({ name: '', organisation: '', email: '', marketing: false });
+  const detailsOk = !IS_HHI || (me.name.trim() && me.organisation.trim() && validEmail(me.email));
   const password = custom ?? defaultPassword(customer, year);
 
   async function create() {
     setBusy(true);
     setError(null);
     try {
+      if (IS_HHI) {
+        try {
+          await sendEditionLead({ ...me, siteCount });
+        } catch {
+          throw new Error('Your details could not be sent, so the file was not created. Check your internet connection and try again.');
+        }
+      }
       await downloadCustomerEdition(customer, password, { includeNotes });
       setDone(true);
     } catch (e) {
@@ -37,7 +49,7 @@ export default function EditionDialog({ initialCustomer, siteCount, onClose }: {
 
   return (
     <div className="fixed inset-0 z-50 bg-slate-900/40 flex items-center justify-center px-4" role="dialog" aria-modal="true">
-      <div className="w-full max-w-lg bg-white rounded-xl shadow-md border border-slate-300 p-6 space-y-4">
+      <div className="w-full max-w-lg max-h-[90vh] overflow-y-auto bg-white rounded-xl shadow-md border border-slate-300 p-6 space-y-4">
         <div>
           <h2 className="text-lg font-semibold text-slate-800">Create customer edition</h2>
           <p className="text-sm text-slate-500 mt-0.5">
@@ -82,6 +94,36 @@ export default function EditionDialog({ initialCustomer, siteCount, onClose }: {
             <span className="text-xs text-slate-500">Off by default: the customer sees each finding's status only.</span></span>
         </label>
 
+        {IS_HHI && (
+          <fieldset className="border-t border-slate-200 pt-3 space-y-2">
+            <legend className="text-sm font-semibold text-slate-800 pr-2">About you</legend>
+            <p className="text-xs text-slate-500">
+              Customer editions are for handing dashboards to others. Using them to produce work for clients needs a licence
+              (see the <a className="underline" href="../terms" target="_blank" rel="noopener">terms of use</a>). We ask who you are before the
+              file is made. Only these details are sent to us, never the meter data or anything in the file.{' '}
+              <a className="underline" href="../privacy" target="_blank" rel="noopener">Privacy notice</a>.
+            </p>
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <label className="block text-xs font-medium text-slate-600 mb-1" htmlFor="ed-name">Your name</label>
+                <input id="ed-name" className={input} autoComplete="name" value={me.name} onChange={(e) => setMe({ ...me, name: e.target.value })} />
+              </div>
+              <div>
+                <label className="block text-xs font-medium text-slate-600 mb-1" htmlFor="ed-org">Your organisation</label>
+                <input id="ed-org" className={input} autoComplete="organization" value={me.organisation} onChange={(e) => setMe({ ...me, organisation: e.target.value })} />
+              </div>
+            </div>
+            <div>
+              <label className="block text-xs font-medium text-slate-600 mb-1" htmlFor="ed-email">Work email</label>
+              <input id="ed-email" type="email" className={input} autoComplete="email" value={me.email} onChange={(e) => setMe({ ...me, email: e.target.value })} />
+            </div>
+            <label className="flex items-start gap-2 text-sm text-slate-700">
+              <input type="checkbox" className="mt-0.5" checked={me.marketing} onChange={(e) => setMe({ ...me, marketing: e.target.checked })} />
+              <span>Tell me about licences and updates to Half Hourly Insights (optional)</span>
+            </label>
+          </fieldset>
+        )}
+
         {error && <p className="text-sm text-[#b42c2c]">{error}</p>}
         {done && (
           <p className="text-sm text-[#08780a] bg-green-50 border border-green-200 rounded-lg px-3 py-2">
@@ -95,7 +137,7 @@ export default function EditionDialog({ initialCustomer, siteCount, onClose }: {
           </button>
           <button
             onClick={create}
-            disabled={busy || !customer.trim()}
+            disabled={busy || !customer.trim() || !detailsOk}
             className="text-sm font-semibold bg-[var(--brand)] hover:bg-[var(--brand-dark)] disabled:opacity-50 text-white px-4 py-2 rounded-lg"
           >
             {busy ? 'Encrypting…' : 'Create file'}

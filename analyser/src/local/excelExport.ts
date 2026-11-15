@@ -8,6 +8,7 @@
  * out every half-hourly table and internal owners and notes.
  */
 import * as XLSX from 'xlsx';
+import { ATTRIBUTION, IS_HHI, LICENCE_NOTE } from './brand';
 import { dayNightSplit, dayOfWeekProfile, hhLabels, monthlyTotals, round } from './analytics';
 import { SITE_TYPES } from './site';
 import type { CarbonFactor } from './findings';
@@ -48,8 +49,18 @@ const r0 = (v: number | null | undefined) => (v === null || v === undefined ? ''
 const r1 = (v: number | null | undefined) => (v === null || v === undefined ? '' : round(v, 1));
 const r2 = (v: number | null | undefined) => (v === null || v === undefined ? '' : round(v, 2));
 
+/** Two rows above every sheet's content: who made it and the licence note. */
+function withNotice(rows: (string | number)[][]): (string | number)[][] {
+  return IS_HHI ? [[ATTRIBUTION], [LICENCE_NOTE], [], ...rows] : rows;
+}
+
+function brandWorkbook(wb: XLSX.WorkBook, title: string) {
+  if (!IS_HHI) return;
+  wb.Props = { Title: title, Author: 'Half Hourly Insights', Company: 'Half Hourly Insights (hhinsights.co.uk)', Comments: `${ATTRIBUTION}. ${LICENCE_NOTE}` };
+}
+
 function addSheet(wb: XLSX.WorkBook, used: Set<string>, name: string, rows: (string | number)[][], widths?: number[]) {
-  const ws = XLSX.utils.aoa_to_sheet(rows);
+  const ws = XLSX.utils.aoa_to_sheet(withNotice(rows));
   if (widths) ws['!cols'] = widths.map((wch) => ({ wch }));
   XLSX.utils.book_append_sheet(wb, ws, sheetName(name, used));
 }
@@ -262,6 +273,7 @@ export function buildWorkbook(sites: ExportSite[], opts: WorkbookOptions): Array
     addSheet(wb, used, s.settings.name, rows);
   }
 
+  brandWorkbook(wb, 'Half Hourly Insights export');
   return XLSX.write(wb, { type: 'array', bookType: 'xlsx' }) as ArrayBuffer;
 }
 
@@ -275,9 +287,10 @@ export function buildSitesTableWorkbook(title: string, sites: TableSite[], rateP
     SITE_COLUMNS.map((c) => c.label),
     ...sites.map((s) => SITE_COLUMNS.map((c) => c.exportValue(s))),
   ];
-  const ws = XLSX.utils.aoa_to_sheet(rows);
+  const ws = XLSX.utils.aoa_to_sheet(withNotice(rows));
   ws['!cols'] = SITE_COLUMNS.map((c) => ({ wch: c.key === 'site' ? 28 : c.key === 'type' || c.key === 'findings' ? 22 : 14 }));
   const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, ws, 'Sites');
+  brandWorkbook(wb, 'Half Hourly Insights export');
   return XLSX.write(wb, { type: 'array', bookType: 'xlsx' }) as ArrayBuffer;
 }
