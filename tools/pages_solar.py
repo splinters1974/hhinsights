@@ -183,11 +183,10 @@ END = f'''<section class="cta-strip">
 </section>'''
 
 
-SUN = ('<svg viewBox="0 0 34 34" aria-hidden="true"><path d="M3 24a14 14 0 0 1 28 0z" fill="#F8C05D"/>'
-       '<rect x="1" y="26" width="32" height="3" rx="1.5" fill="#063C55"/></svg>')
 SISTER = (f'<a class="sister-card" href="{SOLAR_URL}" target="_blank" rel="noopener">'
           '<span class="sister-label">Our sister website</span>'
-          f'<span class="sister-brand">{SUN}<span class="sister-name">UK Solar Calculator</span></span>'
+          '<span class="sister-brand"><picture><source type="image/webp" srcset="images/brand/ukscalc-logo.webp">'
+          '<img src="images/brand/ukscalc-logo.png" width="372" height="132" alt="UK Solar Calculator"></picture></span>'
           '<span class="sister-text">A separate, free website for sizing commercial solar. It measures your roof, estimates '
           'generation at your postcode, and works out cost, savings and payback, using the figures from your half-hourly data.</span>'
           '<span class="sister-go">Visit the UK Solar Calculator <span aria-hidden="true">&rarr;</span></span></a>')
