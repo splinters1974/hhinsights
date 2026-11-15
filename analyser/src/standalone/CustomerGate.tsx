@@ -37,7 +37,7 @@ export default function CustomerGate() {
     <div className="min-h-screen bg-white flex flex-col">
       <header className="bg-white border-b border-slate-300 px-6 py-2.5">
         <div className="max-w-6xl mx-auto flex items-center gap-4">
-          <img src={LOGO} alt={COMPANY_FULL} className={IS_HHI ? 'h-9 w-auto' : 'h-10 w-auto'} />
+          <img src={LOGO} alt={COMPANY_FULL} className={IS_HHI ? 'h-12 w-auto' : 'h-10 w-auto'} />
           <span className="h-9 w-px bg-slate-300" aria-hidden />
           <ProductMark />
         </div>

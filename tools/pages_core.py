@@ -150,7 +150,7 @@ PAGES['index.html'] = ('Free business electricity analysis | Half Hourly Insight
 
 <section class="section">
   <div class="section-inner split">
-    <div><span class="section-kicker">Sister site</span><h2 class="section-title">Thinking about solar too?</h2></div>
+    <div><span class="section-kicker">Sister site</span><h2 class="section-title">Thinking about solar too?</h2><a class="sister-logo" href="{SOLAR_URL}" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="images/brand/ukscalc-logo.webp"><img src="images/brand/ukscalc-logo.png" width="372" height="132" alt="UK Solar Calculator" loading="lazy"></picture></a></div>
     <div><p class="section-lead">Solar panels generate in daylight, so they save the most when a building uses plenty of electricity during the day. Your half-hourly data shows how much that is. Our <a href="{SOLAR_URL}" style="color:var(--blue);text-decoration:underline">UK Solar Calculator</a> estimates system size, savings and payback for your roof.</p>
     <p style="margin-top:16px"><a href="solar.html" class="btn btn-outline">Sizing solar from your data</a></p>
     {photo('solar-private-wire', 'Aerial view of a solar farm connected by cable to a substation and a business park beside farmland')}</div>

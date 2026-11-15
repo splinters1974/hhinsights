@@ -197,8 +197,8 @@ export default function StandaloneApp({ mode = 'internal', customer = '' }: {
         <div className="max-w-7xl mx-auto flex flex-wrap items-center gap-3">
           <div className="flex items-center gap-4">
             {IS_HHI && !isCustomer && /^https?:/.test(location.protocol)
-              ? <a href="../" title="Half Hourly Insights home"><img src={LOGO} alt={COMPANY_FULL} className="h-9 w-auto" /></a>
-              : <img src={LOGO} alt={COMPANY_FULL} className={IS_HHI ? 'h-9 w-auto' : 'h-10 w-auto'} />}
+              ? <a href="../" title="Half Hourly Insights home"><img src={LOGO} alt={COMPANY_FULL} className="h-12 w-auto" /></a>
+              : <img src={LOGO} alt={COMPANY_FULL} className={IS_HHI ? 'h-12 w-auto' : 'h-10 w-auto'} />}
             <span className="h-9 w-px bg-slate-300" aria-hidden />
             <div>
               <ProductMark />

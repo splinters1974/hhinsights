@@ -49,13 +49,6 @@ AUTHOR_PHOTO = 'images/people/paul-johnston.jpg'
 AUTHOR_SAME_AS = []
 ORG_SAME_AS = []
 
-MARK = ('<svg viewBox="0 0 34 34" aria-hidden="true">'
-        '<rect x="3" y="15" width="5" height="10" rx="1" fill="#0065A4"/>'
-        '<rect x="10" y="9" width="5" height="16" rx="1" fill="#0065A4"/>'
-        '<rect x="17" y="3" width="5" height="22" rx="1" fill="#F8C05D"/>'
-        '<rect x="24" y="12" width="5" height="13" rx="1" fill="#0065A4"/>'
-        '<rect x="1" y="26" width="32" height="3" rx="1.5" fill="{base}"/></svg>')
-
 NAV = [
     ('index.html', 'Home'),
     ('how-it-works.html', 'How it works'),
@@ -355,7 +348,9 @@ def layout(page):
 {og_image(page)}
   <meta property="og:site_name" content="{NAME}">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/brand/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/brand/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/brand/apple-touch-icon.png">
   <link rel="preload" href="fonts/schibsted-grotesk-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/site.css?v={CSS_VERSION}">
 {jsonld(page)}{page.extra_head}</head>
@@ -364,8 +359,7 @@ def layout(page):
 <nav class="site-nav" id="siteNav" aria-label="Main">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo" aria-label="{NAME} home">
-      {MARK.format(base='#063C55')}
-      <span class="nav-logo-name">{NAME}</span>
+      <picture><source type="image/webp" srcset="images/brand/hhi-logo.webp"><img src="images/brand/hhi-logo.png" width="370" height="132" alt=""></picture>
     </a>
     <ul class="nav-links" id="navLinks">
       {links}
@@ -383,7 +377,7 @@ def layout(page):
   <div class="footer-inner">
     <div class="footer-grid">
       <div class="footer-brand">
-        <div class="footer-logo">{MARK.format(base='#FFFFFF')}<span class="footer-logo-name">{NAME}</span></div>
+        <div class="footer-logo"><picture><source type="image/webp" srcset="images/brand/hhi-logo-white.webp"><img src="images/brand/hhi-logo-white.png" width="370" height="132" alt="{NAME}" loading="lazy"></picture></div>
         <p class="footer-desc">Free half-hourly electricity analysis for UK businesses and public sector organisations, run by {OPERATOR}. The analysis runs in your browser, so your meter data never leaves your computer.</p>
         <div class="footer-contact-item">Email: <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a></div>
       </div>
