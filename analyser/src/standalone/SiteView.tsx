@@ -16,7 +16,7 @@ import WeeklyExplorer from './WeeklyExplorer';
 import { IS_STANDARD } from '../local/edition';
 
 /** The Standard version shows the core tabs only; the engine and numbers are the same. */
-const STANDARD_TABS: SiteTab[] = ['overview', 'review', 'calendar', 'heatmap', 'capacity', 'charts', 'settings'];
+const STANDARD_TABS: SiteTab[] = ['overview', 'solar', 'review', 'calendar', 'heatmap', 'capacity', 'charts', 'settings'];
 import OverviewTab from './OverviewTab';
 import ReviewTab from './ReviewTab';
 import SiteSettingsPanel from './SiteSettingsPanel';
@@ -25,6 +25,7 @@ import HeatmapTab from './HeatmapTab';
 import AnomaliesTab from './AnomaliesTab';
 import ScenariosTab from './ScenariosTab';
 import CapacityTab from './CapacityTab';
+import SolarPanel from './SolarPanel';
 import { VerdictChip } from './QualityPanel';
 import { Hero, Note, StatPanel, Tabs } from './ui';
 import { btnPrimary, btnSecondary, gbp, kw, num } from './format';
@@ -73,6 +74,7 @@ export default function SiteView({ site, rate, locked, showNotes, refresh, onBac
 
   const allTabs: { key: SiteTab; label: string; badge?: string | number }[] = [
     { key: 'overview', label: 'Overview', badge: m.findings.filter((f) => f.level === 'high').length || '' },
+    { key: 'solar', label: 'Solar' },
     { key: 'review', label: 'Data review', badge: site.quality.verdict === 'good' ? '' : site.quality.verdict },
     { key: 'calendar', label: 'Calendar', badge: site.settings.calendar.confirmed ? '' : 'confirm' },
     { key: 'baseload', label: 'Base load' },
@@ -147,6 +149,7 @@ export default function SiteView({ site, rate, locked, showNotes, refresh, onBac
       {tab === 'anomalies' && <AnomaliesTab site={site} goTo={goTo} />}
       {tab === 'scenarios' && scenarioRun && <ScenariosTab site={site} run={scenarioRun} onChange={onScenarios} locked={false} />}
       {tab === 'capacity' && <CapacityTab site={site} onChange={onSettings} locked={false} goTo={goTo} />}
+      {tab === 'solar' && <SolarPanel site={site} />}
       {tab === 'charts' && (
         <div className="space-y-4">
           <Note>

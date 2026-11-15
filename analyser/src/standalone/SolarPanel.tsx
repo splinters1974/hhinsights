@@ -25,12 +25,19 @@ export default function SolarPanel({ site }: { site: SiteSummary }) {
   return (
     <Card title="Solar: how much would you use?"
       subtitle="Estimated from this site's half-hourly readings and a typical UK solar day. Solar output you use yourself saves the full unit rate; the rest is exported for much less.">
-      <div className="grid gap-4 md:grid-cols-3 mb-4">
-        <Field label="Region" hint="Sets the annual output per kWp, as the UK Solar Calculator does.">
-          <select className={inputCls} value={region} onChange={(e) => setRegion(e.target.value as SolarRegion)}>
-            {SOLAR_REGIONS.map((r) => <option key={r.key} value={r.key}>{r.label} ({r.yield} kWh/kWp)</option>)}
-          </select>
-        </Field>
+      <div className="flex flex-wrap items-end gap-4 mb-4">
+        <div className="w-full sm:w-80">
+          <Field label="Region" hint="Sets the annual output per kWp, as the UK Solar Calculator does.">
+            <select className={inputCls} value={region} onChange={(e) => setRegion(e.target.value as SolarRegion)}>
+              {SOLAR_REGIONS.map((r) => <option key={r.key} value={r.key}>{r.label} ({r.yield} kWh/kWp)</option>)}
+            </select>
+          </Field>
+        </div>
+        <div className="pb-5 w-full sm:w-auto">
+          <a className={`${btnPrimary} flex w-full sm:inline-flex sm:w-auto justify-center text-center`} href={solarCalculatorLink(fit)} target="_blank" rel="noopener">
+            Size solar for this site in the UK Solar Calculator
+          </a>
+        </div>
       </div>
       <table className="w-full text-sm">
         <thead><tr className="text-left text-xs text-slate-500">
@@ -54,16 +61,12 @@ export default function SolarPanel({ site }: { site: SiteSummary }) {
         Larger systems export more of their output, especially at weekends and on long summer evenings. A typical solar day is
         used, scaled to the region's annual output and to the UK's actual seasonal pattern, so real days will vary with the weather.
       </p>
-      <div className="mt-4 flex flex-wrap items-center gap-3">
-        <a className={btnPrimary} href={solarCalculatorLink(fit)} target="_blank" rel="noopener">
-          Size solar for this site in the UK Solar Calculator
-        </a>
-        <span className="text-xs text-slate-500 max-w-xl">
-          Opens our sister site in a new tab with the figures above already filled in. Only this site's annual use and the share used
-          on site at each size are passed, after the # in the web address, which browsers don't send to any server. The readings stay here.{' '}
-          <a className="underline" href="../solar" target="_blank" rel="noopener">How to use these figures</a>.
-        </span>
-      </div>
+      <p className="text-xs text-slate-500 mt-3 max-w-3xl">
+        The button opens our sister site, the UK Solar Calculator, in a new tab with these figures filled in, so it can work out what fits
+        on your roof, the cost and the payback. Only this site's annual use and the share used on site at each size are passed, after
+        the # in the web address, which browsers don't send to any server. The readings stay here.{' '}
+        <a className="underline" href="../solar" target="_blank" rel="noopener">How to use these figures</a>.
+      </p>
     </Card>
   );
 }

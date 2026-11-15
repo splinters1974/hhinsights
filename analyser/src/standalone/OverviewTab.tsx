@@ -12,6 +12,7 @@ import { getCarbon, scenarioRunFor } from '../local/localClient';
 import { IS_STANDARD } from '../local/edition';
 import EnergySplitDonut from './EnergySplitDonut';
 import CarbonPanel from './CarbonPanel';
+import { solarFit } from '../local/solarFit';
 
 /** Headline figures (observed and estimated side by side), the top three investigations, then every finding. */
 export default function OverviewTab({ site, locked, showNotes, onAction, goTo }: {
@@ -28,6 +29,8 @@ export default function OverviewTab({ site, locked, showNotes, onAction, goTo }:
   const split = useMemo(() => energySplit(site.frame, planDays(site.settings.calendar, site.frame.dates), m.baseAll.kw),
     [site.frame, site.settings.calendar, m.baseAll.kw]);
   const carbon = getCarbon();
+  // A mid-sized system (output about half the site's use) for the one-line solar pointer.
+  const solar = useMemo(() => solarFit(site.frame, 905)?.points[6] ?? null, [site.frame]);
   const run = useMemo(() => (!IS_STANDARD && carbon && site.scenarios.some((x) => x.enabled) ? scenarioRunFor(site.id) : null),
     [site, carbon]);
   const costPerKwh = m.observed.kwh > 0 ? m.observed.cost / m.observed.kwh : 0;
@@ -50,6 +53,17 @@ export default function OverviewTab({ site, locked, showNotes, onAction, goTo }:
         <Tile label="Coverage" tag="measured" value={pct(c.share, 1)}
           hint={`${num(c.validReadings)} of ${num(c.expectedReadings)} readings valid`} />
       </div>
+      {solar && (
+        <div className="rounded-xl border border-slate-300 border-l-4 border-l-amber-400 bg-white px-5 py-4 flex flex-wrap items-center justify-between gap-3">
+          <p className="text-sm text-slate-700">
+            <strong className="text-slate-900">Solar:</strong> a {num(solar.kwp, 1)} kWp system would supply about {pct(solar.coverage)} of
+            this site's electricity, and the site would use {pct(solar.selfConsumption)} of what it makes.
+          </p>
+          <button onClick={() => goTo('solar')} className="text-sm font-semibold text-[var(--brand)] hover:underline whitespace-nowrap">
+            See the Solar tab →
+          </button>
+        </div>
+      )}
       <div className={`grid gap-4 ${carbon && !IS_STANDARD ? 'lg:grid-cols-2' : ''}`}>
         <EnergySplitDonut split={split} refKw={m.baseAll.kw} siteName={site.settings.name} costPerKwh={costPerKwh} />
         {carbon && !IS_STANDARD && <CarbonPanel metrics={m} carbon={carbon} run={run} siteName={site.settings.name} />}

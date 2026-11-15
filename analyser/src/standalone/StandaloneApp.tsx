@@ -29,6 +29,7 @@ import { mergeCalendar } from '../local/calendar';
 import SiteView from './SiteView';
 import OpportunitiesView from './OpportunitiesView';
 import EstateView from './EstateView';
+import SolarPointer from './SolarPointer';
 import { Hero, Note, ProductMark, StatPanel, Tabs } from './ui';
 import { btn, btnPrimary, btnSecondary, gbp, num } from './format';
 
@@ -350,6 +351,11 @@ export default function StandaloneApp({ mode = 'internal', customer = '' }: {
                       refresh();
                     }}
                   />
+                )}
+
+                {!isCustomer && (
+                  <SolarPointer openSite={openSite}
+                    sites={[...sites].sort((a, b) => a.settings.name.localeCompare(b.settings.name, 'en-GB', { numeric: true }))} />
                 )}
 
                 <div className="bg-white rounded-xl border border-slate-300 px-6 py-5 space-y-4">

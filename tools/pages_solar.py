@@ -91,7 +91,7 @@ FAQS = [
      "daytime demand looks lower. Size a system from data recorded before solar was fitted. Afterwards, use the analyser to "
      "check the fall in imports against what you expected, as in <a href=\"proving-savings.html\">proving a saving worked</a>."),
     ('Is my meter data sent to the UK Solar Calculator?',
-     "No. The button on the analyser's Capacity tab passes only the site's annual use and the estimated share used on site "
+     "No. The button on the analyser's Solar tab passes only the site's annual use and the estimated share used on site "
      "at a dozen system sizes. They go in the part of the web address after the #, which browsers don't send to any server. "
      "Your readings stay on your computer."),
     ('Should I add a battery?',
@@ -125,7 +125,7 @@ MAIN = f'''{updated_line()}
 
 <h2 id="data">What your half-hourly data tells you before you size a system</h2>
 <div class="table-wrap"><table><thead><tr><th>What the data shows</th><th>Why it matters for solar</th><th>Where to look</th></tr></thead><tbody>
-<tr><td>Daytime demand, weekday and weekend</td><td>Sets how much output you can use at each size. Quiet weekends mean more export from a large system.</td><td>Heatmap; Capacity tab</td></tr>
+<tr><td>Daytime demand, weekday and weekend</td><td>Sets how much output you can use at each size. Quiet weekends mean more export from a large system.</td><td>Heatmap; Solar tab</td></tr>
 <tr><td>Base load</td><td>What runs even when the building is closed. On a sunny Sunday this is all the solar you can use.</td><td><a href="base-load.html#solar">Base load and solar</a></td></tr>
 <tr><td>Summer and winter pattern</td><td>About three quarters of a year's solar output comes from April to September.{ref(8)} Summer daytime demand matters more than winter's.</td><td>Heatmap; monthly chart</td></tr>
 <tr><td>Peak demand and supply capacity</td><td>How much headroom your connection has, and what the network operator will ask about in a G99 application.</td><td><a href="supply-capacity.html#solar">Solar and your connection</a></td></tr>
@@ -145,7 +145,7 @@ MAIN = f'''{updated_line()}
 <h2 id="how">From your data to a solar estimate, in three steps</h2>
 <ol>
 <li><strong>Load a year of half-hourly data</strong> into the <a href="analyser/">analyser</a>. It runs in your browser and nothing is uploaded. Need the data? See <a href="get-your-data.html">how to get your half-hourly data</a>.</li>
-<li><strong>Open the site and choose the Capacity tab.</strong> "Solar: how much would you use?" shows the output, the share used on site and the share of your electricity solar would supply at three sizes. Pick your region to match your location.</li>
+<li><strong>Open the site and choose the Solar tab</strong>, next to Overview. The Overview also shows a one-line solar estimate. "Solar: how much would you use?" shows the output, the share used on site and the share of your electricity solar would supply at three sizes. Pick your region to match your location.</li>
 <li><strong>Choose "Size solar for this site".</strong> The UK Solar Calculator opens with your figures. Draw your roof on the map or enter its size, and the calculator sets the share used on site for the system that fits, then works out cost, savings and payback.</li>
 </ol>
 <p>Only the site's annual use and the share used on site at a dozen sizes are passed, in the part of the web address after the #, which browsers don't send to any server. See the <a href="privacy.html">privacy notice</a>.</p>
