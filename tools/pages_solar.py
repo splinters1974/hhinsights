@@ -91,8 +91,8 @@ FAQS = [
      "daytime demand looks lower. Size a system from data recorded before solar was fitted. Afterwards, use the analyser to "
      "check the fall in imports against what you expected, as in <a href=\"proving-savings.html\">proving a saving worked</a>."),
     ('Is my meter data sent to the UK Solar Calculator?',
-     "No. The button on the analyser's Solar tab passes only the site's annual use and the estimated share used on site "
-     "at a dozen system sizes. They go in the part of the web address after the #, which browsers don't send to any server. "
+     "No. The button on the analyser's Solar tab passes only the site's annual use, the estimated share used on site "
+     "at a dozen system sizes and the site postcode, if you entered one. They go in the part of the web address after the #, which browsers don't send to any server. "
      "Your readings stay on your computer."),
     ('Should I add a battery?',
      "Only if the numbers work. A battery stores solar you would otherwise export and uses it later, usually in the evening. "
@@ -145,10 +145,10 @@ MAIN = f'''{updated_line()}
 <h2 id="how">From your data to a solar estimate, in three steps</h2>
 <ol>
 <li><strong>Load a year of half-hourly data</strong> into the <a href="analyser/">analyser</a>. It runs in your browser and nothing is uploaded. Need the data? See <a href="get-your-data.html">how to get your half-hourly data</a>.</li>
-<li><strong>Open the site and choose the Solar tab</strong>, next to Overview. The Overview also shows a one-line solar estimate. "Solar: how much would you use?" shows the output, the share used on site and the share of your electricity solar would supply at three sizes. Pick your region to match your location.</li>
+<li><strong>Open the site and choose the Solar tab</strong>, next to Overview. The Overview also shows a one-line solar estimate. Add the site postcode for the sunshine in your area; it also lets the calculator find the site on its map. "Solar: how much would you use?" shows the output, the share used on site and the share of your electricity solar would supply at three sizes. Pick your region to match your location.</li>
 <li><strong>Choose "Size solar for this site".</strong> The UK Solar Calculator opens with your figures. Draw your roof on the map or enter its size, and the calculator sets the share used on site for the system that fits, then works out cost, savings and payback.</li>
 </ol>
-<p>Only the site's annual use and the share used on site at a dozen sizes are passed, in the part of the web address after the #, which browsers don't send to any server. See the <a href="privacy.html">privacy notice</a>.</p>
+<p>Only the site's annual use, the share used on site at a dozen sizes and the postcode, if you entered one, are passed, in the part of the web address after the #, which browsers don't send to any server. See the <a href="privacy.html">privacy notice</a>.</p>
 
 <h2 id="calculator">What the UK Solar Calculator does</h2>
 <p>The <a href="{SOLAR_URL}">UK Solar Calculator</a> is a separate website, run by the same team, built for sizing and costing commercial solar.</p>

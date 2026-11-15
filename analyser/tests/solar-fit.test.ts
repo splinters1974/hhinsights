@@ -63,3 +63,20 @@ test('too little data gives no estimate', () => {
   const short = { dates: year.slice(0, 20), rows: year.slice(0, 20).map(() => new Array(48).fill(1)) };
   assert.equal(solarFit(short, 905), null);
 });
+
+test('postcodes map to the same sunshine regions as the UK Solar Calculator', async () => {
+  const { sapRegionFromPostcode, cleanPostcode } = await import('../src/local/sapRegions');
+  assert.equal(sapRegionFromPostcode('EX1 1AA')?.name, 'South West England');
+  assert.equal(sapRegionFromPostcode('EX1 1AA')?.yield, 1043);
+  assert.equal(sapRegionFromPostcode('AB10 1XG')?.name, 'North East Scotland');
+  assert.equal(sapRegionFromPostcode('ZZ99 9ZZ'), null);
+  assert.equal(cleanPostcode('ex11aa'), 'EX1 1AA');
+  assert.equal(cleanPostcode('not a postcode'), '');
+});
+
+test('the hand-off link carries the postcode only when one is entered', () => {
+  const office = solarFit(parseHHFile(new Uint8Array(fs.readFileSync(new URL('../../site/samples/example-office.csv', import.meta.url))), 'o.csv').frame, 1043)!;
+  assert.ok(!solarCalculatorLink(office).includes('pc='));
+  assert.ok(solarCalculatorLink(office, 'ex1 1aa').endsWith('&pc=EX1%201AA'));
+  assert.ok(!solarCalculatorLink(office, 'rubbish').includes('pc='));
+});

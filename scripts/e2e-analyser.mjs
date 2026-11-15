@@ -125,6 +125,11 @@ try {
     const solarHref = await page.getByRole('link', { name: /Size solar for this site/ }).getAttribute('href');
     check(/^https:\/\/uksolarcalculator\.co\.uk\/calculator\.html#hhi=1&y=905&use=\d+&sc=[\d.:,]+$/.test(solarHref || '') && solarHref.length < 300,
       `solar hand-off link carries only a short summary after the # (${(solarHref || '').slice(0, 70)}...)`);
+    await page.getByLabel('Site postcode').fill('ex1 1aa');
+    await page.getByLabel('Site postcode').press('Enter');
+    await page.locator('option', { hasText: 'South West England (1043 kWh/kWp)' }).waitFor({ state: 'attached', timeout: 5000 });
+    const pcHref = await page.getByRole('link', { name: /Size solar for this site/ }).getAttribute('href');
+    check(/#hhi=1&y=1043&.*&pc=EX1%201AA$/.test(pcHref || ''), 'a postcode sets the sunshine region and is passed to the calculator');
     await page.screenshot({ path: `${shots}/analyser-solar.png`, fullPage: false });
     await context.close();
   }

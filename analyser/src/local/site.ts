@@ -94,6 +94,8 @@ export interface SiteSettings {
   /** Import meters cannot read negative; export and net meters can. */
   meterType: MeterType;
   meterId: string;
+  /** Site postcode, optional. Sets the solar region and is passed to the UK Solar Calculator. */
+  postcode: string;
   /** For timestamped files: whether times mark the start or end of each half hour. Null = as detected. */
   convention: 'start' | 'end' | null;
   review: DataReview;
@@ -125,6 +127,7 @@ export function defaultSettings(name: string): SiteSettings {
     unit: 'kWh',
     meterType: 'import',
     meterId: '',
+    postcode: '',
     convention: null,
     review: emptyReview(),
     annualise: 'auto',
