@@ -3,6 +3,27 @@
 [build]
   publish = "site"
 
+# One address for the site: hhinsights.co.uk. The www and old netlify.app
+# addresses send visitors and search engines there with a permanent redirect.
+# Merge only once hhinsights.co.uk loads over https, or the site goes dark.
+[[redirects]]
+  from = "https://www.hhinsights.co.uk/*"
+  to = "https://hhinsights.co.uk/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.hhinsights.co.uk/*"
+  to = "https://hhinsights.co.uk/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://halfhourlyinsights.netlify.app/*"
+  to = "https://hhinsights.co.uk/:splat"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]

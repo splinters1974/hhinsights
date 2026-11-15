@@ -31,7 +31,7 @@ def long_date(iso):
 # share links, robots.txt and sitemap.xml are built from it, so moving to a
 # custom domain (for example https://hhinsights.co.uk) is this one change plus
 # a rebuild. Empty disables canonical links and the sitemap.
-SITE_URL = 'https://halfhourlyinsights.netlify.app'
+SITE_URL = 'https://hhinsights.co.uk'
 
 # Run by Kinetic Energy Consulting, as with the UK Solar Calculator.
 OPERATOR = 'Kinetic Energy Consulting'
