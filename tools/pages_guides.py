@@ -25,7 +25,7 @@ SOLAR = f'<a href="{SOLAR_URL}">UK Solar Calculator</a>'
 def guide_page(file, title, h1, lead, description, main, toc_items, faqs, next_links, summary, crumbs=None):
     crumbs = crumbs or [HOME, GUIDES, (h1, file)]
     NAV_PARENT[file] = crumbs[1][1]
-    body = (page_hero(crumbs[1][0] if crumbs[1] != GUIDES else 'Guide', h1, lead, crumbs=crumbs)
+    body = (page_hero(crumbs[1][0] if crumbs[1] != GUIDES else 'Guide', h1, lead, crumbs=crumbs, image=file[:-5])
             + guide(updated_line() + main + faq_section(faqs) + related(next_links), toc(toc_items + [('questions', 'Questions people ask')]))
             + cta('Try it on your own data', "It's free, there's no sign-up, and your file stays on your computer."))
     return Page(file, title, description, body, crumbs=crumbs, faqs=faqs, article=True, summary=summary,
@@ -408,7 +408,7 @@ PAGES.append(Page(
   'glossary.html', 'Glossary of half-hourly electricity terms',
   'Plain definitions of half-hourly electricity and bill terms: base load, kW, kVA, MPAN, DUoS, TNUoS, BSUoS, Capacity Market, CfD and more.',
   page_hero('Guide', 'Glossary', 'Simple definitions of the terms used in half-hourly electricity data and on this site.',
-            crumbs=[HOME, GUIDES, ('Glossary', 'glossary.html')])
+            crumbs=[HOME, GUIDES, ('Glossary', 'glossary.html')], image='glossary')
   + guide(updated_line() + '<p class="answer">Half-hourly (HH) data is a record of the electricity a meter measures in every half hour: 48 readings a day, usually in kWh. The terms you will meet most often are kWh (energy, what you are billed for), kW (how fast electricity is being used at a given moment), base load (the demand that never switches off) and kVA (the unit your supply capacity is set in).</p>'
           + '<dl class="glossary">' + ''.join(
       f'<div id="{re.sub(r"[^a-z0-9]+", "-", t.lower().split(" (")[0]).strip("-")}"><dt>{t}</dt><dd>{d}</dd></div>' for t, d in GLOSSARY) + '</dl>')
