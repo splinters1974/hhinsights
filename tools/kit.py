@@ -31,7 +31,7 @@ def long_date(iso):
 # share links, robots.txt and sitemap.xml are built from it, so moving to a
 # custom domain (for example https://hhinsights.co.uk) is this one change plus
 # a rebuild. Empty disables canonical links and the sitemap.
-SITE_URL = 'https://halfhourlyinsights.netlify.app'
+SITE_URL = 'https://hhinsights.co.uk'
 
 # Run by Kinetic Energy Consulting, as with the UK Solar Calculator.
 OPERATOR = 'Kinetic Energy Consulting'
@@ -350,7 +350,11 @@ def layout(page):
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" sizes="32x32" href="images/brand/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/brand/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="images/brand/favicon-48.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/brand/favicon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="images/brand/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#063C55">
   <link rel="preload" href="fonts/schibsted-grotesk-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/site.css?v={CSS_VERSION}">
 {jsonld(page)}{page.extra_head}</head>

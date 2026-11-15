@@ -42,4 +42,4 @@ Allow: /
 User-agent: Meta-ExternalAgent
 Allow: /
 
-Sitemap: https://halfhourlyinsights.netlify.app/sitemap.xml
+Sitemap: https://hhinsights.co.uk/sitemap.xml
