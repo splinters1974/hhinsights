@@ -12,7 +12,7 @@
  "base-load.html": {
   "published": "2026-11-14",
   "modified": "2026-11-15",
-  "fingerprint": "d6b31a871474d619"
+  "fingerprint": "c49d0c7164df8a09"
  },
  "business-electricity-price.html": {
   "published": "2026-11-14",
@@ -97,7 +97,7 @@
  "healthcare-electricity.html": {
   "published": "2026-11-14",
   "modified": "2026-11-15",
-  "fingerprint": "eb4c9fcd2e928943"
+  "fingerprint": "f2a33c68f7fa8ffb"
  },
  "how-it-works.html": {
   "published": "2026-11-14",
@@ -112,12 +112,12 @@
  "industrial-warehouses.html": {
   "published": "2026-11-14",
   "modified": "2026-11-15",
-  "fingerprint": "291df42ae4be884f"
+  "fingerprint": "25e58bffb59c6d9f"
  },
  "leisure-centres.html": {
   "published": "2026-11-14",
   "modified": "2026-11-15",
-  "fingerprint": "898979aced185f8c"
+  "fingerprint": "8c5266dd6051911a"
  },
  "mpan-profile-class.html": {
   "published": "2026-11-14",
@@ -126,8 +126,8 @@
  },
  "non-energy-charges.html": {
   "published": "2026-11-14",
-  "modified": "2026-11-14",
-  "fingerprint": "20e61a91bcd177ec"
+  "modified": "2026-11-15",
+  "fingerprint": "4f26c45eef2c9e8f"
  },
  "non-energy-costs-outlook.html": {
   "published": "2026-11-14",
@@ -137,7 +137,7 @@
  "offices-council-buildings.html": {
   "published": "2026-11-14",
   "modified": "2026-11-15",
-  "fingerprint": "a97597d4c7a2717c"
+  "fingerprint": "c9ab297e34cd8a41"
  },
  "out-of-hours-electricity.html": {
   "published": "2026-11-14",
@@ -146,8 +146,8 @@
  },
  "privacy.html": {
   "published": "2026-11-14",
-  "modified": "2026-11-14",
-  "fingerprint": "bbc90bd80053322a"
+  "modified": "2026-11-15",
+  "fingerprint": "1247076b2c5a0238"
  },
  "proving-savings.html": {
   "published": "2026-11-14",
@@ -162,7 +162,7 @@
  "retail-hospitality.html": {
   "published": "2026-11-14",
   "modified": "2026-11-15",
-  "fingerprint": "12c4196bed39a43c"
+  "fingerprint": "d9555b0920b774bc"
  },
  "sample-report.html": {
   "published": "2026-11-14",
@@ -172,7 +172,7 @@
  "schools-electricity.html": {
   "published": "2026-11-14",
   "modified": "2026-11-15",
-  "fingerprint": "0aaa718bca22c4fa"
+  "fingerprint": "45ffe84d2f18bc9c"
  },
  "sectors.html": {
   "published": "2026-11-14",
@@ -182,12 +182,12 @@
  "solar.html": {
   "published": "2026-11-15",
   "modified": "2026-11-15",
-  "fingerprint": "e2470f109255dea5"
+  "fingerprint": "905ef18c1415037f"
  },
  "supply-capacity.html": {
   "published": "2026-11-14",
   "modified": "2026-11-15",
-  "fingerprint": "4740643bbacd1ed5"
+  "fingerprint": "835e3d27b434b256"
  },
  "thanks.html": {
   "published": "2026-11-14",

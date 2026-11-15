@@ -117,13 +117,27 @@ try {
     await page.getByText('Clock changes').first().waitFor({ timeout: 10000 });
     check(/2 clock-change days \(2024-10-27, 2025-03-30\)/.test(await text(page)), 'office CSV: both clock-change days held back and shown on the data review tab');
     checkXlsx(await download(page, 'Export to Excel', 'site'), 'site Excel', [['annual kWh 79,191', /79,?191/]]);
-    // Solar: the Capacity tab estimates self-consumption and links to the calculator with a summary after the #.
-    await page.locator('button', { hasText: /^Capacity/ }).first().click();
+    // Solar: the Solar tab estimates self-consumption and links to the calculator with a summary after the #.
+    await page.locator('button', { hasText: /^Overview/ }).first().click();
+    check(/Solar:.*kWp system would supply about/.test(await text(page)), 'site overview shows a one-line solar estimate pointing to the Solar tab');
+    await page.getByRole('button', { name: 'See the Solar tab →' }).click();
     await page.getByText('Solar: how much would you use?').waitFor({ timeout: 10000 });
     const solarHref = await page.getByRole('link', { name: /Size solar for this site/ }).getAttribute('href');
     check(/^https:\/\/uksolarcalculator\.co\.uk\/calculator\.html#hhi=1&y=905&use=\d+&sc=[\d.:,]+$/.test(solarHref || '') && solarHref.length < 300,
       `solar hand-off link carries only a short summary after the # (${(solarHref || '').slice(0, 70)}...)`);
     await page.screenshot({ path: `${shots}/analyser-solar.png`, fullPage: false });
+    await context.close();
+  }
+
+  // 1b. The All sites page points to solar, and its button opens the Solar tab.
+  {
+    const { context, page } = await newPage(browser);
+    await upload(page, officeCsv);
+    await page.getByText('£2,776').first().waitFor({ timeout: 30000 });
+    check(/Thinking about solar\?/.test(await text(page)), 'All sites page has a solar pointer');
+    await page.getByRole('button', { name: 'Open the Solar tab →' }).click();
+    await page.getByText('Solar: how much would you use?').waitFor({ timeout: 10000 });
+    check(true, 'solar pointer opens the site on its Solar tab');
     await context.close();
   }
 

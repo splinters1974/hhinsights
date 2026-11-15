@@ -28,7 +28,7 @@ export type Level = 'high' | 'medium' | 'low' | 'info';
 export type Confidence = 'high' | 'medium' | 'low';
 
 export type SiteTab = 'overview' | 'review' | 'calendar' | 'baseload' | 'heatmap'
-  | 'anomalies' | 'scenarios' | 'capacity' | 'charts' | 'settings';
+  | 'anomalies' | 'scenarios' | 'capacity' | 'solar' | 'charts' | 'settings';
 
 export interface EvidenceLink { label: string; tab: SiteTab; date?: string }
 

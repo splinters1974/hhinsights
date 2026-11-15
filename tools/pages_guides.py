@@ -147,7 +147,7 @@ PAGES.append(guide_page(
 <ol><li><strong>Walk round the building at night or at a weekend</strong> and note everything that's switched on. It's often a surprise.</li><li><strong>Sort what you find</strong> into must run, could run less, and shouldn't be on.</li><li><strong>Fix the easy ones first</strong>, such as timers on water heaters and vending machines, switch-off routines and combining servers.</li><li><strong>Check the base load every month.</strong> A step up usually means new equipment has been installed or something has been left on. The analyser flags lasting changes like this.</li></ol>
 
 <h2 id="solar">Base load and solar</h2>
-<p>Base load runs through the day as well as the night, so it is the part of your demand that solar panels can supply most reliably. The analyser's Capacity tab estimates how much of a solar system's output your site would use itself at different sizes, from your own half-hourly readings, and can pass that figure to our sister site, the ''' + SOLAR + ''', to work out costs and payback. The <a href="solar.html">solar page</a> explains how.</p>
+<p>Base load runs through the day as well as the night, so it is the part of your demand that solar panels can supply most reliably. The analyser's Solar tab estimates how much of a solar system's output your site would use itself at different sizes, from your own half-hourly readings, and can pass that figure to our sister site, the ''' + SOLAR + ''', to work out costs and payback. The <a href="solar.html">solar page</a> explains how.</p>
 
 <h2 id="worth">Working out the saving</h2>
 <p>Because base load runs every hour of the year, savings are easy to estimate: multiply the kilowatts you remove by 8,760 hours and by your unit rate. At 25p/kWh, 1 kW is worth about £2,190 a year, and switching off a 0.5 kW water heater that was left on all the time saves about £1,100.</p>
@@ -186,7 +186,7 @@ PAGES.append(guide_page(
 <h2 id="new-load">Heat pumps and EV charging</h2>
 <p>A heat pump uses much less electricity than the heat it produces. With a coefficient of performance (COP) of 3, a heat pump producing 150 kW of heat draws about 50 kW of electricity. It works hardest in winter, which is usually when a building's peaks are highest, so the two add together. EV charging is different: if it happens overnight, it falls when most sites are quietest. The analyser lets you test a new load at a chosen time of day and season against your actual half-hourly peaks.</p>
 <h2 id="solar">Solar panels and your connection</h2>
-<p>Solar can reduce the electricity you draw from the grid during the day, but any output you don't use is exported through the same connection. The ''' + SOLAR + ''' has a <a href="https://uksolarcalculator.co.uk/planning-and-grid.html">guide to planning and grid connections</a>, and the analyser's Capacity tab estimates how much of a system's output your site would use itself. See <a href="solar.html">sizing solar from half-hourly data</a>.</p>
+<p>Solar can reduce the electricity you draw from the grid during the day, but any output you don't use is exported through the same connection. The ''' + SOLAR + ''' has a <a href="https://uksolarcalculator.co.uk/planning-and-grid.html">guide to planning and grid connections</a>, and the analyser's Solar tab estimates how much of a system's output your site would use itself. See <a href="solar.html">sizing solar from half-hourly data</a>.</p>
 ''',
   [('what', 'What agreed supply capacity is'), ('kva', 'kW and kVA'), ('headroom', 'Working out headroom'), ('new-load', 'Heat pumps and EV charging'), ('solar', 'Solar and your connection')],
   [('Where do I find my agreed supply capacity?', 'On your electricity bill or connection agreement, in kVA. Your supplier can confirm it.'),
@@ -489,7 +489,7 @@ for file, short, h1, lead, normal, checks, calendar_tip, faqs in SECTOR_DATA:
 
 <h2 id="compare">How does your building compare?</h2>
 <p>To see whether a site's total use is high for its type, compare its kWh per square metre with the government survey ranges in our <a href="electricity-benchmarks.html">electricity benchmarks by sector</a>. Then use the half-hourly pattern to find out why. Questions about the analyser itself are answered in the <a href="faq.html">FAQ</a>.</p>
-<p>Thinking about solar panels? The analyser's Capacity tab shows how much of a system's output a building like this would use itself, and the {SOLAR} works out the cost and payback. See <a href="solar.html">sizing solar from half-hourly data</a>.</p>
+<p>Thinking about solar panels? The analyser's Solar tab shows how much of a system's output a building like this would use itself, and the {SOLAR} works out the cost and payback. See <a href="solar.html">sizing solar from half-hourly data</a>.</p>
 ''',
       [('check', 'What to check first'), ('calendar', 'Setting the opening hours'), ('compare', 'How does your building compare?')],
       faqs,

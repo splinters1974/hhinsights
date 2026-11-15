@@ -352,6 +352,19 @@ export default function StandaloneApp({ mode = 'internal', customer = '' }: {
                   />
                 )}
 
+                {!isCustomer && sites.length > 0 && (
+                  <div className="rounded-xl border border-slate-300 border-l-4 border-l-amber-400 bg-white px-5 py-3 flex flex-wrap items-center justify-between gap-3">
+                    <p className="text-sm text-slate-700">
+                      <strong className="text-slate-900">Thinking about solar?</strong> Each site has a Solar tab showing how much of a system's
+                      output it would use, with a button to size it in the UK Solar Calculator.
+                    </p>
+                    <button onClick={() => openSite(ranked[0]?.id ?? sites[0].id, 'solar')}
+                      className="text-sm font-semibold text-[var(--brand)] hover:underline whitespace-nowrap">
+                      {sites.length === 1 ? 'Open the Solar tab →' : `Solar for ${(ranked[0] ?? sites[0]).settings.name} →`}
+                    </button>
+                  </div>
+                )}
+
                 <div className="bg-white rounded-xl border border-slate-300 px-6 py-5 space-y-4">
                   <h2 className="text-lg font-bold text-slate-900">Report details</h2>
                   <div className="flex flex-wrap items-end gap-4">

@@ -370,7 +370,7 @@ PAGES['privacy.html'] = ('Privacy | Half Hourly Insights',
   guide(f'''
 <h2 id="analyser">The analyser</h2>
 <p>The analyser runs entirely in your web browser. Meter files you load are read on your own computer. They are never uploaded and we never see them. The same goes for everything you enter (opening hours, rates, notes) and everything you download (PDFs, spreadsheets, project files and customer dashboards).</p>
-<p>If you choose "Size solar for this site" on the Capacity tab, the analyser opens our sister site, the UK Solar Calculator, in a new tab. It passes only that site's annual use and the estimated share of solar output used on site, in the part of the web address after "#", which browsers do not send to any server. Your readings are not passed.</p>
+<p>If you choose "Size solar for this site" on a site's Solar tab, the analyser opens our sister site, the UK Solar Calculator, in a new tab. It passes only that site's annual use and the estimated share of solar output used on site, in the part of the web address after "#", which browsers do not send to any server. Your readings are not passed.</p>
 <p>The analyser stores nothing in your browser between visits. Save a project file if you want to come back to your work.</p>
 
 <h2 id="enquiries">Enquiries</h2>
