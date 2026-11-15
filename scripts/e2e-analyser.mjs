@@ -214,6 +214,19 @@ try {
     await context.close();
   }
 
+  // 4b. No file to hand: the sample data button loads a year of made-up readings as one site.
+  {
+    const { context, page } = await newPage(browser);
+    const before = pageErrors.length;
+    await page.getByRole('button', { name: 'Try it with sample data' }).click();
+    await page.getByText('Sample site (made-up data)').first().waitFor({ timeout: 30000 });
+    const t = await text(page);
+    check(!/Drag and drop HH meter files here/.test(t), 'sample data button loads a site and leaves the start screen');
+    check(pageErrors.length === before, 'sample data loads with no script error');
+    await page.screenshot({ path: `${shots}/analyser-sample-data.png` });
+    await context.close();
+  }
+
   // 5. Phone width: loads a file and fits the screen.
   {
     const { context, page } = await newPage(browser, { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });

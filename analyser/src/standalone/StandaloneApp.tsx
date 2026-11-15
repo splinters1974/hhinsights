@@ -66,6 +66,10 @@ function Uploader({ onFiles, busy, compact = false }: { onFiles: (f: File[]) => 
 
 type View = 'sites' | 'opportunities' | 'estate';
 
+/** A year of made-up half-hourly readings, served next to the analyser page on the website. */
+const SAMPLE_URL = 'sample-hh-data.csv';
+const SAMPLE_NAME = 'Sample site (made-up data).csv';
+
 /**
  * `internal` is the engineers' tool. `customer` is the locked edition a
  * customer unlocks with a password: their sites only, no uploads or
@@ -136,6 +140,20 @@ export default function StandaloneApp({ mode = 'internal', customer = '' }: {
     setErrors(failed);
     setBusy(null);
     refresh();
+  }
+
+  /** Public site only: load a year of made-up readings so people can try the analyser without their own file. */
+  async function loadSample() {
+    setBusy('Loading the sample data…');
+    try {
+      const res = await fetch(SAMPLE_URL);
+      if (!res.ok) throw new Error(String(res.status));
+      const file = new File([await res.blob()], SAMPLE_NAME, { type: 'text/csv' });
+      await addFiles([file]);
+    } catch {
+      setErrors([{ file: 'Sample data', message: 'The sample data could not be loaded. Check your internet connection and try again.' }]);
+      setBusy(null);
+    }
   }
 
   async function openProjectFile(file: File) {
@@ -290,6 +308,15 @@ export default function StandaloneApp({ mode = 'internal', customer = '' }: {
                   <p className="text-lg font-bold text-slate-900">Start with your meter files</p>
                   <Uploader onFiles={addFiles} busy={busy} />
                   <p className="text-xs text-slate-500">One file per meter. Several at once is fine. Nothing leaves this computer.</p>
+                  {IS_HHI && (
+                    <div className="border-t border-slate-200 pt-3">
+                      <p className="text-sm text-slate-700">No file to hand?</p>
+                      <button onClick={() => void loadSample()} disabled={!!busy} className={`${btnSecondary} mt-1.5`}>
+                        Try it with sample data
+                      </button>
+                      <p className="text-xs text-slate-500 mt-1.5">A year of made-up readings for one site. Remove it and add your own files whenever you like.</p>
+                    </div>
+                  )}
                 </div>}
               >
                 <div className="grid sm:grid-cols-3 gap-5 border-t border-slate-300 pt-5 mt-6 max-w-2xl">
