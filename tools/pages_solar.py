@@ -105,7 +105,7 @@ TOC = [('why', 'Why businesses fit solar'), ('share', 'The figure that matters m
        ('limits', 'What this can and cannot tell you'), ('questions', 'Questions people ask'), ('sources', 'Sources')]
 
 MAIN = f'''{updated_line()}
-<p class="answer">Solar saves the most when you use its output yourself, because every unit you use saves your full unit price and every unit you export earns a few pence. Your half-hourly data shows how much daytime electricity your site really uses, so you can see how much of a system's output you would use at each size. Our sister site, the <a href="{SOLAR_URL}">UK Solar Calculator</a>, then works out what fits on your roof, what it costs and how soon it pays back.</p>
+<p class="answer">Solar saves the most when you use its output yourself, because every unit you use saves your full unit price and every unit you export earns a few pence. Your half-hourly data shows how much daytime electricity your site really uses, so you can see how much of a system's output you would use at each size. Our sister website, the <a href="{SOLAR_URL}"><strong>UK Solar Calculator</strong></a>, then works out what fits on your roof, what it costs and how soon it pays back.</p>
 
 <h2 id="why">Why businesses fit solar</h2>
 <ul>
@@ -151,6 +151,7 @@ MAIN = f'''{updated_line()}
 <p>Only the site's annual use and the share used on site at a dozen sizes are passed, in the part of the web address after the #, which browsers don't send to any server. See the <a href="privacy.html">privacy notice</a>.</p>
 
 <h2 id="calculator">What the UK Solar Calculator does</h2>
+<p>The <a href="{SOLAR_URL}">UK Solar Calculator</a> is a separate website, run by the same team, built for sizing and costing commercial solar.</p>
 <ul>
 <li><strong>Measures your roof</strong> from satellite imagery or the dimensions you enter, for pitched and flat roofs, ground mounts and carports.{ref(1)}</li>
 <li><strong>Estimates generation at your postcode</strong> from the government's SAP 10.3 sunshine data for 21 UK regions.{ref(1,7)}</li>
@@ -181,12 +182,22 @@ END = f'''<section class="cta-strip">
   </div>
 </section>'''
 
+
+SUN = ('<svg viewBox="0 0 34 34" aria-hidden="true"><path d="M3 24a14 14 0 0 1 28 0z" fill="#F8C05D"/>'
+       '<rect x="1" y="26" width="32" height="3" rx="1.5" fill="#063C55"/></svg>')
+SISTER = (f'<a class="sister-card" href="{SOLAR_URL}" target="_blank" rel="noopener">'
+          '<span class="sister-label">Our sister website</span>'
+          f'<span class="sister-brand">{SUN}<span class="sister-name">UK Solar Calculator</span></span>'
+          '<span class="sister-text">A separate, free website for sizing commercial solar. It measures your roof, estimates '
+          'generation at your postcode, and works out cost, savings and payback, using the figures from your half-hourly data.</span>'
+          '<span class="sister-go">Visit the UK Solar Calculator <span aria-hidden="true">&rarr;</span></span></a>')
+
 PAGES = [Page(
     FILE, 'Solar sizing from half-hourly data | Half Hourly Insights',
     'Use your half-hourly electricity data to see how much solar your site would use, then size the system and payback in the UK Solar Calculator.',
     page_hero('Solar', 'Size solar from how your site really uses electricity',
               "Your half-hourly data shows how much of a solar system's output you'd use yourself. That's the number that decides whether solar pays.",
-              crumbs=CRUMBS, image='solar')
+              extra=SISTER, crumbs=CRUMBS, image='solar')
     + guide(MAIN, SIDE).replace('<div class="side-cta"><strong>Try it on your own data</strong>', '<div class="side-cta"><strong>Measure it from your data</strong>', 1)
     + END,
     crumbs=CRUMBS, faqs=FAQS, article=True, section='Core pages',
