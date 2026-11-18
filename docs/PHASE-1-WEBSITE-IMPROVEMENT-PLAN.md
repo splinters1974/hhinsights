@@ -11,7 +11,7 @@ Make the site safe to promote by fixing enquiry handling and privacy wording, le
 
 ## Release guardrail
 
-- Do all implementation on this branch or dedicated child feature branches. Do not commit to `main`, merge, open an auto-merge, change GitHub Pages settings, or publish/deploy without Martyn's explicit approval.
+- Do all implementation on this branch or dedicated child feature branches. Do not commit to `main`, merge, open an auto-merge, change GitHub Pages settings, or publish/deploy without the owner's explicit approval.
 - **Important:** check the repository's GitHub Pages build source and any CI before implementation. If GitHub Pages deploys every pushed branch, keep implementation local or on a non-deploying branch until approval. This planning-only Markdown file does not alter the site.
 - Before any release, supply a changes summary, a visual before/after review, the test evidence, remaining risks and a rollback plan.
 
