@@ -37,7 +37,7 @@ SITE_URL = 'https://hhinsights.co.uk'
 OPERATOR = 'Kinetic Energy Consulting'
 OPERATOR_URL = 'https://www.kinetic-energy.co.uk'
 CONTACT_NAME = 'Paul Johnston'
-CONTACT_EMAIL = 'pjohnston663@gmail.com'
+CONTACT_EMAIL = 'enquiries@hhinsights.co.uk'
 SOLAR_URL = 'https://uksolarcalculator.co.uk/'
 # Named author for the guides (byline and Article schema). Biography on about.html.
 AUTHOR_NAME = 'Paul Johnston'
